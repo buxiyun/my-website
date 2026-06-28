@@ -1,26 +1,162 @@
 @import "tailwindcss";
 
+/* ===== TLU / The Leap Union — Brand design system =====
+   Colors lifted from the company deck (公司介绍-v3) theme palette. */
+@theme inline {
+  --color-navy: #000a56;
+  --color-navy-700: #000956;
+  --color-brand: #005dc4;
+  --color-brand-400: #4f86d6;
+  --color-sky: #d7ebf7;
+  --color-sky-50: #eef6fc;
+  --color-green: #19ac71;
+  --color-orange: #fc6b27;
+  --color-cream: #f4f4ed;
+  --color-ink: #1f2430;
+  --color-muted: #5b6472;
+
+  --font-sans: var(--font-public-sans), var(--font-noto-sc), system-ui,
+    -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #1f2430;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4 {
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+/* Avoid orphan lines (a last line with only 1–2 characters) */
+p {
+  text-wrap: pretty;
+}
+
+/* ===== Reusable helpers ===== */
+.container-tlp {
+  width: 100%;
+  max-width: 1180px;
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+.section { padding-block: 96px; }
+@media (max-width: 768px) {
+  .section { padding-block: 64px; }
+}
+
+.text-gradient {
+  background: linear-gradient(120deg, #005dc4, #4f86d6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.deco-circle {
+  position: absolute;
+  border-radius: 9999px;
+  pointer-events: none;
+}
+
+.icon-bubble {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 76px;
+  height: 76px;
+  border-radius: 9999px;
+  color: #fff;
+  box-shadow: 0 14px 30px -12px rgba(0, 93, 196, 0.55);
+}
+
+/* Light tile for the two-tone "Keying" style icons */
+.icon-tile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 76px;
+  height: 76px;
+  border-radius: 9999px;
+  background: #e9f1f7;
+}
+.icon-tile svg { width: 42px; height: 42px; }
+
+.card {
+  background: #fff;
+  border: 1px solid #eef1f5;
+  border-radius: 20px;
+  box-shadow: 0 18px 40px -28px rgba(15, 30, 70, 0.35);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 55px -30px rgba(15, 30, 70, 0.45);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  border-radius: 9999px;
+  padding: 13px 28px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+.btn-primary {
+  background: var(--color-brand);
+  color: #fff;
+  box-shadow: 0 16px 30px -14px rgba(0, 93, 196, 0.7);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  background: #0a4fa0;
+}
+.btn-ghost {
+  border: 1.5px solid rgba(255, 255, 255, 0.55);
+  color: #fff;
+}
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-brand);
 }

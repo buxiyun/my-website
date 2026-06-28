@@ -1,34 +1,44 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Public_Sans, Noto_Sans_SC } from "next/font/google";
 import "./globals.css";
+import { LanguageProvider } from "@/components/LanguageProvider";
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const publicSans = Public_Sans({
+  variable: "--font-public-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const notoSC = Noto_Sans_SC({
+  variable: "--font-noto-sc",
   subsets: ["latin"],
+  weight: ["400", "500", "700", "900"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "The Leap Union - Your Growth Partner Global",
+  title: "The Leap Union (TLU) — AI-Empowered Business Solutions",
   description:
-    "The Leap Union — your global growth partner. Strategy, research, and market expansion services.",
+    "The Leap Union (TLU) — AI-empowered, next-gen business solution provider, from strategic design to omni-channel execution, driving growth through technology that understands business",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${publicSans.variable} ${notoSC.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <LanguageProvider>
+          <Nav />
+          <main className="flex-1 pt-[72px]">{children}</main>
+          <Footer />
+        </LanguageProvider>
+      </body>
     </html>
   );
 }
