@@ -22,6 +22,9 @@ export const metadata: Metadata = {
   title: "The Leap Union (TLU) — AI-Empowered Business Solutions",
   description:
     "The Leap Union (TLU) — AI-empowered, next-gen business solution provider, from strategic design to omni-channel execution, driving growth through technology that understands business",
+  verification: {
+    google: "DAlBqrPhKMp3ZN2LvAexGnsBBeTEC8v0PLIzhnrpKuU",
+  },
 };
 
 export default function RootLayout({
