@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   verification: {
     google: "DAlBqrPhKMp3ZN2LvAexGnsBBeTEC8v0PLIzhnrpKuU",
     other: {
-      "baidu-site-verification": "codeva-7RhaS35osN",
+      "baidu-site-verification": "codeva-x7gOKaUtCF",
     },
   },
 };
