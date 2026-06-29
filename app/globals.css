@@ -160,3 +160,37 @@ p {
   text-transform: uppercase;
   color: var(--color-brand);
 }
+
+/* ===== Micro-animations (pure CSS, no layout changes) ===== */
+
+/* 1. Hero decorative circles — slow float */
+@keyframes tlu-float {
+  0%, 100% { transform: translate(0, 0); }
+  50%      { transform: translate(-22px, 18px); }
+}
+.deco-circle { animation: tlu-float 14s ease-in-out infinite; }
+.deco-circle:nth-of-type(2) { animation-duration: 18s; animation-direction: reverse; }
+.deco-circle:nth-of-type(3) { animation-duration: 22s; }
+
+/* 2. Card icon — subtle lift + scale on hover */
+.icon-tile, .icon-bubble { transition: transform .35s ease; }
+.card:hover .icon-tile,
+.card:hover .icon-bubble { transform: translateY(-4px) scale(1.06); }
+
+/* 3. Button arrow — slide right on hover */
+.btn svg { transition: transform .2s ease; }
+.btn:hover svg { transform: translateX(4px); }
+
+/* 4. Nav link — underline grow from left */
+nav a { position: relative; }
+nav a::after {
+  content: ""; position: absolute; left: 16px; right: 16px; bottom: 6px;
+  height: 2px; background: var(--color-brand);
+  transform: scaleX(0); transform-origin: left; transition: transform .25s ease;
+}
+nav a:hover::after { transform: scaleX(1); }
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .deco-circle { animation: none; }
+}
