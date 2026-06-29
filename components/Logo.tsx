@@ -40,7 +40,7 @@ export default function Logo({
           The Leap Union
         </span>
         <span
-          className="block text-[0.58rem] font-semibold tracking-[0.12em] whitespace-nowrap"
+          className="block text-[0.72rem] font-semibold tracking-[0.08em] whitespace-nowrap"
           style={{ color: tagColor }}
         >
           {zh ? "你的全球增长伙伴" : "YOUR GLOBAL GROWTH PARTNER"}
