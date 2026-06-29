@@ -68,7 +68,7 @@ export default function Footer() {
 
         <div className="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row gap-2 sm:items-center sm:justify-between text-xs text-white/50">
           <span>© {new Date().getFullYear()} The Leap Union (TLU) · {t(lang, "All rights reserved", "保留所有权利")}</span>
-          <span>{t(lang, "Technology that understands business — your global growth partner", "懂生意的技术，你的全球增长伙伴")}</span>
+          <span>{t(lang, "Tech-enabled Business Solution, Your Global Growth Partner", "懂生意的技术，你的全球增长伙伴")}</span>
         </div>
       </div>
     </footer>
