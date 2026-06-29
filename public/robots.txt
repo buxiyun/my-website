@@ -1,6 +1,9 @@
-# robots.txt for https://theleapunion.com
+# robots.txt for https://www.theleapunion.com
 
 User-agent: *
 Allow: /
 
-Sitemap: https://theleapunion.com/sitemap.xml
+User-agent: Baiduspider
+Allow: /
+
+Sitemap: https://www.theleapunion.com/sitemap.xml

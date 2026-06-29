@@ -19,9 +19,19 @@ const notoSC = Noto_Sans_SC({
 });
 
 export const metadata: Metadata = {
-  title: "The Leap Union (TLU) — AI-Empowered Business Solutions",
+  metadataBase: new URL("https://www.theleapunion.com"),
+  title: {
+    default: "The Leap Union (TLU) — AI-Empowered Business Solutions",
+    template: "%s | TLU",
+  },
   description:
     "The Leap Union (TLU) — AI-empowered, next-gen business solution provider, from strategic design to omni-channel execution, driving growth through technology that understands business",
+  openGraph: {
+    siteName: "The Leap Union",
+    type: "website",
+    locale: "en_US",
+    images: [{ url: "/world-map.png", width: 1200, height: 630, alt: "TLU global coverage" }],
+  },
   verification: {
     google: "DAlBqrPhKMp3ZN2LvAexGnsBBeTEC8v0PLIzhnrpKuU",
     other: {
