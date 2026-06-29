@@ -63,7 +63,7 @@ const model = [
 ];
 
 export default function SolutionsClient() {
-  const { lang } = useLang();
+  const { lang, prefixPath } = useLang();
 
   return (
     <>
@@ -161,7 +161,7 @@ export default function SolutionsClient() {
             <p className="mt-4 text-lg text-muted max-w-xl mx-auto">
               {t(lang, "Explore client success stories across categories", "浏览跨品类的客户成功案例")}
             </p>
-            <Link href="/cases" className="btn btn-primary mt-8">
+            <Link href={prefixPath("/cases")} className="btn btn-primary mt-8">
               {t(lang, "View success cases", "查看成功案例")}
               <IconArrow width={18} height={18} />
             </Link>

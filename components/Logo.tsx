@@ -12,9 +12,11 @@ const TLU_BLUE = "#1f2bff";
 export default function Logo({
   variant = "dark",
   href = "/",
+  zh = false,
 }: {
   variant?: "dark" | "light";
   href?: string;
+  zh?: boolean;
 }) {
   const markColor = variant === "light" ? "#ffffff" : TLU_BLUE;
   const wordColor = variant === "light" ? "#ffffff" : "#0a0a0a";
@@ -51,7 +53,7 @@ export default function Logo({
           className="block text-[0.62rem] font-semibold tracking-[0.12em] whitespace-nowrap"
           style={{ color: variant === "light" ? "rgba(255,255,255,0.7)" : "#5b6472" }}
         >
-          Your Global Growth Partner
+          {zh ? "你的全球增长伙伴" : "Your Global Growth Partner"}
         </span>
       </span>
     </Link>

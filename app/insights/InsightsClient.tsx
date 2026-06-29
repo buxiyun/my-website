@@ -16,7 +16,7 @@ function fmtDate(d: string, lang: "en" | "zh") {
 }
 
 export default function InsightsClient() {
-  const { lang } = useLang();
+  const { lang, prefixPath } = useLang();
 
   return (
     <>
@@ -48,7 +48,7 @@ export default function InsightsClient() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {posts.map((p, i) => (
                 <Reveal key={p.slug} delay={i * 80}>
-                  <Link href={`/insights/${p.slug}`} className="block h-full">
+                  <Link href={prefixPath(`/insights/${p.slug}`)} className="block h-full">
                     <article className="card h-full p-7 flex flex-col">
                       <div className="flex items-center gap-3 text-xs font-semibold">
                         <span className="rounded-full bg-sky-50 border border-sky/60 px-3 py-1 text-brand">

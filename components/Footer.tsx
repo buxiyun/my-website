@@ -1,11 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Logo from "./Logo";
 import { useLang, t } from "./LanguageProvider";
 import { IconMail } from "./Icons";
 
-const links = [
+const enLinks = [
   { href: "/solutions", en: "Solutions", zh: "解决方案" },
   { href: "/team", en: "Team", zh: "团队" },
   { href: "/cases", en: "Cases", zh: "成功案例" },
@@ -15,12 +16,20 @@ const links = [
 
 export default function Footer() {
   const { lang } = useLang();
+  const pathname = usePathname();
+  const isZh = pathname.startsWith("/zh");
+
+  const links = enLinks.map((l) => ({
+    ...l,
+    href: isZh ? `/zh${l.href === "/" ? "" : l.href}` : l.href,
+  }));
+
   return (
     <footer className="mt-auto bg-navy text-white">
       <div className="container-tlp py-14">
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-10">
           <div className="max-w-sm">
-            <Logo variant="light" />
+            <Logo variant="light" zh={isZh} href={isZh ? "/zh" : "/"} />
             <p className="mt-4 text-sm text-white/70 leading-relaxed">
               {t(
                 lang,

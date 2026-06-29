@@ -5,7 +5,13 @@ export const metadata: Metadata = {
   title: "Brand Strategy, Consumer Insights & Data-Driven Solutions",
   description:
     "Consumer insight-driven, closed-loop solutions — from brand strategy and data analytics to omni-channel execution. See how TLU helps consumer brands scale globally.",
-  alternates: { canonical: "/solutions" },
+  alternates: {
+    canonical: "/solutions",
+    languages: {
+      "en": "https://www.theleapunion.com/solutions",
+      "zh-CN": "https://www.theleapunion.com/zh/solutions",
+    },
+  },
   openGraph: {
     title: "Brand Strategy, Consumer Insights & Data-Driven Solutions",
     description:

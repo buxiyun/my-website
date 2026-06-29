@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { posts } from "@/lib/insights";
-import InsightPostClient from "./InsightPostClient";
+import InsightPostClient from "@/app/insights/[slug]/InsightPostClient";
 
 export async function generateMetadata({
   params,
@@ -13,19 +13,19 @@ export async function generateMetadata({
   if (!post) return {};
 
   return {
-    title: post.title_en,
-    description: post.excerpt_en,
+    title: post.title_zh,
+    description: post.excerpt_zh,
     alternates: {
-      canonical: `/insights/${post.slug}`,
+      canonical: `/zh/insights/${post.slug}`,
       languages: {
         "en": `https://www.theleapunion.com/insights/${post.slug}`,
         "zh-CN": `https://www.theleapunion.com/zh/insights/${post.slug}`,
       },
     },
     openGraph: {
-      title: post.title_en,
-      description: post.excerpt_en,
-      url: `/insights/${post.slug}`,
+      title: post.title_zh,
+      description: post.excerpt_zh,
+      url: `/zh/insights/${post.slug}`,
       type: "article",
       publishedTime: post.date,
       authors: ["The Leap Union"],
@@ -33,7 +33,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function InsightPostPage({
+export default async function InsightPostZhPage({
   params,
 }: {
   params: Promise<{ slug: string }>;

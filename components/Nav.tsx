@@ -2,11 +2,11 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Logo from "./Logo";
 import { useLang, t } from "./LanguageProvider";
 
-const links = [
+const enLinks = [
   { href: "/", en: "Home", zh: "首页" },
   { href: "/solutions", en: "Solutions", zh: "解决方案" },
   { href: "/team", en: "Team", zh: "团队" },
@@ -16,10 +16,32 @@ const links = [
 ];
 
 export default function Nav() {
-  const { lang, toggle } = useLang();
+  const { lang } = useLang();
   const pathname = usePathname();
+  const router = useRouter();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+
+  const isZh = pathname.startsWith("/zh");
+
+  // Build links: on /zh pages, prepend /zh
+  const links = enLinks.map((l) => ({
+    ...l,
+    href: isZh ? `/zh${l.href === "/" ? "" : l.href}` : l.href,
+  }));
+
+  // Language switch: navigate between EN ↔ /zh
+  const handleToggle = () => {
+    if (isZh) {
+      // Switching to English: go to the EN equivalent
+      const enPath = pathname.replace(/^\/zh/, "") || "/";
+      router.push(enPath);
+    } else {
+      // Switching to Chinese: go to /zh equivalent
+      const zhPath = pathname === "/" ? "/zh" : `/zh${pathname}`;
+      router.push(zhPath);
+    }
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -39,27 +61,24 @@ export default function Nav() {
       }`}
     >
       <nav className="container-tlp flex items-center justify-between h-[72px]">
-        <Logo />
+        <Logo zh={isZh} href={isZh ? "/zh" : "/"} />
 
         <div className="hidden md:flex items-center gap-1">
-          {links.map((l) => {
-            const active = pathname === l.href;
-            return (
+          {links.map((l) => (
               <Link
                 key={l.href}
                 href={l.href}
                 className={`px-4 py-2 rounded-full text-sm font-semibold transition-colors ${
-                  active
+                  pathname === l.href
                     ? "text-brand bg-sky-50"
                     : "text-ink/80 hover:text-brand hover:bg-sky-50"
                 }`}
               >
                 {t(lang, l.en, l.zh)}
               </Link>
-            );
-          })}
+          ))}
           <button
-            onClick={toggle}
+            onClick={handleToggle}
             className="ml-2 px-3.5 py-2 rounded-full text-sm font-bold text-brand border border-brand/30 hover:bg-brand hover:text-white transition-colors"
             aria-label="Switch language"
           >
@@ -70,7 +89,7 @@ export default function Nav() {
         {/* Mobile controls */}
         <div className="flex md:hidden items-center gap-2">
           <button
-            onClick={toggle}
+            onClick={handleToggle}
             className="px-3 py-1.5 rounded-full text-sm font-bold text-brand border border-brand/30"
           >
             {lang === "en" ? "中文" : "EN"}
@@ -100,7 +119,7 @@ export default function Nav() {
                 key={l.href}
                 href={l.href}
                 className={`px-2 py-3 rounded-lg text-base font-semibold ${
-                  pathname === l.href ? "text-brand" : "text-ink/85"
+                  l.href === pathname ? "text-brand" : "text-ink/85"
                 }`}
               >
                 {t(lang, l.en, l.zh)}

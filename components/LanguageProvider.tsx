@@ -7,6 +7,7 @@ import {
   useState,
   ReactNode,
 } from "react";
+import { usePathname } from "next/navigation";
 
 export type Lang = "en" | "zh";
 
@@ -14,18 +15,38 @@ type Ctx = {
   lang: Lang;
   setLang: (l: Lang) => void;
   toggle: () => void;
+  prefixPath: (path: string) => string;
 };
 
 const LanguageContext = createContext<Ctx>({
   lang: "en",
   setLang: () => {},
   toggle: () => {},
+  prefixPath: (p: string) => p,
 });
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>("en");
+export function LanguageProvider({
+  children,
+  defaultLang,
+}: {
+  children: ReactNode;
+  defaultLang?: Lang;
+}) {
+  const pathname = usePathname();
+  const isZhRoute = pathname.startsWith("/zh");
+  const [lang, setLangState] = useState<Lang>(
+    defaultLang ?? (isZhRoute ? "zh" : "en")
+  );
 
   useEffect(() => {
+    if (isZhRoute || defaultLang === "zh") {
+      setLangState("zh");
+      return;
+    }
+    if (defaultLang === "en") {
+      setLangState("en");
+      return;
+    }
     const saved = (typeof window !== "undefined" &&
       window.localStorage.getItem("tlp-lang")) as Lang | null;
     if (saved === "en" || saved === "zh") {
@@ -36,7 +57,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     ) {
       setLangState("zh");
     }
-  }, []);
+  }, [defaultLang, isZhRoute]);
 
   useEffect(() => {
     document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
@@ -51,8 +72,11 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   const toggle = () => setLang(lang === "en" ? "zh" : "en");
 
+  const prefixPath = (path: string) =>
+    isZhRoute ? `/zh${path === "/" ? "" : path}` : path;
+
   return (
-    <LanguageContext.Provider value={{ lang, setLang, toggle }}>
+    <LanguageContext.Provider value={{ lang, setLang, toggle, prefixPath }}>
       {children}
     </LanguageContext.Provider>
   );
