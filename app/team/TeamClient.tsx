@@ -126,7 +126,7 @@ export default function TeamClient() {
         <div className="absolute inset-0" style={{ background: "linear-gradient(120deg,#000a56,#004fb0)" }} />
         <span className="deco-circle" style={{ width: 420, height: 420, left: -140, bottom: -180, background: "rgba(79,134,214,0.2)" }} />
         <div className="container-tlp relative py-24 md:py-28">
-          <span className="eyebrow text-brand-400">{t(lang, "Our Team", "我们的团队")}</span>
+          <span className="eyebrow text-brand-400 bg-white/15 backdrop-blur-sm rounded-full px-4 py-1.5">{t(lang, "Our Team", "我们的团队")}</span>
           <h1 className="mt-4 text-3xl md:text-5xl font-extrabold max-w-3xl">
             {t(lang, "Experts from diverse fields", "来自各领域的专家")}
           </h1>
