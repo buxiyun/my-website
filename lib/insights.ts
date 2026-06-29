@@ -84,7 +84,7 @@ export const posts: Post[] = [
       "我们创始人谈 AI 究竟在哪里有用、在哪里仍有不足，以及尚存的能力差距。",
     ],
     audio: [
-      { title_en: "OpenCloud positioning & the 'raising lobsters' analogy", title_zh: "OpenCloud 定位与养龙虾比喻", src: "/audio/ai-01.mp3" },
+      { title_en: "Openclaw positioning & the 'raising lobsters' analogy", title_zh: "Openclaw 定位与养龙虾比喻", src: "/audio/ai-01.mp3" },
       { title_en: "AI replacing repetitive work", title_zh: "AI 替代重复性工作", src: "/audio/ai-02.mp3" },
       { title_en: "AI's problems & the cost of supervision", title_zh: "AI 的问题与监督成本", src: "/audio/ai-03.mp3" },
       { title_en: "China's unique environment & the capability gap", title_zh: "中国土壤独特与能力差距", src: "/audio/ai-04.mp3" },
