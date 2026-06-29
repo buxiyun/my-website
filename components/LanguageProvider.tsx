@@ -39,24 +39,20 @@ export function LanguageProvider({
   );
 
   useEffect(() => {
+    // Route-based language takes absolute priority
     if (isZhRoute || defaultLang === "zh") {
       setLangState("zh");
+      try { window.localStorage.setItem("tlp-lang", "zh"); } catch {}
       return;
     }
     if (defaultLang === "en") {
       setLangState("en");
+      try { window.localStorage.setItem("tlp-lang", "en"); } catch {}
       return;
     }
-    const saved = (typeof window !== "undefined" &&
-      window.localStorage.getItem("tlp-lang")) as Lang | null;
-    if (saved === "en" || saved === "zh") {
-      setLangState(saved);
-    } else if (
-      typeof navigator !== "undefined" &&
-      navigator.language?.toLowerCase().startsWith("zh")
-    ) {
-      setLangState("zh");
-    }
+    // On non-/zh routes, always use English — ignore stale localStorage
+    setLangState("en");
+    try { window.localStorage.setItem("tlp-lang", "en"); } catch {}
   }, [defaultLang, isZhRoute]);
 
   useEffect(() => {
