@@ -99,7 +99,7 @@ export default function Contact() {
               <h2 className="text-3xl md:text-4xl font-extrabold text-navy">
                 {t(
                   lang,
-                  "Technology that understands business — your global growth partner",
+                  "Tech-enabled Business Solution, Your Global Growth Partner",
                   "懂生意的技术，你的全球增长伙伴"
                 )}
               </h2>
