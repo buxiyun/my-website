@@ -5,7 +5,13 @@ export const metadata: Metadata = {
   title: "Contact — Global Brand Strategy Consulting",
   description:
     "Ready to drive closed-loop growth? Contact TLU across Greater China, APAC, North America and Europe. Email marketing@theleapunion.com to start a conversation.",
-  alternates: { canonical: "/contact" },
+  alternates: {
+    canonical: "/contact",
+    languages: {
+      "en": "https://www.theleapunion.com/contact",
+      "zh-CN": "https://www.theleapunion.com/zh/contact",
+    },
+  },
   openGraph: {
     title: "Contact — Global Brand Strategy Consulting",
     description:

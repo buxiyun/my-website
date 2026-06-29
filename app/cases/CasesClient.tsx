@@ -48,7 +48,7 @@ const cases = [
 ];
 
 export default function CasesClient() {
-  const { lang } = useLang();
+  const { lang, prefixPath } = useLang();
 
   return (
     <>
@@ -111,7 +111,7 @@ export default function CasesClient() {
                   "基于消费者洞察，TLU 助力品牌在不同行业实现从策略洞察到商业落地的闭环增长"
                 )}
               </p>
-              <Link href="/contact" className="btn bg-white text-navy hover:-translate-y-0.5 mt-8">
+              <Link href={prefixPath("/contact")} className="btn bg-white text-navy hover:-translate-y-0.5 mt-8">
                 {t(lang, "Become our next case", "成为我们的下一个案例")}
                 <IconArrow width={18} height={18} />
               </Link>

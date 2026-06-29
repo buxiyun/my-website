@@ -15,14 +15,14 @@ function fmtDate(d: string, lang: "en" | "zh") {
 }
 
 export default function InsightPostClient({ post }: { post: Post }) {
-  const { lang } = useLang();
+  const { lang, prefixPath } = useLang();
 
   const body = t(lang, post.body_en, post.body_zh);
 
   return (
     <article className="section">
       <div className="container-tlp max-w-3xl">
-        <Link href="/insights" className="inline-flex items-center gap-2 text-sm font-semibold text-brand">
+        <Link href={prefixPath("/insights")} className="inline-flex items-center gap-2 text-sm font-semibold text-brand">
           <IconArrow width={16} height={16} className="rotate-180" />
           {t(lang, "All insights", "全部观点")}
         </Link>
@@ -73,7 +73,7 @@ export default function InsightPostClient({ post }: { post: Post }) {
         )}
 
         <div className="mt-12 pt-8 border-t border-slate-100">
-          <Link href="/contact" className="btn btn-primary">
+          <Link href={prefixPath("/contact")} className="btn btn-primary">
             {t(lang, "Work with us", "与我们合作")}
             <IconArrow width={18} height={18} />
           </Link>
