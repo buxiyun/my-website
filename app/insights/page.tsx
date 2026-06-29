@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import InsightsClient from "./InsightsClient";
+import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Insights — Brand Growth, AI & Consumer Trends",
@@ -20,6 +21,20 @@ export const metadata: Metadata = {
   },
 };
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.theleapunion.com" },
+    { "@type": "ListItem", position: 2, name: "Insights", item: "https://www.theleapunion.com/insights" },
+  ],
+};
+
 export default function Insights() {
-  return <InsightsClient />;
+  return (
+    <>
+      <JsonLd data={breadcrumbSchema} />
+      <InsightsClient />
+    </>
+  );
 }

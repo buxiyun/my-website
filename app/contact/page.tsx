@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ContactClient from "./ContactClient";
+import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Contact — Global Brand Strategy Consulting",
@@ -20,6 +21,33 @@ export const metadata: Metadata = {
   },
 };
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.theleapunion.com" },
+    { "@type": "ListItem", position: 2, name: "Contact", item: "https://www.theleapunion.com/contact" },
+  ],
+};
+
+const contactSchema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  mainEntity: {
+    "@type": "Organization",
+    name: "The Leap Union",
+    email: "marketing@theleapunion.com",
+    url: "https://www.theleapunion.com",
+    areaServed: ["Greater China", "APAC", "North America", "Europe"],
+  },
+};
+
 export default function Contact() {
-  return <ContactClient />;
+  return (
+    <>
+      <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={contactSchema} />
+      <ContactClient />
+    </>
+  );
 }

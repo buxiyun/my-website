@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import TeamClient from "./TeamClient";
+import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Our Team — Senior Brand & Strategy Experts",
@@ -20,6 +21,20 @@ export const metadata: Metadata = {
   },
 };
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.theleapunion.com" },
+    { "@type": "ListItem", position: 2, name: "Team", item: "https://www.theleapunion.com/team" },
+  ],
+};
+
 export default function Team() {
-  return <TeamClient />;
+  return (
+    <>
+      <JsonLd data={breadcrumbSchema} />
+      <TeamClient />
+    </>
+  );
 }
