@@ -1,39 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://theleapunion.com/</loc>
-    <lastmod>2026-06-18</lastmod>
+    <loc>https://www.theleapunion.com/</loc>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://theleapunion.com/cases/</loc>
+    <loc>https://www.theleapunion.com/solutions</loc>
     <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://theleapunion.com/solutions/</loc>
+    <loc>https://www.theleapunion.com/cases</loc>
     <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://theleapunion.com/insights/</loc>
-    <lastmod>2026-06-18</lastmod>
+    <loc>https://www.theleapunion.com/insights</loc>
+    <lastmod>2026-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://theleapunion.com/team/</loc>
+    <loc>https://www.theleapunion.com/contact</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.theleapunion.com/team</loc>
     <lastmod>2026-06-18</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.75</priority>
   </url>
+  <!-- Insight articles -->
   <url>
-    <loc>https://theleapunion.com/contact/</loc>
-    <lastmod>2026-06-18</lastmod>
+    <loc>https://www.theleapunion.com/insights/technology-that-understands-business</loc>
+    <lastmod>2026-06-28</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://www.theleapunion.com/insights/ai-and-raising-lobsters</loc>
+    <lastmod>2026-03-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://www.theleapunion.com/insights/china-brands-going-global</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://www.theleapunion.com/insights/the-pet-economy</loc>
+    <lastmod>2025-11-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.70</priority>
   </url>
 </urlset>
