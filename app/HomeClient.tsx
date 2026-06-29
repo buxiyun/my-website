@@ -14,6 +14,7 @@ import {
   IconTarget,
   IconArrow,
 } from "@/components/Icons";
+import HeroCarousel from "@/components/HeroCarousel";
 
 const pillars = [
   { Icon: IconStrategy, en: "Strategy", zh: "战略顾问", sub_en: "Strategy", sub_zh: "Strategy", grad: "linear-gradient(135deg,#000a56,#0a4fa0)" },
@@ -43,52 +44,7 @@ export default function Home() {
   return (
     <>
       {/* ===== HERO ===== */}
-      <section className="relative overflow-hidden bg-navy text-white">
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(120deg,#000a56 0%,#003a96 55%,#005dc4 100%)",
-          }}
-        />
-        <span className="deco-circle" style={{ width: 520, height: 520, right: -120, top: -120, background: "rgba(255,255,255,0.06)" }} />
-        <span className="deco-circle" style={{ width: 360, height: 360, right: 120, top: 120, background: "rgba(79,134,214,0.25)" }} />
-        <span className="deco-circle" style={{ width: 240, height: 240, right: -40, bottom: -80, background: "rgba(215,235,247,0.12)" }} />
-
-        <div className="container-tlp relative py-28 md:py-36">
-          <div className="max-w-3xl">
-            <span className="inline-flex items-center gap-2 rounded-full bg-white/12 px-4 py-1.5 text-sm font-medium backdrop-blur">
-              {t(lang, "AI-Empowered Business Solutions", "AI 赋能的商业解决方案")}
-            </span>
-            <h1 className="mt-6 text-4xl md:text-6xl font-extrabold leading-[1.08]">
-              {t(
-                lang,
-                <>AI-Empowered <br className="hidden md:block" />Next-Gen Business <br className="hidden md:block" />Solution Provider</>,
-                <>AI 赋能的<br className="hidden md:block" />下一代商业<br className="hidden md:block" />解决方案提供商</>
-              )}
-            </h1>
-            <p className="mt-5 text-2xl md:text-3xl font-extrabold text-white">
-              {t(lang, "Your Global Growth Partner", "你的全球增长伙伴")}
-            </p>
-            <p className="mt-6 text-lg md:text-xl text-white/85 max-w-2xl">
-              {t(
-                lang,
-                "From data to decisions to growth — driving results through technology that understands business, built on deep consumer insight",
-                "从数据到决策，再到增长——基于深度消费者洞察，通过“懂生意的技术”对准商业增长结果"
-              )}
-            </p>
-            <div className="mt-9 flex flex-wrap gap-4">
-              <Link href={prefixPath("/solutions")} className="btn btn-primary">
-                {t(lang, "Explore Solutions", "查看解决方案")}
-                <IconArrow width={18} height={18} />
-              </Link>
-              <Link href={prefixPath("/contact")} className="btn btn-ghost">
-                {t(lang, "Get in Touch", "联系我们")}
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroCarousel />
 
       {/* ===== POSITIONING ===== */}
       <section className="section">
