@@ -273,21 +273,6 @@ export default function HeroCarousel() {
                   "核心团队来自顶级咨询、洞察与运营公司，依托覆盖中国、欧洲、美国与日本的全球化网络。",
                 )}
               </p>
-
-              <div className="hc-stats r-4">
-                <div className="hc-stat">
-                  <div className="hc-num">15<span className="hc-num-plus">+</span></div>
-                  <div className="hc-lab">{t(lang, "Years experience", "年行业经验")}</div>
-                </div>
-                <div className="hc-stat">
-                  <div className="hc-num">4</div>
-                  <div className="hc-lab">{t(lang, "Continents", "大洲覆盖")}</div>
-                </div>
-                <div className="hc-stat">
-                  <div className="hc-num">100<span className="hc-num-plus">+</span></div>
-                  <div className="hc-lab">{t(lang, "Projects delivered", "交付项目")}</div>
-                </div>
-              </div>
             </div>
 
             <div className="hc-right r-5">
