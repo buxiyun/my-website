@@ -22,7 +22,7 @@ export default function ContactClient() {
         <span className="deco-circle" style={{ width: 460, height: 460, right: -120, top: -180, background: "rgba(79,134,214,0.22)" }} />
         <span className="deco-circle" style={{ width: 260, height: 260, right: 160, bottom: -120, background: "rgba(215,235,247,0.12)" }} />
         <div className="container-tlp relative py-24 md:py-32 text-center">
-          <span className="eyebrow text-brand-400 justify-center bg-white/15 backdrop-blur-sm rounded-full px-4 py-1.5">{t(lang, "Contact", "联系我们")}</span>
+          <span className="eyebrow text-white justify-center bg-white/15 backdrop-blur-sm rounded-full px-4 py-1.5">{t(lang, "Contact", "联系我们")}</span>
           <h1 className="mt-4 text-4xl md:text-6xl font-extrabold">
             {t(lang, "Let's work together", "让我们一起合作")}
           </h1>

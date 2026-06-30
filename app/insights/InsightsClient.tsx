@@ -25,7 +25,7 @@ export default function InsightsClient() {
         <div className="absolute inset-0" style={{ background: "linear-gradient(120deg,#000a56,#004fb0)" }} />
         <span className="deco-circle" style={{ width: 420, height: 420, right: -120, top: -160, background: "rgba(79,134,214,0.22)" }} />
         <div className="container-tlp relative py-24 md:py-28">
-          <span className="eyebrow text-brand-400 bg-white/15 backdrop-blur-sm rounded-full px-4 py-1.5">{t(lang, "Insights", "观点")}</span>
+          <span className="eyebrow text-white bg-white/15 backdrop-blur-sm rounded-full px-4 py-1.5">{t(lang, "Insights", "观点")}</span>
           <h1 className="mt-4 text-3xl md:text-5xl font-extrabold max-w-3xl">
             {t(lang, "Our perspectives", "我们的观点")}
           </h1>
