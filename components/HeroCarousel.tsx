@@ -180,13 +180,13 @@ export default function HeroCarousel() {
                 <span className="hc-dot" />
                 {t(lang, "Our Unique Positioning", "我们的独特定位")}
               </div>
-              <h1 className="hc-headline r-2">
+              <h2 className="hc-headline r-2">
                 {t(
                   lang,
                   <>Strategy meets<br /><span className="hc-accent">execution</span>,<br />in one loop.</>,
                   <>从战略设计<br />到<span className="hc-accent">全域执行</span>，<br />一个闭环。</>,
                 )}
-              </h1>
+              </h2>
               <p className="hc-sub r-3">
                 {t(
                   lang,
@@ -232,7 +232,7 @@ export default function HeroCarousel() {
                       <div className="hc-cap-ico">
                         <svg viewBox="0 0 24 24">{cap.icon}</svg>
                       </div>
-                      <h4>{t(lang, cap.en, cap.zh)}</h4>
+                      <h3>{t(lang, cap.en, cap.zh)}</h3>
                       <p>{t(lang, cap.sub_en, cap.sub_zh)}</p>
                     </div>
                   );
@@ -259,13 +259,13 @@ export default function HeroCarousel() {
                 <span className="hc-dot" />
                 {t(lang, "Global Capabilities", "全球化能力")}
               </div>
-              <h1 className="hc-headline r-2">
+              <h2 className="hc-headline r-2">
                 {t(
                   lang,
                   <>One team,<br /><span style={{ color: "#bfd6ff" }}>four continents</span>,<br />your growth partner.</>,
                   <>一支团队，<br /><span style={{ color: "#bfd6ff" }}>横跨四大洲</span>，<br />您的全球增长伙伴。</>,
                 )}
-              </h1>
+              </h2>
               <p className="hc-sub r-3">
                 {t(
                   lang,

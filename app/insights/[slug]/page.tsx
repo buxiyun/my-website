@@ -21,6 +21,7 @@ export async function generateMetadata({
       languages: {
         "en": `https://www.theleapunion.com/insights/${post.slug}`,
         "zh-CN": `https://www.theleapunion.com/zh/insights/${post.slug}`,
+        "x-default": `https://www.theleapunion.com/insights/${post.slug}`,
       },
     },
     openGraph: {

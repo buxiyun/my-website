@@ -8,8 +8,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/zh",
     languages: {
-      "en": "https://www.theleapunion.com",
+      "en": "https://www.theleapunion.com/",
       "zh-CN": "https://www.theleapunion.com/zh",
+      "x-default": "https://www.theleapunion.com/",
     },
   },
   openGraph: {

@@ -4,7 +4,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.theleapunion.com/</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.theleapunion.com/" />
@@ -13,7 +13,7 @@
   </url>
   <url>
     <loc>https://www.theleapunion.com/zh</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.theleapunion.com/" />
@@ -23,87 +23,97 @@
   <!-- Solutions -->
   <url>
     <loc>https://www.theleapunion.com/solutions</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.theleapunion.com/solutions" />
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.theleapunion.com/zh/solutions" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theleapunion.com/solutions" />
   </url>
   <url>
     <loc>https://www.theleapunion.com/zh/solutions</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.theleapunion.com/solutions" />
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.theleapunion.com/zh/solutions" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theleapunion.com/solutions" />
   </url>
   <!-- Cases -->
   <url>
     <loc>https://www.theleapunion.com/cases</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.theleapunion.com/cases" />
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.theleapunion.com/zh/cases" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theleapunion.com/cases" />
   </url>
   <url>
     <loc>https://www.theleapunion.com/zh/cases</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.theleapunion.com/cases" />
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.theleapunion.com/zh/cases" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theleapunion.com/cases" />
   </url>
   <!-- Insights -->
   <url>
     <loc>https://www.theleapunion.com/insights</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.theleapunion.com/insights" />
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.theleapunion.com/zh/insights" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theleapunion.com/insights" />
   </url>
   <url>
     <loc>https://www.theleapunion.com/zh/insights</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.theleapunion.com/insights" />
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.theleapunion.com/zh/insights" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theleapunion.com/insights" />
   </url>
   <!-- Contact -->
   <url>
     <loc>https://www.theleapunion.com/contact</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.80</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.theleapunion.com/contact" />
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.theleapunion.com/zh/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theleapunion.com/contact" />
   </url>
   <url>
     <loc>https://www.theleapunion.com/zh/contact</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.80</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.theleapunion.com/contact" />
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.theleapunion.com/zh/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theleapunion.com/contact" />
   </url>
   <!-- Team -->
   <url>
     <loc>https://www.theleapunion.com/team</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.theleapunion.com/team" />
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.theleapunion.com/zh/team" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theleapunion.com/team" />
   </url>
   <url>
     <loc>https://www.theleapunion.com/zh/team</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.theleapunion.com/team" />
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.theleapunion.com/zh/team" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theleapunion.com/team" />
   </url>
   <!-- Insight articles -->
   <url>
@@ -113,6 +123,7 @@
     <priority>0.70</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.theleapunion.com/insights/technology-that-understands-business" />
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.theleapunion.com/zh/insights/technology-that-understands-business" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theleapunion.com/insights/technology-that-understands-business" />
   </url>
   <url>
     <loc>https://www.theleapunion.com/zh/insights/technology-that-understands-business</loc>
@@ -121,6 +132,7 @@
     <priority>0.70</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.theleapunion.com/insights/technology-that-understands-business" />
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.theleapunion.com/zh/insights/technology-that-understands-business" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theleapunion.com/insights/technology-that-understands-business" />
   </url>
   <url>
     <loc>https://www.theleapunion.com/insights/ai-and-raising-lobsters</loc>
@@ -129,6 +141,7 @@
     <priority>0.70</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.theleapunion.com/insights/ai-and-raising-lobsters" />
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.theleapunion.com/zh/insights/ai-and-raising-lobsters" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theleapunion.com/insights/ai-and-raising-lobsters" />
   </url>
   <url>
     <loc>https://www.theleapunion.com/zh/insights/ai-and-raising-lobsters</loc>
@@ -137,6 +150,7 @@
     <priority>0.70</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.theleapunion.com/insights/ai-and-raising-lobsters" />
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.theleapunion.com/zh/insights/ai-and-raising-lobsters" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theleapunion.com/insights/ai-and-raising-lobsters" />
   </url>
   <url>
     <loc>https://www.theleapunion.com/insights/china-brands-going-global</loc>
@@ -145,6 +159,7 @@
     <priority>0.70</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.theleapunion.com/insights/china-brands-going-global" />
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.theleapunion.com/zh/insights/china-brands-going-global" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theleapunion.com/insights/china-brands-going-global" />
   </url>
   <url>
     <loc>https://www.theleapunion.com/zh/insights/china-brands-going-global</loc>
@@ -153,6 +168,7 @@
     <priority>0.70</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.theleapunion.com/insights/china-brands-going-global" />
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.theleapunion.com/zh/insights/china-brands-going-global" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theleapunion.com/insights/china-brands-going-global" />
   </url>
   <url>
     <loc>https://www.theleapunion.com/insights/the-pet-economy</loc>
@@ -161,6 +177,7 @@
     <priority>0.70</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.theleapunion.com/insights/the-pet-economy" />
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.theleapunion.com/zh/insights/the-pet-economy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theleapunion.com/insights/the-pet-economy" />
   </url>
   <url>
     <loc>https://www.theleapunion.com/zh/insights/the-pet-economy</loc>
@@ -169,5 +186,6 @@
     <priority>0.70</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.theleapunion.com/insights/the-pet-economy" />
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.theleapunion.com/zh/insights/the-pet-economy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.theleapunion.com/insights/the-pet-economy" />
   </url>
 </urlset>

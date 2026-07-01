@@ -10,6 +10,7 @@ export const metadata: Metadata = {
     languages: {
       "en": "https://www.theleapunion.com/insights",
       "zh-CN": "https://www.theleapunion.com/zh/insights",
+      "x-default": "https://www.theleapunion.com/insights",
     },
   },
   openGraph: {

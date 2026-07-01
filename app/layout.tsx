@@ -46,8 +46,17 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${publicSans.variable} ${notoSC.variable} h-full antialiased`}
     >
+      <head>
+        {/* Set correct lang before first paint — runs synchronously before React hydration */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){document.documentElement.lang=location.pathname.indexOf('/zh')===0?'zh-CN':'en'})()`,
+          }}
+        />
+      </head>
       <body className="min-h-full flex flex-col">
         <LanguageProvider>
           <Nav />

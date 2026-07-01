@@ -9,8 +9,9 @@ export const metadata: Metadata = {
     "曦奕智方 (TLU) — AI赋能的下一代商业解决方案提供商，从战略顶层设计到全渠道实战落地，以懂生意的技术驱动增长",
   alternates: {
     languages: {
-      "en": "https://www.theleapunion.com",
+      "en": "https://www.theleapunion.com/",
       "zh-CN": "https://www.theleapunion.com/zh",
+      "x-default": "https://www.theleapunion.com/",
     },
   },
   openGraph: {

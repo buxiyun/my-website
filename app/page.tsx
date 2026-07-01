@@ -6,9 +6,18 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
     languages: {
-      "en": "https://www.theleapunion.com",
+      "en": "https://www.theleapunion.com/",
       "zh-CN": "https://www.theleapunion.com/zh",
+      "x-default": "https://www.theleapunion.com/",
     },
+  },
+  openGraph: {
+    title: "The Leap Union (TLU) — AI-Empowered Business Solutions",
+    description:
+      "AI-empowered, next-gen business solution provider — from strategic design to omni-channel execution, driving growth through technology that understands business.",
+    url: "/",
+    locale: "en_US",
+    images: [{ url: "/world-map.png", width: 1200, height: 630, alt: "TLU global coverage" }],
   },
 };
 
