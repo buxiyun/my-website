@@ -12,6 +12,7 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  trailingSlash: false,
   async headers() {
     return [
       {
