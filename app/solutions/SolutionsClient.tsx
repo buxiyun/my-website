@@ -86,6 +86,42 @@ export default function SolutionsClient() {
         </div>
       </section>
 
+      {/* China Market entry — entry card */}
+      <section className="section pt-0">
+        <div className="container-tlp">
+          <Reveal>
+            <Link
+              href={prefixPath("/china-market")}
+              className="card group flex flex-col gap-4 bg-navy text-white p-8 md:p-10 md:flex-row md:items-center md:justify-between no-underline"
+            >
+              <div className="max-w-2xl">
+                <span className="eyebrow text-white bg-white/15 backdrop-blur-sm rounded-full px-4 py-1.5">
+                  {t(lang, "For Global Brands", "面向全球品牌")}
+                </span>
+                <h3 className="mt-4 text-2xl md:text-3xl font-extrabold">
+                  {t(
+                    lang,
+                    "Entering the China market? Start by understanding it.",
+                    "准备进入中国市场？先从读懂它开始。"
+                  )}
+                </h3>
+                <p className="mt-3 text-white/80">
+                  {t(
+                    lang,
+                    "A practical guide to China's digital ecosystem, the models behind it, and the misconceptions that cost foreign brands budget.",
+                    "一份实战指南：中国数字生态、背后的模型，以及让外国品牌白花预算的误区。"
+                  )}
+                </p>
+              </div>
+              <span className="btn btn-primary mt-2 md:mt-0 shrink-0">
+                {t(lang, "Read the guide", "阅读指南")}
+                <IconArrow width={18} height={18} />
+              </span>
+            </Link>
+          </Reveal>
+        </div>
+      </section>
+
       {/* Three approaches */}
       <section className="section">
         <div className="container-tlp">

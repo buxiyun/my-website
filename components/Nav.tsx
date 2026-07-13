@@ -9,6 +9,7 @@ import { useLang, t } from "./LanguageProvider";
 const enLinks = [
   { href: "/", en: "Home", zh: "首页" },
   { href: "/solutions", en: "Solutions", zh: "解决方案" },
+  { href: "/china-market", en: "China Market", zh: "中国市场" },
   { href: "/team", en: "Team", zh: "团队" },
   { href: "/cases", en: "Cases", zh: "成功案例" },
   { href: "/insights", en: "Insights", zh: "观点" },
