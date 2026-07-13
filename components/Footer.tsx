@@ -79,6 +79,13 @@ export default function Footer() {
           <span>© {new Date().getFullYear()} The Leap Union (TLU) · {t(lang, "All rights reserved", "保留所有权利")}</span>
           <span>{t(lang, "Tech-enabled Business Solution, Your Global Growth Partner", "懂生意的技术，你的全球增长伙伴")}</span>
         </div>
+        <div className="mt-2 text-xs text-white/40">
+          {t(
+            lang,
+            "The Leap Union (TLU) is a brand of 曦奕智方",
+            "The Leap Union (TLU) 是曦奕智方旗下品牌"
+          )}
+        </div>
       </div>
     </footer>
   );
