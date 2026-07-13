@@ -113,6 +113,9 @@ p {
   transform: translateY(-6px);
   box-shadow: 0 28px 55px -30px rgba(15, 30, 70, 0.45);
 }
+/* Keep brand/cream backgrounds on top of the default white .card */
+.card.bg-navy { background: #000a56; }
+.card.bg-cream { background: #f4f4ed; }
 
 .reveal {
   opacity: 0;
