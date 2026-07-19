@@ -3,9 +3,9 @@ import ChinaMarketClient from "./ChinaMarketClient";
 import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Understand the China Market — A Guide for Global Brands",
+  title: "China Market Entry Guide — Strategy, Branding & Execution for International Brands",
   description:
-    "How China's digital ecosystem really works: the platforms, the models, and the misconceptions that cost foreign brands time and budget. A practical guide by The Leap Union.",
+    "A practical guide for international brands entering China — the decision framework, common pitfalls, and what you need to get right, from naming to platform execution.",
   alternates: {
     canonical: "/china-market",
     languages: {
@@ -15,9 +15,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Understand the China Market — A Guide for Global Brands",
+    title: "China Market Entry Guide — Strategy, Branding & Execution",
     description:
-      "How China's digital ecosystem really works — the platforms, the models, and the misconceptions that cost foreign brands time and budget.",
+      "Understand the market before you enter it. A step-by-step decision guide for international brands: market landscape, brand vs. sales strategy, naming, positioning, and platform execution.",
     url: "/china-market",
   },
 };
@@ -27,7 +27,30 @@ const breadcrumbSchema = {
   "@type": "BreadcrumbList",
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Home", item: "https://www.theleapunion.com" },
-    { "@type": "ListItem", position: 2, name: "China Market", item: "https://www.theleapunion.com/china-market" },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "China Market Guide",
+      item: "https://www.theleapunion.com/china-market",
+    },
+  ],
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "China Market Entry Guide — Strategy, Branding & Execution for International Brands",
+  description:
+    "A practical guide for international brands entering China — the decision framework, common pitfalls, and execution roadmap.",
+  publisher: {
+    "@type": "Organization",
+    name: "The Leap Union",
+    url: "https://www.theleapunion.com",
+  },
+  about: [
+    { "@type": "Thing", name: "China Market Entry" },
+    { "@type": "Thing", name: "Brand Localization" },
+    { "@type": "Thing", name: "Cross-border E-commerce" },
   ],
 };
 
@@ -35,6 +58,7 @@ export default function ChinaMarket() {
   return (
     <>
       <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={articleSchema} />
       <ChinaMarketClient />
     </>
   );

@@ -3,612 +3,810 @@
 import Link from "next/link";
 import { useLang, t } from "@/components/LanguageProvider";
 import Reveal from "@/components/Reveal";
-import {
-  IconArrow,
-  IconStrategy,
-  IconContent,
-  IconTarget,
-  IconUsers,
-  IconNetwork,
-  IconCheck,
-} from "@/components/Icons";
+import { IconArrow } from "@/components/Icons";
 
-/* ============================================================
-   DATA
-   ============================================================ */
+/* ─── Data ──────────────────────────────────────────────── */
 
-// 01 — Platform ecosystem (MAU figures indicative, 2025)
+const chapters = [
+  { id: "before", en: "Before You Enter", zh: "进入前" },
+  { id: "path", en: "Choose Your Path", zh: "选择路径" },
+  { id: "brand", en: "Brand Path", zh: "品牌路径" },
+  { id: "sales", en: "Sales Path", zh: "销售路径" },
+  { id: "execution", en: "Execution", zh: "落地执行" },
+];
+
 const platforms = [
   {
-    key: "tmall",
-    name_en: "Taobao / Tmall",
-    name_zh: "淘宝 / 天猫",
-    role_en: "Search-led e-commerce — the default purchase destination",
-    role_zh: "搜索型电商 —— 消费者的默认购买入口",
-    mau: "900M+",
-    tag_en: "Shelf & search",
-    tag_zh: "货架与搜索",
-    color: "#ff4400",
+    name: "Tmall / Taobao",
+    users: "900M+",
+    en: "Search-based e-commerce — the default purchase entry point",
+    zh: "搜索型电商，消费者的默认购物入口",
   },
   {
-    key: "jd",
-    name_en: "JD.com",
-    name_zh: "京东",
-    role_en: "B2C mall with its own logistics network",
-    role_zh: "自建物流的 B2C 商城",
-    mau: "580M+",
-    tag_en: "Trust & speed",
-    tag_zh: "信任与时效",
-    color: "#e1251b",
+    name: "JD.com",
+    users: "580M+",
+    en: "B2C mall with self-built logistics — trust & speed",
+    zh: "自建物流的B2C商城，强调信任与速度",
   },
   {
-    key: "douyin",
-    name_en: "Douyin",
-    name_zh: "抖音",
-    role_en: "Short-video content commerce — discovery & bursts",
-    role_zh: "短视频内容电商 —— 激发兴趣与爆发",
-    mau: "700M+",
-    tag_en: "Content & live",
-    tag_zh: "内容与直播",
-    color: "#161823",
+    name: "Douyin",
+    users: "700M+",
+    en: "Short-video content commerce — interest-driven explosive growth",
+    zh: "短视频内容电商，兴趣驱动的爆发式增长",
   },
   {
-    key: "red",
-    name_en: "RED (Xiaohongshu)",
-    name_zh: "小红书",
-    role_en: "Lifestyle seeding and review-driven word of mouth",
-    role_zh: "生活方式种草与口碑驱动",
-    mau: "300M+",
-    tag_en: "Seeding & reviews",
-    tag_zh: "种草与口碑",
-    color: "#ff2442",
+    name: "Xiaohongshu",
+    users: "300M+",
+    en: "Lifestyle seeding & reputation — where trust is built",
+    zh: "生活方式种草与口碑平台，建立信任的核心阵地",
   },
   {
-    key: "wechat",
-    name_en: "WeChat",
-    name_zh: "微信",
-    role_en: "Private-domain & social — owned relationship at scale",
-    role_zh: "私域与社交 —— 规模化的自有关系",
-    mau: "1.3B+",
-    tag_en: "Private domain",
-    tag_zh: "私域阵地",
-    color: "#07c160",
+    name: "WeChat",
+    users: "1.3B+",
+    en: "Private domain & social — scalable owned consumer relationships",
+    zh: "私域与社交，可规模化的自主消费者关系",
   },
 ];
 
-// 01 — E-commerce evolution timeline
-const timeline = [
+const eras = [
   {
-    yr: "1997–2003",
-    en: "Sprouting",
-    zh: "萌芽",
-    desc_en: "B2B is the dominant model; e-commerce is just being accepted.",
-    desc_zh: "B2B 是主流模式，电商刚刚被市场接受。",
+    period: "1997–2003",
+    en: "Germination — B2B dominated, e-commerce gaining acceptance",
+    zh: "萌芽期 — B2B 主导，电商开始被接受",
   },
   {
-    yr: "2003–2008",
-    en: "Starting",
-    zh: "起步",
-    desc_en: "SARS in 2003 opened new opportunities; Taobao is founded and C2C booms.",
-    desc_zh: "2003 年非典带来新机会，淘宝成立，C2C 爆发。",
+    period: "2003–2008",
+    en: "Launch — SARS catalyzed online shopping; Taobao born, C2C exploded",
+    zh: "起步期 — SARS 催化线上购物，淘宝诞生，C2C 爆发",
   },
   {
-    yr: "2008–2012",
-    en: "Traffic Era",
-    zh: "流量时代",
-    desc_en: "Alipay guarantees transactions; Tmall is established as traffic bonuses peak.",
-    desc_zh: "支付宝保障交易，天猫成立，流量红利见顶。",
+    period: "2008–2012",
+    en: "Traffic era — Alipay secured transactions; Tmall launched; traffic dividends peaked",
+    zh: "流量时代 — 支付宝保障交易，天猫上线，流量红利达到顶峰",
   },
   {
-    yr: "2012–2018",
-    en: "Branding",
-    zh: "品牌化",
-    desc_en: "B2C matures; Tmall splits from Taobao as consumers seek better products.",
-    desc_zh: "B2C 成熟，天猫从淘宝分拆，消费者追求更好产品。",
+    period: "2012–2018",
+    en: "Branding — B2C matured; consumers demanded better products and experiences",
+    zh: "品牌化 — B2C 走向成熟，消费者追求更好的产品与体验",
   },
   {
-    yr: "2018–Now",
-    en: "Digitalization",
-    zh: "数字化",
-    desc_en: "Consumer-oriented and omni-channel — platforms enrich both discovery and purchase.",
-    desc_zh: "以消费者为中心、全渠道并行，平台同时具备种草与转化能力。",
+    period: "2018–Now",
+    en: "Digitalization — Consumer-centric, omnichannel; platforms handle both seeding and conversion",
+    zh: "数智化 — 以消费者为中心的全渠道时代，平台同时承载种草与转化",
   },
 ];
 
-// 01 — Channel matrix (public/private × seeding/conversion)
-const matrix = [
+const misconceptions = [
   {
-    q_en: "Public · Seeding",
-    q_zh: "公域 · 种草",
-    items_en: ["RED (Xiaohongshu) content", "Douyin short-video & KOL", "Cross-platform content seeding"],
-    items_zh: ["小红书内容种草", "抖音短视频与达人", "跨平台内容种草"],
+    myth_en: "The platform will buy out or operate my brand.",
+    myth_zh: "平台会帮我买断或运营品牌。",
+    real_en: "Platforms are channels, not brand owners. Brand sovereignty stays with you — responsibilities among flagship stores, platform self-operated, and distribution must be clearly defined.",
+    real_zh: "平台是渠道，不是品牌拥有者。品牌主权必须在你手里——旗舰店、平台自营和分销的职责需要清晰划分。",
   },
   {
-    q_en: "Public · Conversion",
-    q_zh: "公域 · 转化",
-    items_en: ["Tmall / JD flagship stores", "Platform performance ads (SEO, banners)", "Live-streaming commerce"],
-    items_zh: ["天猫 / 京东旗舰店", "平台效果广告（搜索、展示）", "直播电商"],
+    myth_en: "One playbook fits all brands.",
+    myth_zh: "所有品牌都该走同一条路。",
+    real_en: "Chinese e-commerce is multi-format. The right mix of platforms and channels depends entirely on your category and brand stage.",
+    real_zh: "中国电商是多业态格局，平台和渠道的最优组合取决于你的品类和品牌阶段。",
   },
   {
-    q_en: "Private · Seeding",
-    q_zh: "私域 · 种草",
-    items_en: ["WeChat groups & communities", "Brand membership & VIP groups", "Owned content touchpoints"],
-    items_zh: ["微信群与社群", "品牌会员与 VIP 群", "自有内容触点"],
+    myth_en: "Everyone is on Douyin, so I must be too.",
+    myth_zh: "大家都在做抖音，我也必须做。",
+    real_en: "Choose platforms based on category and stage, not trends. Douyin excels at seeding but is hard to break even alone — it often needs Tmall for overall profitability.",
+    real_zh: "根据品类和阶段选平台，而不是追趋势。抖音擅长种草但单独做很难盈利，通常需要天猫配合实现整体盈利。",
   },
   {
-    q_en: "Private · Conversion",
-    q_zh: "私域 · 转化",
-    items_en: ["WeChat Mini Program store", " Membership re-purchase loops", "1-to-1 clienteling (Enterprise WeChat)"],
-    items_zh: ["微信小程序商城", "会员复购闭环", "企微 1 对 1 客户运营"],
-  },
-];
-
-// 01 — Promotion calendar
-const promo = [
-  {
-    name: "618",
-    date_en: "Mid-year · June 18",
-    date_zh: "年中 · 6 月 18 日",
-    desc_en: "The first major sales peak of the year — a must-win window for category leadership.",
-    desc_zh: "全年第一个大促峰值，是抢占品类心智的关键窗口。",
-  },
-  {
-    name: "Double 11",
-    date_en: "Year-end · November 11",
-    date_zh: "年末 · 11 月 11 日",
-    desc_en: "The largest single-day shopping festival — peak traffic, peak competition, peak ROI pressure.",
-    desc_zh: "全球最大单日购物节，流量、竞争与 ROI 压力同时见顶。",
-  },
-];
-
-// 02 — Common misconceptions
-const myths = [
-  {
-    no: "01",
-    myth_en: "Once I'm on Tmall or JD, the platform will buy out or run my brand for me.",
-    myth_zh: "进了天猫或京东，平台就会买断或替我运营品牌。",
-    real_en:
-      "Platforms are channels, not brand owners. Platform self-operation or distribution is just one model of cooperation — brand ownership always stays with you. Know the difference between flagship (you operate), platform self-op (platform procures stock), and distribution.",
-    real_zh:
-      "平台是渠道方，不是品牌方。平台自营或经销只是分销方式之一，品牌归属永远在品牌方。要分清「旗舰店（你运营）/ 平台自营（平台采购）/ 经销」三种权责边界。",
-  },
-  {
-    no: "02",
-    myth_en: "Opening a Tmall flagship store is all I need — or every brand follows one playbook.",
-    myth_zh: "开个天猫旗舰店就完事了，或者所有品牌都该走同一套打法。",
-    real_en:
-      "China's e-commerce is multi-form. Flagship, platform self-op, Douyin content commerce, RED seeding, WeChat private domain, distributors and DTC all coexist. The right mix depends on your category and brand stage — not a single template.",
-    real_zh:
-      "中国电商是多形态并存的：旗舰店、平台自营、抖音内容电商、小红书种草、微信私域、经销商、DTC。正确组合取决于品类与品牌阶段，不是一套模板。",
-  },
-  {
-    no: "03",
-    myth_en: "Everyone is on Douyin, so I must be there too — or I'll fall behind.",
-    myth_zh: "别人都做抖音，我不做就落后了。",
-    real_en:
-      "Choose platforms by category and brand stage, not by hype. Douyin excels at seeding and bursts, but it is hard for smaller players to break even alone — our data shows it often needs to be combined with Tmall to reach overall profitability. Build assets, don't just chase platforms.",
-    real_zh:
-      "按品类与品牌阶段选平台，而不是追风口。抖音强在种草与爆发，但小玩家单独很难打平——数据显示它常需与天猫组合才能达到整体盈亏平衡。要建资产，不要只追平台。",
-  },
-  {
-    no: "04",
-    myth_en: "Just pour money into performance ads for sales now; we'll build the brand later.",
+    myth_en: "Blast performance ads first, build the brand later.",
     myth_zh: "先砸效果广告冲销量，品牌以后再说。",
-    real_en:
-      "Branding and trade/performance marketing are not either-or — they are layers. Brand equity compounds long-term; trade marketing drives short-term conversion. Start with the end in mind: set the business goal first, then choose the mix. Content and product are the foundation; tools are leverage.",
-    real_zh:
-      "品牌与效果/贸易营销不是二选一，而是分层。品牌资产长期复利，贸易营销驱动短期转化。以终为始：先定生意目标，再选组合。内容与产品是地基，工具只是杠杆。",
+    real_en: "Brand and performance are layered, not sequential. Brand assets compound long-term; trade marketing drives short-term conversion. They should run in parallel from day one.",
+    real_zh: "品牌与效果营销是叠加关系，不是先后关系。品牌资产长期积累，效果营销驱动短期转化——两者应从第一天起同步推进。",
   },
 ];
 
-// 03 — Service optimization & capability building
-const build = [
-  {
-    Icon: IconUsers,
-    en: "Customer journey tiering (AIPL)",
-    zh: "客户旅程分层（AIPL）",
-    body_en:
-      "Map the full path — Awareness, Interest, Purchase, Loyalty — and deploy the right tool at each stage. Platforms provide advertising products to maximize every step of the funnel.",
-    body_zh:
-      "梳理完整路径——认知、兴趣、购买、忠诚，并在每个阶段部署对的工具。平台提供广告产品把漏斗每一步都最大化。",
-  },
-  {
-    Icon: IconTarget,
-    en: "Goal-first transmission",
-    zh: "以终为始的目标传递",
-    body_en:
-      "Sales, PR, reputation and user growth demand completely different approaches. Define the business goal before execution — precisely targeted spend without direction is just burning money.",
-    body_zh:
-      "销量、公关、口碑、用户增长需要完全不同的打法。执行前先定生意目标——方向不清的精准投放，只是烧钱。",
-  },
-  {
-    Icon: IconContent,
-    en: "Content capability upgrade",
-    zh: "内容能力升级",
-    body_en:
-      "Three mechanisms work together: platform performance marketing, social seeding, and platform marketing IP. Content and product are the foundation; the rest is leverage on top of it.",
-    body_zh:
-      "三类机制协同：平台效果营销、社媒种草、平台营销 IP。内容与产品是地基，其余都是叠加其上的杠杆。",
-  },
-];
-
-// 04 — Social & content localization
-const social = [
-  {
-    Icon: IconNetwork,
-    en: "Platform selection",
-    zh: "平台选择",
-    body_en:
-      "Match platforms to category and audience. Beauty, food and apparel fit content commerce well; high-consideration or B2B categories need a different entry point. Decide by the consumer decision path, not the trend.",
-    body_zh:
-      "按品类与人群匹配平台。美妆、食品、服饰天然适配内容电商；高客单或 B2B 品类需要不同切入点。看消费者决策路径，而不是看风口。",
-  },
-  {
-    Icon: IconContent,
-    en: "Content strategy",
-    zh: "内容策略",
-    body_en:
-      "A rhythm of daily, thematic and campaign content keeps the brand present and educates new consumers, while big campaigns concentrate impact around promotion peaks.",
-    body_zh:
-      "日常、主题、大促三层内容节奏，既维持品牌在场、教育新客，又在大促节点集中爆发。",
-  },
-  {
-    Icon: IconUsers,
-    en: "KOL collaboration",
-    zh: "达人合作",
-    body_en:
-      "Tiers span from top anchors (¥10M+ per live) to pure-commission streamers. Select by audience fit and sales data, and seed a hero product on RED / Douyin before the live to maximize conversion.",
-    body_zh:
-      "从头部主播（单场千万级）到纯佣达人，按人群匹配与销售数据筛选；直播前先在小红书 / 抖音种草爆款，放大转化。",
-  },
-  {
-    Icon: IconStrategy,
-    en: "Localized expression",
-    zh: "本地化表达",
-    body_en:
-      "The premium attached to 'international brands' is fading fast. What resonates with Chinese consumers is genuine local emotion — not imported brand mythology. Localize the feeling, not just the language.",
-    body_zh:
-      "「进口品牌」的光环正在快速褪色。能打动中国消费者的，是真实的本地情绪，而不是进口的牌子神话。本地化的是感受，而不只是语言。",
-  },
-];
-
-/* ============================================================
-   COMPONENT
-   ============================================================ */
+/* ─── Component ─────────────────────────────────────────── */
 
 export default function ChinaMarketClient() {
   const { lang, prefixPath } = useLang();
 
   return (
     <>
-      {/* ===================== HERO ===================== */}
+      {/* ══════════ HERO ══════════ */}
       <section className="relative overflow-hidden bg-navy text-white">
         <div
           className="absolute inset-0"
-          style={{ background: "linear-gradient(120deg,#000a56,#004fb0)" }}
+          style={{ background: "linear-gradient(135deg, #000a56 0%, #001a6e 45%, #003a96 100%)" }}
         />
         <span
           className="deco-circle"
-          style={{ width: 460, height: 460, right: -140, top: -180, background: "rgba(79,134,214,0.22)" }}
+          style={{ width: 480, height: 480, right: -160, top: -200, background: "rgba(79,134,214,0.15)" }}
         />
         <span
           className="deco-circle"
-          style={{ width: 320, height: 320, left: -120, bottom: -140, background: "rgba(25,172,113,0.16)" }}
+          style={{ width: 320, height: 320, left: -80, bottom: -120, background: "rgba(0,93,196,0.12)" }}
         />
-        <div className="container-tlp relative py-24 md:py-28">
+
+        <div className="container-tlp relative py-24 md:py-32">
           <span className="eyebrow text-white bg-white/15 backdrop-blur-sm rounded-full px-4 py-1.5">
-            {t(lang, "China Market", "中国市场")}
+            {t(lang, "China Market Guide", "中国市场指南")}
           </span>
-          <h1 className="mt-5 text-4xl md:text-5xl font-extrabold max-w-4xl">
+          <h1 className="mt-5 text-3xl md:text-5xl font-extrabold max-w-3xl leading-tight">
             {t(
               lang,
-              "Understand the China market before you enter it",
-              "进入中国市场之前，先读懂它"
+              "Understand the market before you enter it",
+              "进入中国之前，先读懂这个市场"
             )}
           </h1>
-          <p className="mt-6 text-lg text-white/85 max-w-2xl leading-relaxed">
+          <p className="mt-5 text-lg text-white/80 max-w-2xl">
             {t(
               lang,
-              "A practical guide for global brands: how China's digital ecosystem really works, the models behind it, and the misconceptions that cost foreign brands time and budget.",
-              "为国外品牌准备的一份实战指南：中国数字生态到底怎么运转、背后是什么模型，以及那些让外国品牌白花时间与预算的误区。"
+                "A practical guide for international brands — the decision framework, common pitfalls, and what you actually need to get right, from strategy to execution.",
+              "一份面向国际品牌的实战指南——从决策框架、常见陷阱到从策略到落地你需要做对的一切。"
             )}
           </p>
 
-          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl">
-            {[
-              { n: "¥15T+", l_en: "Online retail (approx. 2025)", l_zh: "线上零售（约 2025）" },
-              { n: "900M+", l_en: "Online shoppers", l_zh: "线上购物用户" },
-              { n: "1.3B+", l_en: "WeChat users", l_zh: "微信用户" },
-              { n: "5+", l_en: "Major platforms to master", l_zh: "需要攻克的头部平台" },
-            ].map((s) => (
-              <div key={s.n} className="rounded-2xl border border-white/15 bg-white/5 px-5 py-5 backdrop-blur-sm">
-                <div className="text-3xl font-extrabold text-white">{s.n}</div>
-                <div className="mt-1.5 text-xs text-white/70">{t(lang, s.l_en, s.l_zh)}</div>
-              </div>
+          {/* Journey pills */}
+          <div className="mt-10 flex flex-wrap gap-3">
+            {chapters.map((ch, i) => (
+              <a
+                key={ch.id}
+                href={`#${ch.id}`}
+                className="group inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/20 px-4 py-2 text-sm font-semibold text-white/90 hover:bg-white/20 transition-colors"
+              >
+                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/20 text-xs font-bold">
+                  {i + 1}
+                </span>
+                {t(lang, ch.en, ch.zh)}
+              </a>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ===================== 01 现状与模式 ===================== */}
-      <section className="section">
+      {/* ══════════ CH 1 — BEFORE YOU ENTER ══════════ */}
+      <section id="before" className="section">
         <div className="container-tlp">
-          <Reveal className="max-w-3xl">
-            <span className="eyebrow">01 · {t(lang, "Landscape & Models", "现状与模式")}</span>
+          <Reveal className="max-w-2xl">
+            <span className="eyebrow">{t(lang, "Chapter 1", "第一章")}</span>
             <h2 className="mt-4 text-3xl md:text-4xl font-extrabold text-navy">
-              {t(
-                lang,
-                "A dynamic ecosystem — not one platform, not one model",
-                "一个充满活力的生态 —— 不是一个平台，也不是一种模式"
-              )}
+              {t(lang, "Before You Enter — Understand the Market", "进入前 — 看清市场")}
             </h2>
             <p className="mt-4 text-lg text-muted">
               {t(
                 lang,
-                "China's digital ecosystem is dominated by a few giants, but every platform plays a distinct role across the consumer journey.",
-                "中国数字生态由几家巨头主导，但每个平台在消费者旅程中扮演不同角色。"
+                "China's digital ecosystem is not one platform or one model — it's a vibrant, interconnected landscape. Before you invest, understand what you're stepping into.",
+                "中国的数字生态不是单一平台或单一模式——而是一个充满活力的互联生态。在投入之前，先了解你要进入的是什么。"
               )}
             </p>
           </Reveal>
 
-          {/* Platform ecosystem */}
-          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
+          {/* Platform landscape */}
+          <Reveal delay={80}>
+            <h3 className="mt-12 text-xl font-bold text-navy">
+              {t(lang, "The Platform Landscape", "平台全景")}
+            </h3>
+            <p className="mt-2 text-muted max-w-2xl">
+              {t(
+                lang,
+                "Five major platforms, each with a distinct role in the consumer journey:",
+                "五大核心平台，各自在消费者旅程中扮演不同角色："
+              )}
+            </p>
+          </Reveal>
+
+          <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
             {platforms.map((p, i) => (
-              <Reveal key={p.key} delay={i * 70}>
-                <div className="card h-full p-6 flex flex-col">
-                  <span className="h-1.5 w-10 rounded-full" style={{ background: p.color }} />
-                  <h3 className="mt-4 text-lg font-bold text-navy leading-tight">{t(lang, p.name_en, p.name_zh)}</h3>
-                  <p className="mt-2 text-sm text-muted flex-1">{t(lang, p.role_en, p.role_zh)}</p>
-                  <div className="mt-4 flex items-end justify-between">
-                    <span className="text-2xl font-extrabold text-gradient">{p.mau}</span>
-                    <span className="text-xs font-semibold text-brand bg-sky-50 rounded-full px-2.5 py-1">
-                      {t(lang, p.tag_en, p.tag_zh)}
+              <Reveal key={p.name} delay={i * 70}>
+                <div className="card h-full p-5">
+                  <span className="text-lg font-extrabold text-gradient">{p.name}</span>
+                  <span className="ml-2 text-xs font-bold text-brand bg-sky-50 rounded-full px-2 py-0.5">
+                    {p.users}
+                  </span>
+                  <p className="mt-3 text-sm text-muted leading-relaxed">
+                    {t(lang, p.en, p.zh)}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          {/* Market evolution */}
+          <Reveal delay={100}>
+            <h3 className="mt-14 text-xl font-bold text-navy">
+              {t(lang, "25 Years of Market Evolution", "25年市场演变")}
+            </h3>
+            <p className="mt-2 text-muted max-w-2xl">
+              {t(
+                lang,
+                "This market has matured through five distinct eras. Understanding this history explains why a one-size-fits-all playbook no longer works.",
+                "这个市场经历了五个截然不同的阶段。理解这段历史，就能明白为什么「一套打法通吃」已经行不通。"
+              )}
+            </p>
+          </Reveal>
+
+          <Reveal delay={120}>
+            <div className="mt-8 relative">
+              {/* timeline line */}
+              <div className="absolute left-[19px] top-2 bottom-2 w-px bg-sky hidden md:block" />
+              <div className="grid md:grid-cols-5 gap-4">
+                {eras.map((era, i) => (
+                  <div key={era.period} className="relative pl-0 md:pl-0">
+                    <div className="flex md:flex-col items-start md:items-start gap-3 md:gap-0">
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand text-white text-sm font-bold">
+                        {i + 1}
+                      </span>
+                      <div className="md:mt-3">
+                        <span className="text-xs font-bold text-brand tracking-wide">{era.period}</span>
+                        <p className="mt-1 text-sm text-ink leading-relaxed">{t(lang, era.en, era.zh)}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+
+          {/* Key takeaway */}
+          <Reveal delay={140}>
+            <div className="mt-12 rounded-2xl bg-sky-50 border border-sky/60 p-7 md:p-9">
+              <p className="text-base md:text-lg text-ink/85">
+                <strong className="text-navy">
+                  {t(lang, "The bottom line: ", "核心结论：")}
+                </strong>
+                {t(
+                  lang,
+                  "Today's China market requires a coordinated, multi-touchpoint strategy. No single platform, no single model, no shortcut. Brands that succeed are the ones that understand this complexity — and plan for it before they enter.",
+                  "今天的中国市场需要协调一致的多触点策略。没有单一平台、没有单一模式、没有捷径。成功的品牌，是那些在进入之前就理解这种复杂性并做好准备的品牌。"
+                )}
+              </p>
+            </div>
+          </Reveal>
+
+          {/* Journey flow */}
+          <Reveal delay={160}>
+            <div className="mt-12 flex justify-center">
+              <a href="#path" className="group flex items-center gap-2 text-brand font-semibold hover:text-navy transition-colors">
+                {t(lang, "Next: Choose your path", "下一步：选择你的路径")}
+                <IconArrow width={18} height={18} />
+              </a>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ══════════ CH 2 — CHOOSE YOUR PATH ══════════ */}
+      <section id="path" className="section bg-cream">
+        <div className="container-tlp">
+          <Reveal className="max-w-2xl">
+            <span className="eyebrow">{t(lang, "Chapter 2", "第二章")}</span>
+            <h2 className="mt-4 text-3xl md:text-4xl font-extrabold text-navy">
+              {t(lang, "Choose Your Path — Brand or Sales?", "选择路径 — 做品牌还是做销售？")}
+            </h2>
+            <p className="mt-4 text-lg text-muted">
+              {t(
+                lang,
+                "The first strategic decision isn't which platform to pick — it's what kind of presence you want to build. Two legitimate paths, very different resource profiles.",
+                "第一个战略决策不是选哪个平台——而是你想建立什么样的市场存在。两条路都合理，但资源配置截然不同。"
+              )}
+            </p>
+          </Reveal>
+
+          <div className="mt-12 grid md:grid-cols-2 gap-6">
+            {/* Path A */}
+            <Reveal delay={60}>
+              <div className="card h-full p-8 border-t-4 border-t-brand">
+                <span className="text-5xl font-extrabold text-gradient">A</span>
+                <h3 className="mt-4 text-xl font-bold text-navy">
+                  {t(lang, "Brand First", "品牌先行")}
+                </h3>
+                <p className="mt-3 text-muted">
+                  {t(
+                    lang,
+                    "For international brands with brand equity willing to invest medium-to-long term. Build awareness and reputation first, then scale conversion.",
+                    "适合拥有品牌资产、愿意中长期投入的国际品牌。先建立认知和口碑，再逐步规模化转化。"
+                  )}
+                </p>
+                <ul className="mt-5 space-y-2.5">
+                  {[
+                    { en: "Brand naming & identity localization", zh: "品牌命名与识别本地化" },
+                    { en: "Positioning & differentiation strategy", zh: "定位与差异化战略" },
+                    { en: "Platform-adapted messaging", zh: "平台适配的传播语言" },
+                    { en: "Seeding & word-of-mouth building", zh: "种草与口碑积累" },
+                  ].map((item) => (
+                    <li key={item.en} className="flex gap-2 text-sm text-ink">
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
+                      {t(lang, item.en, item.zh)}
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href="#brand"
+                  className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-brand hover:text-navy transition-colors"
+                >
+                  {t(lang, "Explore the brand path", "了解品牌路径")}
+                  <IconArrow width={14} height={14} />
+                </a>
+              </div>
+            </Reveal>
+
+            {/* Path B */}
+            <Reveal delay={120}>
+              <div className="card h-full p-8 border-t-4 border-t-green">
+                <span className="text-5xl font-extrabold" style={{ color: "#19ac71" }}>
+                  B
+                </span>
+                <h3 className="mt-4 text-xl font-bold text-navy">
+                  {t(lang, "Sales Driven", "销售驱动")}
+                </h3>
+                <p className="mt-3 text-muted">
+                  {t(
+                    lang,
+                    "For brands that want to quickly validate market fit. Pick the right channels, run the conversion loop, then decide on brand investment.",
+                    "适合想快速验证市场匹配度的品牌。选对渠道，跑通转化闭环，再决定品牌投入。"
+                  )}
+                </p>
+                <ul className="mt-5 space-y-2.5">
+                  {[
+                    { en: "Platform & channel selection", zh: "平台与渠道选择" },
+                    { en: "Store model & distribution design", zh: "店铺模式与分销设计" },
+                    { en: "Conversion loop optimization", zh: "转化闭环优化" },
+                    { en: "Shopping festival calendar", zh: "购物节点规划" },
+                  ].map((item) => (
+                    <li key={item.en} className="flex gap-2 text-sm text-ink">
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-green" />
+                      {t(lang, item.en, item.zh)}
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href="#sales"
+                  className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-brand hover:text-navy transition-colors"
+                >
+                  {t(lang, "Explore the sales path", "了解销售路径")}
+                  <IconArrow width={14} height={14} />
+                </a>
+              </div>
+            </Reveal>
+          </div>
+
+          {/* Misconceptions */}
+          <Reveal delay={100}>
+            <h3 className="mt-16 text-xl font-bold text-navy">
+              {t(lang, "Four Assumptions That Quietly Consume Budgets", "四个悄悄烧掉预算的假设")}
+            </h3>
+            <p className="mt-2 text-muted max-w-2xl">
+              {t(
+                lang,
+                "These are the most common mistakes we see international brands make when entering China:",
+                "以下是我们最常见到的国际品牌进入中国时犯的错误："
+              )}
+            </p>
+          </Reveal>
+
+          <div className="mt-8 grid md:grid-cols-2 gap-5">
+            {misconceptions.map((m, i) => (
+              <Reveal key={i} delay={i * 80}>
+                <div className="card h-full p-7">
+                  <div className="flex items-start gap-3">
+                    <span className="shrink-0 flex h-8 w-8 items-center justify-center rounded-full bg-red-50 text-red-500 text-sm font-bold">
+                      !
                     </span>
+                    <div>
+                      <p className="font-bold text-navy">{t(lang, m.myth_en, m.myth_zh)}</p>
+                      <p className="mt-2 text-sm text-muted leading-relaxed">
+                        {t(lang, m.real_en, m.real_zh)}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </Reveal>
             ))}
           </div>
-          <p className="mt-4 text-xs text-muted/70">
-            {t(
-              lang,
-              "Monthly active users are indicative figures for 2025, for orientation only.",
-              "月活用户为 2025 年参考性数据，仅用于建立认知。"
-            )}
-          </p>
 
-          {/* Evolution timeline */}
-          <Reveal className="mt-16 max-w-3xl">
-            <h3 className="text-2xl font-extrabold text-navy">
-              {t(lang, "How we got here: five eras in 25 years", "来路：25 年里的五个时代")}
-            </h3>
+          <Reveal delay={160}>
+            <div className="mt-12 flex justify-center">
+              <a href="#brand" className="group flex items-center gap-2 text-brand font-semibold hover:text-navy transition-colors">
+                {t(lang, "Next: The brand path in detail", "下一步：品牌路径详解")}
+                <IconArrow width={18} height={18} />
+              </a>
+            </div>
           </Reveal>
-          <div className="mt-8 relative">
-            <div className="hidden md:block absolute top-7 left-0 right-0 h-0.5 bg-slate-200" />
-            <div className="grid md:grid-cols-5 gap-6">
-              {timeline.map((s, i) => (
-                <Reveal key={s.yr} delay={i * 70}>
-                  <div className="relative">
-                    <div className="hidden md:flex h-14 w-14 items-center justify-center rounded-full bg-brand text-white text-xs font-bold mx-auto relative z-10 shadow-[0_10px_24px_-10px_rgba(0,93,196,0.7)]">
-                      {i + 1}
-                    </div>
-                    <div className="card mt-4 md:mt-5 p-5">
-                      <div className="text-xs font-bold text-brand tracking-wide">{s.yr}</div>
-                      <div className="mt-1 text-base font-bold text-navy">{t(lang, s.en, s.zh)}</div>
-                      <p className="mt-2 text-sm text-muted leading-relaxed">{t(lang, s.desc_en, s.desc_zh)}</p>
-                    </div>
+        </div>
+      </section>
+
+      {/* ══════════ CH 3 — BRAND PATH ══════════ */}
+      <section id="brand" className="section">
+        <div className="container-tlp">
+          <Reveal className="max-w-2xl">
+            <span className="eyebrow">{t(lang, "Chapter 3", "第三章")}</span>
+            <h2 className="mt-4 text-3xl md:text-4xl font-extrabold text-navy">
+              {t(lang, "The Brand Path — From Naming to Messaging", "品牌路径 — 从命名到落地传播")}
+            </h2>
+            <p className="mt-4 text-lg text-muted">
+              {t(
+                lang,
+                "If you've chosen brand first, the work follows a clear chain: give the brand a local identity, define its position, then translate that position into platform-native content.",
+                "如果你选择了品牌先行，接下来的工作是一条清晰的链条：赋予品牌本地身份，明确品牌定位，再将定位转化为平台原生的内容。"
+              )}
+            </p>
+          </Reveal>
+
+          <div className="mt-12 grid md:grid-cols-3 gap-6">
+            {/* Naming */}
+            <Reveal delay={60}>
+              <div className="card h-full p-8">
+                <div className="flex items-center gap-3">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-brand text-white text-base font-bold">
+                    1
+                  </span>
+                  <h3 className="text-lg font-bold text-navy">
+                    {t(lang, "Naming & Identity", "命名与品牌资产")}
+                  </h3>
+                </div>
+                <ul className="mt-5 space-y-3">
+                  {[
+                    { en: "Chinese brand name creation — not just translation, but cultural resonance", zh: "中文品牌命名——不是翻译，而是文化共鸣" },
+                    { en: "Visual identity adaptation for local market contexts", zh: "视觉识别体系的本地化适配" },
+                    { en: "Verbal identity: tone, voice, and naming conventions that feel local", zh: "语言识别：让语调、声音和命名规范有本地感" },
+                    { en: "The 'imported brand' halo is fading — authentic local emotional connection wins", zh: "\"进口光环\"正在消退——真实的本地情感连接才能胜出" },
+                  ].map((item) => (
+                    <li key={item.en} className="flex gap-2 text-sm text-ink">
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
+                      {t(lang, item.en, item.zh)}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+
+            {/* Positioning */}
+            <Reveal delay={120}>
+              <div className="card h-full p-8">
+                <div className="flex items-center gap-3">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-brand text-white text-base font-bold">
+                    2
+                  </span>
+                  <h3 className="text-lg font-bold text-navy">
+                    {t(lang, "Positioning", "品牌定位")}
+                  </h3>
+                </div>
+                <ul className="mt-5 space-y-3">
+                  {[
+                    { en: "Where do you sit vs. local competitors? Mapping the competitive landscape", zh: "相对本土竞品你的位置在哪里？绘制竞争格局地图" },
+                    { en: "Why should Chinese consumers choose you? Defining the brand promise", zh: "中国消费者为什么要选你？定义品牌承诺" },
+                    { en: "Price architecture & value proposition calibration", zh: "价格架构与价值主张校准" },
+                    { en: "Category entry point — which subcategory to own first", zh: "品类切入点——先占领哪个细分品类" },
+                  ].map((item) => (
+                    <li key={item.en} className="flex gap-2 text-sm text-ink">
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
+                      {t(lang, item.en, item.zh)}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+
+            {/* Messaging */}
+            <Reveal delay={180}>
+              <div className="card h-full p-8">
+                <div className="flex items-center gap-3">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-brand text-white text-base font-bold">
+                    3
+                  </span>
+                  <h3 className="text-lg font-bold text-navy">
+                    {t(lang, "Messaging & Content", "落地传播与内容")}
+                  </h3>
+                </div>
+                <ul className="mt-5 space-y-3">
+                  {[
+                    { en: "Platform-adapted messaging — same brand, different expression per channel", zh: "平台适配传播语言——同一品牌，不同渠道不同表达" },
+                    { en: "Xiaohongshu: educational, lifestyle-first seeding content", zh: "小红书：教育性、生活方式优先的种草内容" },
+                    { en: "Douyin: snackable short-video storytelling & scenario demos", zh: "抖音：碎片化短视频叙事与场景化演示" },
+                    { en: "WeChat: long-form brand stories & community depth", zh: "微信：长内容品牌故事与社群深度运营" },
+                  ].map((item) => (
+                    <li key={item.en} className="flex gap-2 text-sm text-ink">
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
+                      {t(lang, item.en, item.zh)}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+          </div>
+
+          {/* Flow note */}
+          <Reveal delay={200}>
+            <div className="mt-10 rounded-2xl bg-sky-50 border border-sky/60 p-7">
+              <p className="text-base text-ink/85">
+                <strong className="text-navy">
+                  {t(lang, "How these three connect: ", "这三步如何衔接：")}
+                </strong>
+                {t(
+                  lang,
+                  "Naming gives you a local identity. Positioning gives you a reason to exist. Messaging turns that reason into content that lives natively on each platform. Skip any step and the chain breaks — you end up with translated slogans that nobody searches for.",
+                  "命名给你本地身份，定位给你存在理由，传播把理由变成各平台原生内容。跳过任何一步，链条就断了——你最终只会得到一堆没人会搜的翻译口号。"
+                )}
+              </p>
+            </div>
+          </Reveal>
+
+          <Reveal delay={220}>
+            <div className="mt-10 flex justify-center">
+              <a href="#sales" className="group flex items-center gap-2 text-brand font-semibold hover:text-navy transition-colors">
+                {t(lang, "Next: The sales path", "下一步：销售路径")}
+                <IconArrow width={18} height={18} />
+              </a>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ══════════ CH 4 — SALES PATH ══════════ */}
+      <section id="sales" className="section bg-cream">
+        <div className="container-tlp">
+          <Reveal className="max-w-2xl">
+            <span className="eyebrow">{t(lang, "Chapter 4", "第四章")}</span>
+            <h2 className="mt-4 text-3xl md:text-4xl font-extrabold text-navy">
+              {t(lang, "The Sales Path — From Selection to Conversion", "销售路径 — 从选品到转化")}
+            </h2>
+            <p className="mt-4 text-lg text-muted">
+              {t(
+                lang,
+                "If your priority is fast market validation, the focus shifts to channel selection, store design, and running a tight conversion loop.",
+                "如果你的优先级是快速验证市场，重点就转向渠道选择、店铺设计和跑通转化闭环。"
+              )}
+            </p>
+          </Reveal>
+
+          <div className="mt-12 grid md:grid-cols-3 gap-6">
+            {/* Platform Selection */}
+            <Reveal delay={60}>
+              <div className="card h-full p-7">
+                <h3 className="text-lg font-bold text-navy">
+                  {t(lang, "Platform Selection", "平台选择")}
+                </h3>
+                <p className="mt-3 text-sm text-muted">
+                  {t(
+                    lang,
+                    "Match platforms to your category and target demographics:",
+                    "根据品类和目标人群选择平台："
+                  )}
+                </p>
+                <ul className="mt-4 space-y-2.5">
+                  {[
+                    { en: "Beauty & food — content platforms (Douyin, RED)", zh: "美妆、食品 — 内容平台（抖音、小红书）" },
+                    { en: "Premium & trust-critical — Tmall flagship, JD logistics", zh: "高端、信任敏感 — 天猫旗舰、京东物流" },
+                    { en: "High-ticket & B2B — WeChat private domain first", zh: "高客单、B2B — 微信私域优先" },
+                  ].map((item) => (
+                    <li key={item.en} className="flex gap-2 text-sm text-ink">
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-green" />
+                      {t(lang, item.en, item.zh)}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+
+            {/* Store Model */}
+            <Reveal delay={120}>
+              <div className="card h-full p-7">
+                <h3 className="text-lg font-bold text-navy">
+                  {t(lang, "Store Model & Distribution", "店铺模式与分销")}
+                </h3>
+                <p className="mt-3 text-sm text-muted">
+                  {t(
+                    lang,
+                    "Three operating models — the right one depends on control, cost and speed:",
+                    "三种运营模式——选择取决于控制力、成本和速度："
+                  )}
+                </p>
+                <ul className="mt-4 space-y-2.5">
+                  {[
+                    { en: "Flagship store — maximum brand control, highest cost", zh: "旗舰店 — 品牌控制力最强，成本最高" },
+                    { en: "Platform self-operated (JD, Tmall Supermarket) — shared logistics", zh: "平台自营（京东、天猫超市）— 共享物流体系" },
+                    { en: "Authorized distribution — broadest reach, lower margin", zh: "授权分销 — 覆盖最广，利润较低" },
+                  ].map((item) => (
+                    <li key={item.en} className="flex gap-2 text-sm text-ink">
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-green" />
+                      {t(lang, item.en, item.zh)}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+
+            {/* Conversion & Festivals */}
+            <Reveal delay={180}>
+              <div className="card h-full p-7">
+                <h3 className="text-lg font-bold text-navy">
+                  {t(lang, "Conversion Loop & Key Moments", "转化闭环与关键节点")}
+                </h3>
+                <p className="mt-3 text-sm text-muted">
+                  {t(
+                    lang,
+                    "Run a tight loop — then scale what works:",
+                    "跑通闭环，再规模化有效打法："
+                  )}
+                </p>
+                <ul className="mt-4 space-y-2.5">
+                  {[
+                    { en: "618 (Jun 18) — mid-year peak, category mindshare battle", zh: "618（6月18日）— 年中大促，品类心智争夺战" },
+                    { en: "Double 11 (Nov 11) — world's largest single-day shopping event", zh: "双11（11月11日）— 全球最大的单日购物节" },
+                    { en: "Content rhythm: daily seeding, thematic campaigns, peak bursts", zh: "内容节奏：日常种草、主题活动、峰值爆发" },
+                  ].map((item) => (
+                    <li key={item.en} className="flex gap-2 text-sm text-ink">
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-green" />
+                      {t(lang, item.en, item.zh)}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+          </div>
+
+          {/* Multi-touchpoint insight */}
+          <Reveal delay={120}>
+            <div className="mt-12 grid md:grid-cols-4 gap-4">
+              {[
+                {
+                  title_en: "Public Seeding",
+                  title_zh: "公域种草",
+                  desc_en: "Xiaohongshu, Douyin KOLs, cross-platform content",
+                  desc_zh: "小红书、抖音达人、跨平台内容",
+                },
+                {
+                  title_en: "Public Conversion",
+                  title_zh: "公域转化",
+                  desc_en: "Tmall/JD flagships, performance ads, livestreaming",
+                  desc_zh: "天猫/京东旗舰店、效果广告、直播带货",
+                },
+                {
+                  title_en: "Private Seeding",
+                  title_zh: "私域种草",
+                  desc_en: "WeChat groups, VIP communities, owned channels",
+                  desc_zh: "微信群、VIP社群、自有渠道",
+                },
+                {
+                  title_en: "Private Conversion",
+                  title_zh: "私域转化",
+                  desc_en: "Mini-programs, repurchase loops, 1-on-1 WeCom ops",
+                  desc_zh: "小程序、复购闭环、企业微信1对1运营",
+                },
+              ].map((q, i) => (
+                <Reveal key={q.title_en} delay={140 + i * 60}>
+                  <div className="card h-full p-5 text-center">
+                    <span className="text-sm font-bold text-brand bg-sky-50 rounded-full px-3 py-1">
+                      {t(lang, q.title_en, q.title_zh)}
+                    </span>
+                    <p className="mt-3 text-sm text-muted">{t(lang, q.desc_en, q.desc_zh)}</p>
                   </div>
                 </Reveal>
               ))}
             </div>
-          </div>
-
-          {/* Channel matrix */}
-          <Reveal className="mt-16 max-w-3xl">
-            <h3 className="text-2xl font-extrabold text-navy">
-              {t(lang, "One touchpoint is not enough", "单一触点已经不够了")}
-            </h3>
-            <p className="mt-3 text-muted">
-              {t(
-                lang,
-                "From 'single touchpoint' to 'multi-touchpoint' — brands must operate across public and private domains, seeding and conversion.",
-                "从「单一触点」到「多触点」——品牌必须在公域与私域、种草与转化之间协同运作。"
-              )}
-            </p>
           </Reveal>
-          <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {matrix.map((m, i) => (
-              <Reveal key={m.q_en} delay={i * 70}>
-                <div className="card h-full p-6 bg-cream">
-                  <div className="text-sm font-bold text-brand">{t(lang, m.q_en, m.q_zh)}</div>
-                  <ul className="mt-4 space-y-2.5">
-                    {t(lang, m.items_en, m.items_zh).map((it: string) => (
-                      <li key={it} className="flex gap-2 text-sm text-ink">
-                        <IconCheck width={16} height={16} className="mt-1 shrink-0 text-green" />
-                        {it}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </Reveal>
-            ))}
-          </div>
 
-          {/* Promotion calendar */}
-          <div className="mt-12 grid md:grid-cols-2 gap-6">
-            {promo.map((p, i) => (
-              <Reveal key={p.name} delay={i * 90}>
-                <div className="card h-full p-8 flex items-center gap-6">
-                  <div className="shrink-0 flex h-20 w-20 items-center justify-center rounded-2xl bg-navy text-white text-2xl font-extrabold">
-                    {p.name}
-                  </div>
-                  <div>
-                    <div className="text-sm font-bold text-brand">{t(lang, p.date_en, p.date_zh)}</div>
-                    <p className="mt-2 text-muted leading-relaxed">{t(lang, p.desc_en, p.desc_zh)}</p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+          <Reveal delay={200}>
+            <div className="mt-12 flex justify-center">
+              <a href="#execution" className="group flex items-center gap-2 text-brand font-semibold hover:text-navy transition-colors">
+                {t(lang, "Next: Execution & capability", "下一步：落地执行与能力建设")}
+                <IconArrow width={18} height={18} />
+              </a>
+            </div>
+          </Reveal>
         </div>
       </section>
 
-      {/* ===================== 02 误区与挑战 ===================== */}
-      <section className="section bg-cream">
+      {/* ══════════ CH 5 — EXECUTION ══════════ */}
+      <section id="execution" className="section">
         <div className="container-tlp">
-          <Reveal className="max-w-3xl">
-            <span className="eyebrow">02 · {t(lang, "Misconceptions", "误区与挑战")}</span>
+          <Reveal className="max-w-2xl">
+            <span className="eyebrow">{t(lang, "Chapter 5", "第五章")}</span>
             <h2 className="mt-4 text-3xl md:text-4xl font-extrabold text-navy">
-              {t(
-                lang,
-                "Four assumptions that quietly drain budget",
-                "四个悄悄吞噬预算的假设"
-              )}
+              {t(lang, "Execution — Turning Strategy into Results", "落地执行 — 把策略变成结果")}
             </h2>
             <p className="mt-4 text-lg text-muted">
               {t(
                 lang,
-                "The most expensive mistakes are the ones made before execution even starts.",
-                "最贵的错误，往往在执行开始之前就已经发生。"
+                "No matter which path you chose, execution requires three capabilities: a clear funnel model, defined business goals, and content that actually works on each platform.",
+                "无论选择哪条路径，落地执行需要三项能力：清晰的漏斗模型、明确的商业目标，以及真正在各平台生效的内容。"
               )}
             </p>
-          </Reveal>
-
-          <div className="mt-12 space-y-5">
-            {myths.map((m, i) => (
-              <Reveal key={m.no} delay={i * 60}>
-                <div className="card overflow-hidden">
-                  <div className="grid md:grid-cols-2">
-                    <div className="p-7 md:p-8 border-b md:border-b-0 md:border-r border-slate-100 bg-white">
-                      <div className="flex items-center gap-3">
-                        <span className="text-2xl font-extrabold text-slate-200">{m.no}</span>
-                        <span className="text-xs font-bold uppercase tracking-wider text-orange">
-                          {t(lang, "Myth", "误区")}
-                        </span>
-                      </div>
-                      <p className="mt-3 text-lg font-semibold text-navy leading-snug">
-                        {t(lang, m.myth_en, m.myth_zh)}
-                      </p>
-                    </div>
-                    <div className="p-7 md:p-8 bg-sky-50/60">
-                      <div className="flex items-center gap-3">
-                        <IconCheck width={18} height={18} className="text-green" />
-                        <span className="text-xs font-bold uppercase tracking-wider text-green">
-                          {t(lang, "Reality", "现实")}
-                        </span>
-                      </div>
-                      <p className="mt-3 text-muted leading-relaxed">{t(lang, m.real_en, m.real_zh)}</p>
-                    </div>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ===================== 03 服务优化与能力建设 ===================== */}
-      <section className="section">
-        <div className="container-tlp">
-          <Reveal className="max-w-3xl">
-            <span className="eyebrow">03 · {t(lang, "Optimization & Capability", "服务优化与能力建设")}</span>
-            <h2 className="mt-4 text-3xl md:text-4xl font-extrabold text-navy">
-              {t(
-                lang,
-                "Turn understanding into execution",
-                "把「读懂」变成「落地」"
-              )}
-            </h2>
           </Reveal>
 
           <div className="mt-12 grid md:grid-cols-3 gap-6">
-            {build.map((b, i) => {
-              const Ico = b.Icon;
-              return (
-                <Reveal key={b.en} delay={i * 90}>
-                  <div className="card h-full p-8">
-                    <span className="icon-tile">
-                      <Ico width={40} height={40} />
-                    </span>
-                    <h3 className="mt-5 text-xl font-bold text-navy">{t(lang, b.en, b.zh)}</h3>
-                    <p className="mt-3 text-muted leading-relaxed">{t(lang, b.body_en, b.body_zh)}</p>
-                  </div>
-                </Reveal>
-              );
-            })}
+            {[
+              {
+                no: "01",
+                title_en: "Customer Journey Layering",
+                title_zh: "客户旅程分层",
+                sub_en: "Awareness → Interest → Purchase → Loyalty",
+                sub_zh: "认知 → 兴趣 → 购买 → 忠诚",
+                desc_en: "Map every touchpoint to a funnel stage. Deploy the right tools and content at each level — don't blast the same message everywhere.",
+                desc_zh: "将每个触点对应到漏斗阶段，在每一层部署正确的工具和内容——而不是到处投放同样的信息。",
+              },
+              {
+                no: "02",
+                title_en: "End-in-Mind Goal Delivery",
+                title_zh: "以终为始的目标交付",
+                sub_en: "Sales, PR, word-of-mouth, growth — define before you spend",
+                sub_zh: "销售、公关、口碑、增长——花钱之前先定义目标",
+                desc_en: "Without defined business goals, you're burning money on directionless targeting. Set the KPIs first, then design the execution backwards.",
+                desc_zh: "没有明确的商业目标，就是在漫无目的地烧钱。先设定KPI，再倒推设计执行方案。",
+              },
+              {
+                no: "03",
+                title_en: "Content Capability Upgrade",
+                title_zh: "内容能力升级",
+                sub_en: "Platform marketing + social seeding + IP collaboration",
+                sub_zh: "平台营销 + 社交种草 + IP联名",
+                desc_en: "Content and products are the foundation; tools and platforms are just leverage. Upgrade from 'posting content' to 'running a content system'.",
+                desc_zh: "内容和产品是基础，工具和平台只是杠杆。从「发内容」升级到「运营内容体系」。",
+              },
+            ].map((cap, i) => (
+              <Reveal key={cap.no} delay={i * 90}>
+                <div className="card h-full p-8">
+                  <span className="text-5xl font-extrabold text-gradient">{cap.no}</span>
+                  <h3 className="mt-4 text-lg font-bold text-navy">
+                    {t(lang, cap.title_en, cap.title_zh)}
+                  </h3>
+                  <p className="mt-1 text-sm font-semibold text-brand">
+                    {t(lang, cap.sub_en, cap.sub_zh)}
+                  </p>
+                  <p className="mt-4 text-sm text-muted leading-relaxed">
+                    {t(lang, cap.desc_en, cap.desc_zh)}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
           </div>
-        </div>
-      </section>
 
-      {/* ===================== 04 社媒运营与内容本地化 ===================== */}
-      <section className="section bg-cream">
-        <div className="container-tlp">
-          <Reveal className="max-w-3xl">
-            <span className="eyebrow">04 · {t(lang, "Social & Content Localization", "社媒运营与内容本地化")}</span>
-            <h2 className="mt-4 text-3xl md:text-4xl font-extrabold text-navy">
-              {t(
-                lang,
-                "Where we can help you directly",
-                "我们能直接帮你落地的部分"
-              )}
-            </h2>
-            <p className="mt-4 text-lg text-muted">
-              {t(
-                lang,
-                "Platform selection, content strategy, KOL collaboration and localized expression — the parts of the journey where local execution makes or breaks the result.",
-                "平台选择、内容策略、达人合作与本地化表达——本地化执行决定成败的那一段旅程。"
-              )}
-            </p>
+          {/* Closing thought */}
+          <Reveal delay={120}>
+            <div className="mt-12 rounded-2xl bg-sky-50 border border-sky/60 p-7 md:p-9">
+              <p className="text-base md:text-lg text-ink/85">
+                <strong className="text-navy">
+                  {t(lang, "Remember: ", "记住：")}
+                </strong>
+                {t(
+                  lang,
+                  "Brand and sales are not an either/or choice — they're layered. Brand assets compound over time; performance marketing drives immediate results. The brands that win in China run both in parallel from day one, adjusting the ratio as they learn.",
+                  "品牌和销售不是二选一——它们是叠加的。品牌资产随时间积累，效果营销驱动即时结果。在中国胜出的品牌，从第一天就两者并行，随着市场认知不断调整配比。"
+                )}
+              </p>
+            </div>
           </Reveal>
-
-          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {social.map((s, i) => {
-              const Ico = s.Icon;
-              return (
-                <Reveal key={s.en} delay={i * 70}>
-                  <div className="card h-full p-6">
-                    <span className="icon-tile">
-                      <Ico width={38} height={38} />
-                    </span>
-                    <h3 className="mt-4 text-lg font-bold text-navy">{t(lang, s.en, s.zh)}</h3>
-                    <p className="mt-2 text-sm text-muted leading-relaxed">{t(lang, s.body_en, s.body_zh)}</p>
-                  </div>
-                </Reveal>
-              );
-            })}
-          </div>
         </div>
       </section>
 
-      {/* ===================== CTA ===================== */}
+      {/* ══════════ CTA ══════════ */}
       <section className="section">
         <div className="container-tlp">
           <Reveal>
-            <div className="card bg-navy text-white p-10 md:p-14 text-center relative overflow-hidden">
+            <div className="rounded-3xl bg-gradient-to-br from-brand to-navy text-white p-10 md:p-16 text-center relative overflow-hidden">
               <span
                 className="deco-circle"
-                style={{ width: 300, height: 300, right: -80, top: -120, background: "rgba(79,134,214,0.25)" }}
+                style={{ width: 300, height: 300, right: -80, top: -80, background: "rgba(255,255,255,0.08)" }}
               />
-              <div className="relative">
-                <h2 className="text-3xl md:text-4xl font-extrabold max-w-2xl mx-auto">
-                  {t(
-                    lang,
-                    "Entering China? Let's map it together.",
-                    "准备进入中国？我们一起把它画清楚。"
-                  )}
-                </h2>
-                <p className="mt-4 text-lg text-white/80 max-w-xl mx-auto">
-                  {t(
-                    lang,
-                    "Talk to our China-market team about the right model, platforms and content approach for your brand.",
-                    "和我们的中国市场团队聊聊，为你的品牌找到对的模型、平台与内容打法。"
-                  )}
-                </p>
-                <Link href={prefixPath("/contact")} className="btn btn-primary mt-8">
-                  {t(lang, "Contact the China team", "联系中国市场团队")}
-                  <IconArrow width={18} height={18} />
-                </Link>
-              </div>
+              <h2 className="relative text-3xl md:text-4xl font-extrabold">
+                {t(
+                  lang,
+                  "Ready to enter China? Let's map it out together.",
+                  "准备进入中国？我们一起把它画清楚。"
+                )}
+              </h2>
+              <p className="relative mt-4 text-white/85 text-lg max-w-2xl mx-auto">
+                {t(
+                  lang,
+                  "Whether you're starting from scratch or rethinking an existing presence — we'll help you find the right models, platforms, and content strategies for your brand.",
+                  "无论你是从零开始，还是重新审视现有布局——我们帮你找到最适合的品牌路径、平台选择和内容策略。"
+                )}
+              </p>
+              <Link
+                href={prefixPath("/contact")}
+                className="relative btn bg-white text-navy hover:-translate-y-0.5 mt-8"
+              >
+                {t(lang, "Start a conversation", "开启合作")}
+                <IconArrow width={18} height={18} />
+              </Link>
             </div>
           </Reveal>
         </div>
