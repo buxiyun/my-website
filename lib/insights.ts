@@ -27,6 +27,27 @@ export type AudioClip = {
   src: string;
 };
 
+/* Framework diagrams ("框架示意图") rendered inline in article bodies.
+   Reference a figure from the body arrays with a marker string:
+   "[[FIG:my-figure-id]]" (on its own line). Labels are bilingual and
+   rendered as crisp HTML/SVG (no image files, no garbled text). */
+export type FigureNode = {
+  title_en: string;
+  title_zh: string;
+  desc_en?: string;
+  desc_zh?: string;
+};
+
+export type Figure = {
+  id: string;
+  /** Layout: pyramid (tiered), grid (2-col framework), flow (arrowed steps). */
+  kind: "pyramid" | "grid" | "flow";
+  title_en: string;
+  title_zh: string;
+  /** For pyramid, nodes are ordered top→bottom (apex first). */
+  nodes: FigureNode[];
+};
+
 export type Post = {
   slug: string;
   date: string;
@@ -38,6 +59,7 @@ export type Post = {
   excerpt_zh: string;
   body_en: string[];
   body_zh: string[];
+  figures?: Figure[];
   audio?: AudioClip[];
 };
 
@@ -63,6 +85,7 @@ export const posts: Post[] = [
       "The tension in the landscape lies in 'low visible barriers, high hidden thresholds.' Basic GuZi products are small, lightweight, and cheap to produce, attracting a flood of entrepreneurs; but quality IP acquisition and incubation, site selection, product curation, private-domain traffic operations, and inventory management — these are the real moats. The 2025 store-closure wave marks the end of the 'easy-money era': severe homogenization, expiring rent subsidies, declining Japanese manga IP search volumes alongside rising Chinese animation IPs have shifted the competitive focus from channel grabbing to IP originality and full-chain operations.",
       "## Brand Development Paths and Cases",
       "GuZi economy brand development shows a clear three-tier stratification.",
+      "[[FIG:three-tier]]",
       "The first tier consists of IP licensing-driven trading-card giants. Kayou is the archetype — it launched with nationally recognized IP-licensed cards like Ultraman and My Little Pony, achieved 10.057 billion yuan in total revenue and 4.466 billion yuan in adjusted net profit in 2024, with card business revenue of 8.2 billion yuan and gross margins above 70%, holding 70 licensed and proprietary IPs. Its channel moat: over 90% of revenue comes from agent stores near school campuses. But the risks are equally prominent: 768 million yuan in royalty payments in 2024, nearly 90% non-exclusive IPs, and uncertain contract renewals; scarce cards listed at 188,800 yuan on secondary platforms, accused of 'pseudo-gambling mechanics,' facing minor-consumer compliance pressure. Kayou's second Hong Kong IPO filing will test the ceiling of the 'IP licensing plus card blind-box' model.",
       "The second tier comprises mid-tier challengers pursuing domestic IP plus full-category expansion. Jason Entertainment, founded in Guangzhou in 2019, started with collectible cards, surpassed 100 million yuan in sales in 2021, approached 1 billion yuan in revenue in 2025, with a single domestic anime film card set breaking 100 million yuan in a week. Its core strategy: reduce single-category dependence — card revenue share projected to drop from 85% to under 50%, expanding into figures, plush, GuZi, and TCG. The financing path is equally clear: Bilibili angel round in 2022, two strategic rounds in 2025 with investors including 37 Interactive Entertainment and Hengdian Capital, preferring partners with tourism or IP resources for synergy.",
       "The third tier is the long-tail, fragmented market for ita-bags, ita-clothing, and GuZi display props. This segment is dominated by small Taobao sellers with no dominant brand, relying on Xiaohongshu UGC 'showcasing GuZi' and 'GuZi aesthetics' tutorials to drive conversion. Xianyu sold 250,000 ita-bags in a year, with 90% of trading users being female and over 48% of buyers purchasing additional customization services — these two figures reveal the fundamental nature of ita-culture consumption: female dominance and customization premium. But offline GuZi store chains have undergone severe shakeouts, with 180-plus brands closing 15,000-plus stores in a year, survivors concentrating toward mall-anchored retail.",
@@ -73,6 +96,7 @@ export const posts: Post[] = [
       "On trend signals, opportunities and risks coexist. Opportunities: domestic IP online attention reaches 55.1%, surpassing imported IP, with creations like Langlangshan Little Demon topping attention charts, giving the 'national GuZi' ecosystem sustained content supply capability; GuZi consumption merging with cultural tourism and commercial districts is activating urban consumption scenes, with leading companies' derivative transaction value exceeding 1.1 billion yuan in 2025 with year-on-year doubling; AI-generated custom patterns and small-batch printing technology are lowering barriers, rapidly expanding personalized ita-clothing and home peripheral supply. Risks: some IPs are treated as short-term monetization tools lacking long-term content ecosystems, making user stickiness fragile; AI-generated derivative IP boundaries remain legally undefined; cross-border sourcing channel disruptions and refund disputes are frequent; secondary market average price declines suggest price bubbles in certain categories.",
       "## Methodology",
       "Based on the above analysis, I distill an 'IP-Product-Place-People' four-dimensional brand strategy framework for new and existing players in the GuZi economy.",
+      "[[FIG:four-dim]]",
       "Dimension One: IP Anchoring — From 'borrowing IP' to 'nurturing IP.' The essence of the GuZi economy is the IP economy, but 'borrowing IP' and 'nurturing IP' are fundamentally different strategies. Kayou paid 768 million yuan in royalties in 2024 with nearly 90% non-exclusive IPs — this is the cost of the 'borrowing' model: large scale but thin moats, high renewal risk. The correct path: use licensed IPs short-term for cash flow and user base, deeply bind domestic animation and game IPs mid-term for differentiation (as Jason Entertainment does), and cultivate proprietary IPs or participate in IP co-creation long-term, transitioning from copyright buyer to IP ecosystem co-builder. Principle: IP licensing is the entry ticket; IP incubation is the moat.",
       "Dimension Two: Category Ladder — High-frequency entry, progressive extension. Trading cards and badges are high-frequency, strongly IP-bound entry categories, but single-category dependence is a structural risk. Jason Entertainment's strategy of reducing card revenue share from 85% to under 50% is instructive. The actionable path: use cards and badges to build user stickiness and IP recognition, extend to plush and figures and other emotionally premium categories, then penetrate ita-bags, display props, IP co-branded home goods and other lifestyle categories, forming a category pyramid of 'high-frequency low-price for traffic, mid-frequency mid-price for profit, low-frequency high-price for brand building.' Principle: each category must have an independent emotional-value proposition, not just a simple licensing sticker.",
       "Dimension Three: Place Construction — A three-element channel system. 'Online seeding plus offline immersion plus secondary circulation' is not three independent channels but an organic loop. Online, Xiaohongshu is the core seeding platform, prioritizing KOC and UGC over brand-official content — 48% of Xianyu ita-bag buyers purchasing customization services shows users want participation, not finished products. Offline, upgrade from 'opening stores' to 'creating scenes': the core function of themed stores and pop-ups is not selling goods but providing immersive settings for photo-taking and community gatherings. Secondary circulation is a necessary part of ita-culture consumption — Xianyu's 2024 GMV grew 104% year-on-year, and brands should proactively design circulation-friendly product mechanisms (numbered limited editions, splittable sets) rather than treating the secondary market as a threat. Principle: channels are amplifiers of emotional value, not extensions of shelves.",
@@ -91,6 +115,7 @@ export const posts: Post[] = [
       "格局的张力在于「显性壁垒低、隐性门槛高」。基础谷子产品小、轻、制造成本低，吸引大量创业者涌入；但优质 IP 的获取与孵化、选址、选品、私域流量运营、库存管理——这些才是真正的护城河。2025 年的闭店潮标志着「躺赚时代」的终结：严重同质化、租金补贴到期、日漫 IP 搜索量下滑而国产动漫 IP 上升，把竞争焦点从抢渠道转向了 IP 原创力与全链路运营。",
       "## 品牌发展路径与案例",
       "谷子经济的品牌发展呈现清晰的三层分化。",
+      "[[FIG:three-tier]]",
       "第一层是 IP 授权驱动的卡牌巨头。卡游是典型——它以奥特曼、小马宝莉等国民级授权 IP 卡牌起家，2024 年实现总营收 100.57 亿元、经调整净利润 44.66 亿元，其中卡牌业务营收 82 亿元、毛利率超 70%，握有 70 个授权及自有 IP。其渠道护城河：超 90% 收入来自校园周边的代理店。但风险同样突出：2024 年支付授权金 7.68 亿元，近 90% 为非独家 IP，续约存在不确定性；稀有卡在二级平台被挂到 18.88 万元，被指「类赌博机制」，面临未成年人消费合规压力。卡游二度递表港股，将检验「IP 授权 + 卡牌盲盒」模式的天花板。",
       "第二层是走「国产 IP + 全品类扩张」的腰部挑战者。卡游之外，谷斯智娱（Jason Entertainment）2019 年成立于广州，以集换式卡牌起家，2021 年销售额破亿，2025 年营收逼近 10 亿元，单个国产动画电影卡包一周破亿。其核心打法：降低单品类依赖——卡牌收入占比预计从 85% 降到 50% 以下，扩张至手办、毛绒、谷子、TCG。融资路径同样清晰：2022 年 B 站天使轮，2025 年两轮战略融资，投资方包括三七互娱、横店资本，偏好有文旅或 IP 资源可协同的伙伴。",
       "第三层是痛包、痛衣、谷子展示道具的长尾碎片化市场。这一板块由淘宝小卖家主导、无主导品牌，依靠小红书 UGC「晒谷」「谷美学」教程驱动转化。闲鱼一年售出 25 万只痛包，交易用户 90% 为女性、超过 48% 的买家额外购买定制服务——这两个数字揭示了痛文化消费的本质：女性主导与定制溢价。但线下谷子连锁经历了剧烈洗牌，一年内 180 多个品牌关掉 1.5 万余家门店，幸存者向商场店型集中。",
@@ -101,6 +126,7 @@ export const posts: Post[] = [
       "在趋势信号上，机会与风险并存。机会：国产 IP 网络关注度达 55.1%，反超进口 IP，《狼行山小妖怪》等创作登顶关注榜，让「国谷」生态具备持续的内容供给能力；谷子消费与文旅、商圈融合正在激活城市消费场景，头部公司 2025 年衍生品交易额破 11 亿元、同比翻倍；AI 生成定制图案与小批量印刷技术在降低门槛，快速扩充个性化痛衣与家居周边供给。风险：部分 IP 被当作短期变现工具、缺乏长期内容生态，用户黏性脆弱；AI 生成衍生 IP 的边界在法律上尚未界定；跨境采购渠道中断与退款纠纷频发；二级市场均价下滑，暗示某些品类存在价格泡沫。",
       "## 方法论",
       "基于上述分析，我为谷子经济的新老玩家提炼出一套「IP—产品—场域—人群」四维品牌战略框架。",
+      "[[FIG:four-dim]]",
       "维度一：IP 锚定——从「借 IP」到「养 IP」。谷子经济的本质是 IP 经济，但「借 IP」和「养 IP」是根本不同的两种战略。卡游 2024 年支付授权金 7.68 亿元、近 90% 为非独家 IP，这就是「借」模式的代价：规模大但护城河薄、续约风险高。正确路径：短期用授权 IP 换现金流与用户盘，中期深绑国产动漫与游戏 IP 做差异化（如谷斯智娱），长期培育自有 IP 或参与 IP 共创，从版权买家转向 IP 生态共建者。原则：IP 授权是入场券，IP 孵化才是护城河。",
       "维度二：品类阶梯——高频切入、渐进延伸。卡牌与徽章是高频、强绑定 IP 的入门品类，但单品类依赖是结构性风险。谷斯智娱把卡牌收入占比从 85% 降到 50% 以下的策略颇具借鉴意义。可落地路径：用卡牌、徽章建立用户黏性与 IP 认知，延伸到毛绒、手办等情绪溢价品类，再渗透痛包、展示道具、IP 联名家居等生活方式品类，形成「高频低价引流、中频中价盈利、低频高价立品牌」的品类金字塔。原则：每个品类都要有独立的情绪价值主张，而不只是简单贴一张授权贴纸。",
       "维度三：场域构建——三要素渠道体系。「线上种草 + 线下沉浸 + 二级流通」不是三条独立渠道，而是一个有机闭环。线上，小红书是核心种草平台，优先 KOC 与 UGC 而非品牌官方内容——48% 的闲鱼痛包买家购买定制服务，说明用户要的是参与感而非成品。线下，从「开店」升级为「造景」：主题店与快闪的核心功能不是卖货，而是提供可拍照、可社群聚会的沉浸式场景。二级流通是痛文化消费的必要环节——闲鱼 2024 年 GMV 同比增长 104%，品牌应主动设计利于流通的产品机制（编号限量、可拆分套组），而非把二级市场视为威胁。原则：渠道是情绪价值的放大器，而不是货架的延伸。",
@@ -110,6 +136,66 @@ export const posts: Post[] = [
       "谷子经济处于成长期的早中段：千亿级市场、40%+ 增速、5 亿泛二次元用户但消费渗透率仍低——这是一条确定性高、天花板遥远的赛道。但确定性不等于遍地是金。半年 155 家闭店、一年 180 多个品牌关掉 1.5 万余家门店、二级市场均价下滑——这些信号表明，粗放增长的红利期已经结束，行业进入「拼 IP 原创力、拼全链路运营、拼选品」的精耕阶段。",
       "对从业者而言，有三个核心判断。第一，国产 IP 崛起是不可逆的趋势（网络关注度 55.1%，已超进口 IP），深绑国创 IP 的品牌将收获结构性红利。第二，痛包、展示道具、联名家居等生活方式品类是下一波增长浪潮，但当前供给分散、标准化程度低——谁先建立品质标准与品牌认知，谁就能占位。第三，AI 定制与场景融合是 12-24 个月内确定性最高的机会信号，但 AI 衍生品未界定的 IP 边界与供应链脆弱性是需要提前对冲的风险。",
       "谷子经济的终局不会是少数寡头品牌的垄断，更可能是「头部 IP 生态 + 腰部品类品牌 + 长尾定制创作者」的金字塔结构。在这个结构里，真正的赢家不是跑得最快的人，而是最懂情绪价值经济学的人。",
+    ],
+    figures: [
+      {
+        id: "three-tier",
+        kind: "pyramid",
+        title_en: "The Three-Tier Structure of GuZi Brands",
+        title_zh: "谷子品牌的三层结构",
+        nodes: [
+          {
+            title_en: "Tier 1 · IP-Licensed Card Giants",
+            title_zh: "第一层 · IP 授权卡牌巨头",
+            desc_en: "Kayou-style scale players — licensed IP, card blind-boxes, IPO ambitions",
+            desc_zh: "卡游式规模玩家——授权 IP、卡牌盲盒、冲刺 IPO",
+          },
+          {
+            title_en: "Tier 2 · Domestic-IP Full-Category Challengers",
+            title_zh: "第二层 · 国产 IP 全品类挑战者",
+            desc_en: "Jason Entertainment-style — bind domestic anime IP, expand categories, take in industrial capital",
+            desc_zh: "谷斯智娱式——深绑国产动漫 IP、全品类扩张、引入产业资本",
+          },
+          {
+            title_en: "Tier 3 · Long-Tail Custom Creators",
+            title_zh: "第三层 · 长尾定制创作者",
+            desc_en: "Ita-bags, ita-clothing, display props — UGC seeding and customization premium",
+            desc_zh: "痛包、痛衣、展示道具——UGC 种草与定制溢价",
+          },
+        ],
+      },
+      {
+        id: "four-dim",
+        kind: "grid",
+        title_en: "The IP–Product–Place–People Brand Framework",
+        title_zh: "「IP—产品—场域—人群」四维品牌框架",
+        nodes: [
+          {
+            title_en: "IP Anchoring",
+            title_zh: "IP 锚定",
+            desc_en: "From 'borrowing IP' to 'nurturing IP' — licensing is the entry ticket, incubation is the moat",
+            desc_zh: "从「借 IP」到「养 IP」——授权是入场券，孵化才是护城河",
+          },
+          {
+            title_en: "Category Ladder",
+            title_zh: "品类阶梯",
+            desc_en: "High-frequency entry, progressive extension — traffic / profit / brand-building pyramid",
+            desc_zh: "高频切入、渐进延伸——引流 / 盈利 / 立品牌的品类金字塔",
+          },
+          {
+            title_en: "Place Construction",
+            title_zh: "场域构建",
+            desc_en: "Online seeding + offline immersion + secondary circulation as one organic loop",
+            desc_zh: "线上种草 + 线下沉浸 + 二级流通的有机闭环",
+          },
+          {
+            title_en: "User Management",
+            title_zh: "人群经营",
+            desc_en: "Emotion as core, community as wing — shift from repurchase rate to emotional engagement",
+            desc_zh: "情感为核、社群为翼——从复购率转向情感投入度",
+          },
+        ],
+      },
     ],
   },
   {

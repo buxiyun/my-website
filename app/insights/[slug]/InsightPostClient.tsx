@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useLang, t } from "@/components/LanguageProvider";
 import { IconArrow } from "@/components/Icons";
+import InsightFigure from "@/components/InsightFigure";
 import type { Post } from "@/lib/insights";
 
 function fmtDate(d: string, lang: "en" | "zh") {
@@ -39,8 +40,13 @@ export default function InsightPostClient({ post }: { post: Post }) {
         </h1>
 
         <div className="mt-8 space-y-5">
-          {body.map((para, i) =>
-            para.startsWith("## ") ? (
+          {body.map((para, i) => {
+            const figMatch = para.match(/^\[\[FIG:([\w-]+)\]\]$/);
+            if (figMatch) {
+              const figure = post.figures?.find((f) => f.id === figMatch[1]);
+              return figure ? <InsightFigure key={i} figure={figure} /> : null;
+            }
+            return para.startsWith("## ") ? (
               <h2 key={i} className="text-xl md:text-2xl font-bold text-navy pt-2">
                 {para.replace(/^##\s+/, "")}
               </h2>
@@ -48,8 +54,8 @@ export default function InsightPostClient({ post }: { post: Post }) {
               <p key={i} className="text-lg leading-relaxed text-ink/85">
                 {para}
               </p>
-            )
-          )}
+            );
+          })}
         </div>
 
         {post.audio && post.audio.length > 0 && (
