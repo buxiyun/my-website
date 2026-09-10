@@ -114,6 +114,27 @@ const people = [
       "国际命名联盟 WeAreNaming 中国指定代表",
     ],
   },
+  {
+    initials: "HH",
+    en: "Helen He",
+    zh: "Helen He \u4F55\u82B9",
+    role_en: "Global Marketing Strategy Consultant · Market Research Expert",
+    role_zh: "出海营销战略顾问 · 市场研究专家",
+    items_en: [
+      "MBA, Kellogg School of Management, Northwestern University (#1 in Marketing); B.A. Economics, Peking University; years of study and work in Chicago and Silicon Valley",
+      "10 years at Amazon/Google (2016\u20132026) — agency ecosystem, SMB innovation and enterprise marketing strategy for Chinese brands going global, from $1M to $10B+ in revenue",
+      "6 years at Nielsen (2006\u20132012, Beijing/Chicago) — retail monitoring, data analytics and consumer research (qual & quant) for top CPG brands in China and the U.S.",
+      "Expert in MarTech/AI-powered marketing systems and SEO/GEO strategy; helps Chinese brands build custom AI capabilities and plug into global marketing ecosystems from day one",
+      "Roles: Qual & Quant Research Director, Global Marketing Strategy Consultant, SEO/GEO Advisor, C-AI-O (Enterprise AI Architecture Consultant)",
+    ],
+    items_zh: [
+      "美国西北大学凯洛格商学院 MBA（全美市场营销排名第一），北京大学经济学士；曾在美国芝加哥、硅谷多年求学与工作，具备跨文化商业视野与中英双语能力",
+      "10 年亚马逊/谷歌经历（2016\u20132026），覆盖代理商生态管理、中小创新品牌服务及大客户营销战略咨询，陪跑年收入百万至百亿级中国出海品牌",
+      "6 年尼尔森市场研究（2006\u20132012，北京/芝加哥），为中美头部消费品品牌提供零售监测、数据分析与消费者研究（定性 & 定量）服务",
+      "精通 MarTech 与 AI 智能营销体系搭建，擅长 SEO/GEO 策略，帮助中国品牌从出海第一天起无缝对接海外核心营销生态并搭建定制化 AI 能力体系",
+      "可胜任角色：定性与定量研究项目总监、出海营销战略咨询师、SEO/GEO 专项顾问、C-AI-O（企业 AI 架构搭建顾问）",
+    ],
+  },
 ];
 
 export default function TeamClient() {
@@ -173,7 +194,7 @@ export default function TeamClient() {
               {t(lang, "The people behind TLU", "TLU 背后的团队")}
             </h2>
           </Reveal>
-          <div className="mt-12 grid md:grid-cols-3 gap-6 items-stretch">
+          <div className="mt-12 grid md:grid-cols-2 gap-6 items-stretch">
             {people.map((f, i) => (
               <Reveal key={f.en} delay={i * 100}>
                 <div className="card h-full p-8">
