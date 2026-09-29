@@ -7642,10 +7642,12 @@ function buildOutlineHTML(){
       if(hasBenchmarks || ccs.length > 1 || hasPowerSel){
         /* 有对标车型/多国研究/已选动力类型：使用自动生成的动态背景 */
         sec += autoGenerateHeader(cc, cinfo, cd);
-      } else if(cd.header){
-        /* 无对标车型且单国且未选动力：使用硬编码背景 */
-        sec += cd.header;
+      } else {
+        /* 无对标车型且单国且未选动力：仍用自动生成（不硬编码组别），仅补充默认背景 */
+        sec += autoGenerateHeader(cc, cinfo, cd);
       }
+    } else if(cd.header){
+      sec += cd.header;
     }
     /* 按用户排序渲染模块 */
     const orderedMods = state.modOrder.length === d.modules.length
