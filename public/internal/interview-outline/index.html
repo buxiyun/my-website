@@ -6175,7 +6175,11 @@ function v2QuestionHTML(q, vk){
     });
   }
   if(q.activity){
-    h += '<div class="probe" style="color:#2a6e3b">【活动/记录：' + escHTML(q.activity) + '】</div>';
+    /* 活动前缀过滤：IHV：/FGD：/Dealer：仅匹配当前类型时渲染，无前缀则全类型渲染 */
+    const actTypeMatch = q.activity.match(/^(IHV|FGD|Dealer)[：:]/);
+    if(!actTypeMatch || actTypeMatch[1] === state.type){
+      h += '<div class="probe" style="color:#2a6e3b">【活动/记录：' + escHTML(q.activity) + '】</div>';
+    }
   }
   if(q.editorial_note){
     h += '<div class="probe" style="color:#888;font-size:11px">【编辑注：' + escHTML(q.editorial_note) + '】</div>';
