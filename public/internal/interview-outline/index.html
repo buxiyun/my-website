@@ -6356,7 +6356,7 @@ const MODEL_TERMS_MPV = ['高端MPV','MPV'];
 
 const state = { stage:'pd', type:null, countries:[], countryCount:1, mods:{}, modOrder:[], repModel:'', repCountries:{},
   ownerType:'both', segment:'', bodyType:'', personnel:'middle',
-  conds:{ climate:'', roads:'', charging:'', power:[], drive:'', incentive:'', finance:'' },
+  conds:{ climate:'', roads:'', charging:'', power:[], drive:'', incentive:'', finance:'', usage:'' },
   viewMode:'outline', bevBench:'', iceBench:'', otherBench:'', f5Subs:{}, subs:{},
   sellingPoints:[], configItems:[] };
 
@@ -7367,7 +7367,8 @@ const COND_DEFS = [
   {key:'power',    label:'动力类型',     type:'multi',  options:[{v:'bev',label:'BEV（纯电）'},{v:'ice',label:'ICE（燃油）'},{v:'hev',label:'HEV（混动）'},{v:'phev',label:'PHEV（插电混动）'},{v:'reve',label:'REVE（增程式）'},{v:'other',label:'其他'}]},
   {key:'drive',    label:'驾驶方向',     type:'select', options:[{v:'lhd',label:'左舵'},{v:'rhd',label:'右舵'}]},
   {key:'incentive',label:'补贴/税收政策',type:'select', options:[{v:'yes',label:'有显著补贴/税收优惠'},{v:'no',label:'无显著补贴'}]},
-  {key:'finance',  label:'金融渗透率',   type:'select', options:[{v:'high',label:'高（贷款/分期普遍）'},{v:'low',label:'低（现金购车为主）'}]}
+  {key:'finance',  label:'金融渗透率',   type:'select', options:[{v:'high',label:'高（贷款/分期普遍）'},{v:'low',label:'低（现金购车为主）'}]},
+  {key:'usage',    label:'用车目的',     type:'select', options:[{v:'household',label:'家用（已有/计划家用购车）'},{v:'intend',label:'意向家用（潜在家用购车者）'},{v:'commercial',label:'商用（企业/ fleet /商务用途）'}]}
 ];
 
 /* 规则语义：命中规则 re 的板块，仅当所选条件满足 req（每个 key 的取值在允许列表内）时保留；
@@ -7399,12 +7400,15 @@ const COND_RULES = [
   {tag:'政策-有补贴', fam:'incentive:yes', re:/补贴|Ecobonus|ecobonus|税收优惠|购置税(减免|优惠|免征)|IPI|IPVA|ICMS|政策(扶持|支持|激励|优惠)|激励政策/, req:{incentive:['yes']}},
   /* 金融渗透 */
   {tag:'金融-高渗透', fam:'finance:high', re:/贷款|分期|月供|首付|利率|金融(方案|产品|服务|政策)|融资租赁|车贷|联合购车基金|购车基金|信用贷|还款/, req:{finance:['high']}},
-  {tag:'金融-低渗透', fam:'finance:low',  re:/全款|现金购车|一次性付款/, req:{finance:['low']}}
+  {tag:'金融-低渗透', fam:'finance:low',  re:/全款|现金购车|一次性付款/, req:{finance:['low']}},
+  /* 用车目的 */
+  {tag:'用车-商用', fam:'usage:commercial', re:/采购|审批|签单|预算(审批|报批)|试用|fleet|车队|商务(用途|用车|出行)|商用|公司(采购|购车|用车|配车|户)|企业(采购|购车|用车|客户|用户)|公务用车|运营(成本|车辆|商)|网约车|出租|租赁|物流|配送|营运|公车|单位(购车|用车|配车)/, req:{usage:['commercial']}},
+  {tag:'用车-家用', fam:'usage:household', re:/家用(车|购|出行|需求)|家庭(第二辆|第二台|增购|换购)/, req:{usage:['household','intend']}}
 ];
 
 function condsActive(){
   const c = state.conds;
-  return !!(c.climate||c.roads||c.charging||(c.power&&c.power.length)||c.drive||c.incentive||c.finance||state.bodyType||state.segment);
+  return !!(c.climate||c.roads||c.charging||(c.power&&c.power.length)||c.drive||c.incentive||c.finance||c.usage||state.bodyType||state.segment);
 }
 function ruleKeeps(req){
   const c = state.conds;
@@ -7537,7 +7541,7 @@ function initConds(){
   });
 }
 function resetConds(){
-  state.conds = { climate:'', roads:'', charging:'', power:[], drive:'', incentive:'', finance:'' };
+  state.conds = { climate:'', roads:'', charging:'', power:[], drive:'', incentive:'', finance:'', usage:'' };
   initConds();
 }
 function collectSelectedCountries(){
@@ -7586,7 +7590,15 @@ function autoGenerateHeader(cc, cinfo, cd){
       html += `访谈中ICE相关模块仅在ICE车主组中使用。`;
     }
   }
-  
+
+  const usageLabel = {'household':'家用','intend':'意向家用','commercial':'商用'}[state.conds.usage] || '';
+  if(usageLabel){
+    html += `受访者用车目的：<b>${usageLabel}</b>。`;
+    if(state.conds.usage === 'commercial'){
+      html += `商用相关题目（采购审批、车队管理等）仅在商用组中使用。`;
+    }
+  }
+
   html += `请根据当地具体车型、政策环境、基础设施情况灵活调整。<br>`;
   
   if(state.bevBench){
@@ -7616,9 +7628,10 @@ function autoGenerateObjectives(){
   const hasICE = power.includes('ice');
   const hasHEV = power.some(p=>['hev','phev','reve'].includes(p));
   const modelLabel = state.repModel || '目标车型';
+  const usage = state.conds.usage || '';
 
   let items = [];
-  items.push(`真实用车体验与场景还原：深入探究当地${modelLabel}拥有者的核心购买动机、真实用车场景诉求与痛点。`);
+  items.push(`真实用车体验与场景还原：深入探究当地${modelLabel}${usage==='commercial'?'（商用/公务）':''}拥有者的核心购买动机、真实用车场景诉求与痛点。`);
   items.push(`核心价值要素与产品力权衡机制洞察：深挖目标用户在购车时对外观、内饰、空间、续航、智能化、安全等核心维度的具体关注点。`);
 
   if(hasBEV){
@@ -7629,6 +7642,13 @@ function autoGenerateObjectives(){
 
   if(hasBEV && hasICE){
     items.push(`BEV vs ICE跨动力对比洞察：通过BEV车主与ICE车主的对比，揭示消费者在动力选择上的真实决策逻辑与核心障碍。`);
+  }
+
+  if(usage === 'commercial'){
+    items.push(`商用采购决策链路还原：梳理商用购车的需求提出→预算→试用→审批→签单全流程，理解司机与乘员意见如何进入决策、采购数量及节奏。`);
+    items.push(`商用场景适配性验证：验证${modelLabel}在商务出行、企业通勤、短途配送等商用场景下的适配度与竞品替代潜力。`);
+  } else if(usage === 'household' || usage === 'intend'){
+    items.push(`家庭用车决策与使用场景深挖：了解家庭购车决策中各成员（配偶/子女/老人）的角色与影响力，以及日常家用场景的细分需求。`);
   }
 
   items.push(`___________（请补充本项目特定的研究目标）`);
@@ -7646,6 +7666,8 @@ function autoGenerateSampleDef(){
   const power = state.conds.power || [];
   const hasBEV = power.includes('bev');
   const hasICE = power.includes('ice');
+  const usage = state.conds.usage || '';
+  const usageLabel = {'household':'家用','intend':'意向家用','commercial':'商用'}[usage] || '';
 
   let groupDesc = [];
   if(hasBEV) groupDesc.push('BEV组');
@@ -7653,6 +7675,9 @@ function autoGenerateSampleDef(){
   if(power.some(p=>['hev','phev','reve'].includes(p))) groupDesc.push('混动组');
 
   let html = `<h4>【样本定义与时长】</h4>\n`;
+  if(usageLabel){
+    html += `<p>受访者用车目的：<b>${usageLabel}</b></p>\n`;
+  }
   if(groupDesc.length > 0){
     html += `<p>访谈分组：${groupDesc.join(' + ')}</p>\n`;
   }
