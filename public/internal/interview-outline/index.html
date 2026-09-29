@@ -562,6 +562,7 @@ body{font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sa
     <!-- PPT 版式设计视图 -->
     <div class="ppt-design-view" id="pptDesignView">
       <div class="ppt-toolbar">
+        <button class="ppt-auto-btn" onclick="switchToOutlineView()" style="margin-right:4px">← 返回提纲</button>
         <button class="ppt-auto-btn" onclick="autoMapFromOutline()">🔄 从提纲自动映射</button>
         <button class="ppt-auto-btn" onclick="clearPPTSlides()">🗑 清空全部</button>
         <span class="slide-count" id="pptSlideCount">共 0 页</span>
@@ -978,7 +979,6 @@ DATA.FGD = {
 <li>您是否关注车辆的碰撞测试成绩（如Latin NCAP）？这会影响您的购买决策吗？</li>
 </ul>
 <div class="probe">【主持人注意/追问：Latin NCAP五星对巴西消费者有多重要？中国C-NCAP五星和Latin NCAP五星，您会怎么比较？】</div>
-<h5>模块五：产品定义与新品接受度——参见 Stimulus（50min）</h5>
 <div class="docnote">【过渡话术】刚才我们从用车和购车角度聊了很多，接下来我们想从产品本身出发，聊聊您对未来4米纯电小车的期望。</div>
 <h5>5.1 外观造型风格测试（展示刺激物可选）</h5>
 <p>展示本品+3款竞品外造型图，每车快速获取第一印象。看到这辆车第一感觉是什么，用三到五个形容词来描述。然后判断这辆车是偏硬朗还是偏圆润、偏紧凑还是偏大体量，再问什么样的人会开这辆车，以及最喜欢和最不喜欢的地方分别是什么。</p>
@@ -1282,7 +1282,6 @@ DATA.FGD = {
 <ul class="q">
 <li>您是否了解或体验过其他A00级纯电小车（如Renault 5、Citroen e-C3、Fiat Grande Panda）？印象如何？</li>
 </ul>
-<h5>模块五：产品定义与新品接受度——参见 PPT（50min）</h5>
 <div class="docnote">【过渡话术】刚才我们从用车和购车角度聊了很多，接下来我们想从产品本身出发，聊聊您对未来4米纯电小车的期望。</div>
 <h5>5.1 外观造型风格测试（展示刺激物可选）</h5>
 <p>展示本品+3款竞品外造型图，每车快速获取第一印象。看到这辆车第一感觉是什么，用三到五个形容词来描述。然后判断这辆车是偏硬朗还是偏圆润、偏紧凑还是偏大体量，再问什么样的人会开这辆车，以及最喜欢和最不喜欢的地方分别是什么。</p>
@@ -1656,7 +1655,6 @@ DATA.FGD = {
 <ul class="q">
 <li>您是否了解或体验过其他纯电小车（如当地主流纯电车型）？印象如何？</li>
 </ul>
-<h5>模块五：产品定义与新品接受度——参见 PPT（50min）</h5>
 <div class="docnote">【过渡话术】刚才我们从用车和购车角度聊了很多，接下来我们想从产品本身出发，聊聊您对未来4米纯电小车的期望。</div>
 <h5>5.1 外观造型风格测试（展示刺激物可选）</h5>
 <p>展示本品+3款竞品外造型图，每车快速获取第一印象。看到这辆车第一感觉是什么，用三到五个形容词来描述。然后判断这辆车是偏硬朗还是偏圆润、偏紧凑还是偏大体量，再问什么样的人会开这辆车，以及最喜欢和最不喜欢的地方分别是什么。</p>
@@ -7432,7 +7430,10 @@ function filterByConds(content){
   tmp.innerHTML = content;
   /* 逐板块测试：题目 / 追问 / 分支（附件为主持人参考工具，不过滤） */
   tmp.querySelectorAll('li, .probe, .branch').forEach(el=>{
-    const t = el.textContent || '';
+    /* 分支用标题匹配，避免内容中提及对立类型导致冲突误判 */
+    const t = el.classList.contains('branch')
+      ? ((el.querySelector('.bt')||{}).textContent || '')
+      : (el.textContent || '');
     const matched = [];
     for(const r of COND_RULES){ if(r.re.test(t)) matched.push(r); }
     if(!matched.length) return;
