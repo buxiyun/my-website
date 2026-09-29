@@ -6633,7 +6633,8 @@ function initCountryGrid(){
   /* 高频国家 */
   const freq = COUNTRIES.filter(c=>c.freq);
   const rest = COUNTRIES.filter(c=>!c.freq);
-  const atLimit = state.countries.length >= state.countryCount;
+  /* 仅多国模式下达到上限才压暗按钮；单国模式所有按钮始终可点（点击即替换） */
+  const atLimit = state.countryCount > 1 && state.countries.length >= state.countryCount;
   if(codes){
     /* 只显示有内容的国家 */
     const avail = COUNTRIES.filter(c=>codes.includes(c.code));
@@ -6671,9 +6672,12 @@ function initCountryGrid(){
 function toggleCountry(code){
   const idx = state.countries.indexOf(code);
   if(idx >= 0){
-    /* 取消选中 */
+    /* 取消选中；仅剩一个时不可取消（至少保留一个） */
+    if(state.countries.length === 1) return;
     state.countries.splice(idx, 1);
-    if(state.countries.length === 0) state.countries.push(code); /* 至少保留一个 */
+  } else if(state.countryCount === 1){
+    /* 单国模式：点击即替换，无需先取消再选 */
+    state.countries = [code];
   } else {
     /* 新增选中 */
     if(state.countries.length >= state.countryCount){
