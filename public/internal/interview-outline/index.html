@@ -7637,12 +7637,13 @@ function buildOutlineHTML(){
     let sec = '';
     /* 自动生成项目背景（对标车型等） */
     const hasBenchmarks = state.bevBench || state.iceBench || state.otherBench;
+    const hasPowerSel = (state.conds.power || []).length > 0;
     if(optHeader){
-      if(hasBenchmarks || ccs.length > 1){
-        /* 有对标车型或多国研究：使用自动生成的背景，跳过硬编码背景 */
+      if(hasBenchmarks || ccs.length > 1 || hasPowerSel){
+        /* 有对标车型/多国研究/已选动力类型：使用自动生成的动态背景 */
         sec += autoGenerateHeader(cc, cinfo, cd);
       } else if(cd.header){
-        /* 无对标车型且单国：使用硬编码背景 */
+        /* 无对标车型且单国且未选动力：使用硬编码背景 */
         sec += cd.header;
       }
     }
