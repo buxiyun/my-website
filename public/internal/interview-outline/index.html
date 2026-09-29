@@ -3876,7 +3876,7 @@ const MPV_FGDJ = {
 };
 
 DATA.MPVFGDJ = {
-  label: 'MPV座谈会·家用车主', labelEn: 'MPV FGD · Family', short: 'MPV-FGD家用',
+  label: 'MPV座谈会·家用车主', labelEn: 'MPV FGD · Family', short: 'MPV-FGD家用', hide:true,
   group: 'MPV · 港泰高端MPV · 香港/泰国',
   modules: [
     {id:'m1', name:'1. 暖场与消费者画像', en:'Warm-up & Profile', desc:'基本信息、MPV定义与理想关键词', src:'模块一（10min）'},
@@ -4461,7 +4461,7 @@ const MPV_FGDS = {
 };
 
 DATA.MPVFGDS = {
-  label: 'MPV座谈会·商用车主', labelEn: 'MPV FGD · Business', short: 'MPV-FGD商用',
+  label: 'MPV座谈会·商用车主', labelEn: 'MPV FGD · Business', short: 'MPV-FGD商用', hide:true,
   group: 'MPV · 港泰高端MPV · 香港/泰国',
   modules: [
     {id:'m1', name:'1. 暖场与商用车主画像', en:'Warm-up & Business Profile', desc:'基本信息、MPV定义与商务心理画像', src:'模块一（10min）'},
@@ -4981,7 +4981,7 @@ const MPV_FGDI = {
 };
 
 DATA.MPVFGDI = {
-  label: 'MPV座谈会·意向车主', labelEn: 'MPV FGD · Intender', short: 'MPV-FGD意向',
+  label: 'MPV座谈会·意向车主', labelEn: 'MPV FGD · Intender', short: 'MPV-FGD意向', hide:true,
   group: 'MPV · 港泰高端MPV · 香港/泰国',
   modules: [
     {id:'m1', name:'1. 暖场与消费者画像', en:'Warm-up & Profile', desc:'基本信息、MPV定义与理想关键词', src:'模块一（10min）'},
@@ -5320,7 +5320,7 @@ const MPV_IHV = {
 };
 
 DATA.MPVIHV = {
-  label: 'MPV入户深访·高端车主', labelEn: 'MPV In-Home Visit', short: 'MPV-入户',
+  label: 'MPV入户深访·高端车主', labelEn: 'MPV In-Home Visit', short: 'MPV-入户', hide:true,
   group: 'MPV · 港泰高端MPV · 香港/泰国',
   modules: [
     {id:'a', name:'A. 破冰、家庭巡视与生活方式扫描', en:'Warm-up & Home Tour', desc:'开场与基本信息、家庭常住人口与职业、车辆构成与驾驶分工、满载出行', src:'A部分（15min）'},
@@ -5691,7 +5691,7 @@ const MPV_Dealer = {
 };
 
 DATA.MPVDealer = {
-  label: 'MPV经销商深访·当地经销商主管', labelEn: 'MPV Dealer Interview', short: 'MPV-经销商',
+  label: 'MPV经销商深访·当地经销商主管', labelEn: 'MPV Dealer Interview', short: 'MPV-经销商', hide:true,
   group: 'MPV · 港泰高端MPV · 香港/泰国',
   modules: [
     {id:'d1', name:'1. 开场与背景建立', en:'Opening & Background', desc:'保密声明、受访者与企业背景（职务/规模/品牌/营业额）', src:'模块一（5min）'},
@@ -5893,8 +5893,8 @@ const MPV_Media = {
 };
 
 DATA.MPVMedia = {
-  label: 'MPV媒体深访·香港汽车媒体专家', labelEn: 'MPV Media Interview (HK)', short: 'MPV-媒体',
-  group: 'MPV · 港泰高端MPV · 香港/泰国',
+  label: '媒体深访·汽车媒体专家', labelEn: 'Media Expert Interview', short: '媒体深访',
+  group: 'B端深访 · 内容源自港泰MPV提纲，可用车型/国家替换复用',
   modules: [
     {id:'m1', name:'1. 暖场与专家画像建立', en:'Expert Profiling', desc:'专家资历与媒体覆盖面确认、媒体视角与消费者认知', src:'模块一（10min）'},
     {id:'m2', name:'2. 香港高端MPV消费者深度画像', en:'HK Consumer Deep Profile', desc:'核心驱动逻辑（功能/身份/资产需求）、核心使用场景（地形/两地牌/司机 vs 自驾）', src:'模块二（20min）'},
@@ -6090,8 +6090,8 @@ const MPV_Expert = {
 };
 
 DATA.MPVExpert = {
-  label: 'MPV专家深访·主机厂竞品专家', labelEn: 'MPV OEM Expert Interview', short: 'MPV-主机厂专家',
-  group: 'MPV · 港泰高端MPV · 香港/泰国',
+  label: '主机厂深访·竞品专家', labelEn: 'OEM Expert Interview', short: '主机厂深访',
+  group: 'B端深访 · 内容源自港泰MPV提纲，可用车型/国家替换复用',
   modules: [
     {id:'e1', name:'1. 开场与背景建立', en:'Opening & Background', desc:'开场话术与保密说明、专家背景确认（海外目标市场/从业年限/具体职能）', src:'模块一（5min）'},
     {id:'e2', name:'2. 市场整体趋势与竞品终端现状', en:'Market Trends & Competitor Status', desc:'市场趋势与细分区域特征（泰国/香港市场特性）、竞品深度分析（埃尔法标杆与短板）、新能源渗透、中国品牌的工程经验与真实流失痛点（LHD to RHD右舵工程适配）', src:'模块二（20min）'},
@@ -6543,8 +6543,19 @@ function filterSubContent(content, modId){
 
 function escReg(s){ return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'); }
 function typesOfStage(st){ return Object.keys(DATA).filter(k=>(STAGE_OF_TYPE[k]||'pd')===st); }
-function visibleTypes(st){ return typesOfStage(st).filter(k=>!/^MPV/.test(k)); }
+function visibleTypes(st){ return typesOfStage(st).filter(k=>!DATA[k].hide); }
 function isMPVType(){ return /^MPV/.test(state.type||''); }
+/* 类型切换后校正国家：仅保留新类型有内容的国家，若为空自动选第一个可用（优先高频） */
+function syncCountriesToType(){
+  if(!state.type) return;
+  const codes = Object.keys(DATA[state.type].countries||{});
+  if(!codes.length) return;
+  state.countries = state.countries.filter(cc=>codes.includes(cc));
+  if(!state.countries.length){
+    const first = COUNTRIES.find(c=>codes.includes(c.code)&&c.freq) || COUNTRIES.find(c=>codes.includes(c.code));
+    if(first) state.countries = [first.code];
+  }
+}
 
 function initStageTabs(){
   const box = document.getElementById('stageTabs');
@@ -6574,7 +6585,7 @@ function initTypeButtons(){
   if(keys.length===0){
     const e = document.createElement('div');
     e.className = 'stage-empty';
-    e.innerHTML = `<b>「${STAGES.find(s=>s.id===state.stage).label}」阶段提纲库待补充</b><br>当前提纲库含 FGD / IHV / Dealer 三类，均属「产品定义」阶段。<br>可切换回「产品定义」选用提纲，并通过第 4 步「车型规格」中的车型名称替换将其复用到新项目。`;
+    e.innerHTML = `<b>「${STAGES.find(s=>s.id===state.stage).label}」阶段提纲库待补充</b><br>当前提纲库含 FGD / IHV / Dealer / 主机厂深访 / 媒体深访 五类，均属「产品定义」阶段。<br>可切换回「产品定义」选用提纲，并通过第 4 步「车型规格」中的车型名称替换将其复用到新项目。`;
     grid.appendChild(e);
     return;
   }
@@ -6598,6 +6609,7 @@ function initTypeButtons(){
       state.f5Subs = {};
       state.subs = {};
       Object.keys(_GENERIC_SUBS_CACHE).forEach(k=>delete _GENERIC_SUBS_CACHE[k]);
+      syncCountriesToType();
       initTypeButtons(); initCountryButtons(); initOwnerGrid(); initCountryGrid(); initVehicleSpecs(); initPersonnelGrid(); initModList(); initSellingPointsUI();
     };
     grid.appendChild(el);
