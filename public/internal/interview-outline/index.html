@@ -5915,9 +5915,9 @@ DATA.MPVMedia = {
   group: 'B端深访 · 内容源自港泰MPV提纲，可用车型/国家替换复用',
   modules: [
     {id:'m1', name:'1. 暖场与专家画像建立', en:'Expert Profiling', desc:'专家资历与媒体覆盖面确认、媒体视角与消费者认知', src:'模块一（10min）'},
-    {id:'m2', name:'2. 香港高端MPV消费者深度画像', en:'HK Consumer Deep Profile', desc:'核心驱动逻辑（功能/身份/资产需求）、核心使用场景（地形/两地牌/司机 vs 自驾）', src:'模块二（20min）'},
-    {id:'m3', name:'3. 香港市场运行规律', en:'HK Market Dynamics', desc:'竞品成败的香港逻辑（埃尔法神车地位/加价文化）、香港用户对"中国品牌"的接受机制、媒体在购买决策中的角色', src:'模块三（20min）'},
-    {id:'m4', name:'4. 产品配置专家评估', en:'Config Expert Evaluation', desc:'配置评价表（20项）、示卡1-20快速展示（示卡21不展示）、定价与价值感（目标30-40万港币第一反应+示卡21配置表）', src:'模块四（25min）'},
+    {id:'m2', name:'2. 高端MPV消费者深度画像', en:'Consumer Deep Profile', desc:'核心驱动逻辑（功能/身份/资产需求）、核心使用场景（地形/跨城出行/司机 vs 自驾）', src:'模块二（20min）'},
+    {id:'m3', name:'3. 市场运行规律', en:'Market Dynamics', desc:'竞品成败的当地逻辑（埃尔法神车地位/加价文化）、当地用户对"中国品牌"的接受机制、媒体在购买决策中的角色', src:'模块三（20min）'},
+    {id:'m4', name:'4. 产品配置专家评估', en:'Config Expert Evaluation', desc:'配置评价表（20项）、示卡1-20快速展示（示卡21不展示）、定价与价值感（目标定价第一反应+示卡21配置表）', src:'模块四（25min）'},
     {id:'m5', name:'5. 媒体传播策略与上市建议', en:'Comms & Launch Advice', desc:'媒体触达目标买家、上市活动与媒体体验设计、给品牌方的三条忠告', src:'模块五（15min）'}
   ],
   countries: { HK: MPV_Media }
@@ -6112,8 +6112,8 @@ DATA.MPVExpert = {
   group: 'B端深访 · 内容源自港泰MPV提纲，可用车型/国家替换复用',
   modules: [
     {id:'e1', name:'1. 开场与背景建立', en:'Opening & Background', desc:'开场话术与保密说明、专家背景确认（海外目标市场/从业年限/具体职能）', src:'模块一（5min）'},
-    {id:'e2', name:'2. 市场整体趋势与竞品终端现状', en:'Market Trends & Competitor Status', desc:'市场趋势与细分区域特征（泰国/香港市场特性）、竞品深度分析（埃尔法标杆与短板）、新能源渗透、中国品牌的工程经验与真实流失痛点（LHD to RHD右舵工程适配）', src:'模块二（20min）'},
-    {id:'e3', name:'3. 品牌认知与场景定位探讨', en:'Brand Perception & Positioning', desc:'核心用户画像与区域差异对比（泰国/香港）、商务接待vs家庭出行比例、4/6/7座布局趋势与纯四座验证、品牌溢价支撑与营销传播策略', src:'模块三（15min）'},
+    {id:'e2', name:'2. 市场整体趋势与竞品终端现状', en:'Market Trends & Competitor Status', desc:'市场趋势与细分区域特征（目标市场特性）、竞品深度分析（埃尔法标杆与短板）、新能源渗透、中国品牌的工程经验与真实流失痛点（LHD to RHD右舵工程适配）', src:'模块二（20min）'},
+    {id:'e3', name:'3. 品牌认知与场景定位探讨', en:'Brand Perception & Positioning', desc:'核心用户画像与区域差异对比、商务接待vs家庭出行比例、4/6/7座布局趋势与纯四座验证、品牌溢价支撑与营销传播策略', src:'模块三（15min）'},
     {id:'e4', name:'4. 核心产品设计验证', en:'Core Product Design Validation', desc:'核心尺寸限制与底盘架构权衡（平整地板vs后轮转向）、座舱空间布置与智能生态本地化、补能基础设施与动力形式（BEV/PHEV/REEV）、本地气候适应性与创新设计争议评估', src:'模块四（30min）'},
     {id:'e5', name:'5. 核心风险预警与未来演进机会展望', en:'Risk & Future Outlook', desc:'重大业务风险预先探查（1-2年系统性风险/售后补偿承诺组合）、核心投入建议与长期竞争要素（标配壁垒/可剔除配置/3年演进路线）', src:'模块五（15min）'}
   ],
@@ -6362,6 +6362,14 @@ const COUNTRIES = [
   {code:'VN', name:'越南', flag:'🇻🇳', city:'胡志明市'},
   {code:'ZA', name:'南非', flag:'🇿🇦', city:'约翰内斯堡'}
 ];
+
+/* 竞品专家/媒体专家深访开放至所有国家（题目文本由 mpvLocalize() 在渲染时按国家本地化；选港/泰时保持原文） */
+[DATA.MPVExpert, DATA.MPVMedia].forEach(d=>{
+  const src = d.countries.HK || d.countries.TH;
+  const fresh = {};
+  COUNTRIES.forEach(c=>{ fresh[c.code] = src; });
+  d.countries = fresh;
+});
 
 /* ---------- 研究阶段 ---------- */
 const STAGES = [
@@ -6785,8 +6793,8 @@ function initModList(){
   list.innerHTML = '';
   if(!state.type){ return; }
   const d = DATA[state.type];
-  /* 初始化模块顺序 */
-  if(!state.modOrder.length || state.modOrder.length !== d.modules.length){
+  /* 初始化模块顺序（校验 id 全部属于当前类型，避免跨类型切换后长度恰好相同导致旧 id 失效、模块渲染为空） */
+  if(!state.modOrder.length || state.modOrder.length !== d.modules.length || !state.modOrder.every(id=>d.modules.some(m=>m.id===id))){
     state.modOrder = d.modules.map(m=>m.id);
   }
   /* 按 state.modOrder 顺序渲染 */
@@ -7367,6 +7375,82 @@ function tagQuestions(){
   });
 }
 
+/* ---------- MPV 竞品/媒体专家深访：按所选国家本地化题目（选港/泰时保持原文） ---------- */
+function mpvLocalize(html, cc){
+  if(!html || !isMPVType() || cc==='HK' || cc==='TH') return html;
+  const cinfo = COUNTRIES.find(c=>c.code===cc);
+  const rc = state.repCountries[cc]||{};
+  const name = rc.name || (cinfo?cinfo.name:cc);
+  const city = rc.city || (cinfo?cinfo.city:'') || name;
+  let pairs;
+  if(state.type==='MPVExpert'){
+    pairs = [
+      ['（泰国市场特性）：以泰国为例，日系品牌市占率极高，中国高端MPV在泰国的竞争力如何？','（目标市场特性）：以'+name+'为例，当地市场由主流外资品牌长期主导，中国高端MPV的竞争力如何？'],
+      ['（香港市场特性）：香港是经典的深受"保姆车文化"影响的成熟市场。目前中国品牌拓展香港市场面临的机会和阻碍是什么？','（目标市场特性）：'+name+'作为成熟市场的汽车消费文化有何特点？目前中国品牌拓展'+name+'市场面临的机会和阻碍是什么？'],
+      ['它在东南亚(泰国/香港)为什么能卖得这么好？','它在'+name+'市场为什么能卖得这么好？'],
+      ['东南亚当地政府对新能源汽车有哪些优惠政策？香港or泰国有具体政策吗？','当地政府对新能源汽车有哪些优惠政策？'+name+'有具体政策吗？'],
+      ['这种人群画像在泰国和香港是否存在显著差异？','这种人群画像是否存在显著的区域/人群差异？'],
+      ['这两地的消费者','当地消费者'],
+      ['例如，泰国是否主要是本土华人企业家或演艺圈层？','例如，本土企业家或演艺/名人圈层占多大比例？'],
+      ['香港是否主要作为跨国公司的高管通勤或富豪家庭的"第二台车"？','跨国公司高管通勤或富豪家庭"第二台车"需求各占多大比例？'],
+      ['在东南亚及香港这种普遍家庭成员结构复杂的市场','在普遍家庭成员结构复杂的市场'],
+      ['但我们知道，如香港的路况极为狭窄且停车位规范极严，泰国的曼谷等核心都市路况也高度拥堵。','同时需要关注'+name+'的道路与停车环境（如核心都市拥堵、车位紧张、老城区道路狭窄等）。'],
+      ['结合香港和泰国常见的狭窄半山道路或都市小巷','结合当地常见的狭窄道路或都市小巷'],
+      ['在泰国和香港这两类截然不同的高净值人群居住区，','在'+name+'的高净值人群居住区，'],
+      ['香港私人车位充电改造审批极严，主要依赖公用超充；而泰国部分高端别墅区可能存在电网扩容受限（如仅支持7kW慢充）的问题。','需重点评估'+name+'私人充电设施改造的便利度与审批门槛，以及部分高端住宅区是否存在电网扩容受限（如仅支持7kW慢充）的问题。'],
+      ['目前在泰国和香港市场，分别有哪些','目前在'+name+'市场，有哪些'],
+      ['在泰国或香港，','在'+name+'，'],
+      ['海外右舵高端MPV市场','海外高端MPV市场'],
+      ['出海车型在进行"左舵改右舵（LHD to RHD）"的工程适配中','出海车型在进行驾驶方向工程适配（LHD/RHD）的过程中'],
+      ['【追问（右舵工程痛点）：在这些右舵版车型中','【追问（驾驶方向工程痛点）：在这些驾驶方向适配版车型中'],
+      ['4座、6座和7座车型在右舵高端市场的需求趋势','4座、6座和7座车型在当地高端市场的需求趋势'],
+      ['【追问（右舵生态适配）：','【追问（车机生态适配）：'],
+      ['针对海外右舵高端MPV的研发定义','针对海外高端MPV的研发定义'],
+      ['东南亚各个国家有哪些需要注意的气候','当地有哪些需要注意的气候'],
+      ['东南亚及华南区域（涵盖泰、港等）气候具备常年气温高、台风及强降雨频发的特征。',name+'当地具备特定的气候与自然环境特征（如高温、强降雨等，需按市场实际情况调整）。'],
+      ['探讨泰国、香港等地的用户画像差异及真实用车场景','探讨当地用户画像差异及真实用车场景'],
+      ['东南亚高端MPV市场（重点聚焦泰国、香港）',name+'高端MPV市场'],
+      ['泰国、香港等东南亚市场',name+'市场'],
+      ['东南亚及周边高端MPV市场',name+'及周边高端MPV市场'],
+      ['重点泰国/香港','重点'+name],
+      ['香港/泰国市场',name+'市场'],
+      ['30万港币/180万泰铢','30万当地货币'],
+      ['（HK/TH）','（'+cc+'）'],
+      ['港泰高端MPV研究',name+'高端MPV研究'],
+      ['东南亚','海外'],
+      ['曼谷',city],
+      ['泰国',name],
+      ['香港',name],
+      ['泰铢','当地货币'],
+      ['港币','当地货币']
+    ];
+  } else if(state.type==='MPVMedia'){
+    pairs = [
+      ['（香港本地特色路段如大屿山、半山道）','（当地特色路段）'],
+      ['财经媒体（信报/经济日报）','当地主流财经媒体'],
+      ['泰语/粤语/英语/普通话','当地语言/英语/普通话'],
+      ['香港的地形（多山、多弯道、车位窄）','当地的地形与道路条件'],
+      ['（近年来港的大湾区居民）','（近年迁入的新居民）'],
+      ['是周末去大埔/西贡郊游','是周末去周边郊区/景区郊游'],
+      ['还是每天要开车过关去深圳？','还是每天要开车长途/跨城通勤？'],
+      ['开车过境到深圳/广州的频率高吗','开车跨城/长途出行的频率高吗'],
+      ['两地牌','跨城/跨境牌照'],
+      ['进港忠告','入市忠告'],
+      ['30万-40万港币','30万-40万当地货币'],
+      ['30万港币','30万当地货币'],
+      ['（HK）','（'+cc+'）'],
+      ['港泰高端MPV研究',name+'高端MPV研究'],
+      ['香港',name],
+      ['港币','当地货币']
+    ];
+  } else {
+    return html;
+  }
+  pairs.sort((a,b)=>b[0].length-a[0].length);
+  pairs.forEach(([from,to])=>{ html = html.split(from).join(to); });
+  return html;
+}
+
 function applyReplacements(html){
   if(!html) return html;
   /* 1) 车型替换：单遍正则、长者优先（S11 类与 MPV 类词链不同） */
@@ -7592,13 +7676,13 @@ function collectSelectedCountries(){
 function autoGenerateHeader(cc, cinfo, cd){
   const d = DATA[state.type];
   const cName = (state.repCountries[cc] && state.repCountries[cc].name) || cinfo.name;
-  let cityLabel = cd.cityName || cinfo.city;
+  let cityLabel = (isMPVType() && cc!=='HK' && cc!=='TH') ? cinfo.city : (cd.cityName || cinfo.city);
   if(state.repCountries[cc] && state.repCountries[cc].city) cityLabel = state.repCountries[cc].city;
   else cityLabel = applyReplacements(cityLabel);
   
   const ccs = collectSelectedCountries();
   const isMulti = ccs.length > 1;
-  const typeLabel = state.type === 'FGD' ? '定性座谈会' : state.type === 'IHV' ? '深度访谈' : '经销商访谈';
+  const typeLabel = state.type === 'FGD' ? '定性座谈会' : state.type === 'IHV' ? '深度访谈' : state.type === 'MPVExpert' ? '主机厂竞品专家深访' : state.type === 'MPVMedia' ? '汽车媒体专家深访' : '经销商访谈';
   const modelLabel = state.repModel || '目标车型';
   
   let html = '';
@@ -7760,7 +7844,7 @@ function buildOutlineHTML(){
       /* 多国家：每个国家一个版本标题 */
       html += `<div style="text-align:center;margin:${idx>0?'48px':'0'} 0 20px">`;
       html += `<div style="font-size:11px;color:var(--ink3);letter-spacing:2px;margin-bottom:6px">— 第 ${idx+1} 国 / 共 ${ccs.length} 国 —</div>`;
-      let cityLabel = cd.cityName || cinfo.city;
+      let cityLabel = (isMPVType() && cc!=='HK' && cc!=='TH') ? cinfo.city : (cd.cityName || cinfo.city);
       if(rc.city) cityLabel = rc.city;
       else cityLabel = applyReplacements(cityLabel);
       html += `<span class="country-chip">${cFlag} ${cName} · ${cityLabel}</span>`;
@@ -7795,7 +7879,7 @@ function buildOutlineHTML(){
       sec += content;
     });
     if(cd.footer) sec += cd.footer;
-    html += injectConds(applyReplacements(sec));
+    html += injectConds(applyReplacements(mpvLocalize(sec, cc)));
   });
   if(condsActive() && keptMods===0){
     html += `<p style="text-align:center;color:#999;padding:30px 0">所选模块的内容全部被当前研究条件过滤，请调整「研究条件」或勾选更多模块后重新生成。</p>`;
@@ -7902,7 +7986,7 @@ function buildTreeHTML(){
       content = filterSubContent(content, m.id);
       content = filterByConds(content);
       if(!content.trim()) return;
-      content = injectConds(applyReplacements(content));
+      content = injectConds(applyReplacements(mpvLocalize(content, cc)));
       totalMods++;
       modNum++;
       const tmp = document.createElement('div');
