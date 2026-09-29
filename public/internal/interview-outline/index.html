@@ -7600,7 +7600,73 @@ function autoGenerateHeader(cc, cinfo, cd){
   }
   
   html += `</div>`;
-  
+
+  /* 动态研究目的 */
+  html += autoGenerateObjectives();
+
+  /* 动态样本定义（模块概览） */
+  html += autoGenerateSampleDef();
+
+  return html;
+}
+
+function autoGenerateObjectives(){
+  const power = state.conds.power || [];
+  const hasBEV = power.includes('bev');
+  const hasICE = power.includes('ice');
+  const hasHEV = power.some(p=>['hev','phev','reve'].includes(p));
+  const modelLabel = state.repModel || '目标车型';
+
+  let items = [];
+  items.push(`真实用车体验与场景还原：深入探究当地${modelLabel}拥有者的核心购买动机、真实用车场景诉求与痛点。`);
+  items.push(`核心价值要素与产品力权衡机制洞察：深挖目标用户在购车时对外观、内饰、空间、续航、智能化、安全等核心维度的具体关注点。`);
+
+  if(hasBEV){
+    items.push(`续航与充电体验的价值锚定：针对纯电车型的核心工程矛盾（续航vs成本、家充vs公共充电），切入用户真实使用场景进行模拟推演。`);
+  }
+
+  items.push(`产品定义方向验证：基于开放式讨论+示卡测试，验证受访者对${modelLabel}的造型、续航、配置、安全、价格等核心维度的期望与底线。`);
+
+  if(hasBEV && hasICE){
+    items.push(`BEV vs ICE跨动力对比洞察：通过BEV车主与ICE车主的对比，揭示消费者在动力选择上的真实决策逻辑与核心障碍。`);
+  }
+
+  items.push(`___________（请补充本项目特定的研究目标）`);
+  items.push(`___________（请补充本项目特定的研究目标）`);
+
+  let html = `<h4>【研究目的】</h4>\n<ul class="q">\n`;
+  items.forEach(t=>{ html += `<li>${t}</li>\n`; });
+  html += `</ul>`;
+  return html;
+}
+
+function autoGenerateSampleDef(){
+  const d = DATA[state.type];
+  if(!d) return '';
+  const power = state.conds.power || [];
+  const hasBEV = power.includes('bev');
+  const hasICE = power.includes('ice');
+
+  let groupDesc = [];
+  if(hasBEV) groupDesc.push('BEV组');
+  if(hasICE) groupDesc.push('ICE组');
+  if(power.some(p=>['hev','phev','reve'].includes(p))) groupDesc.push('混动组');
+
+  let html = `<h4>【样本定义与时长】</h4>\n`;
+  if(groupDesc.length > 0){
+    html += `<p>访谈分组：${groupDesc.join(' + ')}</p>\n`;
+  }
+  html += `<p>访谈时长：约___分钟</p>\n`;
+
+  const selMods = d.modules.filter(m=>state.mods[m.id]);
+  if(selMods.length > 0){
+    html += `<table class="tbl"><tr><th>模块</th><th>内容</th><th>时长</th></tr>\n`;
+    selMods.forEach((m,i)=>{
+      const shortName = m.name.replace(/^\d+\.\s*/,'');
+      html += `<tr><td>模块${i+1}</td><td>${shortName}</td><td>___min</td></tr>\n`;
+    });
+    html += `<tr><td><b>合计</b></td><td></td><td>___min</td></tr></table>\n`;
+  }
   return html;
 }
 
@@ -7636,16 +7702,8 @@ function buildOutlineHTML(){
     }
     let sec = '';
     /* 自动生成项目背景（对标车型等） */
-    const hasBenchmarks = state.bevBench || state.iceBench || state.otherBench;
-    const hasPowerSel = (state.conds.power || []).length > 0;
     if(optHeader){
-      if(hasBenchmarks || ccs.length > 1 || hasPowerSel){
-        /* 有对标车型/多国研究/已选动力类型：使用自动生成的动态背景 */
-        sec += autoGenerateHeader(cc, cinfo, cd);
-      } else {
-        /* 无对标车型且单国且未选动力：仍用自动生成（不硬编码组别），仅补充默认背景 */
-        sec += autoGenerateHeader(cc, cinfo, cd);
-      }
+      sec += autoGenerateHeader(cc, cinfo, cd);
     } else if(cd.header){
       sec += cd.header;
     }
