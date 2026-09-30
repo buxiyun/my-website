@@ -533,7 +533,7 @@ body.editing .doc ul.q>li:hover>.edit-ctl,body.editing .doc .branch li:hover>.ed
 
     <div class="card">
       <h3><span class="no">5b</span>产品卖点与配置<span class="hint">客户提供的产品定义数据</span></h3>
-      <div style="font-size:12px;font-weight:700;color:var(--ink2);margin-bottom:6px;display:flex;align-items:center;gap:8px">产品测试方案<span style="font-weight:400;color:var(--ink3)">（FGD中用于统计方案偏好）</span><button class="mini" onclick="addConceptVariant()" style="font-size:11px;padding:2px 10px;margin-left:auto" title="添加方案">＋</button></div>
+      <div style="font-size:12px;font-weight:700;color:var(--ink2);margin-bottom:6px;display:flex;align-items:center;gap:8px">产品测试方案<span style="font-weight:400;color:var(--ink3)">（填写测试对象与方案数量，如车头4、车尾3）</span><button class="mini" onclick="addConceptVariant()" style="font-size:11px;padding:2px 10px;margin-left:auto" title="添加测试对象">＋</button></div>
       <div id="conceptList"></div>
       <div style="font-size:12px;font-weight:700;color:var(--ink2);margin-bottom:6px;display:flex;align-items:center;gap:8px">产品卖点<span style="font-weight:400;color:var(--ink3)">（每行：卖点名称 + 描述）</span><button class="mini" onclick="addSellingPoint()" style="font-size:11px;padding:2px 10px;margin-left:auto" title="添加卖点">＋</button></div>
       <div id="spList"></div>
@@ -9636,13 +9636,12 @@ function renderConceptVariantRows(){
   if(!container) return;
   container.innerHTML = '';
   state.conceptVariants.forEach((sp,i)=>{
-    const label = String.fromCharCode(65+i);
     const row = document.createElement('div');
     row.style.cssText = 'display:flex;gap:4px;margin-bottom:4px;align-items:center';
     row.innerHTML = `
-      <span style="font-size:11px;color:var(--ink3);min-width:42px">方案${label}</span>
-      <input type="text" id="conceptName${i}" value="${escInputValue(sp.name)}" placeholder="方案${label}名称" style="flex:1;padding:4px 6px;border:1px solid var(--line);border-radius:4px;font-size:11.5px;min-width:0">
-      <input type="text" id="conceptDesc${i}" value="${escInputValue(sp.desc)}" placeholder="核心差异 / 刺激物说明" style="flex:1.7;padding:4px 6px;border:1px solid var(--line);border-radius:4px;font-size:11.5px;min-width:0">
+      <span style="font-size:11px;color:var(--ink3);min-width:20px">${i+1}.</span>
+      <input type="text" id="conceptName${i}" value="${escInputValue(sp.name)}" placeholder="测试对象，如车头、车尾、内饰" style="flex:1.2;padding:4px 6px;border:1px solid var(--line);border-radius:4px;font-size:11.5px;min-width:0">
+      <input type="number" min="1" max="12" id="conceptDesc${i}" value="${escInputValue(sp.desc)}" placeholder="方案数量" style="flex:.6;padding:4px 6px;border:1px solid var(--line);border-radius:4px;font-size:11.5px;min-width:0">
       <button class="mini" onclick="removeConceptVariant(${i})" style="font-size:13px;padding:1px 7px;line-height:1.4;flex:0 0 auto" title="删除此行">✕</button>
     `;
     container.appendChild(row);
@@ -9729,27 +9728,32 @@ function updateProductData(){
 function selectedConceptVariants(){
   syncSellingPointsFromDOM();
   return (state.conceptVariants||[])
-    .map((x,i)=>({letter:String.fromCharCode(65+i), name:(x.name||'').trim(), desc:(x.desc||'').trim()}))
-    .filter(x=>x.name || x.desc);
+    .map((x,i)=>{
+      const name = (x.name||'').trim();
+      const count = Math.max(0, Math.min(12, parseInt((x.desc||'').trim(), 10) || 0));
+      return {name, count};
+    })
+    .filter(x=>x.name && x.count > 0);
 }
 function conceptTestHTML(){
   if(state.type !== 'FGD') return '';
-  const variants = selectedConceptVariants();
-  if(!variants.length) return '';
-  const rows = variants.map(v=>{
-    const title = v.name ? `方案 ${v.letter}：${escInputValue(v.name)}` : `方案 ${v.letter}`;
-    const desc = v.desc ? `（${escInputValue(v.desc)}）` : '';
-    return `<li>${title}${desc}：喜欢人数 ____ 人；不喜欢人数 ____ 人；最想追问的理由：________________。</li>`;
-  }).join('');
-  const labels = variants.map(v=>`方案 ${v.letter}`).join('、');
-  return `<h5>产品方案偏好统计</h5>
-<div class="docnote"><b>【FGD活动】</b>依次展示${labels}，先让每位受访者独立选择最喜欢和最不喜欢的方案，再现场统计人数。统计后再进入开放讨论，避免先讨论导致互相影响。</div>
+  const groups = selectedConceptVariants();
+  if(!groups.length) return '';
+  const sections = groups.map(g=>{
+    const letters = Array.from({length:g.count}, (_,i)=>String.fromCharCode(65+i));
+    const statRows = letters.map(l=>`<li>${escInputValue(g.name)}方案 ${l}：____ 人 / n=${g.count}；主要理由：________________。</li>`).join('');
+    return `<h5>${escInputValue(g.name)}方案偏好统计</h5>
 <ul class="q">
-  <li>如果只能选择一个最愿意进一步了解或购买的方案，您会选择哪一个？为什么？</li>
+  <li>请看${escInputValue(g.name)}的 ${g.count} 个方案（${letters.map(l=>'方案 '+l).join('、')}）。如果只能选一个，您最喜欢哪个？为什么？</li>
   <li>哪个方案最不适合您？主要卡点是什么？</li>
 </ul>
-<div class="probe">【主持人记录：每个方案记录喜欢人数、不喜欢人数、核心理由；追问是否因为造型、空间、配置、价格、品牌、补能/动力或使用场景导致偏好。】</div>
-<ul class="q">${rows}</ul>`;
+<ul class="q">${statRows}</ul>`;
+  }).join('');
+  const labels = groups.map(g=>`${escInputValue(g.name)}${g.count}个`).join('、');
+  return `<h5>产品方案偏好统计</h5>
+<div class="docnote"><b>【FGD活动】</b>本场需要测试：${labels}。每组方案先让每位受访者独立选择最喜欢和最不喜欢的方案，主持人现场按 A/B/C 记录人数；统计后再进入开放讨论，避免先讨论导致互相影响。</div>
+<div class="probe">【主持人记录：每个测试对象分别记录各方案选择人数、核心理由和反对理由；追问是否因为造型、空间、配置、价格、品牌、补能/动力或使用场景导致偏好。】</div>
+${sections}`;
 }
 function repCountryPairs(){
   /* 汇总所有已填写的国家替换对（名称/城市/旗帜/港泰合并称），长者优先 */
