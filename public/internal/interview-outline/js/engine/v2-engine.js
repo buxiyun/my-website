@@ -28,7 +28,7 @@ function v2GatePasses(gate){
       return !state.conds.climate || ['cold','temperate'].includes(state.conds.climate);
     case 'rain':
       return !state.conds.climate || ['hot','temperate'].includes(state.conds.climate);
-    case 'business':  return true;
+    case 'business':  return state.type === 'BusinessOrg' || (state.conds && state.conds.usage === 'business');
     case 'owner':     return true;
     case 'home_visit': return state.type === 'IHV';
     default: return true;
