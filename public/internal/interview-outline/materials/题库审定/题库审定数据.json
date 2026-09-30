@@ -3039,11 +3039,11 @@
       "review_status": "待审阅",
       "variants": {
         "owner": {
-          "text": "请还原一次车辆采购的审批过程。",
+          "text": "请讲一次车辆采购的审批过程。",
           "evidence_type": "self_report_or_preference"
         },
         "prospect": {
-          "text": "请还原一次车辆采购的审批过程。",
+          "text": "请讲一次车辆采购的审批过程。",
           "evidence_type": "actual_experience_then_expectation"
         }
       },
@@ -3847,7 +3847,7 @@
       "review_status": "同意",
       "variants": {
         "owner": {
-          "text": "是否有过车辆不可用而改变行程的经历？如果有，请还原一次。",
+          "text": "是否有过车辆不可用而改变行程的经历？如果有，请讲一次。",
           "evidence_type": "本次编辑问法，按角色记录证据"
         },
         "prospect": {
@@ -5460,11 +5460,11 @@
       "review_status": "同意",
       "variants": {
         "owner": {
-          "text": "车内操作有没有您希望改善的地方？如果有，请还原最近一次。",
+          "text": "车内操作有没有您希望改善的地方？如果有，请讲一个最近的例子。",
           "evidence_type": "本次编辑问法，按角色记录证据"
         },
         "prospect": {
-          "text": "在实际体验过的车内操作中，有没有希望改善的地方？如果有，请还原一次。",
+          "text": "在实际体验过的车内操作中，有没有希望改善的地方？如果有，请讲一次。",
           "evidence_type": "本次编辑问法，按角色记录证据"
         }
       },
@@ -19052,7 +19052,7 @@
         "Q-M2.4-01"
       ],
       "original": "【主持人注意/追问：车位是否紧张？【调研城市】市中心停车有多难？是否有剐蹭经历？请回忆一次因车身尺寸造成困扰的停车经历。】",
-      "revised": "常用车位有哪些限制或便利？如有困难，请还原一次及处理办法；是否发生剐蹭，不预设原因。",
+      "revised": "常用车位有哪些限制或便利？如有困难，请讲一次及处理办法；是否发生剐蹭，不预设原因。",
       "status": "改写",
       "condition": "受访者有停车经历",
       "reason": "删除城市停车必然困难及车身尺寸必然致因。",
@@ -44463,11 +44463,11 @@
       "review_status": "editorial_revision_for_project_review",
       "variants": {
         "owner": {
-          "text": "请还原一次车辆采购的审批过程。",
+          "text": "请讲一次车辆采购的审批过程。",
           "evidence_type": "self_report_or_preference"
         },
         "prospect": {
-          "text": "请还原一次车辆采购的审批过程。",
+          "text": "请讲一次车辆采购的审批过程。",
           "evidence_type": "actual_experience_then_expectation"
         },
         "Dealer": {
@@ -45291,7 +45291,7 @@
       "review_status": "editorial_revision_for_project_review",
       "variants": {
         "owner": {
-          "text": "是否有过车辆不可用而改变行程的经历？如果有，请还原一次。",
+          "text": "是否有过车辆不可用而改变行程的经历？如果有，请讲一次。",
           "evidence_type": "本次编辑问法，按角色记录证据"
         },
         "prospect": {
@@ -46927,11 +46927,11 @@
       "review_status": "editorial_revision_for_project_review",
       "variants": {
         "owner": {
-          "text": "车内操作有没有您希望改善的地方？如果有，请还原最近一次。",
+          "text": "车内操作有没有您希望改善的地方？如果有，请讲一个最近的例子。",
           "evidence_type": "本次编辑问法，按角色记录证据"
         },
         "prospect": {
-          "text": "在实际体验过的车内操作中，有没有希望改善的地方？如果有，请还原一次。",
+          "text": "在实际体验过的车内操作中，有没有希望改善的地方？如果有，请讲一次。",
           "evidence_type": "本次编辑问法，按角色记录证据"
         },
         "Dealer": {
