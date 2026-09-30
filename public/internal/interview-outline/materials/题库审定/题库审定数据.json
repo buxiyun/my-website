@@ -4195,7 +4195,7 @@
       "review_status": "同意",
       "variants": {
         "owner": {
-          "text": "您经常在哪里停车？请选一个常用地点，讲讲停车和离开的过程。",
+          "text": "您经常在哪里停车？在停车和开走的过程中，有没有觉得困难或不方便的地方？",
           "evidence_type": "本次编辑问法，按角色记录证据"
         },
         "prospect": {
@@ -45645,7 +45645,7 @@
       "review_status": "editorial_revision_for_project_review",
       "variants": {
         "owner": {
-          "text": "您经常在哪里停车？请选一个常用地点，讲讲停车和离开的过程。",
+          "text": "您经常在哪里停车？在停车和开走的过程中，有没有觉得困难或不方便的地方？",
           "evidence_type": "本次编辑问法，按角色记录证据"
         },
         "prospect": {
