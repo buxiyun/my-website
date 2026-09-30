@@ -262,7 +262,7 @@ function initTypeButtons(){
       state.subs = {};
       Object.keys(_GENERIC_SUBS_CACHE).forEach(k=>delete _GENERIC_SUBS_CACHE[k]);
       syncCountriesToType();
-      initTypeButtons(); initCountryButtons(); initOwnerGrid(); initCountryGrid(); initVehicleSpecs(); initModList(); initSellingPointsUI();
+      initTypeButtons(); initCountryButtons(); initOwnerGrid(); initCountryGrid(); initVehicleSpecs(); initConds(); initModList(); initSellingPointsUI();
     };
     grid.appendChild(el);
   });
