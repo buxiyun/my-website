@@ -28,7 +28,8 @@ function v2GatePasses(gate){
       return !state.conds.climate || ['cold','temperate'].includes(state.conds.climate);
     case 'rain':
       return !state.conds.climate || ['hot','temperate'].includes(state.conds.climate);
-    case 'business':  return state.type === 'BusinessOrg' || (state.conds && state.conds.usage === 'business');
+    case 'business':  return state.type === 'BusinessOrg' || (state.conds && ['business','commercial'].includes(state.conds.usage));
+    case 'ihv_after_fgd': return state.type === 'IHV' && state.conds && state.conds.ihvSource === 'after_fgd';
     case 'owner':     return true;
     case 'home_visit': return state.type === 'IHV';
     default: return true;
@@ -59,7 +60,7 @@ function v2ActivityForMethod(activity, method){
 
 /* 生成单题 HTML */
 function v2QuestionHTML(q, vk){
-  const useBusinessVariant = (state.type==='FGD' || state.type==='IHV') && state.conds && state.conds.usage==='business' && q.variants && q.variants.business;
+  const useBusinessVariant = (state.type==='FGD' || state.type==='IHV') && state.conds && ['business','commercial'].includes(state.conds.usage) && q.variants && q.variants.business;
   const variant = useBusinessVariant ? q.variants.business : q.variants[vk];
   if(!variant) return '';
   let h = '';
@@ -116,7 +117,10 @@ function v2GenerateMods(){
         const q = questionMap[qid];
         if(!q) return;
         if(!q.methods.includes(methodKey)) return;
-        const hasVariant = q.variants[vk] || ((state.type==='FGD' || state.type==='IHV') && state.conds && state.conds.usage==='business' && q.variants.business);
+        const isPostFgdIHV = state.type === 'IHV' && state.conds && state.conds.ihvSource === 'after_fgd';
+        if(isPostFgdIHV && (modId === 'c5' || modId === 'c6') && q.gate !== 'ihv_after_fgd') return;
+        if(!isPostFgdIHV && q.gate === 'ihv_after_fgd') return;
+        const hasVariant = q.variants[vk] || ((state.type==='FGD' || state.type==='IHV') && state.conds && ['business','commercial'].includes(state.conds.usage) && q.variants.business);
         if(!hasVariant) return;
         if(!v2GatePasses(q.gate)) return;
         subHTML += v2QuestionHTML(q, vk);
@@ -157,11 +161,9 @@ function v2GenerateMods(){
         + v2QuestionHTML(closing, vk) + '</div>';
     }
   }
-  /* 实地家庭观察 → IHV i2（IHV 无 i1，追加到第一个模块 i2） */
-  if(method === 'IHV' && homeTour && homeTour.variants[vk] && v2GatePasses(homeTour.gate)){
-    if(result.i2){
-      result.i2 = '<h5>实地家庭观察</h5>' + v2QuestionHTML(homeTour, vk) + result.i2;
-    }
+  /* 实地家庭观察 → IHV 首模块前，确保 home tour 稳定显示 */
+  if(method === 'IHV' && homeTour && homeTour.variants[vk] && v2GatePasses(homeTour.gate) && modIds.length > 0){
+    result[modIds[0]] = '<h5>入户 Home Tour 与现场记录</h5>' + v2QuestionHTML(homeTour, vk) + result[modIds[0]];
   }
   return result;
 }

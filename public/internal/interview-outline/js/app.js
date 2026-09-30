@@ -4,7 +4,7 @@
 
 const state = { stage:'pd', type:null, countries:[], countryCount:1, _desiredCc:1, mods:{}, modOrder:[], repModel:'', repCountries:{},
   ownerType:'both', segment:'', bodyType:'', personnel:'middle',
-  conds:{ climate:'', roads:'', charging:'', power:[], drive:'', incentive:'', finance:'', usage:'' },
+  conds:{ climate:'', roads:'', charging:'', power:[], drive:'', incentive:'', finance:'', usage:'', ihvSource:'' },
   viewMode:'outline', bevBench:'', iceBench:'', otherBench:'', f5Subs:{}, subs:{},
   sellingPoints:[], configItems:[], conceptVariants:[] };
 
@@ -226,7 +226,7 @@ function switchStage(id){
   state.repCountries = {};
   state.repModel = '';
   Object.keys(_GENERIC_SUBS_CACHE).forEach(k=>delete _GENERIC_SUBS_CACHE[k]);
-  initStageTabs(); initTypeButtons(); initCountryButtons(); initOwnerGrid(); initCountryGrid(); initVehicleSpecs(); initPersonnelGrid(); initModList(); initSellingPointsUI(); initRepCountries();
+  initStageTabs(); initTypeButtons(); initCountryButtons(); initOwnerGrid(); initCountryGrid(); initVehicleSpecs(); initPersonnelGrid(); initConds(); initModList(); initSellingPointsUI(); initRepCountries();
 }
 
 function initTypeButtons(){
@@ -901,7 +901,7 @@ function initConds(){
   });
 }
 function resetConds(){
-  state.conds = { climate:'', roads:'', charging:'', power:[], drive:'', incentive:'', finance:'', usage:'' };
+  state.conds = { climate:'', roads:'', charging:'', power:[], drive:'', incentive:'', finance:'', usage:'', ihvSource:'' };
   initConds();
 }
 

@@ -45,7 +45,8 @@ const COND_DEFS = [
   {key:'drive',    label:'驾驶方向',     type:'select', options:[{v:'lhd',label:'左舵'},{v:'rhd',label:'右舵'}]},
   {key:'incentive',label:'补贴/税收政策',type:'select', options:[{v:'yes',label:'有显著补贴/税收优惠'},{v:'no',label:'无显著补贴'}]},
   {key:'finance',  label:'金融渗透率',   type:'select', options:[{v:'high',label:'高（贷款/分期普遍）'},{v:'low',label:'低（现金购车为主）'}]},
-  {key:'usage',    label:'用车目的',     type:'select', options:[{v:'household',label:'家用（已有/计划家用购车）'},{v:'intend',label:'意向家用（潜在家用购车者）'},{v:'commercial',label:'商用（企业/ fleet /商务用途）'}]}
+  {key:'usage',    label:'用车目的',     type:'select', options:[{v:'household',label:'家用（已有/计划家用购车）'},{v:'intend',label:'意向家用（潜在家用购车者）'},{v:'commercial',label:'商用（企业/ fleet /商务用途）'}]},
+  {key:'ihvSource', label:'IHV样本来源', type:'select', options:[{v:'no_fgd',label:'未参加过FGD（完整入户深访）'},{v:'after_fgd',label:'参加过FGD后入户（少做重复测试）'}]}
 ];
 
 /* 规则语义：命中规则 re 的板块，仅当所选条件满足 req（每个 key 的取值在允许列表内）时保留；
@@ -85,7 +86,7 @@ const COND_RULES = [
 
 function condsActive(){
   const c = state.conds;
-  return !!(c.climate||c.roads||c.charging||(c.power&&c.power.length)||c.drive||c.incentive||c.finance||c.usage||state.bodyType||state.segment);
+  return !!(c.climate||c.roads||c.charging||(c.power&&c.power.length)||c.drive||c.incentive||c.finance||c.usage||c.ihvSource||state.bodyType||state.segment);
 }
 function ruleKeeps(req){
   const c = state.conds;

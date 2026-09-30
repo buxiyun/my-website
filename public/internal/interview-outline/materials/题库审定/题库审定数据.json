@@ -2044,60 +2044,36 @@
       "review_feedback": ""
     },
     {
-      "alias": "home_tour",
-      "submodule_id": "E0",
-      "probes": [
-        "不进入不愿展示的区域",
-        "只记录研究相关观察",
-        "观察与解释分开"
-      ],
+      "id": "Q-E0-02",
+      "audience": "2C",
+      "view_section": "C0",
+      "chapter_label": "IHV入户观察与记录",
+      "priority": "core",
       "gate": "home_visit",
+      "material": null,
+      "condition": "仅 IHV 现场使用；先取得拍摄、录音和入户观察许可，不拍摄受访者不愿展示的区域。",
+      "variants": {
+        "owner": {
+          "text": "正式访谈前，想先请您带我们做一个简单的 home tour。我们会记录和拍摄与生活方式、价值观和用车有关的空间与物品。",
+          "evidence_type": "in_home_observation"
+        },
+        "prospect": {
+          "text": "正式访谈前，想先请您带我们做一个简单的 home tour。我们会记录和拍摄与生活方式、价值观和未来用车有关的空间与物品。",
+          "evidence_type": "in_home_observation"
+        }
+      },
       "methods": [
         "IHV"
       ],
-      "material": null,
-      "id": "Q-E0-02",
-      "module_id": "E0",
-      "source_refs": [
-        "S08-R021"
-      ],
-      "source_variants": [
-        {
-          "source_id": "S08-R021",
-          "method": "IHV",
-          "group": null,
-          "source_note": "巴西+印尼同源"
-        }
+      "probes": [
+        "整体房间布局：客厅、餐厨、卧室入口、储物区、停车/门口动线等",
+        "墙上的画、照片、奖状、宗教或文化符号，以及它们对家庭的意义",
+        "能代表价值观和生活方式的物品：包、表、旅游纪念、运动装备、手办、儿童用品、工作设备等",
+        "亲人之间的关系与家庭角色：谁照顾谁、谁做决定、谁经常一起出行",
+        "只记录观察事实和受访者解释，不替受访者下结论"
       ],
       "conditional_probes": [],
-      "activity": null,
-      "review_status": "同意",
-      "variants": {
-        "owner": {
-          "text": "在您愿意的范围内，能否带我们看看与日常出行和物品收纳有关的空间？",
-          "evidence_type": "self_report_or_preference"
-        },
-        "prospect": {
-          "text": "在您愿意的范围内，能否带我们看看与日常出行和物品收纳有关的空间？",
-          "evidence_type": "actual_experience_then_expectation"
-        }
-      },
-      "priority": "optional",
-      "estimated_minutes": {
-        "FGD": 3,
-        "IHV": 4,
-        "Dealer": 3,
-        "Media": 3,
-        "OEM": 3
-      },
-      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。",
-      "purpose": "明确参与许可、记录口径与结束核对，执行环节不计研究模块。",
-      "condition": "仅IHV现场，征得观察许可。",
-      "reason": "2C用户本人提纲：按生活背景—经历—选择—方案的顺序呈现。保留研究任务，按对象区分问法；同义主问合并，细节保留为按条件追问。",
-      "view_section": "C0",
-      "audience": "2C",
-      "chapter_label": "执行话术",
-      "review_feedback": ""
+      "activity": "IHV:取得许可后拍摄/记录；每张照片旁记录地点、物品、受访者解释和可能关联的用车含义。"
     },
     {
       "alias": "closing",
@@ -18689,6 +18665,129 @@
       "chapter_label": "组织补贴与政策",
       "review_feedback": "",
       "source_id_alias": "B-ORG-09"
+    },
+    {
+      "id": "Q-IHV-00-01",
+      "audience": "2C",
+      "view_section": "C0",
+      "chapter_label": "IHV样本来源确认",
+      "priority": "core",
+      "gate": "home_visit",
+      "material": null,
+      "condition": "IHV开场必问；用于判断后续是否跳过FGD已完成的产品/价格/品牌测试。",
+      "variants": {
+        "owner": {
+          "text": "在开始前确认一下：您是否参加过前面的FGD座谈会？如果参加过，请简单说一下当时讨论了哪些产品或方案。",
+          "evidence_type": "sample_source_check"
+        },
+        "prospect": {
+          "text": "在开始前确认一下：您是否参加过前面的FGD座谈会？如果参加过，请简单说一下当时讨论了哪些产品或方案。",
+          "evidence_type": "sample_source_check"
+        }
+      },
+      "methods": [
+        "IHV"
+      ],
+      "probes": [
+        "参加过FGD：后续产品方案、品牌揭示和价格测试只做简短复核，不重复完整测试",
+        "未参加FGD：按完整 IHV 提纲执行产品/品牌/价格相关模块"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    {
+      "id": "Q-IHV-00-02",
+      "audience": "2C",
+      "view_section": "C1",
+      "chapter_label": "成长经历与价值观背景",
+      "priority": "core",
+      "gate": "home_visit",
+      "material": null,
+      "condition": "IHV开场背景题；用来理解生活方式、消费观和汽车意义，不追问受访者不愿谈的隐私。",
+      "variants": {
+        "owner": {
+          "text": "想先了解一下您从小到大的经历：您在哪里长大，后来经历过哪些重要的学习、工作、家庭或城市变化？这些经历怎样影响您现在的生活方式和买车想法？",
+          "evidence_type": "life_history_context"
+        },
+        "prospect": {
+          "text": "想先了解一下您从小到大的经历：您在哪里长大，后来经历过哪些重要的学习、工作、家庭或城市变化？这些经历怎样影响您现在的生活方式和未来买车想法？",
+          "evidence_type": "life_history_context"
+        }
+      },
+      "methods": [
+        "IHV"
+      ],
+      "probes": [
+        "小时候的家庭用车或出行记忆",
+        "第一次对车产生兴趣或觉得车重要的经历",
+        "工作、婚育、搬家、收入变化对出行方式的影响",
+        "车在身份、自由、安全、家庭责任或事业中的意义"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    {
+      "id": "Q-IHV-2-01",
+      "audience": "2C",
+      "view_section": "C2",
+      "chapter_label": "车内场景演示与观察",
+      "priority": "core",
+      "gate": "home_visit",
+      "material": null,
+      "condition": "IHV看车环节使用；必须征得许可，不要求受访者做危险动作或驾驶车辆验证极限。",
+      "variants": {
+        "owner": {
+          "text": "现在想请您坐到车里，按平时真实用车方式演示几个常见场景：上车、调座椅和后视镜、放手机和随身物品、连接导航/音乐、带人乘坐或装东西。每一步请边做边说哪里顺手、哪里不顺手。",
+          "evidence_type": "observed_demonstration"
+        },
+        "prospect": {
+          "text": "如果现场有车或样车，想请您坐进去按未来真实用车方式演示几个场景：上车、调座椅和视野、放手机和随身物品、使用导航/音乐、带人乘坐或装东西。每一步请边做边说哪里满意、哪里担心。",
+          "evidence_type": "observed_or_expected_demonstration"
+        }
+      },
+      "methods": [
+        "IHV"
+      ],
+      "probes": [
+        "驾驶位：坐姿、视野、方向盘/屏幕/按键/储物是否顺手",
+        "副驾和后排：进出、腿部/头部空间、照顾老人小孩或客户是否方便",
+        "装载：婴儿车、购物袋、行李、工具或业务物品怎么放",
+        "数字化：导航、蓝牙/CarPlay、媒体、语音、空调、倒车影像是否好用",
+        "逐项记录满意点、不满意点、临时应对办法和希望改进"
+      ],
+      "conditional_probes": [],
+      "activity": "IHV:观察真实操作路径并拍摄关键位置；不为了研究要求受访者驾驶或重复困难动作。"
+    },
+    {
+      "id": "Q-IHV-FGD-01",
+      "audience": "2C",
+      "view_section": "C5",
+      "chapter_label": "FGD后IHV复核",
+      "priority": "core",
+      "gate": "ihv_after_fgd",
+      "material": null,
+      "condition": "仅适用于参加过FGD后再入户的受访者；不重复完整产品测试，只复核上次选择和理由是否变化。",
+      "variants": {
+        "owner": {
+          "text": "上次FGD里您当时更倾向哪个方案？为什么那样选？回到家、看过自己的车和生活场景后，理由有没有变化，或者有没有新的顾虑？",
+          "evidence_type": "post_fgd_recheck"
+        },
+        "prospect": {
+          "text": "上次FGD里您当时更倾向哪个方案？为什么那样选？回到家、结合自己的生活场景后，理由有没有变化，或者有没有新的顾虑？",
+          "evidence_type": "post_fgd_recheck"
+        }
+      },
+      "methods": [
+        "IHV"
+      ],
+      "probes": [
+        "记录上次选择的方案、关键理由和反对理由",
+        "追问哪些理由在家中场景下被加强，哪些变弱",
+        "如果发生改选，记录触发改选的生活证据，而不是重新做一遍方案投票",
+        "如涉及价格或品牌，只问是否改变判断和原因"
+      ],
+      "conditional_probes": [],
+      "activity": null
     }
   ],
   "probes": [
@@ -61365,6 +61464,13 @@
     {
       "change": "将商务/组织采购题融合进FGD商用路径",
       "detail": "前端不再显示独立商务/组织采购者访谈入口；选择FGD并在用车目的中选择商用时触发B-ORG题卡。"
+    }
+  ],
+  "change_log": [
+    {
+      "date": "2026-09-30",
+      "change": "补充IHV两类样本逻辑与入户观察题卡",
+      "detail": "新增参加过FGD/未参加FGD的IHV路径；参加过FGD时默认只复核上次选择，不重复完整产品测试；强化home tour、成长经历和车内场景演示记录。"
     }
   ]
 }
