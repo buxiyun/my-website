@@ -2982,11 +2982,11 @@
       "review_status": "待审阅",
       "variants": {
         "owner": {
-          "text": "选车、付款和最终决定分别由谁负责？",
+          "text": "当时买这辆车是谁选的，付款和最终决定的是谁？",
           "evidence_type": "self_report_or_preference"
         },
         "prospect": {
-          "text": "选车、付款和最终决定分别由谁负责？",
+          "text": "当时买这辆车是谁选的，付款和最终决定的是谁？",
           "evidence_type": "actual_experience_then_expectation"
         }
       },
@@ -44397,11 +44397,11 @@
       "review_status": "editorial_revision_for_project_review",
       "variants": {
         "owner": {
-          "text": "选车、付款和最终决定分别由谁负责？",
+          "text": "当时买这辆车是谁选的，付款和最终决定的是谁？",
           "evidence_type": "self_report_or_preference"
         },
         "prospect": {
-          "text": "选车、付款和最终决定分别由谁负责？",
+          "text": "当时买这辆车是谁选的，付款和最终决定的是谁？",
           "evidence_type": "actual_experience_then_expectation"
         },
         "business": {
