@@ -7484,11 +7484,11 @@
       "review_status": "同意",
       "variants": {
         "owner": {
-          "text": "请讲一款让您心动但最终放弃或仍犹豫的车型。",
+          "text": "有没有一款让你心动，但最终放弃或现在还在犹豫的车型？",
           "evidence_type": "self_report_or_preference"
         },
         "prospect": {
-          "text": "请讲一款让您心动但最终放弃或仍犹豫的车型。",
+          "text": "有没有一款让你心动，但最终放弃或现在还在犹豫的车型？",
           "evidence_type": "actual_experience_then_expectation"
         }
       },
@@ -48765,11 +48765,11 @@
       "review_status": "editorial_revision_for_project_review",
       "variants": {
         "owner": {
-          "text": "请讲一款让您心动但最终放弃或仍犹豫的车型。",
+          "text": "有没有一款让你心动，但最终放弃或现在还在犹豫的车型？",
           "evidence_type": "self_report_or_preference"
         },
         "prospect": {
-          "text": "请讲一款让您心动但最终放弃或仍犹豫的车型。",
+          "text": "有没有一款让你心动，但最终放弃或现在还在犹豫的车型？",
           "evidence_type": "actual_experience_then_expectation"
         },
         "Dealer": {
