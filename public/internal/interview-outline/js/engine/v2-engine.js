@@ -59,7 +59,8 @@ function v2ActivityForMethod(activity, method){
 
 /* 生成单题 HTML */
 function v2QuestionHTML(q, vk){
-  const variant = q.variants[vk];
+  const useBusinessVariant = (state.type==='FGD' || state.type==='IHV') && state.conds && state.conds.usage==='business' && q.variants && q.variants.business;
+  const variant = useBusinessVariant ? q.variants.business : q.variants[vk];
   if(!variant) return '';
   let h = '';
   h += '<ul class="q"><li>' + escHTML(variant.text);
@@ -115,7 +116,8 @@ function v2GenerateMods(){
         const q = questionMap[qid];
         if(!q) return;
         if(!q.methods.includes(methodKey)) return;
-        if(!q.variants[vk]) return;
+        const hasVariant = q.variants[vk] || ((state.type==='FGD' || state.type==='IHV') && state.conds && state.conds.usage==='business' && q.variants.business);
+        if(!hasVariant) return;
         if(!v2GatePasses(q.gate)) return;
         subHTML += v2QuestionHTML(q, vk);
         subQ++;

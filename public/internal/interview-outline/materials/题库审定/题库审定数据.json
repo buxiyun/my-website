@@ -2270,6 +2270,10 @@
         "prospect": {
           "text": "请简单介绍您的日常工作、共同生活的人，以及目前的生活安排。",
           "evidence_type": "actual_experience_then_expectation"
+        },
+        "business": {
+          "text": "【商用问法】请简单介绍您的业务/工作角色、车辆相关职责，以及这次商用或营运用车的基本情况。",
+          "evidence_type": "commercial_use_or_purchase"
         }
       },
       "priority": "core",
@@ -2280,7 +2284,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。",
+      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "建立消费者本人、家庭与日常生活背景，作为后续用车场景的开场信息。",
       "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "reason": "按审阅意见删除商务/组织版本，只保留消费者本人开场。",
@@ -2348,6 +2352,10 @@
         "prospect": {
           "text": "平时哪些兴趣或活动最占用您的时间？最近一次是怎么安排出行的？",
           "evidence_type": "actual_experience_then_expectation"
+        },
+        "business": {
+          "text": "【商用问法】平时哪些业务活动最需要用车？最近一次是怎么安排车辆和人员的？",
+          "evidence_type": "commercial_use_or_purchase"
         }
       },
       "priority": "optional",
@@ -2358,7 +2366,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。",
+      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "开场建立生活与用车背景。识别生活阶段、照护与工作背景，为目标人群和出行需求分组。 不把背景描述单独解释为市场人群占比。",
       "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "reason": "2C用户本人提纲：按生活背景—经历—选择—方案的顺序呈现。保留研究任务，按对象区分问法；同义主问合并，细节保留为按条件追问。",
@@ -2548,6 +2556,10 @@
         "prospect": {
           "text": "目前家里有哪些车或主要交通方式？分别是谁在用、承担什么出行任务？",
           "evidence_type": "actual_experience_then_expectation"
+        },
+        "business": {
+          "text": "【商用问法】目前业务中一共有几辆车？分别是什么品牌、车型和动力？每辆车主要由谁开、承担什么任务？",
+          "evidence_type": "commercial_use_or_purchase"
         }
       },
       "priority": "core",
@@ -2558,7 +2570,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "按审阅意见去除FGD家用中的“组织”措辞，补充品牌、车型、价格、归属人与驾驶者。",
+      "editorial_note": "按审阅意见去除FGD家用中的“组织”措辞，补充品牌、车型、价格、归属人与驾驶者。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "开场建立生活与用车背景。识别车辆组合与替代关系，明确新车承担的任务。 不把背景描述单独解释为市场人群占比。",
       "condition": "家庭或个人用车样本必问；若涉及公司或营运车辆，另按商务/组织题记录，不混入家用车辆分工。",
       "reason": "2C用户本人提纲：按生活背景—经历—选择—方案的顺序呈现。保留研究任务，按对象区分问法；同义主问合并，细节保留为按条件追问。",
@@ -2620,6 +2632,10 @@
         "prospect": {
           "text": "如果未来买车，最可能买来替代或补足哪一种出行？预计预算从哪里来，为什么现在开始考虑？",
           "evidence_type": "actual_experience_then_expectation"
+        },
+        "business": {
+          "text": "【商用问法】最近一次为业务购买或更换的是哪辆车？什么时候买的，大概花了多少钱？为什么当时需要这辆车？",
+          "evidence_type": "commercial_use_or_purchase"
         }
       },
       "priority": "optional",
@@ -2630,7 +2646,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "把抽象车辆历史改成最近一次购车事实：品牌、车型、时间、价格和触发变化。",
+      "editorial_note": "把抽象车辆历史改成最近一次购车事实：品牌、车型、时间、价格和触发变化。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "开场建立生活与用车背景。识别车辆组合与替代关系，明确新车承担的任务。 不把背景描述单独解释为市场人群占比。",
       "condition": "现有车主问最近一次真实购车；意向者问未来购车触发和预算依据，实际经历与设想分开记录。",
       "reason": "2C用户本人提纲：按生活背景—经历—选择—方案的顺序呈现。保留研究任务，按对象区分问法；同义主问合并，细节保留为按条件追问。",
@@ -2679,6 +2695,10 @@
         "prospect": {
           "text": "未来这次购车更像首购、增购还是换购？如果增购或换购，现有车辆会保留、出售还是转给家人使用？",
           "evidence_type": "actual_experience_then_expectation"
+        },
+        "business": {
+          "text": "【商用问法】这次买车属于新增车辆、替换车辆，还是调整车队结构？旧车如何处理，新车承担哪些新任务？",
+          "evidence_type": "commercial_use_or_purchase"
         }
       },
       "priority": "optional",
@@ -2689,7 +2709,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "按审阅意见补足增购/换购细节、旧车处置、首付来源和不满意原因。",
+      "editorial_note": "按审阅意见补足增购/换购细节、旧车处置、首付来源和不满意原因。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "开场建立生活与用车背景。识别车辆组合与替代关系，明确新车承担的任务。 不把背景描述单独解释为市场人群占比。",
       "condition": "用于梳理首购/增购/换购路径；家用样本按家庭车辆流转记录，组织采购另走商务/组织模块。",
       "reason": "2C用户本人提纲：按生活背景—经历—选择—方案的顺序呈现。保留研究任务，按对象区分问法；同义主问合并，细节保留为按条件追问。",
@@ -2778,6 +2798,10 @@
         "prospect": {
           "text": "平时谁负责驾驶，谁主要乘坐？不同出行任务会换人吗？",
           "evidence_type": "actual_experience_then_expectation"
+        },
+        "business": {
+          "text": "【商用问法】平时谁负责驾驶，谁主要乘坐或使用这辆车？不同业务任务会不会换人或换车？",
+          "evidence_type": "commercial_use_or_purchase"
         }
       },
       "priority": "core",
@@ -2788,7 +2812,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。",
+      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "开场建立生活与用车背景。区分驾驶、乘坐、付款和决策角色，支持座位布局与决策沟通。 不把背景描述单独解释为市场人群占比。",
       "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "reason": "2C用户本人提纲：按生活背景—经历—选择—方案的顺序呈现。保留研究任务，按对象区分问法；同义主问合并，细节保留为按条件追问。",
@@ -2877,6 +2901,10 @@
         "prospect": {
           "text": "通常有哪些人一起出行？如何安排座位？",
           "evidence_type": "actual_experience_then_expectation"
+        },
+        "business": {
+          "text": "【商用问法】通常有哪些客户、同事、乘客或物品会一起出行？车内座位和空间如何安排？",
+          "evidence_type": "commercial_use_or_purchase"
         }
       },
       "priority": "optional",
@@ -2887,7 +2915,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "按审阅意见去掉“他们”，问法更口语自然。",
+      "editorial_note": "按审阅意见去掉“他们”，问法更口语自然。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "开场建立生活与用车背景。区分驾驶、乘坐、付款和决策角色，支持座位布局与决策沟通。 不把背景描述单独解释为市场人群占比。",
       "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "reason": "2C用户本人提纲：按生活背景—经历—选择—方案的顺序呈现。保留研究任务，按对象区分问法；同义主问合并，细节保留为按条件追问。",
@@ -2989,6 +3017,10 @@
         "prospect": {
           "text": "当时买这辆车是谁选的，付款和最终决定的是谁？",
           "evidence_type": "actual_experience_then_expectation"
+        },
+        "business": {
+          "text": "【商用问法】当时这辆车是谁选的，谁付款，谁最终拍板？使用者、付款人和决策人是否一致？",
+          "evidence_type": "commercial_use_or_purchase"
         }
       },
       "priority": "optional",
@@ -2999,7 +3031,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。",
+      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "开场建立生活与用车背景。区分驾驶、乘坐、付款和决策角色，支持座位布局与决策沟通。 不把背景描述单独解释为市场人群占比。",
       "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "reason": "2C用户本人提纲：按生活背景—经历—选择—方案的顺序呈现。保留研究任务，按对象区分问法；同义主问合并，细节保留为按条件追问。",
@@ -3379,6 +3411,10 @@
         "prospect": {
           "text": "请回顾最近一周您实际怎样出行，包括使用其他车辆或交通方式的情况。",
           "evidence_type": "本次编辑问法，按角色记录证据"
+        },
+        "business": {
+          "text": "【商用问法】平时业务上一般在什么情况下会用车？先从最近一周讲起：有哪些日常任务、周末/节假日或临时接待场景？",
+          "evidence_type": "commercial_use_or_purchase"
         }
       },
       "priority": "core",
@@ -3389,7 +3425,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。",
+      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "还原出行任务组合，为样本细分、车辆角色和场景覆盖提供依据，不直接推导配置。",
       "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "reason": "2C用户本人提纲：按生活背景—经历—选择—方案的顺序呈现。采用已讨论的M2样板；事实与设想分开，允许无困难，观察与产品方案分别执行。",
@@ -3478,6 +3514,10 @@
         "prospect": {
           "text": "刚才这些实际出行中，哪一种发生最多？",
           "evidence_type": "本次编辑问法，按角色记录证据"
+        },
+        "business": {
+          "text": "【商用问法】在商用或营运场景中，哪一次用车最典型？当时人员、路线、时间和物品是怎样安排的？",
+          "evidence_type": "commercial_use_or_purchase"
         }
       },
       "priority": "optional",
@@ -3488,7 +3528,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。",
+      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "识别高频任务的强度与约束；与低频关键任务分开，支持场景优先级判断。",
       "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "reason": "2C用户本人提纲：按生活背景—经历—选择—方案的顺序呈现。采用已讨论的M2样板；事实与设想分开，允许无困难，观察与产品方案分别执行。",
@@ -3542,6 +3582,10 @@
         "prospect": {
           "text": "未来这辆车是否可能同时承担家庭、个人通勤或临时工作相关任务？请分别说明。",
           "evidence_type": "actual_experience_then_expectation"
+        },
+        "business": {
+          "text": "【商用问法】这辆车是否同时承担业务、通勤和私人用途？请分别举一次。",
+          "evidence_type": "commercial_use_or_purchase"
         }
       },
       "priority": "optional",
@@ -3552,7 +3596,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "消费端避免直接混用组织/营运措辞，正式B端用途另由BusinessOrg承接。",
+      "editorial_note": "消费端避免直接混用组织/营运措辞，正式B端用途另由BusinessOrg承接。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "还原日常出行及频率，为高频场景和任务优先级提供证据。",
       "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "reason": "2C用户本人提纲：按生活背景—经历—选择—方案的顺序呈现。保留研究任务，按对象区分问法；同义主问合并，细节保留为按条件追问。",
@@ -3973,6 +4017,10 @@
         "prospect": {
           "text": "请讲最近一次实际搬运或携带较多物品的经历，您使用什么交通方式，怎样完成？",
           "evidence_type": "本次编辑问法，按角色记录证据"
+        },
+        "business": {
+          "text": "【商用问法】业务用车时通常会带哪些人或物品？装载、固定、上下车或取放物品有没有不方便的地方？",
+          "evidence_type": "commercial_use_or_purchase"
         }
       },
       "priority": "core",
@@ -3983,7 +4031,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。",
+      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "识别人、物和座椅之间的真实取舍，支持储物空间、装卸便利与座椅灵活性需求定义。",
       "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "reason": "2C用户本人提纲：按生活背景—经历—选择—方案的顺序呈现。采用已讨论的M2样板；事实与设想分开，允许无困难，观察与产品方案分别执行。",
@@ -4031,6 +4079,10 @@
         "prospect": {
           "text": "平时家人或同行者上下车、进出座位时，有没有觉得不方便的场景？请举一个最近发生过的例子。",
           "evidence_type": "本次编辑问法，按角色记录证据"
+        },
+        "business": {
+          "text": "【商用问法】客户、同事、司机或乘客上下车、进出座位时，有没有不方便或影响形象/效率的场景？",
+          "evidence_type": "commercial_use_or_purchase"
         }
       },
       "priority": "optional",
@@ -4041,7 +4093,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "按审阅意见改为FGD可用的不方便场景问法，并去除IHV现场观察活动提示。",
+      "editorial_note": "按审阅意见改为FGD可用的不方便场景问法，并去除IHV现场观察活动提示。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "识别不同乘员进出车辆的操作障碍，为门开口、台阶、通道和座椅布局提供需求依据。",
       "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "reason": "2C用户本人提纲：按生活背景—经历—选择—方案的顺序呈现。采用已讨论的M2样板；事实与设想分开，允许无困难，观察与产品方案分别执行。",
@@ -4103,6 +4155,10 @@
         "prospect": {
           "text": "你觉得目前这辆车的驾驶体验和乘坐体验分别怎么样？能不能各用一两个形容词来形容，并说说为什么？",
           "evidence_type": "actual_experience_then_preference"
+        },
+        "business": {
+          "text": "【商用问法】你觉得这辆车在业务使用中的驾驶体验和乘坐体验怎么样？能不能各用一两个词形容，并说明原因？",
+          "evidence_type": "commercial_use_or_purchase"
         }
       },
       "priority": "optional",
@@ -4113,7 +4169,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "按审阅意见由坐姿偏好改为驾驶/乘坐体验形容词评价，并追问理由和具体场景。",
+      "editorial_note": "按审阅意见由坐姿偏好改为驾驶/乘坐体验形容词评价，并追问理由和具体场景。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "识别人、物、座位与上下车操作的约束，支持空间需求定义。",
       "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "reason": "2C用户本人提纲：按生活背景—经历—选择—方案的顺序呈现。保留研究任务，按对象区分问法；同义主问合并，细节保留为按条件追问。",
@@ -4202,6 +4258,10 @@
         "prospect": {
           "text": "您目前出行涉及哪些停车安排？未来购车可用的停车地点，哪些已确认，哪些还不确定？",
           "evidence_type": "本次编辑问法，按角色记录证据"
+        },
+        "business": {
+          "text": "【商用问法】业务用车时经常在哪里停车？停车和开走过程中有没有困难，是否影响客户接待、装卸或准时到达？",
+          "evidence_type": "commercial_use_or_purchase"
         }
       },
       "priority": "core",
@@ -4212,7 +4272,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "按审阅意见保留停车困难问法，去除FGD中不适用的IHV观察/测量活动提示。",
+      "editorial_note": "按审阅意见保留停车困难问法，去除FGD中不适用的IHV观察/测量活动提示。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "识别停车与进出车位的环境限制，支持外廓尺寸、转弯与开门空间需求；不预设大车必然不便。",
       "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "reason": "2C用户本人提纲：按生活背景—经历—选择—方案的顺序呈现。采用已讨论的M2样板；事实与设想分开，允许无困难，观察与产品方案分别执行。",
@@ -4376,6 +4436,10 @@
         "prospect": {
           "text": "当地天气一般会怎样影响你们用车？请结合最近遇到的一次天气情况说说，比如炎热暴晒、雨天潮湿、寒冷/起雾，或其他当地常见天气。",
           "evidence_type": "actual_experience_then_need"
+        },
+        "business": {
+          "text": "【商用问法】当地天气会怎样影响业务用车？比如暴晒、雨天、积水、寒冷、起雾或特殊路面，对准时、舒适和形象有什么影响？",
+          "evidence_type": "commercial_use_or_purchase"
         }
       },
       "priority": "core",
@@ -4386,7 +4450,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "按审阅意见合并炎热、寒冷、雨天为一条天气影响题；热带/湿热条件下在追问中展开特殊天气和特殊路面。",
+      "editorial_note": "按审阅意见合并炎热、寒冷、雨天为一条天气影响题；热带/湿热条件下在追问中展开特殊天气和特殊路面。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "识别个人实际暴露的道路、停车与气候条件，支持适配需求。",
       "condition": "合并天气题；按受访者实际经历展开。若筛选条件选择热带/湿热，追问特殊天气和特殊路面，但不按国别推定。",
       "reason": "2C用户本人提纲：按生活背景—经历—选择—方案的顺序呈现。保留研究任务，按对象区分问法；同义主问合并，细节保留为按条件追问。",
@@ -5324,6 +5388,10 @@
         "prospect": {
           "text": "回顾目前的出行或用车体验，最满意和最不满意的分别是什么？",
           "evidence_type": "actual_experience_then_expectation"
+        },
+        "business": {
+          "text": "【商用问法】现有车辆在业务使用中有哪些不方便、费时间或需要额外处理的问题？",
+          "evidence_type": "commercial_use_or_purchase"
         }
       },
       "priority": "optional",
@@ -5334,7 +5402,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。",
+      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "辨别满意来源、困难后果和替代办法，为需求排序提供依据。",
       "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "reason": "2C用户本人提纲：按生活背景—经历—选择—方案的顺序呈现。保留研究任务，按对象区分问法；同义主问合并，细节保留为按条件追问。",
@@ -5524,6 +5592,10 @@
         "prospect": {
           "text": "现在这辆车或目前的出行安排里，哪一点最让你觉得买得值、用得值？",
           "evidence_type": "actual_experience_then_expectation"
+        },
+        "business": {
+          "text": "【商用问法】现在这辆车或目前用车安排里，哪一点最让你觉得用得值、买得值？",
+          "evidence_type": "commercial_use_or_purchase"
         }
       },
       "priority": "optional",
@@ -5534,7 +5606,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。",
+      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "辨别满意来源、困难后果和替代办法，为需求排序提供依据。",
       "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "reason": "2C用户本人提纲：按生活背景—经历—选择—方案的顺序呈现。保留研究任务，按对象区分问法；同义主问合并，细节保留为按条件追问。",
@@ -7125,6 +7197,8 @@
       "alias": "factors",
       "submodule_id": "M3.4",
       "probes": [
+        "追问每个因素影响的是采购入围、否决、审批还是最终成交",
+        "商用重点追问可靠性、使用成本、停运风险、售后、形象、空间/装载、安全和残值",
         "先自由列出，不给选项；再请受访者选前三项并排序",
         "追问每个因素为什么重要，分别影响入围、否决还是最终成交",
         "如果前面已经提到预算、用途或家人意见，此处只核对优先级，不重复展开"
@@ -7187,6 +7261,10 @@
         "prospect": {
           "text": "买车时你最看重什么？请先自由说，再选出最重要的三个因素。",
           "evidence_type": "actual_experience_then_expectation"
+        },
+        "business": {
+          "text": "【商用问法】业务买车时最看重什么？请先自由说，再选出最重要的三个因素。",
+          "evidence_type": "commercial_use_or_purchase"
         }
       },
       "priority": "core",
@@ -7197,7 +7275,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。",
+      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "识别消费者选车时的考虑因素及优先级，并为后续产品取舍提供依据。",
       "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "reason": "将原有权衡题明确命名为“购车考虑因素”，便于提纲生成时直接选用。",
@@ -7210,6 +7288,9 @@
       "alias": "ev_purchase_factors",
       "submodule_id": "M3.4",
       "probes": [
+        "先自由列出，再选前三项并排序",
+        "商用电车重点追问充电便利、续航、运营成本、停运时间、电池安全、质保、政策/补贴和客户观感",
+        "区分“买车最看重”和“业务买电车才特别看重”的因素",
         "先让受访者自由列出，再请其选前三项并排序",
         "可追问续航、充电便利、充电速度、电池安全、使用成本、保值率、补贴/税费、品牌可信度、售后保障和智能化",
         "区分“买车最看重”和“买电车才会特别看重”的因素",
@@ -7236,6 +7317,10 @@
         "prospect": {
           "text": "如果买电车或考虑电车，你最看重哪些因素？请先自由说，再选最重要的三个。",
           "evidence_type": "actual_experience_then_expectation"
+        },
+        "business": {
+          "text": "【商用问法】如果业务用车考虑电车，你最看重哪些因素？请先自由说，再选最重要的三个。",
+          "evidence_type": "commercial_use_or_purchase"
         }
       },
       "priority": "core",
@@ -7246,7 +7331,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "按审阅意见新增电车购买考虑因素题，与通用购车三因素题并列。",
+      "editorial_note": "按审阅意见新增电车购买考虑因素题，与通用购车三因素题并列。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "识别电车购买中特有的决策因素及前三优先级。",
       "condition": "购买或考虑电车、插混、增程时使用；若未筛选动力类型，默认保留以便主持人按样本情况决定。",
       "reason": "补足2C购买consideration中电车专属考虑因素。",
@@ -8217,6 +8302,10 @@
         "prospect": {
           "text": "您知道哪些汽车动力形式？对燃油、混动、插混和纯电分别有什么理解？",
           "evidence_type": "actual_experience_then_expectation"
+        },
+        "business": {
+          "text": "【商用问法】业务用车中，你们会考虑哪些动力形式？燃油、混动、插混、增程或纯电分别适合什么任务？",
+          "evidence_type": "commercial_use_or_purchase"
         }
       },
       "priority": "core",
@@ -8227,7 +8316,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "混合研究中需按当前动力类型分组记录。",
+      "editorial_note": "混合研究中需按当前动力类型分组记录。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "理解动力认知及选择条件，区分事实限制与印象顾虑。",
       "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "reason": "按审阅意见先测自发认知，再进入动力选择。",
@@ -8316,6 +8405,10 @@
         "prospect": {
           "text": "哪些具体原因让您考虑或放弃某种动力形式？",
           "evidence_type": "actual_experience_then_expectation"
+        },
+        "business": {
+          "text": "【商用问法】哪些具体原因会让你们考虑或放弃某种动力形式？",
+          "evidence_type": "commercial_use_or_purchase"
         }
       },
       "priority": "optional",
@@ -8326,7 +8419,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "混合研究中需按当前动力类型分组记录。",
+      "editorial_note": "混合研究中需按当前动力类型分组记录。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "理解动力认知及选择条件，区分事实限制与印象顾虑。",
       "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "reason": "2C用户本人提纲：按生活背景—经历—选择—方案的顺序呈现。保留研究任务，按对象区分问法；同义主问合并，细节保留为按条件追问。",
@@ -9973,6 +10066,10 @@
         "prospect": {
           "text": "看完产品概念后，哪些内容最吸引您？哪些地方仍不清楚或需要改进？",
           "evidence_type": "actual_experience_then_expectation"
+        },
+        "business": {
+          "text": "【商用问法】看完产品概念后，哪些内容最适合你的业务场景？哪些地方仍不清楚或需要改进？",
+          "evidence_type": "commercial_use_or_purchase"
         }
       },
       "priority": "optional",
@@ -9983,7 +10080,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。",
+      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "检验概念理解、场景匹配与竞争差异。",
       "condition": "仅当项目已展示完整产品概念材料后触发；不再假设存在未展示的备选方案。",
       "reason": "按审阅意见删除不存在的“备选方案”前提。",
@@ -10057,6 +10154,10 @@
         "prospect": {
           "text": "请整体看这些外观方案：前脸、车身轮廓、大灯、车尾、车身侧面和格栅等，分别有哪些吸引或不喜欢的地方？最后选最适合的一款。",
           "evidence_type": "actual_experience_then_expectation"
+        },
+        "business": {
+          "text": "【商用问法】从业务使用和客户观感看，这些外观方案的前脸、轮廓、大灯、车尾、车身和格栅分别有哪些吸引或不合适的地方？",
+          "evidence_type": "commercial_use_or_purchase"
         }
       },
       "priority": "core",
@@ -10067,7 +10168,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。",
+      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "比较具体外观方案的偏好、排斥与取舍；各部位材料分开记录。",
       "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。 需准备并核验：外观方案图；缺材料时暂不执行方案评价。",
       "reason": "按审阅意见将“体态”改为“车型轮廓”。",
@@ -12301,6 +12402,10 @@
         "prospect": {
           "text": "提到中国汽车品牌，你首先想到哪些品牌？整体印象是什么？",
           "evidence_type": "actual_experience_then_expectation"
+        },
+        "business": {
+          "text": "【商用问法】从商用/组织采购角度看，提到中国汽车品牌，你首先想到哪些品牌？整体印象是什么？",
+          "evidence_type": "commercial_use_or_purchase"
         }
       },
       "priority": "core",
@@ -12311,7 +12416,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。",
+      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "区分品牌自发认知、提示认知及亲身体验，为品牌沟通提供依据。",
       "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "reason": "2C用户本人提纲：按生活背景—经历—选择—方案的顺序呈现。保留研究任务，按对象区分问法；同义主问合并，细节保留为按条件追问。",
@@ -12533,6 +12638,10 @@
         "prospect": {
           "text": "你会信任中国汽车品牌吗？信任或不信任主要依据是什么？",
           "evidence_type": "actual_experience_then_expectation"
+        },
+        "business": {
+          "text": "【商用问法】如果作为业务用车或组织采购，你会信任中国汽车品牌吗？信任或不信任主要依据是什么？",
+          "evidence_type": "commercial_use_or_purchase"
         }
       },
       "priority": "optional",
@@ -12543,7 +12652,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。",
+      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "区分品牌自发认知、提示认知及亲身体验，为品牌沟通提供依据。",
       "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "reason": "2C用户本人提纲：按生活背景—经历—选择—方案的顺序呈现。保留研究任务，按对象区分问法；同义主问合并，细节保留为按条件追问。",
@@ -43732,8 +43841,8 @@
           "evidence_type": "actual_experience_then_expectation"
         },
         "business": {
-          "text": "请介绍您负责的工作和主要服务对象，以及日常出行安排。",
-          "evidence_type": "organizational_experience_or_preference"
+          "text": "【商用问法】请简单介绍您的业务/工作角色、车辆相关职责，以及这次商用或营运用车的基本情况。",
+          "evidence_type": "commercial_use_or_purchase"
         },
         "Dealer": {
           "text": "请描述接触最多的客户生活或工作背景，并举两个不同的例子。",
@@ -43748,7 +43857,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。",
+      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "识别生活阶段、照护与工作背景，为目标人群和出行需求分组。",
       "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "reason": "保留研究任务，按对象区分问法；同义主问合并，细节保留为按条件追问。"
@@ -43817,6 +43926,10 @@
         "Dealer": {
           "text": "客户哪些活动或爱好真正影响过车型选择？请举订单例子。",
           "evidence_type": "dealer_report"
+        },
+        "business": {
+          "text": "【商用问法】平时哪些业务活动最需要用车？最近一次是怎么安排车辆和人员的？",
+          "evidence_type": "commercial_use_or_purchase"
         }
       },
       "priority": "optional",
@@ -43827,7 +43940,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。",
+      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "识别生活阶段、照护与工作背景，为目标人群和出行需求分组。",
       "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "reason": "保留研究任务，按对象区分问法；同义主问合并，细节保留为按条件追问。"
@@ -44088,8 +44201,8 @@
           "evidence_type": "actual_experience_then_expectation"
         },
         "business": {
-          "text": "组织目前有哪些公务或营运车辆？各自承担什么业务？",
-          "evidence_type": "organizational_experience_or_preference"
+          "text": "【商用问法】目前业务中一共有几辆车？分别是什么品牌、车型和动力？每辆车主要由谁开、承担什么任务？",
+          "evidence_type": "commercial_use_or_purchase"
         },
         "Dealer": {
           "text": "客户通常已有怎样的车辆组合？新车承担什么任务？",
@@ -44104,7 +44217,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。",
+      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "识别车辆组合与替代关系，明确新车承担的任务。",
       "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "reason": "保留研究任务，按对象区分问法；同义主问合并，细节保留为按条件追问。"
@@ -44164,8 +44277,8 @@
           "evidence_type": "actual_experience_then_expectation"
         },
         "business": {
-          "text": "组织此前的车辆采购和替换经历如何？为什么调整？",
-          "evidence_type": "organizational_experience_or_preference"
+          "text": "【商用问法】最近一次为业务购买或更换的是哪辆车？什么时候买的，大概花了多少钱？为什么当时需要这辆车？",
+          "evidence_type": "commercial_use_or_purchase"
         },
         "Dealer": {
           "text": "增换购客户主要来自哪些车型或交通方案？判断依据是什么？",
@@ -44180,7 +44293,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。",
+      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "识别车辆组合与替代关系，明确新车承担的任务。",
       "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "reason": "保留研究任务，按对象区分问法；同义主问合并，细节保留为按条件追问。"
@@ -44226,8 +44339,8 @@
           "evidence_type": "actual_experience_then_expectation"
         },
         "business": {
-          "text": "新增或替换这辆车后，公务、营运和私人任务会如何分工？",
-          "evidence_type": "organizational_experience_or_preference"
+          "text": "【商用问法】这次买车属于新增车辆、替换车辆，还是调整车队结构？旧车如何处理，新车承担哪些新任务？",
+          "evidence_type": "commercial_use_or_purchase"
         },
         "Dealer": {
           "text": "客户新增车辆后，如何与已有车辆分工？有哪些实际案例？",
@@ -44242,7 +44355,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。",
+      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "识别车辆组合与替代关系，明确新车承担的任务。",
       "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "reason": "保留研究任务，按对象区分问法；同义主问合并，细节保留为按条件追问。"
@@ -44331,8 +44444,8 @@
           "evidence_type": "actual_experience_then_expectation"
         },
         "business": {
-          "text": "车辆通常由谁驾驶、谁乘坐？企业负责人是否也会亲自驾驶？",
-          "evidence_type": "organizational_experience_or_preference"
+          "text": "【商用问法】平时谁负责驾驶，谁主要乘坐或使用这辆车？不同业务任务会不会换人或换车？",
+          "evidence_type": "commercial_use_or_purchase"
         },
         "Dealer": {
           "text": "购车客户中，驾驶者、主要乘员和决策者通常是什么关系？",
@@ -44351,7 +44464,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。",
+      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "区分驾驶、乘坐、付款和决策角色，支持座位布局与决策沟通。",
       "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "reason": "保留研究任务，按对象区分问法；同义主问合并，细节保留为按条件追问。"
@@ -44439,8 +44552,8 @@
           "evidence_type": "actual_experience_then_expectation"
         },
         "business": {
-          "text": "接待或营运时通常有哪些乘员，他们如何安排座位？",
-          "evidence_type": "organizational_experience_or_preference"
+          "text": "【商用问法】通常有哪些客户、同事、乘客或物品会一起出行？车内座位和空间如何安排？",
+          "evidence_type": "commercial_use_or_purchase"
         },
         "Dealer": {
           "text": "客户对乘员人数和座位安排有哪些实际要求？",
@@ -44455,7 +44568,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。",
+      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "区分驾驶、乘坐、付款和决策角色，支持座位布局与决策沟通。",
       "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "reason": "保留研究任务，按对象区分问法；同义主问合并，细节保留为按条件追问。"
@@ -44557,8 +44670,8 @@
           "evidence_type": "actual_experience_then_expectation"
         },
         "business": {
-          "text": "车辆采购的需求提出、预算、试用和签批分别由谁负责？",
-          "evidence_type": "organizational_experience_or_preference"
+          "text": "【商用问法】当时这辆车是谁选的，谁付款，谁最终拍板？使用者、付款人和决策人是否一致？",
+          "evidence_type": "commercial_use_or_purchase"
         },
         "Dealer": {
           "text": "请讲一个实际订单中，信息搜集者、付款人、最终决定者如何影响成交。",
@@ -44577,7 +44690,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。",
+      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "区分驾驶、乘坐、付款和决策角色，支持座位布局与决策沟通。",
       "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "reason": "保留研究任务，按对象区分问法；同义主问合并，细节保留为按条件追问。"
@@ -44967,6 +45080,10 @@
         "Dealer": {
           "text": "请选一位近期实际接触的客户，说明对方描述过哪些日常用途，您是如何得知的。",
           "evidence_type": "本次编辑问法，按角色记录证据"
+        },
+        "business": {
+          "text": "【商用问法】平时业务上一般在什么情况下会用车？先从最近一周讲起：有哪些日常任务、周末/节假日或临时接待场景？",
+          "evidence_type": "commercial_use_or_purchase"
         }
       },
       "priority": "core",
@@ -44977,7 +45094,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。",
+      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "还原出行任务组合，为样本细分、车辆角色和场景覆盖提供依据，不直接推导配置。",
       "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "reason": "采用已讨论的M2样板；事实与设想分开，允许无困难，观察与产品方案分别执行。"
@@ -45072,6 +45189,10 @@
         "Media": {
           "text": "客户最常提到的高频场景是什么？这些信息从何得知？",
           "evidence_type": "professional_judgment_verify_scope"
+        },
+        "business": {
+          "text": "【商用问法】在商用或营运场景中，哪一次用车最典型？当时人员、路线、时间和物品是怎样安排的？",
+          "evidence_type": "commercial_use_or_purchase"
         }
       },
       "priority": "optional",
@@ -45082,7 +45203,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。",
+      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "识别高频任务的强度与约束；与低频关键任务分开，支持场景优先级判断。",
       "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "reason": "采用已讨论的M2样板；事实与设想分开，允许无困难，观察与产品方案分别执行。"
@@ -45137,6 +45258,10 @@
         "Dealer": {
           "text": "家用和商用混合客户有哪些特殊要求？请举例。",
           "evidence_type": "dealer_report"
+        },
+        "business": {
+          "text": "【商用问法】这辆车是否同时承担业务、通勤和私人用途？请分别举一次。",
+          "evidence_type": "commercial_use_or_purchase"
         }
       },
       "priority": "optional",
@@ -45147,7 +45272,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。",
+      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "还原日常出行及频率，为高频场景和任务优先级提供证据。",
       "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "reason": "保留研究任务，按对象区分问法；同义主问合并，细节保留为按条件追问。"
@@ -45573,6 +45698,10 @@
         "Dealer": {
           "text": "请举一个装载需求影响客户选车的实际案例，客户要装什么，最终如何判断？",
           "evidence_type": "本次编辑问法，按角色记录证据"
+        },
+        "business": {
+          "text": "【商用问法】业务用车时通常会带哪些人或物品？装载、固定、上下车或取放物品有没有不方便的地方？",
+          "evidence_type": "commercial_use_or_purchase"
         }
       },
       "priority": "core",
@@ -45583,7 +45712,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。",
+      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "识别人、物和座椅之间的真实取舍，支持储物空间、装卸便利与座椅灵活性需求定义。",
       "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "reason": "采用已讨论的M2样板；事实与设想分开，允许无困难，观察与产品方案分别执行。"
@@ -45632,6 +45761,10 @@
         "Dealer": {
           "text": "试乘时客户或同行者怎样进出车辆？请举一个您观察到的例子。",
           "evidence_type": "本次编辑问法，按角色记录证据"
+        },
+        "business": {
+          "text": "【商用问法】客户、同事、司机或乘客上下车、进出座位时，有没有不方便或影响形象/效率的场景？",
+          "evidence_type": "commercial_use_or_purchase"
         }
       },
       "priority": "optional",
@@ -45642,7 +45775,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "按审阅意见改为FGD可用的不方便场景问法，并去除IHV现场观察活动提示。",
+      "editorial_note": "按审阅意见改为FGD可用的不方便场景问法，并去除IHV现场观察活动提示。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "识别不同乘员进出车辆的操作障碍，为门开口、台阶、通道和座椅布局提供需求依据。",
       "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "reason": "采用已讨论的M2样板；事实与设想分开，允许无困难，观察与产品方案分别执行。"
@@ -45705,6 +45838,10 @@
         "Dealer": {
           "text": "客户通常怎样评价驾驶体验和乘坐体验？他们会用哪些词形容，哪些具体原因会影响成交？",
           "evidence_type": "dealer_report"
+        },
+        "business": {
+          "text": "【商用问法】你觉得这辆车在业务使用中的驾驶体验和乘坐体验怎么样？能不能各用一两个词形容，并说明原因？",
+          "evidence_type": "commercial_use_or_purchase"
         }
       },
       "priority": "optional",
@@ -45715,7 +45852,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "按审阅意见由坐姿偏好改为驾驶/乘坐体验形容词评价，并追问理由和具体场景。",
+      "editorial_note": "按审阅意见由坐姿偏好改为驾驶/乘坐体验形容词评价，并追问理由和具体场景。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "识别人、物、座位与上下车操作的约束，支持空间需求定义。",
       "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "reason": "保留研究任务，按对象区分问法；同义主问合并，细节保留为按条件追问。"
@@ -45805,6 +45942,10 @@
         "Dealer": {
           "text": "请举一个停车或通行条件影响客户选车的实际案例；如果未遇到，也请说明。",
           "evidence_type": "本次编辑问法，按角色记录证据"
+        },
+        "business": {
+          "text": "【商用问法】业务用车时经常在哪里停车？停车和开走过程中有没有困难，是否影响客户接待、装卸或准时到达？",
+          "evidence_type": "commercial_use_or_purchase"
         }
       },
       "priority": "core",
@@ -45815,7 +45956,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "按审阅意见保留停车困难问法，去除FGD中不适用的IHV观察/测量活动提示。",
+      "editorial_note": "按审阅意见保留停车困难问法，去除FGD中不适用的IHV观察/测量活动提示。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "识别停车与进出车位的环境限制，支持外廓尺寸、转弯与开门空间需求；不预设大车必然不便。",
       "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "reason": "采用已讨论的M2样板；事实与设想分开，允许无困难，观察与产品方案分别执行。"
@@ -45981,6 +46122,10 @@
         "Dealer": {
           "text": "客户报告过哪些炎热天气体验，它们是否影响选择？",
           "evidence_type": "dealer_report"
+        },
+        "business": {
+          "text": "【商用问法】当地天气会怎样影响业务用车？比如暴晒、雨天、积水、寒冷、起雾或特殊路面，对准时、舒适和形象有什么影响？",
+          "evidence_type": "commercial_use_or_purchase"
         }
       },
       "priority": "core",
@@ -45991,7 +46136,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "按审阅意见合并炎热、寒冷、雨天为一条天气影响题；热带/湿热条件下在追问中展开特殊天气和特殊路面。",
+      "editorial_note": "按审阅意见合并炎热、寒冷、雨天为一条天气影响题；热带/湿热条件下在追问中展开特殊天气和特殊路面。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "识别个人实际暴露的道路、停车与气候条件，支持适配需求。",
       "condition": "合并天气题；按受访者实际经历展开。若筛选条件选择热带/湿热，追问特殊天气和特殊路面，但不按国别推定。",
       "reason": "保留研究任务，按对象区分问法；同义主问合并，细节保留为按条件追问。"
@@ -46944,6 +47089,10 @@
         "Dealer": {
           "text": "客户反馈最满意与最不满意的方面是什么？请分别举例。",
           "evidence_type": "dealer_report"
+        },
+        "business": {
+          "text": "【商用问法】现有车辆在业务使用中有哪些不方便、费时间或需要额外处理的问题？",
+          "evidence_type": "commercial_use_or_purchase"
         }
       },
       "priority": "optional",
@@ -46954,7 +47103,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。",
+      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "辨别满意来源、困难后果和替代办法，为需求排序提供依据。",
       "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "reason": "保留研究任务，按对象区分问法；同义主问合并，细节保留为按条件追问。"
@@ -47147,6 +47296,10 @@
         "Dealer": {
           "text": "客户交车后认为最值得的功能是什么？依据哪些反馈？",
           "evidence_type": "dealer_report"
+        },
+        "business": {
+          "text": "【商用问法】现在这辆车或目前用车安排里，哪一点最让你觉得用得值、买得值？",
+          "evidence_type": "commercial_use_or_purchase"
         }
       },
       "priority": "optional",
@@ -47157,7 +47310,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。",
+      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "辨别满意来源、困难后果和替代办法，为需求排序提供依据。",
       "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "reason": "保留研究任务，按对象区分问法；同义主问合并，细节保留为按条件追问。"
@@ -48546,6 +48699,9 @@
       "alias": "factors",
       "submodule_id": "M3.4",
       "probes": [
+        "先自由列出，不给选项；再请受访者选前三项并排序",
+        "追问每个因素影响的是采购入围、否决、审批还是最终成交",
+        "商用重点追问可靠性、使用成本、停运风险、售后、形象、空间/装载、安全和残值",
         "每项需要达到什么程度",
         "是否存在一票否决项",
         "不要先把全部属性读给受访者"
@@ -48618,6 +48774,10 @@
         "Media": {
           "text": "客户选择目标品类最重要的三项因素是什么？分别以案例说明。",
           "evidence_type": "professional_judgment_verify_scope"
+        },
+        "business": {
+          "text": "【商用问法】业务买车时最看重什么？请先自由说，再选出最重要的三个因素。",
+          "evidence_type": "commercial_use_or_purchase"
         }
       },
       "priority": "optional",
@@ -48628,7 +48788,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。",
+      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "辨别决定因素、否决条件和真实妥协，避免把口头偏好等同选择。",
       "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "reason": "保留研究任务，按对象区分问法；同义主问合并，细节保留为按条件追问。"
@@ -49470,6 +49630,10 @@
         "Dealer": {
           "text": "客户在车型与动力之间怎样先后筛选？动力偏好为何形成？",
           "evidence_type": "dealer_report"
+        },
+        "business": {
+          "text": "【商用问法】业务用车中，你们会考虑哪些动力形式？燃油、混动、插混、增程或纯电分别适合什么任务？",
+          "evidence_type": "commercial_use_or_purchase"
         }
       },
       "priority": "core",
@@ -49480,7 +49644,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "混合研究中需按当前动力类型分组记录。",
+      "editorial_note": "混合研究中需按当前动力类型分组记录。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "理解动力认知及选择条件，区分事实限制与印象顾虑。",
       "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "reason": "保留研究任务，按对象区分问法；同义主问合并，细节保留为按条件追问。"
@@ -49570,6 +49734,10 @@
         "Dealer": {
           "text": "哪些实际条件会使客户放弃某种动力？",
           "evidence_type": "dealer_report"
+        },
+        "business": {
+          "text": "【商用问法】哪些具体原因会让你们考虑或放弃某种动力形式？",
+          "evidence_type": "commercial_use_or_purchase"
         }
       },
       "priority": "optional",
@@ -49580,7 +49748,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "混合研究中需按当前动力类型分组记录。",
+      "editorial_note": "混合研究中需按当前动力类型分组记录。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "理解动力认知及选择条件，区分事实限制与印象顾虑。",
       "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "reason": "保留研究任务，按对象区分问法；同义主问合并，细节保留为按条件追问。"
@@ -51253,6 +51421,10 @@
         "Dealer": {
           "text": "与真实在售且熟悉的竞品相比，概念在哪些方面具有可售优势或劣势？",
           "evidence_type": "dealer_report"
+        },
+        "business": {
+          "text": "【商用问法】看完产品概念后，哪些内容最适合你的业务场景？哪些地方仍不清楚或需要改进？",
+          "evidence_type": "commercial_use_or_purchase"
         }
       },
       "priority": "optional",
@@ -51263,7 +51435,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。",
+      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "检验概念理解、场景匹配与竞争差异。",
       "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。 需准备并核验：产品概念卡；缺材料时暂不执行方案评价。",
       "reason": "实际经历与方案评价分开；按材料逐项评价，保留排斥理由和取舍，不把喜欢等同购买。"
@@ -51338,6 +51510,10 @@
         "Dealer": {
           "text": "这些车身体态分别适合哪些客户？哪些特征可能成为卖点或障碍？",
           "evidence_type": "dealer_report"
+        },
+        "business": {
+          "text": "【商用问法】从业务使用和客户观感看，这些外观方案的前脸、轮廓、大灯、车尾、车身和格栅分别有哪些吸引或不合适的地方？",
+          "evidence_type": "commercial_use_or_purchase"
         }
       },
       "priority": "core",
@@ -51348,7 +51524,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。",
+      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "比较具体外观方案的偏好、排斥与取舍；各部位材料分开记录。",
       "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。 需准备并核验：外观方案图；缺材料时暂不执行方案评价。",
       "reason": "实际经历与方案评价分开；按材料逐项评价，保留排斥理由和取舍，不把喜欢等同购买。"
@@ -53551,6 +53727,10 @@
         "Dealer": {
           "text": "客户怎样认识目标品牌？自发提及和销售提示后的反应有什么不同？",
           "evidence_type": "dealer_report"
+        },
+        "business": {
+          "text": "【商用问法】从商用/组织采购角度看，提到中国汽车品牌，你首先想到哪些品牌？整体印象是什么？",
+          "evidence_type": "commercial_use_or_purchase"
         }
       },
       "priority": "core",
@@ -53561,7 +53741,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。",
+      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "区分品牌自发认知、提示认知及亲身体验，为品牌沟通提供依据。",
       "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "reason": "保留研究任务，按对象区分问法；同义主问合并，细节保留为按条件追问。"
@@ -53795,6 +53975,10 @@
         "Dealer": {
           "text": "哪些证据会建立或损害客户对目标品牌的信任？",
           "evidence_type": "dealer_report"
+        },
+        "business": {
+          "text": "【商用问法】如果作为业务用车或组织采购，你会信任中国汽车品牌吗？信任或不信任主要依据是什么？",
+          "evidence_type": "commercial_use_or_purchase"
         }
       },
       "priority": "optional",
@@ -53805,7 +53989,7 @@
         "Media": 3,
         "OEM": 3
       },
-      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。",
+      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
       "purpose": "区分品牌自发认知、提示认知及亲身体验，为品牌沟通提供依据。",
       "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "reason": "保留研究任务，按对象区分问法；同义主问合并，细节保留为按条件追问。"
@@ -58195,7 +58379,14 @@
       "id": "Q-M1.1-01",
       "status": "需修改",
       "feedback": "商务/组织是2B",
-      "action": "已纳入本轮修改"
+      "action": "已纳入本轮修改",
+      "variants": {
+        "business": {
+          "text": "【商用问法】请简单介绍您的业务/工作角色、车辆相关职责，以及这次商用或营运用车的基本情况。",
+          "evidence_type": "commercial_use_or_purchase"
+        }
+      },
+      "editorial_note": "商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。"
     },
     {
       "audience": "2C",
@@ -58227,7 +58418,14 @@
       "id": "Q-M2.1-01",
       "status": "同意",
       "feedback": "",
-      "action": "保留原审阅状态"
+      "action": "保留原审阅状态",
+      "variants": {
+        "business": {
+          "text": "【商用问法】平时业务上一般在什么情况下会用车？先从最近一周讲起：有哪些日常任务、周末/节假日或临时接待场景？",
+          "evidence_type": "commercial_use_or_purchase"
+        }
+      },
+      "editorial_note": "商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。"
     },
     {
       "audience": "2C",
@@ -58235,7 +58433,14 @@
       "id": "Q-M2.1-02",
       "status": "同意",
       "feedback": "",
-      "action": "保留原审阅状态"
+      "action": "保留原审阅状态",
+      "variants": {
+        "business": {
+          "text": "【商用问法】在商用或营运场景中，哪一次用车最典型？当时人员、路线、时间和物品是怎样安排的？",
+          "evidence_type": "commercial_use_or_purchase"
+        }
+      },
+      "editorial_note": "商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。"
     },
     {
       "audience": "2C",
@@ -58243,7 +58448,14 @@
       "id": "Q-M2.1-03",
       "status": "同意",
       "feedback": "",
-      "action": "保留原审阅状态"
+      "action": "保留原审阅状态",
+      "variants": {
+        "business": {
+          "text": "【商用问法】这辆车是否同时承担业务、通勤和私人用途？请分别举一次。",
+          "evidence_type": "commercial_use_or_purchase"
+        }
+      },
+      "editorial_note": "商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。"
     },
     {
       "audience": "2C",
@@ -58283,7 +58495,14 @@
       "id": "Q-M2.3-01",
       "status": "同意",
       "feedback": "",
-      "action": "保留原审阅状态"
+      "action": "保留原审阅状态",
+      "variants": {
+        "business": {
+          "text": "【商用问法】业务用车时通常会带哪些人或物品？装载、固定、上下车或取放物品有没有不方便的地方？",
+          "evidence_type": "commercial_use_or_purchase"
+        }
+      },
+      "editorial_note": "商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。"
     },
     {
       "audience": "2C",
@@ -58299,7 +58518,13 @@
         "如果没有明显不方便，也记录为无痛点，不强行追问动作细节"
       ],
       "activity": null,
-      "editorial_note": "按审阅意见改为FGD可用的不方便场景问法，并去除IHV现场观察活动提示。"
+      "editorial_note": "按审阅意见改为FGD可用的不方便场景问法，并去除IHV现场观察活动提示。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
+      "variants": {
+        "business": {
+          "text": "【商用问法】客户、同事、司机或乘客上下车、进出座位时，有没有不方便或影响形象/效率的场景？",
+          "evidence_type": "commercial_use_or_purchase"
+        }
+      }
     },
     {
       "audience": "2C",
@@ -58314,7 +58539,13 @@
         "请举一个最近的具体场景，不只停留在“舒服/不舒服”",
         "不同座位或不同乘员感受不一样时，分别记录"
       ],
-      "editorial_note": "按审阅意见由坐姿偏好改为驾驶/乘坐体验形容词评价，并追问理由和具体场景。"
+      "editorial_note": "按审阅意见由坐姿偏好改为驾驶/乘坐体验形容词评价，并追问理由和具体场景。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
+      "variants": {
+        "business": {
+          "text": "【商用问法】你觉得这辆车在业务使用中的驾驶体验和乘坐体验怎么样？能不能各用一两个词形容，并说明原因？",
+          "evidence_type": "commercial_use_or_purchase"
+        }
+      }
     },
     {
       "audience": "2C",
@@ -58322,7 +58553,14 @@
       "id": "Q-M2.4-01",
       "status": "同意",
       "feedback": "",
-      "action": "保留原审阅状态"
+      "action": "保留原审阅状态",
+      "variants": {
+        "business": {
+          "text": "【商用问法】业务用车时经常在哪里停车？停车和开走过程中有没有困难，是否影响客户接待、装卸或准时到达？",
+          "evidence_type": "commercial_use_or_purchase"
+        }
+      },
+      "editorial_note": "商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。"
     },
     {
       "audience": "2C",
@@ -58351,7 +58589,13 @@
         "特殊路面按实际经历追问：坑洼、砂石、泥泞、非铺装、陡坡、窄路、减速带或涉水；不要按国别推定",
         "没有实际经历时转问担心和需求，记录为设想，不作事实记录"
       ],
-      "editorial_note": "按审阅意见合并炎热、寒冷、雨天为一条天气影响题；热带/湿热条件下在追问中展开特殊天气和特殊路面。"
+      "editorial_note": "按审阅意见合并炎热、寒冷、雨天为一条天气影响题；热带/湿热条件下在追问中展开特殊天气和特殊路面。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
+      "variants": {
+        "business": {
+          "text": "【商用问法】当地天气会怎样影响业务用车？比如暴晒、雨天、积水、寒冷、起雾或特殊路面，对准时、舒适和形象有什么影响？",
+          "evidence_type": "commercial_use_or_purchase"
+        }
+      }
     },
     {
       "audience": "2C",
@@ -58455,7 +58699,14 @@
       "id": "Q-M2.6-01",
       "status": "同意",
       "feedback": "",
-      "action": "保留原审阅状态"
+      "action": "保留原审阅状态",
+      "variants": {
+        "business": {
+          "text": "【商用问法】现有车辆在业务使用中有哪些不方便、费时间或需要额外处理的问题？",
+          "evidence_type": "commercial_use_or_purchase"
+        }
+      },
+      "editorial_note": "商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。"
     },
     {
       "audience": "2C",
@@ -58479,7 +58730,14 @@
       "id": "Q-M2.6-04",
       "status": "同意",
       "feedback": "",
-      "action": "保留原审阅状态"
+      "action": "保留原审阅状态",
+      "variants": {
+        "business": {
+          "text": "【商用问法】现在这辆车或目前用车安排里，哪一点最让你觉得用得值、买得值？",
+          "evidence_type": "commercial_use_or_purchase"
+        }
+      },
+      "editorial_note": "商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。"
     },
     {
       "audience": "2C",
@@ -58654,7 +58912,19 @@
       "id": "Q-M3.4-01",
       "status": "同意",
       "feedback": "",
-      "action": "保留原审阅状态"
+      "action": "保留原审阅状态",
+      "variants": {
+        "business": {
+          "text": "【商用问法】业务买车时最看重什么？请先自由说，再选出最重要的三个因素。",
+          "evidence_type": "commercial_use_or_purchase"
+        }
+      },
+      "editorial_note": "商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
+      "probes": [
+        "先自由列出，不给选项；再请受访者选前三项并排序",
+        "追问每个因素影响的是采购入围、否决、审批还是最终成交",
+        "商用重点追问可靠性、使用成本、停运风险、售后、形象、空间/装载、安全和残值"
+      ]
     },
     {
       "audience": "2C",
@@ -58759,7 +59029,13 @@
         "选车流程中先定动力还是车型",
         "允许没有明确偏好"
       ],
-      "editorial_note": "混合研究中需按当前动力类型分组记录。"
+      "editorial_note": "混合研究中需按当前动力类型分组记录。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
+      "variants": {
+        "business": {
+          "text": "【商用问法】业务用车中，你们会考虑哪些动力形式？燃油、混动、插混、增程或纯电分别适合什么任务？",
+          "evidence_type": "commercial_use_or_purchase"
+        }
+      }
     },
     {
       "audience": "2C",
@@ -58775,7 +59051,13 @@
         "真实使用条件、成本、信任、习惯",
         "已经经历与听说的风险分开"
       ],
-      "editorial_note": "混合研究中需按当前动力类型分组记录。"
+      "editorial_note": "混合研究中需按当前动力类型分组记录。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
+      "variants": {
+        "business": {
+          "text": "【商用问法】哪些具体原因会让你们考虑或放弃某种动力形式？",
+          "evidence_type": "commercial_use_or_purchase"
+        }
+      }
     },
     {
       "audience": "2C",
@@ -59045,7 +59327,14 @@
       "id": "Q-M5.1-03",
       "status": "需修改",
       "feedback": "备选方案？这个没有出现过，所以问题不对",
-      "action": "已纳入本轮修改"
+      "action": "已纳入本轮修改",
+      "variants": {
+        "business": {
+          "text": "【商用问法】看完产品概念后，哪些内容最适合你的业务场景？哪些地方仍不清楚或需要改进？",
+          "evidence_type": "commercial_use_or_purchase"
+        }
+      },
+      "editorial_note": "商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。"
     },
     {
       "audience": "2C",
@@ -59053,7 +59342,14 @@
       "id": "Q-M5.2-01",
       "status": "需修改",
       "feedback": "体态不是这么说的，应该叫：车型轮廓",
-      "action": "已纳入本轮修改"
+      "action": "已纳入本轮修改",
+      "variants": {
+        "business": {
+          "text": "【商用问法】从业务使用和客户观感看，这些外观方案的前脸、轮廓、大灯、车尾、车身和格栅分别有哪些吸引或不合适的地方？",
+          "evidence_type": "commercial_use_or_purchase"
+        }
+      },
+      "editorial_note": "商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。"
     },
     {
       "audience": "2C",
@@ -59285,7 +59581,14 @@
       "id": "Q-M6.1-01",
       "status": "同意",
       "feedback": "",
-      "action": "保留原审阅状态"
+      "action": "保留原审阅状态",
+      "variants": {
+        "business": {
+          "text": "【商用问法】从商用/组织采购角度看，提到中国汽车品牌，你首先想到哪些品牌？整体印象是什么？",
+          "evidence_type": "commercial_use_or_purchase"
+        }
+      },
+      "editorial_note": "商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。"
     },
     {
       "audience": "2C",
@@ -59301,7 +59604,14 @@
       "id": "Q-M6.1-03",
       "status": "同意",
       "feedback": "",
-      "action": "保留原审阅状态"
+      "action": "保留原审阅状态",
+      "variants": {
+        "business": {
+          "text": "【商用问法】如果作为业务用车或组织采购，你会信任中国汽车品牌吗？信任或不信任主要依据是什么？",
+          "evidence_type": "commercial_use_or_purchase"
+        }
+      },
+      "editorial_note": "商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。"
     },
     {
       "audience": "2C",
@@ -59588,7 +59898,14 @@
       "id": "Q-M1.1-01",
       "status": "需修改",
       "feedback": "你觉得买这辆车的客户画像时怎样的？他们的年龄呀，职业呀，为什么理由购买？",
-      "action": "已纳入本轮修改"
+      "action": "已纳入本轮修改",
+      "variants": {
+        "business": {
+          "text": "【商用问法】请简单介绍您的业务/工作角色、车辆相关职责，以及这次商用或营运用车的基本情况。",
+          "evidence_type": "commercial_use_or_purchase"
+        }
+      },
+      "editorial_note": "商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。"
     },
     {
       "audience": "2B",
@@ -59596,7 +59913,14 @@
       "id": "Q-M1.1-02",
       "status": "建议删除",
       "feedback": "",
-      "action": "保留原审阅状态"
+      "action": "保留原审阅状态",
+      "variants": {
+        "business": {
+          "text": "【商用问法】平时哪些业务活动最需要用车？最近一次是怎么安排车辆和人员的？",
+          "evidence_type": "commercial_use_or_purchase"
+        }
+      },
+      "editorial_note": "商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。"
     },
     {
       "audience": "2B",
@@ -59628,7 +59952,14 @@
       "id": "Q-M1.2-01",
       "status": "同意",
       "feedback": "一般是增购还是换购；如果是增购的话，一般情况下的理由是什么？是一人一辆车？换购呢？什么理由？",
-      "action": "已纳入本轮修改"
+      "action": "已纳入本轮修改",
+      "variants": {
+        "business": {
+          "text": "【商用问法】目前业务中一共有几辆车？分别是什么品牌、车型和动力？每辆车主要由谁开、承担什么任务？",
+          "evidence_type": "commercial_use_or_purchase"
+        }
+      },
+      "editorial_note": "商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。"
     },
     {
       "audience": "2B",
@@ -59636,7 +59967,14 @@
       "id": "Q-M1.2-02",
       "status": "同意",
       "feedback": "交通方案这个说法很气怪",
-      "action": "已纳入本轮修改"
+      "action": "已纳入本轮修改",
+      "variants": {
+        "business": {
+          "text": "【商用问法】最近一次为业务购买或更换的是哪辆车？什么时候买的，大概花了多少钱？为什么当时需要这辆车？",
+          "evidence_type": "commercial_use_or_purchase"
+        }
+      },
+      "editorial_note": "商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。"
     },
     {
       "audience": "2B",
@@ -59644,7 +59982,14 @@
       "id": "Q-M1.2-03",
       "status": "同意",
       "feedback": "",
-      "action": "保留原审阅状态"
+      "action": "保留原审阅状态",
+      "variants": {
+        "business": {
+          "text": "【商用问法】这次买车属于新增车辆、替换车辆，还是调整车队结构？旧车如何处理，新车承担哪些新任务？",
+          "evidence_type": "commercial_use_or_purchase"
+        }
+      },
+      "editorial_note": "商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。"
     },
     {
       "audience": "2B",
@@ -59652,7 +59997,14 @@
       "id": "Q-M1.3-01",
       "status": "同意",
       "feedback": "",
-      "action": "保留原审阅状态"
+      "action": "保留原审阅状态",
+      "variants": {
+        "business": {
+          "text": "【商用问法】平时谁负责驾驶，谁主要乘坐或使用这辆车？不同业务任务会不会换人或换车？",
+          "evidence_type": "commercial_use_or_purchase"
+        }
+      },
+      "editorial_note": "商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。"
     },
     {
       "audience": "2B",
@@ -59660,7 +60012,14 @@
       "id": "Q-M1.3-02",
       "status": "同意",
       "feedback": "",
-      "action": "保留原审阅状态"
+      "action": "保留原审阅状态",
+      "variants": {
+        "business": {
+          "text": "【商用问法】通常有哪些客户、同事、乘客或物品会一起出行？车内座位和空间如何安排？",
+          "evidence_type": "commercial_use_or_purchase"
+        }
+      },
+      "editorial_note": "商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。"
     },
     {
       "audience": "2B",
@@ -59668,7 +60027,14 @@
       "id": "Q-M1.3-03",
       "status": "同意",
       "feedback": "",
-      "action": "保留原审阅状态"
+      "action": "保留原审阅状态",
+      "variants": {
+        "business": {
+          "text": "【商用问法】当时这辆车是谁选的，谁付款，谁最终拍板？使用者、付款人和决策人是否一致？",
+          "evidence_type": "commercial_use_or_purchase"
+        }
+      },
+      "editorial_note": "商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。"
     },
     {
       "audience": "2B",
@@ -59684,7 +60050,14 @@
       "id": "Q-M2.1-01",
       "status": "同意",
       "feedback": "",
-      "action": "保留原审阅状态"
+      "action": "保留原审阅状态",
+      "variants": {
+        "business": {
+          "text": "【商用问法】平时业务上一般在什么情况下会用车？先从最近一周讲起：有哪些日常任务、周末/节假日或临时接待场景？",
+          "evidence_type": "commercial_use_or_purchase"
+        }
+      },
+      "editorial_note": "商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。"
     },
     {
       "audience": "2B",
@@ -59692,7 +60065,14 @@
       "id": "Q-M2.1-02",
       "status": "同意",
       "feedback": "",
-      "action": "保留原审阅状态"
+      "action": "保留原审阅状态",
+      "variants": {
+        "business": {
+          "text": "【商用问法】在商用或营运场景中，哪一次用车最典型？当时人员、路线、时间和物品是怎样安排的？",
+          "evidence_type": "commercial_use_or_purchase"
+        }
+      },
+      "editorial_note": "商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。"
     },
     {
       "audience": "2B",
@@ -59700,7 +60080,14 @@
       "id": "Q-M2.1-03",
       "status": "同意",
       "feedback": "",
-      "action": "保留原审阅状态"
+      "action": "保留原审阅状态",
+      "variants": {
+        "business": {
+          "text": "【商用问法】这辆车是否同时承担业务、通勤和私人用途？请分别举一次。",
+          "evidence_type": "commercial_use_or_purchase"
+        }
+      },
+      "editorial_note": "商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。"
     },
     {
       "audience": "2B",
@@ -59804,7 +60191,14 @@
       "id": "Q-M2.3-01",
       "status": "同意",
       "feedback": "",
-      "action": "保留原审阅状态"
+      "action": "保留原审阅状态",
+      "variants": {
+        "business": {
+          "text": "【商用问法】业务用车时通常会带哪些人或物品？装载、固定、上下车或取放物品有没有不方便的地方？",
+          "evidence_type": "commercial_use_or_purchase"
+        }
+      },
+      "editorial_note": "商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。"
     },
     {
       "audience": "2B",
@@ -59820,7 +60214,13 @@
         "如果没有明显不方便，也记录为无痛点，不强行追问动作细节"
       ],
       "activity": null,
-      "editorial_note": "按审阅意见改为FGD可用的不方便场景问法，并去除IHV现场观察活动提示。"
+      "editorial_note": "按审阅意见改为FGD可用的不方便场景问法，并去除IHV现场观察活动提示。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
+      "variants": {
+        "business": {
+          "text": "【商用问法】客户、同事、司机或乘客上下车、进出座位时，有没有不方便或影响形象/效率的场景？",
+          "evidence_type": "commercial_use_or_purchase"
+        }
+      }
     },
     {
       "audience": "2B",
@@ -59835,7 +60235,13 @@
         "请举一个最近的具体场景，不只停留在“舒服/不舒服”",
         "不同座位或不同乘员感受不一样时，分别记录"
       ],
-      "editorial_note": "按审阅意见由坐姿偏好改为驾驶/乘坐体验形容词评价，并追问理由和具体场景。"
+      "editorial_note": "按审阅意见由坐姿偏好改为驾驶/乘坐体验形容词评价，并追问理由和具体场景。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
+      "variants": {
+        "business": {
+          "text": "【商用问法】你觉得这辆车在业务使用中的驾驶体验和乘坐体验怎么样？能不能各用一两个词形容，并说明原因？",
+          "evidence_type": "commercial_use_or_purchase"
+        }
+      }
     },
     {
       "audience": "2B",
@@ -59843,7 +60249,14 @@
       "id": "Q-M2.4-01",
       "status": "需修改",
       "feedback": "问的不像人类的语言",
-      "action": "已纳入本轮修改"
+      "action": "已纳入本轮修改",
+      "variants": {
+        "business": {
+          "text": "【商用问法】业务用车时经常在哪里停车？停车和开走过程中有没有困难，是否影响客户接待、装卸或准时到达？",
+          "evidence_type": "commercial_use_or_purchase"
+        }
+      },
+      "editorial_note": "商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。"
     },
     {
       "audience": "2B",
@@ -59872,7 +60285,13 @@
         "特殊路面按实际经历追问：坑洼、砂石、泥泞、非铺装、陡坡、窄路、减速带或涉水；不要按国别推定",
         "没有实际经历时转问担心和需求，记录为设想，不作事实记录"
       ],
-      "editorial_note": "按审阅意见合并炎热、寒冷、雨天为一条天气影响题；热带/湿热条件下在追问中展开特殊天气和特殊路面。"
+      "editorial_note": "按审阅意见合并炎热、寒冷、雨天为一条天气影响题；热带/湿热条件下在追问中展开特殊天气和特殊路面。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
+      "variants": {
+        "business": {
+          "text": "【商用问法】当地天气会怎样影响业务用车？比如暴晒、雨天、积水、寒冷、起雾或特殊路面，对准时、舒适和形象有什么影响？",
+          "evidence_type": "commercial_use_or_purchase"
+        }
+      }
     },
     {
       "audience": "2B",
@@ -59976,7 +60395,14 @@
       "id": "Q-M2.6-01",
       "status": "同意",
       "feedback": "",
-      "action": "保留原审阅状态"
+      "action": "保留原审阅状态",
+      "variants": {
+        "business": {
+          "text": "【商用问法】现有车辆在业务使用中有哪些不方便、费时间或需要额外处理的问题？",
+          "evidence_type": "commercial_use_or_purchase"
+        }
+      },
+      "editorial_note": "商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。"
     },
     {
       "audience": "2B",
@@ -60000,7 +60426,14 @@
       "id": "Q-M2.6-04",
       "status": "同意",
       "feedback": "",
-      "action": "保留原审阅状态"
+      "action": "保留原审阅状态",
+      "variants": {
+        "business": {
+          "text": "【商用问法】现在这辆车或目前用车安排里，哪一点最让你觉得用得值、买得值？",
+          "evidence_type": "commercial_use_or_purchase"
+        }
+      },
+      "editorial_note": "商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。"
     },
     {
       "audience": "2B",
@@ -60252,7 +60685,14 @@
       "id": "Q-M5.1-03",
       "status": "同意",
       "feedback": "",
-      "action": "保留原审阅状态"
+      "action": "保留原审阅状态",
+      "variants": {
+        "business": {
+          "text": "【商用问法】看完产品概念后，哪些内容最适合你的业务场景？哪些地方仍不清楚或需要改进？",
+          "evidence_type": "commercial_use_or_purchase"
+        }
+      },
+      "editorial_note": "商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。"
     },
     {
       "audience": "2B",
@@ -60260,7 +60700,14 @@
       "id": "Q-M5.2-01",
       "status": "需修改",
       "feedback": "体态不怎么说，车型轮廓",
-      "action": "已纳入本轮修改"
+      "action": "已纳入本轮修改",
+      "variants": {
+        "business": {
+          "text": "【商用问法】从业务使用和客户观感看，这些外观方案的前脸、轮廓、大灯、车尾、车身和格栅分别有哪些吸引或不合适的地方？",
+          "evidence_type": "commercial_use_or_purchase"
+        }
+      },
+      "editorial_note": "商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。"
     },
     {
       "audience": "2B",
@@ -60803,7 +61250,14 @@
       "id": "Q-M6.1-01",
       "status": "同意",
       "feedback": "",
-      "action": "保留原审阅状态"
+      "action": "保留原审阅状态",
+      "variants": {
+        "business": {
+          "text": "【商用问法】从商用/组织采购角度看，提到中国汽车品牌，你首先想到哪些品牌？整体印象是什么？",
+          "evidence_type": "commercial_use_or_purchase"
+        }
+      },
+      "editorial_note": "商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。"
     },
     {
       "audience": "2B",
@@ -60819,7 +61273,14 @@
       "id": "Q-M6.1-03",
       "status": "同意",
       "feedback": "",
-      "action": "保留原审阅状态"
+      "action": "保留原审阅状态",
+      "variants": {
+        "business": {
+          "text": "【商用问法】如果作为业务用车或组织采购，你会信任中国汽车品牌吗？信任或不信任主要依据是什么？",
+          "evidence_type": "commercial_use_or_purchase"
+        }
+      },
+      "editorial_note": "商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。"
     },
     {
       "audience": "2B",
