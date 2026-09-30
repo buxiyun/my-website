@@ -16,7 +16,11 @@ function autoGenerateHeader(cc, cinfo, cd){
   
   const ccs = collectSelectedCountries();
   const isMulti = ccs.length > 1;
-  const typeLabel = state.type === 'FGD' ? '定性座谈会' : state.type === 'IHV' ? '深度访谈' : state.type === 'MPVExpert' ? '主机厂竞品专家深访' : state.type === 'MPVMedia' ? '汽车媒体专家深访' : '经销商访谈';
+  const typeLabel = {
+    FGD:'定性座谈会', IHV:'入户深度访谈', Dealer:'经销商深访',
+    MPVExpert:'主机厂专家深访', MPVMedia:'汽车媒体专家深访',
+    BusinessOrg:'商务与组织采购者深访'
+  }[state.type] || '专业深访';
   const modelLabel = state.repModel || '目标车型';
   
   let html = '';
@@ -90,6 +94,43 @@ function autoGenerateObjectives(){
   const usage = state.conds.usage || '';
 
   let items = [];
+  if(state.type === 'Dealer'){
+    items = [
+      `理解当地目标品类的竞争格局、政策环境、销量变化与渠道经营现状。`,
+      `还原真实客户画像、购车动机、考虑因素、成交障碍及流失原因。`,
+      `评估${modelLabel}的产品优势、价格版型、销售话术、售后要求与关键卖点。`,
+      `识别中国汽车品牌在当地的优势、短板及进入市场所需条件。`
+    ];
+  } else if(state.type === 'MPVMedia'){
+    items = [
+      `基于报道、试驾、受众研究与公开资料，理解当地目标品类的市场、政策和竞争变化。`,
+      `识别消费者讨论中的购车考虑因素、主要顾虑、信息影响与品牌认知。`,
+      `从专业测评和传播角度评估${modelLabel}的产品方案、卖点表达及潜在舆论风险。`,
+      `明确结论的证据边界，不要求受访者回答订单、成交率或企业内部数据。`
+    ];
+  } else if(state.type === 'MPVExpert'){
+    items = [
+      `理解当地市场、用户、政策与竞争格局，并明确判断所依据的专业证据。`,
+      `还原目标用户的购买与流失机制，识别关键产品需求和本地化约束。`,
+      `评估${modelLabel}的产品、工程、价格版型、渠道服务及品牌进入策略。`,
+      `区分公开信息、项目经验和专业判断，不要求披露企业保密信息。`
+    ];
+  } else if(state.type === 'BusinessOrg'){
+    items = [
+      `还原组织车辆的实际用途、使用者、任务与运营痛点。`,
+      `梳理需求提出、试用、预算、审批和供应商选择的完整采购决策流程。`,
+      `识别组织采购的考虑因素、全生命周期成本、产品配置、品牌及服务要求。`,
+      `核实补贴、税费、牌照与运营政策对采购时间、数量、动力和预算的影响。`
+    ];
+  }
+
+  if(items.length){
+    items.push(`___________（请补充本项目特定的研究目标）`);
+    let roleHtml = `<h4>【研究目的】</h4>\n<ul class="q">\n`;
+    items.forEach(t=>{ roleHtml += `<li>${t}</li>\n`; });
+    return roleHtml + `</ul>`;
+  }
+
   items.push(`真实用车体验与场景还原：深入探究当地${modelLabel}${usage==='commercial'?'（商用/公务）':''}拥有者的核心购买动机、真实用车场景诉求与痛点。`);
   items.push(`核心价值要素与产品力权衡机制洞察：深挖目标用户在购车时对外观、内饰、空间、续航、智能化、安全等核心维度的具体关注点。`);
 
@@ -134,6 +175,13 @@ function autoGenerateSampleDef(){
   if(power.some(p=>['hev','phev','reve'].includes(p))) groupDesc.push('混动组');
 
   let html = `<h4>【样本定义与时长】</h4>\n`;
+  const roleSample = {
+    Dealer:'当地经销商负责人、销售主管或能依据近期客户和经营记录回答的相关人员。',
+    MPVMedia:'覆盖目标品类的汽车媒体、编辑、记者或测评人；涉及用户画像时须有受众研究或采访依据。',
+    MPVExpert:'职责覆盖目标市场、产品、工程或渠道议题的主机厂专家。',
+    BusinessOrg:'商务或组织车辆的采购决策者、车队管理者或实际使用负责人。'
+  }[state.type];
+  if(roleSample) html += `<p>建议受访者：${roleSample}</p>\n`;
   if(usageLabel){
     html += `<p>受访者用车目的：<b>${usageLabel}</b></p>\n`;
   }

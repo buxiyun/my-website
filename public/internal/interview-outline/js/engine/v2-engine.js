@@ -5,6 +5,7 @@
 /* v2 variant key — 根据方法/受众选择变体 */
 function v2VariantKey(){
   const t = state.type;
+  if(typeof V3_ROLE_BY_TYPE!=='undefined' && V3_ROLE_BY_TYPE[t]) return V3_ROLE_BY_TYPE[t];
   if(t==='Dealer') return 'Dealer';
   if(t==='FGD' || t==='IHV') return 'owner'; // 未来增加 prospect 选择器
   return 'owner';
@@ -67,6 +68,9 @@ function v2QuestionHTML(q, vk){
       h += '<div class="probe" style="color:#2a6e3b">【活动/记录：' + escHTML(q.activity) + '】</div>';
     }
   }
+  if(q.condition){
+    h += '<div class="probe" style="color:#5f6b7a;background:#f7f9fc;border-left-color:#9aa7b8">【触发条件：' + escHTML(q.condition) + '】</div>';
+  }
   if(q.editorial_note){
     h += '<div class="probe" style="color:#888;font-size:11px">【编辑注：' + escHTML(q.editorial_note) + '】</div>';
   }
@@ -76,14 +80,17 @@ function v2QuestionHTML(q, vk){
 /* 生成当前 state 对应的全部 mods */
 function v2GenerateMods(){
   const method = state.type;
-  const map = V2_SUB_MAP[method];
+  const useV3 = typeof V3_SUB_MAP!=='undefined' && V3_SUB_MAP[method];
+  const map = useV3 ? V3_SUB_MAP[method] : V2_SUB_MAP[method];
   if(!map) return {};
   const vk = v2VariantKey();
+  const questionMap = useV3 ? V3_QByID : V2_QByID;
+  const methodKey = useV3 && typeof V3_METHOD_BY_TYPE!=='undefined' ? V3_METHOD_BY_TYPE[method] : method;
   const result = {};
 
   Object.entries(map).forEach(([modId, subs]) => {
     /* f5 主体仍使用硬编码内容（有独立子模块选择体系）；仅追加标记 v2_only 的子模块（如 M6.5 卖点表达理解） */
-    if(modId === 'f5') subs = subs.filter(s=>s.v2_only);
+    if(!useV3 && modId === 'f5') subs = subs.filter(s=>s.v2_only);
     if(!subs.length) return;
     let html = '';
     let totalQ = 0;
@@ -92,9 +99,9 @@ function v2GenerateMods(){
       let subHTML = '';
       let subQ = 0;
       sub.qids.forEach(qid => {
-        const q = V2_QByID[qid];
+        const q = questionMap[qid];
         if(!q) return;
-        if(!q.methods.includes(method)) return;
+        if(!q.methods.includes(methodKey)) return;
         if(!q.variants[vk]) return;
         if(!v2GatePasses(q.gate)) return;
         subHTML += v2QuestionHTML(q, vk);
@@ -111,9 +118,9 @@ function v2GenerateMods(){
   });
 
   /* E0 执行工具：开场 → 首模块前，收尾 → 末模块后 */
-  const intro = V2_QByID['Q-E0-01'];
-  const closing = V2_QByID['Q-E0-03'];
-  const homeTour = V2_QByID['Q-E0-02'];
+  const intro = questionMap['Q-E0-01'];
+  const closing = questionMap['Q-E0-03'];
+  const homeTour = questionMap['Q-E0-02'];
   /* 按模块编号排序，确保开场/收尾挂载到正确的首/末模块 */
   const modIds = Object.keys(result).sort((a,b) => {
     const na = parseInt(a.replace(/\D/g,''))||0;

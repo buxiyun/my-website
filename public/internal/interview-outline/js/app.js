@@ -30,7 +30,7 @@ function initSubDefaults(){
   d.modules.forEach(m=>{
     if(m.id==='f5') return;
     const subs = getGenericSubs(m.id);
-    subs.forEach(s=>{ if(state.subs[s.key]===undefined) state.subs[s.key]=true; });
+    subs.forEach(s=>{ if(state.subs[s.key]===undefined) state.subs[s.key]=s.default_selected!==false; });
   });
   F5_SUBS.forEach(s=>{ if(state.f5Subs[s.key]===undefined) state.f5Subs[s.key]=true; });
 }
@@ -94,12 +94,12 @@ const _GENERIC_SUBS_CACHE = {};
 function getGenericSubs(modId){
   
   /* v2: 从 V2_SUB_MAP 获取子模块信息（非 f5） */
-  if(typeof V2_SUB_MAP!=='undefined' && !isMPVType() && modId!=='f5'){
-    const v2m = V2_SUB_MAP[state.type];
+  if(typeof V2_SUB_MAP!=='undefined' && (typeof isV3Type==='function' ? isV3Type() : !isMPVType()) && modId!=='f5'){
+    const v2m = (typeof V3_SUB_MAP!=='undefined' && V3_SUB_MAP[state.type]) ? V3_SUB_MAP[state.type] : V2_SUB_MAP[state.type];
     if(v2m && v2m[modId]){
       const key = modId+'_v2';
       if(_GENERIC_SUBS_CACHE[key]) return _GENERIC_SUBS_CACHE[key];
-      const subs = v2m[modId].map((s,i)=>({key:modId+'_vsub_'+i, label:s.name}));
+      const subs = v2m[modId].map((s,i)=>({key:modId+'_vsub_'+i, label:s.name, relevance:s.relevance||'optional', default_selected:s.default_selected!==false}));
       _GENERIC_SUBS_CACHE[key] = subs;
       return subs;
     }
@@ -182,6 +182,7 @@ function escReg(s){ return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'); }
 function typesOfStage(st){ return Object.keys(DATA).filter(k=>(STAGE_OF_TYPE[k]||'pd')===st); }
 function visibleTypes(st){ return typesOfStage(st).filter(k=>!DATA[k].hide); }
 function isMPVType(){ return /^MPV/.test(state.type||''); }
+function isV3Type(){ return typeof V3_TYPES!=='undefined' && V3_TYPES.includes(state.type); }
 /* 类型切换后校正国家：仅保留新类型有内容的国家，若为空自动选第一个可用（优先高频）；同时校正 countryCount 不超过可用国家数 */
 function syncCountriesToType(){
   if(!state.type) return;
@@ -487,7 +488,8 @@ function initModList(){
         subList.forEach(s=>{
           const checked = stateMap[s.key]!==false;
           const displayLabel = injectConds(applyReplacements(s.label));
-          subHTML += `<label class="sub-item"><input type="checkbox" ${checked?'checked':''} data-sub="${s.key}"> ${displayLabel}</label>`;
+          const rel = s.relevance==='recommended' ? '<span class="sub-badge rec">推荐</span>' : '<span class="sub-badge opt">按需</span>';
+          subHTML += `<label class="sub-item"><input type="checkbox" ${checked?'checked':''} data-sub="${s.key}"> ${displayLabel}${isV3Type()?rel:''}</label>`;
         });
         subHTML += '</div>';
         subHTML += `<div class="sub-mod-toolbar"><button onclick="event.stopPropagation();setAllSubs('${m.id}',true)">全选</button><button onclick="event.stopPropagation();setAllSubs('${m.id}',false)">全不选</button></div>`;
@@ -534,6 +536,13 @@ function updateModSummary(){
   const ccs = collectSelectedCountries();
   let totalQ = 0;
   selMods.forEach(m=>{
+    if(isV3Type() && typeof V3_SUB_MAP!=='undefined' && V3_SUB_MAP[state.type] && V3_SUB_MAP[state.type][m.id]){
+      V3_SUB_MAP[state.type][m.id].forEach((s,i)=>{
+        const key=m.id+'_vsub_'+i;
+        if(state.subs[key]!==false) totalQ += s.qids.length;
+      });
+      return;
+    }
     for(const cc of ccs){
       const cd = d.countries[cc];
       if(cd && cd.mods && cd.mods[m.id]){

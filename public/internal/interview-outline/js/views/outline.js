@@ -3,7 +3,7 @@
 // =========================================================
 
 function buildOutlineHTML(){
-  const v2ModsCache = (typeof v2GenerateMods==="function" && !isMPVType()) ? v2GenerateMods() : null;
+  const v2ModsCache = (typeof v2GenerateMods==="function" && (isV3Type() || !isMPVType())) ? v2GenerateMods() : null;
   if(!state.type || collectSelectedCountries().length===0) return null;
   const d = DATA[state.type];
   const ccs = collectSelectedCountries();
@@ -45,8 +45,8 @@ function buildOutlineHTML(){
     orderedMods.forEach(m=>{
       if(!state.mods[m.id]) return;
       let content = (v2ModsCache && m.id!=='f5') ? (v2ModsCache[m.id]||'') : (cd.mods && cd.mods[m.id]);
-      /* f5：v1 硬编码内容 + v2 独有子模块（v2_only，如 M6.5）追加 */
-      if(m.id==='f5' && v2ModsCache && v2ModsCache['f5']) content = (content||'') + v2ModsCache['f5'];
+      /* v3 类型完全使用角色化题库；旧 v2 的 f5 仍保留硬编码主体并追加 v2_only。 */
+      if(m.id==='f5' && v2ModsCache && v2ModsCache['f5'] && !isV3Type()) content = (content||'') + v2ModsCache['f5'];
       if(!content) return;
       /* f5 子模块过滤 */
       content = filterSubContent(content, m.id);
@@ -137,4 +137,3 @@ function renderOutline(){
   state.viewMode = 'outline';
   render();
 }
-

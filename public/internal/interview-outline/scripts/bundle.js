@@ -35,7 +35,8 @@ function bundle() {
   const jsRegex = /<script\s+src="(\.\/js\/[^"]+)"><\/script>/g;
   let combinedJs = '';
   html = html.replace(jsRegex, (match, src) => {
-    const jsFile = path.join(ROOT_DIR, src);
+    const jsPath = src.split('?')[0];
+    const jsFile = path.join(ROOT_DIR, jsPath);
     if (fs.existsSync(jsFile)) {
       console.log(`  ➕ 嵌入脚本: ${src}`);
       combinedJs += `\n// === ${src} ===\n` + fs.readFileSync(jsFile, 'utf-8');
