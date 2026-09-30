@@ -6538,11 +6538,11 @@
       "review_status": "同意",
       "variants": {
         "owner": {
-          "text": "哪些信息来源真正影响了您的选车？请讲一次影响决定的信息。",
+          "text": "哪些信息来源真正影响了您的选车？",
           "evidence_type": "self_report_or_preference"
         },
         "prospect": {
-          "text": "哪些信息来源真正影响了您的选车？请讲一次影响决定的信息。",
+          "text": "哪些信息来源真正影响了您的选车？",
           "evidence_type": "actual_experience_then_expectation"
         }
       },
@@ -47801,11 +47801,11 @@
       "review_status": "editorial_revision_for_project_review",
       "variants": {
         "owner": {
-          "text": "哪些信息来源真正影响了您的选车？请讲一次影响决定的信息。",
+          "text": "哪些信息来源真正影响了您的选车？",
           "evidence_type": "self_report_or_preference"
         },
         "prospect": {
-          "text": "哪些信息来源真正影响了您的选车？请讲一次影响决定的信息。",
+          "text": "哪些信息来源真正影响了您的选车？",
           "evidence_type": "actual_experience_then_expectation"
         },
         "Dealer": {
