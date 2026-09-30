@@ -618,7 +618,7 @@
               "display_section_id": "F4",
               "variant_role": "consumer",
               "minutes": 7,
-              "available_question_count": 5
+              "available_question_count": 6
             },
             "IHV": {
               "relevance": "recommended",
@@ -627,7 +627,7 @@
               "display_section_id": "I3",
               "variant_role": "consumer",
               "minutes": 8,
-              "available_question_count": 5
+              "available_question_count": 6
             },
             "Dealer": {
               "relevance": "recommended",
@@ -636,7 +636,7 @@
               "display_section_id": "D6",
               "variant_role": "dealer_report",
               "minutes": 5,
-              "available_question_count": 5
+              "available_question_count": 6
             }
           },
           "requires": [],
@@ -644,6 +644,7 @@
           "question_gate_note": "按方法、角色与证据类型选择版本",
           "question_ids": [
             "Q-M3.4-01",
+            "Q-M3.4-06",
             "Q-M3.4-02",
             "Q-M3.4-03",
             "Q-M3.4-04",
@@ -7124,9 +7125,9 @@
       "alias": "factors",
       "submodule_id": "M3.4",
       "probes": [
-        "每项需要达到什么程度",
-        "是否存在一票否决项",
-        "不要先把全部属性读给受访者"
+        "先自由列出，不给选项；再请受访者选前三项并排序",
+        "追问每个因素为什么重要，分别影响入围、否决还是最终成交",
+        "如果前面已经提到预算、用途或家人意见，此处只核对优先级，不重复展开"
       ],
       "gate": "all",
       "methods": [
@@ -7180,15 +7181,15 @@
       "review_status": "已按意见修改",
       "variants": {
         "owner": {
-          "text": "选车时您最看重哪些因素？请先自由列出，再选最重要的三项。",
+          "text": "买车时你最看重什么？请先自由说，再选出最重要的三个因素。",
           "evidence_type": "self_report_or_preference"
         },
         "prospect": {
-          "text": "选车时您最看重哪些因素？请先自由列出，再选最重要的三项。",
+          "text": "买车时你最看重什么？请先自由说，再选出最重要的三个因素。",
           "evidence_type": "actual_experience_then_expectation"
         }
       },
-      "priority": "optional",
+      "priority": "core",
       "estimated_minutes": {
         "FGD": 3,
         "IHV": 4,
@@ -7203,6 +7204,55 @@
       "view_section": "C3",
       "audience": "2C",
       "chapter_label": "购车考虑因素",
+      "review_feedback": ""
+    },
+    {
+      "alias": "ev_purchase_factors",
+      "submodule_id": "M3.4",
+      "probes": [
+        "先让受访者自由列出，再请其选前三项并排序",
+        "可追问续航、充电便利、充电速度、电池安全、使用成本、保值率、补贴/税费、品牌可信度、售后保障和智能化",
+        "区分“买车最看重”和“买电车才会特别看重”的因素",
+        "如果受访者不考虑电车，追问最主要的否决因素"
+      ],
+      "gate": "charge",
+      "methods": [
+        "FGD",
+        "IHV"
+      ],
+      "material": null,
+      "id": "Q-M3.4-06",
+      "module_id": "M3",
+      "source_refs": [],
+      "source_variants": [],
+      "conditional_probes": [],
+      "activity": null,
+      "review_status": "新增",
+      "variants": {
+        "owner": {
+          "text": "如果买电车或考虑电车，你最看重哪些因素？请先自由说，再选最重要的三个。",
+          "evidence_type": "actual_experience_then_preference"
+        },
+        "prospect": {
+          "text": "如果买电车或考虑电车，你最看重哪些因素？请先自由说，再选最重要的三个。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "priority": "core",
+      "estimated_minutes": {
+        "FGD": 3,
+        "IHV": 4,
+        "Dealer": 3,
+        "Media": 3,
+        "OEM": 3
+      },
+      "editorial_note": "按审阅意见新增电车购买考虑因素题，与通用购车三因素题并列。",
+      "purpose": "识别电车购买中特有的决策因素及前三优先级。",
+      "condition": "购买或考虑电车、插混、增程时使用；若未筛选动力类型，默认保留以便主持人按样本情况决定。",
+      "reason": "补足2C购买consideration中电车专属考虑因素。",
+      "view_section": "C3",
+      "audience": "2C",
+      "chapter_label": "购车考虑因素与取舍",
       "review_feedback": ""
     },
     {
@@ -43480,7 +43530,7 @@
     }
   ],
   "stats": {
-    "questions": 180,
+    "questions": 195,
     "research": 177,
     "probes": 582,
     "pending_binding": 0,
