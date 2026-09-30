@@ -1,0 +1,177 @@
+/* ---------- PPT 版式设计 ---------- */
+.ppt-design-view{display:none;flex-direction:column;gap:20px;padding:0 4px}
+.ppt-design-view.active{display:flex}
+.ppt-toolbar{display:flex;align-items:center;gap:12px;padding:12px 16px;background:#fff;border:1px solid var(--line);border-radius:12px}
+.ppt-toolbar .ppt-auto-btn{border:1px solid var(--brand);background:#fff;color:var(--brand);border-radius:8px;padding:7px 16px;font-size:13px;cursor:pointer;font-weight:600;white-space:nowrap}
+.ppt-toolbar .ppt-auto-btn:hover{background:var(--brand-soft)}
+.ppt-toolbar .ppt-gen-btn{border:none;background:linear-gradient(90deg,#1f5eff,#3d7bff);color:#fff;border-radius:8px;padding:9px 28px;font-size:14px;cursor:pointer;font-weight:700;box-shadow:0 4px 14px rgba(31,94,255,.3);margin-left:auto}
+.ppt-toolbar .ppt-gen-btn:hover{filter:brightness(1.07)}
+.ppt-toolbar .slide-count{font-size:13px;color:var(--ink3);font-weight:500}
+/* 版式画廊 */
+.ppt-gallery{display:flex;flex-direction:column;gap:20px}
+.ppt-gallery-cat{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.ppt-cat-head{padding:12px 16px;background:var(--brand-soft);font-size:13px;font-weight:700;color:var(--brand);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px}
+.ppt-cat-head .cat-icon{font-size:16px}
+.ppt-cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px;padding:16px}
+/* 版式缩略图卡片 */
+.ppt-layout-card{border:1.5px solid var(--line);border-radius:10px;overflow:hidden;cursor:pointer;transition:.15s;background:#fff}
+.ppt-layout-card:hover{border-color:var(--brand);box-shadow:0 4px 16px rgba(31,94,255,.12);transform:translateY(-2px)}
+.ppt-layout-thumb{height:108px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.ppt-layout-card .layout-name{font-size:12px;font-weight:700;color:var(--ink);padding:8px 10px 2px}
+.ppt-layout-card .layout-desc{font-size:10.5px;color:var(--ink3);padding:0 10px 8px;line-height:1.5}
+/* 缩略图内部样式 */
+.thumb-cover{width:100%;height:100%;background:linear-gradient(135deg,#12285e 0%,#1a3a8a 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:12px}
+.thumb-cover .t-title{color:#fff;font-size:11px;font-weight:800;text-align:center}
+.thumb-cover .t-sub{color:rgba(255,255,255,.6);font-size:7px}
+.thumb-cover .t-line{width:24px;height:2px;background:#1f5eff;border-radius:1px}
+.thumb-cover-left{width:100%;height:100%;background:#fff;display:flex;flex-direction:column;justify-content:center;padding:12px 14px;gap:4px}
+.thumb-cover-left .t-accent{width:3px;height:32px;background:#1f5eff;border-radius:2px;position:absolute;left:10px;top:50%;transform:translateY(-50%)}
+.thumb-cover-left .t-title{color:#12285e;font-size:10px;font-weight:800}
+.thumb-cover-left .t-sub{color:#8892a6;font-size:7px}
+.thumb-toc{width:100%;height:100%;background:#fff;padding:10px 12px;display:grid;grid-template-columns:1fr 1fr;gap:4px 8px}
+.thumb-toc .toc-item{display:flex;align-items:center;gap:4px;font-size:6.5px;color:#4a5568}
+.thumb-toc .toc-num{width:12px;height:12px;border-radius:3px;background:#e8efff;color:#1f5eff;display:flex;align-items:center;justify-content:center;font-size:5.5px;font-weight:800;flex:0 0 12px}
+.thumb-divider{width:100%;height:100%;background:linear-gradient(90deg,#12285e 40%,#1f5eff 100%);display:flex;align-items:center;padding:0 16px;gap:10px}
+.thumb-divider .t-num{font-size:28px;font-weight:900;color:rgba(255,255,255,.3)}
+.thumb-divider .t-text{color:#fff;font-size:9px;font-weight:700}
+.thumb-summary{width:100%;height:100%;background:#fff;padding:10px 12px;display:flex;flex-direction:column;gap:5px}
+.thumb-summary .s-head{font-size:7px;font-weight:800;color:#12285e;border-bottom:1.5px solid #1f5eff;padding-bottom:3px}
+.thumb-summary .s-item{display:flex;align-items:center;gap:4px;font-size:6px;color:#4a5568}
+.thumb-summary .s-dot{width:4px;height:4px;border-radius:50%;background:#1f5eff;flex:0 0 4px}
+.thumb-cards{width:100%;height:100%;background:#f8faff;padding:8px;display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.thumb-cards .mc{background:#fff;border-radius:4px;padding:6px;border:1px solid #e8efff;display:flex;flex-direction:column;gap:2px}
+.thumb-cards .mc .mc-val{font-size:10px;font-weight:800;color:#1f5eff}
+.thumb-cards .mc .mc-label{font-size:5.5px;color:#8892a6}
+.thumb-cols{width:100%;height:100%;background:#fff;display:flex}
+.thumb-cols .col{flex:1;padding:8px 6px;display:flex;flex-direction:column;gap:3px;border-right:1px solid #e8efff}
+.thumb-cols .col:last-child{border-right:none}
+.thumb-cols .col-head{font-size:6px;font-weight:700;padding:2px 4px;border-radius:2px;text-align:center}
+.thumb-cols .col-item{font-size:5px;color:#4a5568;padding:1px 0}
+.thumb-persona{width:100%;height:100%;background:#fff;display:flex}
+.thumb-persona .p-left{width:40%;background:#e8efff;display:flex;align-items:center;justify-content:center}
+.thumb-persona .p-avatar{width:28px;height:28px;border-radius:50%;background:#1f5eff;opacity:.3}
+.thumb-persona .p-right{flex:1;padding:8px;display:flex;flex-direction:column;gap:3px}
+.thumb-persona .p-row{height:4px;background:#f0f0f0;border-radius:2px}
+.thumb-persona .p-row:first-child{width:60%;background:#12285e;height:5px}
+.thumb-timeline{width:100%;height:100%;background:#fff;padding:12px 8px;display:flex;align-items:center;gap:0;position:relative}
+.thumb-timeline .tl-line{position:absolute;top:50%;left:12px;right:12px;height:2px;background:#e8efff;transform:translateY(-1px)}
+.thumb-timeline .tl-node{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;position:relative;z-index:1}
+.thumb-timeline .tl-dot{width:8px;height:8px;border-radius:50%;background:#1f5eff}
+.thumb-timeline .tl-label{font-size:5px;color:#4a5568;text-align:center}
+.thumb-quote{width:100%;height:100%;background:#12285e;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px;gap:4px}
+.thumb-quote .q-mark{font-size:20px;color:rgba(255,255,255,.2);font-family:Georgia}
+.thumb-quote .q-text{color:#fff;font-size:7px;font-style:italic;text-align:center;max-width:80%}
+.thumb-table{width:100%;height:100%;background:#fff;padding:8px;display:flex;flex-direction:column;gap:0}
+.thumb-table .th-row{display:flex;border-bottom:1px solid #e8efff}
+.thumb-table .th-row.head{background:#12285e}
+.thumb-table .th-cell{flex:1;padding:3px 4px;font-size:5px;color:#fff}
+.thumb-table .th-row:not(.head) .th-cell{color:#4a5568}
+.thumb-thanks{width:100%;height:100%;background:linear-gradient(135deg,#12285e,#1f5eff);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
+.thumb-thanks .th-text{color:#fff;font-size:12px;font-weight:800}
+.thumb-thanks .th-sub{color:rgba(255,255,255,.5);font-size:6px}
+.thumb-strategy{width:100%;height:100%;background:#f8faff;padding:8px;display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.thumb-strategy .sg-item{background:#fff;border-radius:4px;padding:5px;border-left:2.5px solid #1f5eff;display:flex;flex-direction:column;gap:1px}
+.thumb-strategy .sg-label{font-size:5.5px;font-weight:700;color:#12285e}
+.thumb-strategy .sg-desc{font-size:4.5px;color:#8892a6}
+.thumb-grid{width:100%;height:100%;background:#fff;padding:6px;display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.thumb-grid .sc-card{background:#f8faff;border-radius:3px;padding:4px 5px;display:flex;flex-direction:column;gap:1px}
+.thumb-grid .sc-bar{height:2px;border-radius:1px;margin-bottom:2px}
+.thumb-grid .sc-title{font-size:5.5px;font-weight:700;color:#12285e}
+.thumb-grid .sc-desc{font-size:4.5px;color:#8892a6}
+.thumb-needs{width:100%;height:100%;background:#fff;padding:8px 10px;display:flex;flex-direction:column;gap:5px;justify-content:center}
+.thumb-needs .need-row{display:flex;align-items:center;gap:6px}
+.thumb-needs .need-label{font-size:5px;color:#4a5568;width:32px;flex-shrink:0;text-align:right}
+.thumb-needs .need-bar{height:6px;border-radius:3px;min-width:8px}
+/* 定量版式缩略图 */
+.thumb-dbar{width:100%;height:100%;background:#fff;padding:6px 8px;display:flex;flex-direction:column;gap:3px;justify-content:center}
+.thumb-dbar .db-row{display:flex;align-items:center;gap:4px}
+.thumb-dbar .db-lab{font-size:4.5px;color:#4a5568;width:22px;text-align:right;flex-shrink:0}
+.thumb-dbar .db-track{flex:1;height:5px;background:#e8efff;border-radius:2px;overflow:hidden}
+.thumb-dbar .db-fill{height:100%;border-radius:2px}
+.thumb-dtable{width:100%;height:100%;background:#fff;padding:5px;display:flex;flex-direction:column;gap:1px}
+.thumb-dtable .dt-row{display:flex;gap:1px}
+.thumb-dtable .dt-cell{flex:1;height:7px;background:#f8faff;border-radius:1px;font-size:3.5px;color:#4a5568;display:flex;align-items:center;justify-content:center}
+.thumb-dtable .dt-row:first-child .dt-cell{background:#12285e;color:#fff;font-weight:700}
+.thumb-dstacked{width:100%;height:100%;background:#fff;padding:6px 8px;display:flex;flex-direction:column;gap:5px;justify-content:center}
+.thumb-dstacked .ds-row{display:flex;flex-direction:column;gap:1px}
+.thumb-dstacked .ds-lab{font-size:4.5px;color:#4a5568}
+.thumb-dstacked .ds-bar{display:flex;height:7px;border-radius:2px;overflow:hidden}
+.thumb-dstacked .ds-seg{height:100%}
+.thumb-dgrouped{width:100%;height:100%;background:#fff;padding:6px 8px;display:flex;flex-direction:column;gap:3px;justify-content:end;align-items:flex-start}
+.thumb-dgrouped .dg-group{display:flex;gap:1px;align-items:flex-end;height:30px}
+.thumb-dgrouped .dg-bar{width:5px;border-radius:1px 1px 0 0}
+/* 国家模式选择器 & 数据网格 */
+.ppt-ce-country-sel{display:flex;align-items:center;gap:8px;padding:10px 12px;background:var(--bg);border-radius:8px;border:1px solid var(--line)}
+.ppt-ce-country-sel label{font-size:12px;font-weight:700;color:var(--ink2);white-space:nowrap}
+.ppt-ce-country-sel select{width:auto;min-width:140px}
+.ppt-ce-country-names{display:flex;gap:8px}
+.ppt-ce-country-names .cn-input{flex:1}
+.ppt-ce-country-names .cn-input label{font-size:10px;color:var(--brand);font-weight:700}
+.ppt-ce-data-grid{border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.ppt-ce-dg-head{display:flex;align-items:center;background:var(--bg);padding:6px 10px;gap:8px;border-bottom:1px solid var(--line);font-size:11px;font-weight:700;color:var(--ink2)}
+.ppt-ce-dg-row{display:flex;align-items:center;padding:5px 10px;gap:6px;border-bottom:1px solid #f0f0f0}
+.ppt-ce-dg-row:last-child{border-bottom:none}
+.ppt-ce-dg-row:hover{background:#fafbfd}
+.ppt-ce-dg-idx{width:20px;height:20px;border-radius:50%;background:var(--brand-soft);color:var(--brand);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;flex:0 0 20px}
+.ppt-ce-dg-lab{flex:0 0 120px}
+.ppt-ce-dg-lab input{width:100%;border:1px solid var(--line);border-radius:5px;padding:5px 7px;font-size:12px;font-family:inherit;box-sizing:border-box}
+.ppt-ce-dg-vals{flex:1;display:flex;gap:5px}
+.ppt-ce-dg-vals input{flex:1;border:1px solid var(--line);border-radius:5px;padding:5px 7px;font-size:12px;font-family:inherit;min-width:0;box-sizing:border-box}
+.ppt-ce-dg-vals input:focus,.ppt-ce-dg-lab input:focus{outline:none;border-color:var(--brand)}
+.ppt-ce-dg-add{display:flex;justify-content:center;padding:6px;border-top:1px solid var(--line)}
+.ppt-ce-dg-add button{background:none;border:1px dashed var(--line);border-radius:5px;padding:4px 16px;font-size:11px;color:var(--ink3);cursor:pointer;font-family:inherit}
+.ppt-ce-dg-add button:hover{border-color:var(--brand);color:var(--brand)}
+/* 幻灯片组装条 */
+.ppt-assembly{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.ppt-assembly-head{padding:10px 16px;background:#fafbfd;border-bottom:1px solid var(--line);font-size:13px;font-weight:700;color:var(--ink);display:flex;align-items:center;gap:8px}
+.ppt-assembly-strip{display:flex;gap:8px;padding:12px 16px;overflow-x:auto;min-height:80px;align-items:flex-start}
+.ppt-assembly-strip:empty::after{content:'从上方版式库点击添加幻灯片';display:flex;align-items:center;justify-content:center;width:100%;height:60px;color:var(--ink3);font-size:13px;border:2px dashed var(--line);border-radius:8px}
+.ppt-asm-slide{flex:0 0 100px;border:1.5px solid var(--line);border-radius:8px;overflow:hidden;cursor:pointer;position:relative;transition:.12s;background:#fff}
+.ppt-asm-slide:hover{border-color:var(--brand)}
+.ppt-asm-slide.active{border-color:var(--brand);box-shadow:0 0 0 2px rgba(31,94,255,.2)}
+.ppt-asm-slide .asm-thumb{height:56px;overflow:hidden}
+.ppt-asm-slide .asm-info{padding:4px 6px;font-size:9px;color:var(--ink);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ppt-asm-slide .asm-idx{position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:var(--brand);color:#fff;font-size:8px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.ppt-asm-slide .asm-del{position:absolute;top:2px;right:2px;width:16px;height:16px;border-radius:50%;background:rgba(0,0,0,.5);color:#fff;font-size:10px;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:.1s}
+.ppt-asm-slide:hover .asm-del{opacity:1}
+/* 内容编辑器 */
+.ppt-content-editor{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;display:none}
+.ppt-content-editor.active{display:block}
+.ppt-ce-head{display:flex;align-items:center;gap:12px;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.ppt-ce-head .ce-layout-name{font-size:11px;color:var(--ink3);font-weight:600}
+.ppt-ce-head .ce-title-input{border:none;border-bottom:2px solid var(--brand);background:transparent;font-size:18px;font-weight:700;color:var(--ink);padding:4px 0;flex:1;outline:none;font-family:inherit}
+.ppt-ce-head .ce-hypo-input{border:1px solid var(--line);border-radius:6px;background:var(--bg);font-size:12px;color:var(--ink2);padding:8px 10px;margin-top:8px;width:100%;resize:vertical;min-height:48px;max-height:120px;outline:none;font-family:inherit;line-height:1.5;box-sizing:border-box}
+.ppt-ce-head .ce-hypo-input:focus{border-color:var(--brand);background:#fff}
+.ppt-ce-head .ce-hypo-input::placeholder{color:var(--ink3)}
+.ppt-ce-fields{display:flex;flex-direction:column;gap:14px}
+.ppt-ce-field{display:flex;flex-direction:column;gap:5px}
+.ppt-ce-field label{font-size:12px;font-weight:700;color:var(--ink2)}
+.ppt-ce-field input,.ppt-ce-field textarea,.ppt-ce-field select{border:1px solid var(--line);border-radius:6px;padding:8px 10px;font-size:13px;font-family:inherit;width:100%;box-sizing:border-box}
+.ppt-ce-field input:focus,.ppt-ce-field textarea:focus,.ppt-ce-field select:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 2px rgba(31,94,255,.1)}
+.ppt-ce-field textarea{min-height:60px;resize:vertical;line-height:1.6}
+.ppt-ce-bullets{display:flex;flex-direction:column;gap:5px}
+.ppt-ce-bullet-row{display:flex;align-items:center;gap:6px}
+.ppt-ce-bullet-row .bnum{width:18px;height:18px;border-radius:50%;background:var(--brand-soft);color:var(--brand);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;flex:0 0 18px}
+.ppt-ce-bullet-row input{flex:1;border:1px solid var(--line);border-radius:6px;padding:6px 8px;font-size:12px;font-family:inherit}
+.ppt-ce-bullet-row input:focus{outline:none;border-color:var(--brand)}
+.ppt-ce-kv{display:flex;flex-direction:column;gap:5px}
+.ppt-ce-kv-row{display:flex;align-items:center;gap:6px}
+.ppt-ce-kv-row .kv-lab{font-size:11px;color:var(--ink2);font-weight:600;min-width:70px;flex:0 0 70px}
+.ppt-ce-kv-row input{flex:1;border:1px solid var(--line);border-radius:6px;padding:6px 8px;font-size:12px;font-family:inherit}
+.ppt-ce-kv-row input:focus{outline:none;border-color:var(--brand)}
+.ppt-ce-cards{display:flex;flex-direction:column;gap:6px}
+.ppt-ce-card-row{display:flex;align-items:center;gap:6px}
+.ppt-ce-card-row .clab{font-size:11px;color:var(--ink2);font-weight:600;min-width:70px;flex:0 0 70px}
+.ppt-ce-card-row .cinputs{flex:1;display:flex;gap:4px}
+.ppt-ce-card-row .cinputs input{flex:1;border:1px solid var(--line);border-radius:6px;padding:6px 8px;font-size:12px;font-family:inherit}
+.ppt-ce-card-row .cinputs input:focus{outline:none;border-color:var(--brand)}
+.ppt-ce-journey{display:flex;flex-direction:column;gap:10px}
+.ppt-ce-stage{border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff}
+.ppt-ce-stage-head{background:var(--brand-soft);color:var(--brand);font-weight:700;font-size:12px;padding:5px 10px}
+.ppt-ce-stage-fields{padding:8px 10px;display:flex;flex-direction:column;gap:6px}
+.ppt-ce-stage-fields label{font-size:10.5px;color:var(--ink2);font-weight:600;display:flex;flex-direction:column;gap:3px}
+.ppt-ce-stage-fields label input{border:1px solid var(--line);border-radius:5px;padding:5px 7px;font-size:11.5px;font-family:inherit;width:100%;box-sizing:border-box}
+.ppt-ce-stage-fields label input:focus{outline:none;border-color:var(--brand)}
+.ppt-ce-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px;color:var(--ink3);font-size:13px;gap:8px}
+.ppt-ce-empty .ce-icon{font-size:36px;opacity:.4}
+

@@ -1,0 +1,96 @@
+/* 议题树 */
+.tree-wrap{padding:28px 24px}
+.tree-title{text-align:center;font-size:18px;font-weight:800;color:var(--ink);margin-bottom:4px}
+.tree-subtitle{text-align:center;font-size:13px;color:var(--ink3);margin-bottom:28px}
+.tree-module{margin-bottom:14px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}
+.tree-mod-head{display:flex;align-items:center;gap:10px;padding:11px 16px;background:linear-gradient(90deg,#f0f4ff,#f8faff);border-bottom:1px solid var(--line);cursor:pointer;user-select:none}
+.tree-mod-head:hover{background:linear-gradient(90deg,#e8edff,#f0f5ff)}
+.tree-mod-idx{width:26px;height:26px;border-radius:50%;background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex:0 0 26px}
+.tree-mod-name{font-weight:700;font-size:14px;color:var(--ink);flex:1}
+.tree-mod-en{font-size:11.5px;color:var(--ink3);font-weight:400;margin-left:6px}
+.tree-mod-badge{font-size:11px;color:var(--brand);background:var(--brand-soft);border:1px solid var(--brand-line);border-radius:12px;padding:2px 10px;font-weight:600;white-space:nowrap}
+.tree-subs{padding:6px 16px 10px 52px}
+.tree-sub{display:flex;align-items:baseline;padding:5px 0;border-bottom:1px dashed #eee;font-size:13px;line-height:1.6}
+.tree-sub:last-child{border-bottom:none}
+.tree-sub-name{flex:1;color:#333}
+.tree-sub-name::before{content:"└ ";color:var(--brand);font-weight:700;margin-right:2px}
+.tree-sub-cnt{color:var(--ink3);font-size:11.5px;white-space:nowrap;margin-left:8px}
+.tree-nosub{padding:10px 16px 10px 52px;font-size:13px;color:var(--ink3)}
+.tree-nosub::before{content:"└ ";color:var(--brand);font-weight:700;margin-right:2px}
+.tree-actions{text-align:center;margin-top:24px;padding-top:18px;border-top:1px solid var(--line)}
+.tree-back{border:1px solid var(--line);background:#fff;border-radius:8px;padding:7px 18px;font-size:13px;color:var(--ink2);cursor:pointer;margin-right:10px}
+.tree-back:hover{border-color:var(--brand);color:var(--brand)}
+.tree-step-hint{font-size:12px;color:var(--ink3);margin-top:10px}
+/* 议题树可编辑元素样式 */
+.tree-editable{outline:none;border-radius:3px;padding:1px 3px;margin:-1px -3px;transition:background 0.15s}
+.tree-editable:hover{background:#fffbe8}
+.tree-editable:focus{background:#fff8d6;box-shadow:0 0 0 2px rgba(31,98,255,0.2)}
+body.editing .tree-editable{cursor:text}
+
+/* ---------- 预览区 ---------- */
+.preview-head{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+.preview-head .tag{font-size:12px;background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:4px 12px;color:var(--ink2)}
+.preview-head .tag b{color:var(--brand)}
+.paper{background:var(--panel);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:46px 56px;min-height:600px}
+.paper.empty{display:flex;align-items:center;justify-content:center;color:var(--ink3);font-size:14px;text-align:center;line-height:2}
+
+/* 提纲文档样式 */
+.doc{font-size:14.5px;color:#111827;line-height:1.85}
+.doc h1.doctitle{font-size:19px;text-align:center;font-weight:800;margin:4px 0 4px;letter-spacing:.5px}
+.doc h2.docsub{font-size:15px;text-align:center;font-weight:700;color:#22315e;margin-bottom:14px}
+.doc hr.sep{border:none;border-top:2px solid #22315e;margin:16px 0}
+.doc .docnote{background:#f6f8ff;border-left:4px solid var(--brand);padding:10px 14px;border-radius:0 8px 8px 0;font-size:13px;color:#33415e;margin:12px 0}
+.doc h3.mod{font-size:16px;font-weight:800;color:#12285e;margin:22px 0 8px;padding-bottom:5px;border-bottom:2.5px solid #12285e}
+.doc h3.mod .en{font-size:11.5px;color:var(--ink3);font-weight:500;margin-left:8px}
+.doc h4{font-size:14.5px;font-weight:700;color:#1f3a8a;margin:14px 0 6px}
+.doc h5{font-size:13.5px;font-weight:700;color:#33415e;margin:10px 0 4px}
+.doc p{margin:5px 0}
+.doc{counter-reset:qnum}
+.doc ul.q{list-style:none;margin:4px 0 8px;padding:0}
+.doc ul.q>li{position:relative;padding-left:36px;margin:6px 0;counter-increment:qnum}
+.doc ul.q>li::before{content:counter(qnum);position:absolute;left:0;top:0;font-weight:700;color:#1f5eff;font-size:13px}
+.doc .probe{background:#f7f8fa;border-left:3px solid #c3cad9;color:#42506b;font-size:13px;padding:6px 12px;border-radius:0 6px 6px 0;margin:5px 0 5px 36px}
+.doc .probe::before{content:"↳ ";color:var(--ink3)}
+.doc .branch{background:#fff8f2;border-left:4px solid #e8833a;padding:10px 14px;border-radius:0 8px 8px 0;margin:10px 0}
+.doc .branch .bt{font-weight:800;color:#b05a12;font-size:13.5px;margin-bottom:4px}
+.doc table.tbl{border-collapse:collapse;width:100%;margin:10px 0;font-size:13px}
+.doc table.tbl th{background:#eef2fb;border:1px solid #c6d0e6;padding:7px 10px;text-align:left;font-weight:700;color:#22315e}
+.doc table.tbl td{border:1px solid #c6d0e6;padding:7px 10px;vertical-align:top}
+.doc .cfgtable td:first-child{width:46%}
+.doc .count{font-size:12.5px;color:var(--ink3);margin-top:8px}
+.doc .country-chip{display:inline-block;background:#12285e;color:#fff;font-size:12px;font-weight:700;border-radius:6px;padding:2px 10px;margin-bottom:8px;letter-spacing:2px}
+.doc .instrument{background:#fbf7ff;border:1px dashed #b79ae0;border-radius:8px;padding:10px 14px;margin:10px 0;font-size:13px;color:#4a3a63}
+.doc .instrument .it{font-weight:700;color:#6b3fa0;margin-bottom:4px}
+.doc .condbox{background:#f2fbf6;border:1px solid #bfe6cd;border-left:4px solid #2f9e5f;border-radius:0 8px 8px 0;padding:10px 14px;margin:12px 0;font-size:13px;color:#20503a}
+.doc .condbox .cb-title{font-weight:800;color:#1d7a4a;margin-bottom:4px}
+.doc .condbox .cb-items{line-height:1.9}
+.doc .condbox .cb-note{font-size:11.5px;color:#5b8a70;margin-top:4px}
+/* 条件标签 */
+.doc .q-tags{display:none}
+.doc .q-tag{display:inline-block;font-size:10px;font-weight:600;padding:1px 6px;border-radius:3px;line-height:1.5;white-space:nowrap}
+.doc .q-tag.t-climate{background:#fff3e0;color:#e65100;border:1px solid #ffcc80}
+.doc .q-tag.t-roads{background:#efebe9;color:#4e342e;border:1px solid #bcaaa4}
+.doc .q-tag.t-charging{background:#e8f5e9;color:#1b5e20;border:1px solid #a5d6a7}
+.doc .q-tag.t-power{background:#e3f2fd;color:#0d47a1;border:1px solid #90caf9}
+.doc .q-tag.t-drive{background:#f3e5f5;color:#4a148c;border:1px solid #ce93d8}
+.doc .q-tag.t-incentive{background:#fff8e1;color:#f57f17;border:1px solid #ffe082}
+.doc .q-tag.t-finance{background:#fce4ec;color:#880e4f;border:1px solid #f48fb1}
+.doc .q-tag.t-vehicle{background:#e0f7fa;color:#006064;border:1px solid #80deea}
+
+/* ---------- 提纲编辑模式 ---------- */
+.edit-bar{position:sticky;top:8px;z-index:30;display:flex;align-items:center;gap:10px;background:#fffbe8;border:1px solid #ecd98a;border-radius:10px;padding:8px 14px;margin-bottom:14px;font-size:12.5px;color:#6b5b1e;flex-wrap:wrap;box-shadow:0 2px 10px rgba(180,150,20,.08)}
+.edit-bar .eb-title{font-weight:800;color:#8a6d00;white-space:nowrap}
+.edit-bar .eb-hint{color:#9a8a3e;flex:1;min-width:220px;line-height:1.6}
+.edit-bar .btn{padding:4px 12px;font-size:12px}
+body.editing .doc [contenteditable="true"]{border-radius:4px;transition:background .12s,box-shadow .12s;cursor:text}
+body.editing .doc [contenteditable="true"]:hover{background:#fffdf4;box-shadow:0 0 0 1px #ecd98a}
+body.editing .doc [contenteditable="true"]:focus{background:#fff;box-shadow:0 0 0 2px var(--brand);outline:none}
+.edit-ctl{position:absolute;right:4px;top:50%;transform:translateY(-50%);display:none;gap:2px;z-index:5}
+body.editing .doc ul.q>li:hover>.edit-ctl,body.editing .doc .branch li:hover>.edit-ctl,body.editing .doc h5:hover>.edit-ctl,body.editing .doc h4:hover>.edit-ctl{display:inline-flex}
+.edit-ctl button{border:1px solid #e3d9a8;background:#fffdf2;color:#8a6d00;border-radius:4px;font-size:10px;line-height:1;padding:3px 5px;cursor:pointer;font-family:inherit}
+.edit-ctl button:hover{background:#fff3bf;border-color:#cbb556}
+.edit-add{padding:0 0 8px 36px}
+.edit-add button{border:1px dashed #c9b96a;background:#fffdf2;color:#8a6d00;border-radius:5px;font-size:11px;padding:3px 10px;cursor:pointer;font-family:inherit}
+.edit-add button:hover{background:#fff3bf}
+@media print{.edit-bar,.edit-ctl,.edit-add{display:none!important}}
+</style>
