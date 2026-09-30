@@ -82,6 +82,14 @@ body{font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sa
 .sub-mod-panel .sub-badge{display:inline-block;margin-left:3px;padding:0 5px;border-radius:8px;font-size:9px;line-height:16px;font-weight:700}
 .sub-mod-panel .sub-badge.rec{background:#e7f0ff;color:#245dcc}
 .sub-mod-panel .sub-badge.opt{background:#f1f3f6;color:#7a8493}
+
+.cond-row.cond-disabled{opacity:.45}
+.cond-row.cond-disabled select{background:#f1f3f6;color:#8b95a5;cursor:not-allowed}
+.sub-mod-panel .sub-item.post-muted{opacity:.48;color:#8b95a5}
+.sub-mod-panel .sub-item.post-muted input{accent-color:#aab2bf}
+.sub-mod-panel .sub-badge.post-muted{background:#eef0f3;color:#8b95a5}
+.sub-mod-panel .sub-badge.post-keep{background:#e9f8ef;color:#23804f}
+.sub-mod-panel .sub-note{display:block;margin-left:20px;font-size:10.5px;color:#8b95a5;line-height:1.4}
 .sub-mod-toolbar{display:flex;gap:6px;margin-bottom:6px;border-top:1px solid #e8eeff;padding-top:6px}
 .sub-mod-toolbar button{border:none;background:none;cursor:pointer;font-size:10.5px;color:var(--brand);padding:1px 0}
 .sub-mod-toolbar button:hover{text-decoration:underline}
@@ -9083,7 +9091,7 @@ function getGenericSubs(modId){
     if(v2m && v2m[modId]){
       const key = modId+'_v2';
       if(_GENERIC_SUBS_CACHE[key]) return _GENERIC_SUBS_CACHE[key];
-      const subs = v2m[modId].map((s,i)=>({key:modId+'_vsub_'+i, label:s.name, relevance:s.relevance||'optional', default_selected:s.default_selected!==false}));
+      const subs = v2m[modId].map((s,i)=>({key:modId+'_vsub_'+i, label:s.name, relevance:s.relevance||'optional', default_selected:s.default_selected!==false, qids:s.qids||[], post_fgd_note:s.post_fgd_note||'', ihv_after_fgd_default_selected:s.ihv_after_fgd_default_selected===true}));
       _GENERIC_SUBS_CACHE[key] = subs;
       return subs;
     }
@@ -9239,6 +9247,7 @@ function initTypeButtons(){
     el.innerHTML = `<div class="t">${d.label}</div><div class="e">${d.labelEn}</div>`;
     el.onclick = ()=>{
       state.type = key;
+      if(state.type !== 'IHV' && state.conds) state.conds.ihvSource = '';
       state.mods = {};
       state.modOrder = [];
       state.f5Subs = {};
@@ -9456,10 +9465,16 @@ function initModList(){
         let subHTML = '<div class="sub-title">子模块选择（取消勾选则生成时跳过该部分）</div>';
         subHTML += '<div class="sub-grid">';
         subList.forEach(s=>{
-          const checked = stateMap[s.key]!==false;
+          const postState = ihvPostFgdSubState(s, m.id);
+          const checked = postState && postState.forceChecked !== undefined ? postState.forceChecked : stateMap[s.key]!==false;
+          if(postState && postState.forceChecked !== undefined) stateMap[s.key] = postState.forceChecked;
           const displayLabel = injectConds(applyReplacements(s.label));
-          const rel = s.relevance==='recommended' ? '<span class="sub-badge rec">推荐</span>' : '<span class="sub-badge opt">按需</span>';
-          subHTML += `<label class="sub-item"><input type="checkbox" ${checked?'checked':''} data-sub="${s.key}"> ${displayLabel}${isV3Type()?rel:''}</label>`;
+          const rel = postState
+            ? `<span class="sub-badge ${postState.cls}">${postState.badge}</span>`
+            : (s.relevance==='recommended' ? '<span class="sub-badge rec">推荐</span>' : '<span class="sub-badge opt">按需</span>');
+          const note = postState && postState.note ? `<span class="sub-note">${postState.note}</span>` : '';
+          const cls = postState ? ` ${postState.cls}` : '';
+          subHTML += `<label class="sub-item${cls}"><input type="checkbox" ${checked?'checked':''} data-sub="${s.key}"> ${displayLabel}${isV3Type()?rel:''}${note}</label>`;
         });
         subHTML += '</div>';
         subHTML += `<div class="sub-mod-toolbar"><button onclick="event.stopPropagation();setAllSubs('${m.id}',true)">全选</button><button onclick="event.stopPropagation();setAllSubs('${m.id}',false)">全不选</button></div>`;
@@ -9863,6 +9878,39 @@ function condBoxHTML(){
   const titleText = vehItems.length ? '研究条件与车辆设定（本稿已据此调整内容）' : '研究条件设定（本稿已据此剔除不适用内容）';
   return `<div class="condbox"><div class="cb-title">${titleText}</div><div class="cb-items">${allItems.map(x=>`<b>${x.label}</b>：${x.text}`).join(' ｜ ')}</div><div class="cb-note">未列出的条件为「不限定」；如需调整请在生成器中修改后重新生成。</div></div>`;
 }
+function isIhvSourceConditionInactive(def){
+  return def && def.key === 'ihvSource' && state.type !== 'IHV';
+}
+function ihvPostFgdSubState(sub, modId){
+  if(state.type !== 'IHV' || !state.conds || state.conds.ihvSource !== 'after_fgd') return null;
+  if(modId !== 'c5' && modId !== 'c6') return null;
+  const isRecheck = (sub.qids||[]).includes('Q-IHV-FGD-01') || sub.ihv_after_fgd_default_selected;
+  return isRecheck
+    ? {badge:'FGD后复核', cls:'post-keep', forceChecked:true, note:'参加过FGD后只做上次选择与理由复核。'}
+    : {badge:'已在FGD完成', cls:'post-muted', forceChecked:false, note:'参加过FGD的IHV默认不重复完整产品/品牌/价格测试。'};
+}
+function applyIhvSourceDefaults(){
+  if(state.type !== 'IHV' || !state.conds) return;
+  if(state.conds.ihvSource === 'after_fgd'){
+    const subsMap = (typeof V3_SUB_MAP!=='undefined' && V3_SUB_MAP.IHV) ? V3_SUB_MAP.IHV : null;
+    ['c5','c6'].forEach(modId=>{
+      (subsMap && subsMap[modId] ? subsMap[modId] : []).forEach((sub,i)=>{
+        const key = modId + '_vsub_' + i;
+        state.subs[key] = (sub.qids||[]).includes('Q-IHV-FGD-01') || sub.ihv_after_fgd_default_selected===true;
+      });
+    });
+  }
+  if(state.conds.ihvSource === 'no_fgd'){
+    const subsMap = (typeof V3_SUB_MAP!=='undefined' && V3_SUB_MAP.IHV) ? V3_SUB_MAP.IHV : null;
+    ['c5','c6'].forEach(modId=>{
+      (subsMap && subsMap[modId] ? subsMap[modId] : []).forEach((sub,i)=>{
+        const key = modId + '_vsub_' + i;
+        state.subs[key] = sub.default_selected !== false;
+      });
+    });
+  }
+}
+
 function initConds(){
   const box = document.getElementById('condList');
   if(!box) return;
@@ -9874,10 +9922,13 @@ function initConds(){
     lab.className = 'lab';
     lab.textContent = def.label;
     row.appendChild(lab);
+    const inactiveCond = isIhvSourceConditionInactive(def);
+    if(inactiveCond) row.className += ' cond-disabled';
     if(def.type==='select'){
       const sel = document.createElement('select');
       sel.innerHTML = `<option value="">不限定</option>` + def.options.map(o=>`<option value="${o.v}"${state.conds[def.key]===o.v?' selected':''}>${o.label}</option>`).join('');
-      sel.onchange = ()=>{ state.conds[def.key] = sel.value; };
+      if(inactiveCond){ sel.disabled = true; sel.title = '仅 IHV 入户访谈使用'; }
+      sel.onchange = ()=>{ state.conds[def.key] = sel.value; if(def.key==='ihvSource') applyIhvSourceDefaults(); initModList(); };
       row.appendChild(sel);
     }else if(def.type==='radio'){
       const wrap = document.createElement('div');
