@@ -1959,89 +1959,73 @@
   ],
   "questions": [
     {
-      "alias": "intro",
-      "submodule_id": "E0",
-      "probes": [
-        "说明研究目的、预计时长、资料用途与保密安排",
-        "如需录音、拍照或观察，分别征求许可；拒绝不影响继续交流",
-        "记录日期、地点、访问员、受访者代号与必要的样本信息"
-      ],
-      "gate": "all",
-      "methods": [
-        "FGD",
-        "IHV"
-      ],
-      "material": null,
       "id": "Q-E0-01",
-      "module_id": "E0",
-      "source_refs": [
-        "S12-R009",
-        "S34-R009",
-        "S40-R007",
-        "S40-R009",
-        "S45-R008"
-      ],
-      "source_variants": [
-        {
-          "source_id": "S12-R009",
-          "method": "Dealer",
-          "group": null,
-          "source_note": "三国同源"
-        },
-        {
-          "source_id": "S34-R009",
-          "method": "Dealer",
-          "group": "经销商主管",
-          "source_note": null
-        },
-        {
-          "source_id": "S40-R007",
-          "method": "Media",
-          "group": "媒体专家",
-          "source_note": null
-        },
-        {
-          "source_id": "S40-R009",
-          "method": "Media",
-          "group": "媒体专家",
-          "source_note": null
-        },
-        {
-          "source_id": "S45-R008",
-          "method": "OEM",
-          "group": "主机厂专家",
-          "source_note": null
-        }
-      ],
-      "conditional_probes": [],
-      "activity": null,
-      "review_status": "同意",
+      "audience": "2C",
+      "view_section": "C0",
+      "chapter_label": "执行话术",
+      "priority": "core",
+      "gate": "all",
+      "material": null,
+      "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "variants": {
         "owner": {
-          "text": "今天我们想了解您的真实出行与选车经历，没有标准答案。您可以不回答任何不愿谈的问题；开始前是否愿意参与？",
+          "text": "今天我们想了解您作为目标品类现有/竞品车主的真实出行、用车和选车经历，用来定义未来更好的产品。没有标准答案；开始前是否愿意参与？",
           "evidence_type": "self_report_or_preference"
         },
         "prospect": {
-          "text": "今天我们想了解您的真实出行与选车经历，没有标准答案。您可以不回答任何不愿谈的问题；开始前是否愿意参与？",
+          "text": "今天我们想了解您作为目标品类潜在/竞品意向用户的真实出行、看车和选车想法，用来定义未来更好的产品。没有标准答案；开始前是否愿意参与？",
           "evidence_type": "actual_experience_then_expectation"
+        },
+        "Dealer": {
+          "text": "今天我们想了解您作为目标品类或竞品品牌经销商的一线经验，包括客户怎么看现有品牌、为什么成交或流失。开始前先说明研究目的、记录方式和资料用途；您是否愿意参与？",
+          "evidence_type": "dealer_report",
+          "probes": [
+            "说明研究目的、预计时长、资料用途与保密安排",
+            "如需录音、拍照或观察，分别征求许可；拒绝不影响继续交流",
+            "记录日期、地点、访问员、受访者代号与必要的样本信息",
+            "请介绍职责、经验、负责区域与接触范围；经销商补充门店和代理品牌。"
+          ]
+        },
+        "Media": {
+          "text": "今天我们想了解您在相关业务与市场中的经验。开始前先说明研究目的、记录方式和资料用途；您是否愿意参与？",
+          "evidence_type": "professional_judgment_verify_scope",
+          "probes": [
+            "说明研究目的、预计时长、资料用途与保密安排",
+            "如需录音、拍照或观察，分别征求许可；拒绝不影响继续交流",
+            "记录日期、地点、访问员、受访者代号与必要的样本信息",
+            "请介绍职责、经验、负责区域与接触范围；经销商补充门店和代理品牌。"
+          ]
+        },
+        "OEM": {
+          "text": "今天我们想了解您在相关业务与市场中的经验。开始前先说明研究目的、记录方式和资料用途；您是否愿意参与？",
+          "evidence_type": "professional_judgment_verify_scope",
+          "probes": [
+            "说明研究目的、预计时长、资料用途与保密安排",
+            "如需录音、拍照或观察，分别征求许可；拒绝不影响继续交流",
+            "记录日期、地点、访问员、受访者代号与必要的样本信息",
+            "请介绍职责、经验、负责区域与接触范围；经销商补充门店和代理品牌。"
+          ]
+        },
+        "business": {
+          "text": "今天我们想了解贵组织的车辆采购与实际使用经验。开始前先说明研究目的、记录方式和资料用途；您是否愿意参与？"
         }
       },
-      "priority": "core",
-      "estimated_minutes": {
-        "FGD": 3,
-        "IHV": 4,
-        "Dealer": 3,
-        "Media": 3,
-        "OEM": 3
-      },
-      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。",
-      "purpose": "明确参与许可、记录口径与结束核对，执行环节不计研究模块。",
-      "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
-      "reason": "2C用户本人提纲：按生活背景—经历—选择—方案的顺序呈现。保留研究任务，按对象区分问法；同义主问合并，细节保留为按条件追问。",
-      "view_section": "C0",
-      "audience": "2C",
-      "chapter_label": "执行话术",
-      "review_feedback": ""
+      "methods": [
+        "FGD",
+        "IHV",
+        "Dealer",
+        "Media",
+        "OEM",
+        "business"
+      ],
+      "probes": [
+        "说明这是产品定义研究：目标车尚未造出来，重点不是评价一台现车，而是理解目标品类和竞品现状",
+        "确认样本身份：现有车主=目标品类/竞品车主；意向车主=正在考虑目标品类/竞品的人；经销商=目标品类/竞品经销商或一线销售观察者",
+        "说明研究目的、预计时长、资料用途与保密安排",
+        "如需录音、拍照或观察，分别征求许可；拒绝不影响继续交流"
+      ],
+      "conditional_probes": [],
+      "activity": null
     },
     {
       "id": "Q-E0-02",
@@ -3009,238 +2993,99 @@
       "review_feedback": ""
     },
     {
-      "alias": "category",
-      "submodule_id": "M1.4",
-      "probes": [
-        "与其他车身类别的区别",
-        "功能、身份、社交含义",
-        "先自由描述，不给褒贬标签"
-      ],
-      "gate": "all",
-      "methods": [
-        "FGD",
-        "IHV"
-      ],
-      "material": null,
       "id": "Q-M1.4-01",
-      "module_id": "M1",
-      "source_refs": [
-        "S21-R019",
-        "S21-R029",
-        "S27-R016"
-      ],
-      "source_variants": [
-        {
-          "source_id": "S21-R019",
-          "method": "FGD",
-          "group": "商用",
-          "source_note": "仅商用"
-        },
-        {
-          "source_id": "S21-R029",
-          "method": "FGD",
-          "group": "家用",
-          "source_note": "仅家用"
-        },
-        {
-          "source_id": "S27-R016",
-          "method": "FGD",
-          "group": "意向车主",
-          "source_note": null
-        }
-      ],
-      "conditional_probes": [],
-      "activity": null,
-      "review_status": "待审阅",
+      "audience": "2C",
+      "view_section": "C1",
+      "chapter_label": "品类意义与理想形象",
+      "priority": "optional",
+      "gate": "all",
+      "material": null,
+      "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "variants": {
         "owner": {
-          "text": "在您看来，这类车适合什么人、用来做什么？",
+          "text": "在您看来，目标品类/这类车适合什么人、解决什么需求？现在市面上的代表车型有哪些？",
           "evidence_type": "self_report_or_preference"
         },
         "prospect": {
-          "text": "在您看来，这类车适合什么人、用来做什么？",
+          "text": "在您看来，目标品类/这类车适合什么人、解决什么需求？您现在想到的代表车型有哪些？",
           "evidence_type": "actual_experience_then_expectation"
         }
       },
-      "priority": "optional",
-      "estimated_minutes": {
-        "FGD": 3,
-        "IHV": 4,
-        "Dealer": 3,
-        "Media": 3,
-        "OEM": 3
-      },
-      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。",
-      "purpose": "开场建立生活与用车背景。理解品类意义、理想形象及社会评价，为定位提供依据。 不把背景描述单独解释为市场人群占比。",
-      "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
-      "reason": "2C用户本人提纲：按生活背景—经历—选择—方案的顺序呈现。保留研究任务，按对象区分问法；同义主问合并，细节保留为按条件追问。",
-      "view_section": "C1",
-      "audience": "2C",
-      "chapter_label": "品类意义与理想形象",
-      "review_feedback": ""
-    },
-    {
-      "alias": "ideal",
-      "submodule_id": "M1.4",
-      "probes": [
-        "每个词对应一个真实场景",
-        "只能保留一个时如何选",
-        "家用与商务标准有何不同"
-      ],
-      "gate": "all",
       "methods": [
         "FGD",
         "IHV"
       ],
-      "material": null,
-      "id": "Q-M1.4-02",
-      "module_id": "M1",
-      "source_refs": [
-        "S01-R026",
-        "S21-R021",
-        "S21-R031",
-        "S27-R020"
-      ],
-      "source_variants": [
-        {
-          "source_id": "S01-R026",
-          "method": "FGD",
-          "group": null,
-          "source_note": "三国同源"
-        },
-        {
-          "source_id": "S21-R021",
-          "method": "FGD",
-          "group": "商用",
-          "source_note": "仅商用"
-        },
-        {
-          "source_id": "S21-R031",
-          "method": "FGD",
-          "group": "家用",
-          "source_note": "仅家用"
-        },
-        {
-          "source_id": "S27-R020",
-          "method": "FGD",
-          "group": "意向车主",
-          "source_note": null
-        }
+      "probes": [
+        "先让受访者用自己的话定义品类，不直接给标准答案",
+        "记录代表品牌和车型；区分真正熟悉、听说过和亲身体验过",
+        "与其他车身类别、动力类别或价格带的区别",
+        "功能、身份、社交含义和使用场景"
       ],
       "conditional_probes": [],
-      "activity": null,
-      "review_status": "待审阅",
+      "activity": null
+    },
+    {
+      "id": "Q-M1.4-02",
+      "audience": "2C",
+      "view_section": "C1",
+      "chapter_label": "品类意义与理想形象",
+      "priority": "optional",
+      "gate": "all",
+      "material": null,
+      "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "variants": {
         "owner": {
-          "text": "如果用三个词描述适合您的理想车辆，您会选什么？",
+          "text": "如果这个品类里未来出现一台更理想的车，它必须在哪些地方比您现在熟悉的品牌/车型做得更好？",
           "evidence_type": "self_report_or_preference"
         },
         "prospect": {
-          "text": "如果用三个词描述适合您的理想车辆，您会选什么？",
+          "text": "如果这个品类里未来出现一台更理想的车，它必须在哪些地方比您正在考虑的品牌/车型做得更好？",
           "evidence_type": "actual_experience_then_expectation"
         }
       },
-      "priority": "optional",
-      "estimated_minutes": {
-        "FGD": 3,
-        "IHV": 4,
-        "Dealer": 3,
-        "Media": 3,
-        "OEM": 3
-      },
-      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。",
-      "purpose": "开场建立生活与用车背景。理解品类意义、理想形象及社会评价，为定位提供依据。 不把背景描述单独解释为市场人群占比。",
-      "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
-      "reason": "2C用户本人提纲：按生活背景—经历—选择—方案的顺序呈现。保留研究任务，按对象区分问法；同义主问合并，细节保留为按条件追问。",
-      "view_section": "C1",
-      "audience": "2C",
-      "chapter_label": "品类意义与理想形象",
-      "review_feedback": ""
+      "methods": [
+        "FGD",
+        "IHV"
+      ],
+      "probes": [
+        "让受访者先自由说，再归类到空间、设计、动力/补能、智能、可靠性、价格、品牌信任、售后、保值等",
+        "追问“只是加分”还是“必须超过现有品牌才会考虑”",
+        "请说出被比较的具体品牌或车型",
+        "不要把“更便宜”作为唯一答案，追问低价之外的替代理由"
+      ],
+      "conditional_probes": [],
+      "activity": null
     },
     {
-      "alias": "social",
-      "submodule_id": "M1.4",
+      "id": "Q-M1.4-03",
+      "audience": "2C",
+      "view_section": "C1",
+      "chapter_label": "品类意义与理想形象",
+      "priority": "optional",
+      "gate": "all",
+      "material": null,
+      "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
+      "variants": {
+        "owner": {
+          "text": "身边的人怎样看待这个品类，以及这个品类里的主要品牌？哪些看法实际影响过您？",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "身边的人怎样看待这个品类，以及您正在考虑的那些品牌？哪些看法会影响您是否继续考虑？",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "methods": [
+        "FGD",
+        "IHV"
+      ],
       "probes": [
         "亲身接触与听说区分",
         "圈层认可或顾虑",
         "是否改变候选或使用方式"
       ],
-      "gate": "all",
-      "methods": [
-        "FGD",
-        "IHV"
-      ],
-      "material": null,
-      "id": "Q-M1.4-03",
-      "module_id": "M1",
-      "source_refs": [
-        "S01-R024",
-        "S10-R057",
-        "S27-R018",
-        "S31-R039",
-        "S40-R015"
-      ],
-      "source_variants": [
-        {
-          "source_id": "S01-R024",
-          "method": "FGD",
-          "group": null,
-          "source_note": "三国同源"
-        },
-        {
-          "source_id": "S10-R057",
-          "method": "IHV",
-          "group": null,
-          "source_note": "巴西+印尼同源"
-        },
-        {
-          "source_id": "S27-R018",
-          "method": "FGD",
-          "group": "意向车主",
-          "source_note": null
-        },
-        {
-          "source_id": "S31-R039",
-          "method": "IHV",
-          "group": "高端车主",
-          "source_note": null
-        },
-        {
-          "source_id": "S40-R015",
-          "method": "Media",
-          "group": "媒体专家",
-          "source_note": null
-        }
-      ],
       "conditional_probes": [],
-      "activity": null,
-      "review_status": "待审阅",
-      "variants": {
-        "owner": {
-          "text": "身边的人怎样看待这类车？哪些看法实际影响过您？",
-          "evidence_type": "self_report_or_preference"
-        },
-        "prospect": {
-          "text": "身边的人怎样看待这类车？哪些看法实际影响过您？",
-          "evidence_type": "actual_experience_then_expectation"
-        }
-      },
-      "priority": "optional",
-      "estimated_minutes": {
-        "FGD": 3,
-        "IHV": 4,
-        "Dealer": 3,
-        "Media": 3,
-        "OEM": 3
-      },
-      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。",
-      "purpose": "开场建立生活与用车背景。理解品类意义、理想形象及社会评价，为定位提供依据。 不把背景描述单独解释为市场人群占比。",
-      "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
-      "reason": "2C用户本人提纲：按生活背景—经历—选择—方案的顺序呈现。保留研究任务，按对象区分问法；同义主问合并，细节保留为按条件追问。",
-      "view_section": "C1",
-      "audience": "2C",
-      "chapter_label": "品类意义与理想形象",
-      "review_feedback": ""
+      "activity": null
     },
     {
       "alias": "week",
@@ -13795,72 +13640,41 @@
       "source_id_alias": "B-MKT-03"
     },
     {
-      "alias": "B-MKT-04",
-      "submodule_id": "M8.1",
-      "probes": [
-        "说明地区与实际案例",
-        "区分城市核心区和其他区域",
-        "不按国家标签推定基础设施水平"
-      ],
+      "id": "B-MKT-04",
+      "audience": "2B",
+      "view_section": "B2",
+      "chapter_label": "品类品牌地图与突破机会",
+      "priority": "core",
       "gate": "all",
+      "material": null,
+      "condition": "产品定义阶段建议使用；经销商按竞品销售和客户反馈回答，媒体/OEM按公开观察或研究经验回答。",
+      "variants": {
+        "Dealer": {
+          "text": "站在竞品经销商/一线销售角度，客户在目标品类里通常先想到哪些品牌和车型？各自靠什么赢，弱点是什么？",
+          "evidence_type": "dealer_report"
+        },
+        "Media": {
+          "text": "从传播和舆论看，目标品类里哪些品牌/车型最有代表性？各自的强项、短板和公众印象是什么？",
+          "evidence_type": "professional_judgment_verify_scope"
+        },
+        "OEM": {
+          "text": "从产品定义和竞争分析看，目标品类里主要品牌/车型的核心优势、短板和可突破点是什么？",
+          "evidence_type": "professional_judgment_verify_scope"
+        }
+      },
       "methods": [
         "Dealer",
         "Media",
         "OEM"
       ],
-      "material": null,
-      "id": "B-MKT-04",
-      "module_id": "M8",
-      "source_refs": [
-        "S09-R012",
-        "S14-R015",
-        "S48-R015"
-      ],
-      "source_variants": [
-        {
-          "source_id": "S09-R012",
-          "method": "IHV",
-          "group": null,
-          "source_note": "三国同源"
-        },
-        {
-          "source_id": "S14-R015",
-          "method": "Dealer",
-          "group": null,
-          "source_note": "仅印尼"
-        }
+      "probes": [
+        "先明确目标品类口径、价格带和样本城市/区域",
+        "分别记录强品牌、增长品牌、被吐槽品牌和被替代品牌",
+        "从产品、价格、品牌信任、渠道、售后、金融、交付、保值等维度拆解",
+        "追问新产品若要超过现有品牌，最现实的突破口是什么"
       ],
       "conditional_probes": [],
-      "activity": null,
-      "review_status": "待审阅",
-      "variants": {
-        "Dealer": {
-          "text": "客户最常提到哪些充电、加油或道路条件问题？"
-        },
-        "Media": {
-          "text": "公开报道和实地观察中，基础设施与能源条件的主要问题是什么？"
-        },
-        "OEM": {
-          "text": "哪些基础设施与能源条件限制了产品或市场发展？"
-        }
-      },
-      "priority": "optional",
-      "estimated_minutes": {
-        "FGD": 3,
-        "IHV": 4,
-        "Dealer": 3,
-        "Media": 3,
-        "OEM": 3
-      },
-      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。",
-      "purpose": "判断补能、道路和能源条件对市场发展的限制。",
-      "condition": "触发：受访者为经销商，且能够依据近期客户接触、订单、门店记录或售后案例回答。\n触发：受访者为媒体，且其报道、试驾、受众调研或公开资料覆盖本议题；不要求回答订单、成交或企业内部数据。\n触发：受访者为主机厂专家，且本题属于其市场、产品、工程或渠道职责范围；不要求披露保密信息。",
-      "reason": "合并来源题卡：Q-M8.1-01、Q-M8.1-02。按受访角色与可验证证据重写，减少重复。",
-      "view_section": "B2",
-      "audience": "2B",
-      "chapter_label": "基础设施与能源环境",
-      "review_feedback": "",
-      "source_id_alias": "B-MKT-04"
+      "activity": null
     },
     {
       "alias": "B-CUST-01",
@@ -18559,6 +18373,115 @@
         }
       ],
       "activity": "FGD:如有多种颜色，先独立选择最喜欢/最不喜欢颜色并统计人数，再开放讨论原因；IHV:结合受访者现有车辆颜色、家中物品和审美风格记录一致或冲突之处。"
+    },
+    {
+      "id": "Q-M1.4-04",
+      "audience": "2C",
+      "view_section": "C1",
+      "chapter_label": "品类中的品牌评价",
+      "priority": "core",
+      "gate": "all",
+      "material": null,
+      "condition": "产品定义阶段建议使用；用于建立目标品类里的品牌地图和突破对象。",
+      "variants": {
+        "owner": {
+          "text": "在这个品类里，您觉得哪些品牌/车型做得最好？哪些做得一般或不能接受？为什么？",
+          "evidence_type": "category_brand_perception"
+        },
+        "prospect": {
+          "text": "在您考虑的这个品类里，哪些品牌/车型最有吸引力？哪些会被您排除？为什么？",
+          "evidence_type": "category_brand_perception"
+        },
+        "business": {
+          "text": "【商用问法】在业务用车这个品类里，哪些品牌/车型最容易被接受？哪些不适合？为什么？",
+          "evidence_type": "commercial_category_brand_perception"
+        }
+      },
+      "methods": [
+        "FGD",
+        "IHV"
+      ],
+      "probes": [
+        "先自发列品牌/车型，再追问原因，不先给品牌清单",
+        "把评价拆成产品、价格、品牌信任、售后、保值、面子感、可靠性、补能/使用便利等",
+        "记录“做得好”的证据来自真实使用、试驾、口碑、媒体还是销售说法",
+        "记录“不能接受”的底线和一票否决原因"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    {
+      "id": "Q-M1.4-05",
+      "audience": "2C",
+      "view_section": "C1",
+      "chapter_label": "超过现有品牌的条件",
+      "priority": "core",
+      "gate": "all",
+      "material": null,
+      "condition": "产品定义阶段建议使用；用于定义新产品必须超越的现有品牌标准。",
+      "variants": {
+        "owner": {
+          "text": "如果有一个新产品想让您放弃或替换现在熟悉的品牌/车型，它至少要在哪些方面明显超过现有选择？",
+          "evidence_type": "product_definition_threshold"
+        },
+        "prospect": {
+          "text": "如果有一个新产品想进入您的候选清单，甚至超过您现在考虑的品牌/车型，它至少要在哪些方面明显更好？",
+          "evidence_type": "product_definition_threshold"
+        },
+        "business": {
+          "text": "【商用问法】如果一个新产品想进入组织采购候选清单，甚至超过现有供应商/品牌，它至少要在哪些方面明显更好？",
+          "evidence_type": "commercial_product_definition_threshold"
+        }
+      },
+      "methods": [
+        "FGD",
+        "IHV"
+      ],
+      "probes": [
+        "追问必须超过、做到差不多即可、可以低于现有品牌的项目分别是什么",
+        "要求说出被超越的参照品牌/车型",
+        "区分入围条件、成交条件和长期信任条件",
+        "如果是中国品牌或新品牌，额外追问需要哪些证据才能相信它能超过现有品牌"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    {
+      "id": "B-BRAND-06",
+      "audience": "2B",
+      "view_section": "B6",
+      "chapter_label": "新产品超越现有品牌的证据",
+      "priority": "core",
+      "gate": "all",
+      "material": null,
+      "condition": "产品定义阶段建议使用；用于把品牌评价转化为产品、渠道和服务要求。",
+      "variants": {
+        "Dealer": {
+          "text": "如果一个新产品想让客户从现有品牌转过来，客户最需要看到哪些证据？哪些承诺没有用？",
+          "evidence_type": "dealer_report"
+        },
+        "Media": {
+          "text": "如果一个新产品想在传播上超过现有品牌，公众最需要看到哪些证据？哪些说法会被怀疑？",
+          "evidence_type": "professional_judgment_verify_scope"
+        },
+        "OEM": {
+          "text": "如果一个新产品想在目标品类里超过现有品牌，需要在哪些产品、品牌、渠道和服务证据上建立优势？",
+          "evidence_type": "professional_judgment_verify_scope"
+        }
+      },
+      "methods": [
+        "Dealer",
+        "Media",
+        "OEM"
+      ],
+      "probes": [
+        "证据可以包括真实试驾、第三方评测、质保、售后网点、交付案例、残值、老用户口碑、价格透明度",
+        "区分首次考虑、到店试驾、下单成交和长期推荐所需证据",
+        "特别记录中国品牌/新品牌需要额外补足的信任证据",
+        "不要只记录口号，要求具体到客户听得懂、销售能证明的材料"
+      ],
+      "conditional_probes": [],
+      "activity": null
     }
   ],
   "probes": [
@@ -61257,6 +61180,2523 @@
       "date": "2026-09-30",
       "change": "补充外观颜色测试题",
       "detail": "C5.2增加颜色/车漆/双色车身测试，记录颜色偏好、拒绝原因、加价意愿和人数统计。"
+    },
+    {
+      "date": "2026-09-30",
+      "change": "明确产品定义阶段竞品样本与品类品牌评价",
+      "detail": "开场说明现有车主/意向车主/经销商均以目标品类和竞品为参照；C1.4改为默认推荐并新增品类品牌地图、超越现有品牌条件；2B新增竞品经销商视角的品牌地图和转化证据题。"
     }
-  ]
+  ],
+  "maps": {
+    "FGD": {
+      "c1": [
+        {
+          "sid": "C1.1",
+          "name": "家庭与生活背景",
+          "qids": [
+            "Q-M1.1-01",
+            "Q-M1.1-02",
+            "Q-M1.1-04",
+            "Q-M1.1-05"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C1.2",
+          "name": "车辆组合与分工",
+          "qids": [
+            "Q-M1.2-01",
+            "Q-M1.2-02",
+            "Q-M1.2-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C1.3",
+          "name": "使用者、乘员与决策角色",
+          "qids": [
+            "Q-M1.3-01",
+            "Q-M1.3-02",
+            "Q-M1.3-03",
+            "Q-M1.3-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C1.4",
+          "name": "品类意义、品牌地图与超越条件",
+          "qids": [
+            "Q-M1.4-01",
+            "Q-M1.4-02",
+            "Q-M1.4-03",
+            "Q-M1.4-04",
+            "Q-M1.4-05"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7,
+          "editorial_note": "产品定义阶段建议默认使用：样本通常是竞品车主/竞品意向者，用于定义目标品类和现有品牌超越标准。"
+        }
+      ],
+      "c2": [
+        {
+          "sid": "C2.1",
+          "name": "高频使用场景",
+          "qids": [
+            "Q-M2.1-01",
+            "Q-M2.1-02",
+            "Q-M2.1-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C2.2",
+          "name": "关键与极端场景",
+          "qids": [
+            "Q-M2.2-01",
+            "Q-M2.2-02",
+            "Q-M2.2-03",
+            "Q-M2.2-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C2.3",
+          "name": "乘员与装载",
+          "qids": [
+            "Q-M2.3-01",
+            "Q-M2.3-02",
+            "Q-M2.3-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C2.4",
+          "name": "停车、道路与气候",
+          "qids": [
+            "Q-M2.4-01",
+            "Q-M2.4-02",
+            "Q-M2.4-03",
+            "Q-M2.4-04",
+            "Q-M2.4-05",
+            "Q-M2.4-06"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C2.5",
+          "name": "现有座舱与智驾使用",
+          "qids": [
+            "Q-M2.5-01",
+            "Q-M2.5-02",
+            "Q-M2.5-03",
+            "Q-M2.5-04",
+            "Q-M2.5-05",
+            "Q-M2.5-06",
+            "Q-M2.5-07",
+            "Q-M2.5-08"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C2.6",
+          "name": "痛点后果与替代办法",
+          "qids": [
+            "Q-M2.6-01",
+            "Q-M2.6-02",
+            "Q-M2.6-03",
+            "Q-M2.6-04",
+            "Q-M2.6-05"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C2.7",
+          "name": "持有成本与服务体验",
+          "qids": [
+            "Q-M2.7-01",
+            "Q-M2.7-02",
+            "Q-M2.7-03",
+            "Q-M2.7-04"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C2.8",
+          "name": "基础设施与能源环境",
+          "qids": [
+            "Q-M8.1-01"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C2.9",
+          "name": "语言与数字生态",
+          "qids": [
+            "Q-M8.3-01",
+            "Q-M8.3-02"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        }
+      ],
+      "c3": [
+        {
+          "sid": "C3.1",
+          "name": "触发事件与预算",
+          "qids": [
+            "Q-M3.1-01",
+            "Q-M3.1-02",
+            "Q-M3.1-03",
+            "Q-M3.1-04",
+            "Q-M3.1-05",
+            "Q-M3.1-06"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C3.2",
+          "name": "信息源与候选清单",
+          "qids": [
+            "Q-M3.2-01",
+            "Q-M3.2-02",
+            "Q-M3.2-03",
+            "Q-M3.2-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C3.3",
+          "name": "决策链与试驾",
+          "qids": [
+            "Q-M3.3-01",
+            "Q-M3.3-02",
+            "Q-M3.3-03",
+            "Q-M3.3-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C3.4",
+          "name": "购车考虑因素与取舍",
+          "qids": [
+            "Q-M3.4-01",
+            "Q-M3.4-06",
+            "Q-M3.4-02",
+            "Q-M3.4-03",
+            "Q-M3.4-04",
+            "Q-M3.4-05"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7,
+          "available_question_count": 6
+        },
+        {
+          "sid": "C3.5",
+          "name": "支付与金融",
+          "qids": [
+            "Q-M3.5-01",
+            "Q-M3.5-02",
+            "Q-M3.5-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C3.6",
+          "name": "下一次购买计划",
+          "qids": [
+            "Q-M3.6-01",
+            "Q-M3.6-02"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C3.7",
+          "name": "补贴与政策影响",
+          "qids": [
+            "Q-M8.2-01",
+            "Q-M8.2-02"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        }
+      ],
+      "c4": [
+        {
+          "sid": "C4.1",
+          "name": "动力理解与选择",
+          "qids": [
+            "Q-M4.1-01",
+            "Q-M4.1-02",
+            "Q-M4.1-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C4.2",
+          "name": "实际补能条件",
+          "qids": [
+            "Q-M4.2-01",
+            "Q-M4.2-02",
+            "Q-M4.2-03",
+            "Q-M4.2-04",
+            "Q-M4.2-05",
+            "Q-M4.2-06"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C4.3",
+          "name": "续航与补能时间底线",
+          "qids": [
+            "Q-M4.3-01",
+            "Q-M4.3-02",
+            "Q-M4.3-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C4.4",
+          "name": "智驾信任及使用边界",
+          "qids": [
+            "Q-M4.4-01",
+            "Q-M4.4-02",
+            "Q-M4.4-03",
+            "Q-M4.4-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C4.5",
+          "name": "安全与耐久期待",
+          "qids": [
+            "Q-M4.5-01",
+            "Q-M4.5-02",
+            "Q-M4.5-03",
+            "Q-M4.5-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        }
+      ],
+      "c5": [
+        {
+          "sid": "C5.1",
+          "name": "整体概念评价",
+          "qids": [
+            "Q-M5.1-01",
+            "Q-M5.1-02",
+            "Q-M5.1-03"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "owner",
+          "minutes": 7,
+          "editorial_note": "非必选模块；仅当项目已准备并展示完整产品概念材料后手动勾选。"
+        },
+        {
+          "sid": "C5.2",
+          "name": "外观轮廓、前脸、车尾与颜色",
+          "qids": [
+            "Q-M5.2-01",
+            "Q-M5.2-02",
+            "Q-M5.2-03",
+            "Q-M5.2-04",
+            "Q-M5.2-05"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C5.3",
+          "name": "内饰与CMF",
+          "qids": [
+            "Q-M5.3-01",
+            "Q-M5.3-02",
+            "Q-M5.3-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C5.4",
+          "name": "座椅空间与进出动线",
+          "qids": [
+            "Q-M5.4-01",
+            "Q-M5.4-02",
+            "Q-M5.4-03",
+            "Q-M5.4-04",
+            "Q-M5.4-05",
+            "Q-M5.4-06",
+            "Q-M5.4-07",
+            "Q-M5.4-08"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C5.5",
+          "name": "座舱交互方案",
+          "qids": [
+            "Q-M5.5-01",
+            "Q-M5.5-02",
+            "Q-M5.5-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C5.6",
+          "name": "功能与配置组合",
+          "qids": [
+            "Q-M5.6-01",
+            "Q-M5.6-02",
+            "Q-M5.6-03",
+            "Q-M5.6-04",
+            "Q-M5.6-05",
+            "Q-M5.6-06",
+            "Q-M5.6-07"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C5.7",
+          "name": "强制取舍与必选项",
+          "qids": [
+            "Q-M5.7-01",
+            "Q-M5.7-02",
+            "Q-M5.7-03",
+            "Q-M5.7-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        }
+      ],
+      "c6": [
+        {
+          "sid": "C6.1",
+          "name": "自发品牌认知",
+          "qids": [
+            "Q-M6.1-01",
+            "Q-M6.1-02",
+            "Q-M6.1-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        }
+      ],
+      "c7": [
+        {
+          "sid": "C7.1",
+          "name": "无品牌方案选择",
+          "qids": [
+            "Q-M6.2-01"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C7.2",
+          "name": "品牌揭示后的跑票与顾虑",
+          "qids": [
+            "Q-M6.2-02"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C7.3",
+          "name": "价格揭示后的吸引力",
+          "qids": [
+            "Q-M6.3-01"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C7.4",
+          "name": "配置吸引力与月付条件",
+          "qids": [
+            "Q-M6.3-02",
+            "Q-M6.3-03",
+            "Q-M6.3-04"
+          ],
+          "relevance": "optional",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C7.5",
+          "name": "购买顾虑与转化条件",
+          "qids": [
+            "Q-M6.4-01",
+            "Q-M6.4-02",
+            "Q-M6.4-03"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C7.6",
+          "name": "卖点表达理解",
+          "qids": [
+            "Q-M6.5-01",
+            "Q-M6.5-02",
+            "Q-M6.5-03"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "owner",
+          "minutes": 7
+        }
+      ],
+      "c8": [
+        {
+          "sid": "C8.1",
+          "name": "组织与车辆使用背景",
+          "qids": [
+            "B-ORG-01"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 5
+        },
+        {
+          "sid": "C8.2",
+          "name": "车辆使用者与任务",
+          "qids": [
+            "B-ORG-02"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "owner",
+          "minutes": 5
+        },
+        {
+          "sid": "C8.3",
+          "name": "组织采购决策流程",
+          "qids": [
+            "B-ORG-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 5
+        },
+        {
+          "sid": "C8.4",
+          "name": "采购考虑因素",
+          "qids": [
+            "B-ORG-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 5
+        },
+        {
+          "sid": "C8.5",
+          "name": "预算与全生命周期成本",
+          "qids": [
+            "B-ORG-05"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 5
+        },
+        {
+          "sid": "C8.6",
+          "name": "动力与补能条件",
+          "qids": [
+            "B-ORG-06"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "owner",
+          "minutes": 5
+        },
+        {
+          "sid": "C8.7",
+          "name": "产品与配置要求",
+          "qids": [
+            "B-ORG-07"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "owner",
+          "minutes": 5
+        },
+        {
+          "sid": "C8.8",
+          "name": "品牌与服务要求",
+          "qids": [
+            "B-ORG-08"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "owner",
+          "minutes": 5
+        },
+        {
+          "sid": "C8.9",
+          "name": "组织补贴与政策",
+          "qids": [
+            "B-ORG-09"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 5
+        }
+      ]
+    },
+    "IHV": {
+      "c1": [
+        {
+          "sid": "C1.1",
+          "name": "家庭与生活背景",
+          "qids": [
+            "Q-IHV-00-01",
+            "Q-IHV-00-02",
+            "Q-M1.1-01",
+            "Q-M1.1-02",
+            "Q-M1.1-04",
+            "Q-M1.1-05"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C1.2",
+          "name": "车辆组合与分工",
+          "qids": [
+            "Q-M1.2-01",
+            "Q-M1.2-02",
+            "Q-M1.2-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C1.3",
+          "name": "使用者、乘员与决策角色",
+          "qids": [
+            "Q-M1.3-01",
+            "Q-M1.3-02",
+            "Q-M1.3-03",
+            "Q-M1.3-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C1.4",
+          "name": "品类意义、品牌地图与超越条件",
+          "qids": [
+            "Q-M1.4-01",
+            "Q-M1.4-02",
+            "Q-M1.4-03",
+            "Q-M1.4-04",
+            "Q-M1.4-05"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8,
+          "editorial_note": "产品定义阶段建议默认使用：样本通常是竞品车主/竞品意向者，用于定义目标品类和现有品牌超越标准。"
+        }
+      ],
+      "c3": [
+        {
+          "sid": "C3.1",
+          "name": "触发事件与预算",
+          "qids": [
+            "Q-M3.1-01",
+            "Q-M3.1-02",
+            "Q-M3.1-03",
+            "Q-M3.1-04",
+            "Q-M3.1-05",
+            "Q-M3.1-06"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C3.2",
+          "name": "信息源与候选清单",
+          "qids": [
+            "Q-M3.2-01",
+            "Q-M3.2-02",
+            "Q-M3.2-03",
+            "Q-M3.2-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C3.3",
+          "name": "决策链与试驾",
+          "qids": [
+            "Q-M3.3-01",
+            "Q-M3.3-02",
+            "Q-M3.3-03",
+            "Q-M3.3-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C3.4",
+          "name": "购车考虑因素与取舍",
+          "qids": [
+            "Q-M3.4-01",
+            "Q-M3.4-06",
+            "Q-M3.4-02",
+            "Q-M3.4-03",
+            "Q-M3.4-04",
+            "Q-M3.4-05"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8,
+          "available_question_count": 6
+        },
+        {
+          "sid": "C3.5",
+          "name": "支付与金融",
+          "qids": [
+            "Q-M3.5-01",
+            "Q-M3.5-02",
+            "Q-M3.5-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C3.6",
+          "name": "下一次购买计划",
+          "qids": [
+            "Q-M3.6-01",
+            "Q-M3.6-02"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C3.7",
+          "name": "补贴与政策影响",
+          "qids": [
+            "Q-M8.2-01",
+            "Q-M8.2-02"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        }
+      ],
+      "c2": [
+        {
+          "sid": "C2.1",
+          "name": "高频使用场景",
+          "qids": [
+            "Q-IHV-2-01",
+            "Q-M2.1-01",
+            "Q-M2.1-02",
+            "Q-M2.1-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C2.2",
+          "name": "关键与极端场景",
+          "qids": [
+            "Q-M2.2-01",
+            "Q-M2.2-02",
+            "Q-M2.2-03",
+            "Q-M2.2-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C2.3",
+          "name": "乘员与装载",
+          "qids": [
+            "Q-M2.3-01",
+            "Q-M2.3-02",
+            "Q-M2.3-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C2.4",
+          "name": "停车、道路与气候",
+          "qids": [
+            "Q-M2.4-01",
+            "Q-M2.4-02",
+            "Q-M2.4-03",
+            "Q-M2.4-04",
+            "Q-M2.4-05",
+            "Q-M2.4-06"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C2.5",
+          "name": "现有座舱与智驾使用",
+          "qids": [
+            "Q-M2.5-01",
+            "Q-M2.5-02",
+            "Q-M2.5-03",
+            "Q-M2.5-04",
+            "Q-M2.5-05",
+            "Q-M2.5-06",
+            "Q-M2.5-07",
+            "Q-M2.5-08"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C2.6",
+          "name": "痛点后果与替代办法",
+          "qids": [
+            "Q-M2.6-01",
+            "Q-M2.6-02",
+            "Q-M2.6-03",
+            "Q-M2.6-04",
+            "Q-M2.6-05"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C2.7",
+          "name": "持有成本与服务体验",
+          "qids": [
+            "Q-M2.7-01",
+            "Q-M2.7-02",
+            "Q-M2.7-03",
+            "Q-M2.7-04"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C2.8",
+          "name": "基础设施与能源环境",
+          "qids": [
+            "Q-M8.1-01"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C2.9",
+          "name": "语言与数字生态",
+          "qids": [
+            "Q-M8.3-01",
+            "Q-M8.3-02"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        }
+      ],
+      "c4": [
+        {
+          "sid": "C4.1",
+          "name": "动力理解与选择",
+          "qids": [
+            "Q-M4.1-01",
+            "Q-M4.1-02",
+            "Q-M4.1-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C4.2",
+          "name": "实际补能条件",
+          "qids": [
+            "Q-M4.2-01",
+            "Q-M4.2-02",
+            "Q-M4.2-03",
+            "Q-M4.2-04",
+            "Q-M4.2-05",
+            "Q-M4.2-06"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C4.3",
+          "name": "续航与补能时间底线",
+          "qids": [
+            "Q-M4.3-01",
+            "Q-M4.3-02",
+            "Q-M4.3-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C4.4",
+          "name": "智驾信任及使用边界",
+          "qids": [
+            "Q-M4.4-01",
+            "Q-M4.4-02",
+            "Q-M4.4-03",
+            "Q-M4.4-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C4.5",
+          "name": "安全与耐久期待",
+          "qids": [
+            "Q-M4.5-01",
+            "Q-M4.5-02",
+            "Q-M4.5-03",
+            "Q-M4.5-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        }
+      ],
+      "c5": [
+        {
+          "sid": "C5.1",
+          "name": "整体概念评价",
+          "qids": [
+            "Q-IHV-FGD-01",
+            "Q-M5.1-01",
+            "Q-M5.1-02",
+            "Q-M5.1-03"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "owner",
+          "minutes": 8,
+          "ihv_after_fgd_default_selected": true,
+          "editorial_note": "非必选模块；仅当项目已准备并展示完整产品概念材料后手动勾选。"
+        },
+        {
+          "sid": "C5.2",
+          "name": "外观轮廓、前脸、车尾与颜色",
+          "qids": [
+            "Q-M5.2-01",
+            "Q-M5.2-02",
+            "Q-M5.2-03",
+            "Q-M5.2-04",
+            "Q-M5.2-05"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8,
+          "ihv_after_fgd_default_selected": false,
+          "post_fgd_note": "参加过FGD的IHV样本默认不重复完整产品/品牌/价格测试；如需要可手动勾选。"
+        },
+        {
+          "sid": "C5.3",
+          "name": "内饰与CMF",
+          "qids": [
+            "Q-M5.3-01",
+            "Q-M5.3-02",
+            "Q-M5.3-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8,
+          "ihv_after_fgd_default_selected": false,
+          "post_fgd_note": "参加过FGD的IHV样本默认不重复完整产品/品牌/价格测试；如需要可手动勾选。"
+        },
+        {
+          "sid": "C5.4",
+          "name": "座椅空间与进出动线",
+          "qids": [
+            "Q-M5.4-01",
+            "Q-M5.4-02",
+            "Q-M5.4-03",
+            "Q-M5.4-04",
+            "Q-M5.4-05",
+            "Q-M5.4-06",
+            "Q-M5.4-07",
+            "Q-M5.4-08"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8,
+          "ihv_after_fgd_default_selected": false,
+          "post_fgd_note": "参加过FGD的IHV样本默认不重复完整产品/品牌/价格测试；如需要可手动勾选。"
+        },
+        {
+          "sid": "C5.5",
+          "name": "座舱交互方案",
+          "qids": [
+            "Q-M5.5-01",
+            "Q-M5.5-02",
+            "Q-M5.5-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8,
+          "ihv_after_fgd_default_selected": false,
+          "post_fgd_note": "参加过FGD的IHV样本默认不重复完整产品/品牌/价格测试；如需要可手动勾选。"
+        },
+        {
+          "sid": "C5.6",
+          "name": "功能与配置组合",
+          "qids": [
+            "Q-M5.6-01",
+            "Q-M5.6-02",
+            "Q-M5.6-03",
+            "Q-M5.6-04",
+            "Q-M5.6-05",
+            "Q-M5.6-06",
+            "Q-M5.6-07"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8,
+          "ihv_after_fgd_default_selected": false,
+          "post_fgd_note": "参加过FGD的IHV样本默认不重复完整产品/品牌/价格测试；如需要可手动勾选。"
+        },
+        {
+          "sid": "C5.7",
+          "name": "强制取舍与必选项",
+          "qids": [
+            "Q-M5.7-01",
+            "Q-M5.7-02",
+            "Q-M5.7-03",
+            "Q-M5.7-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8,
+          "ihv_after_fgd_default_selected": false,
+          "post_fgd_note": "参加过FGD的IHV样本默认不重复完整产品/品牌/价格测试；如需要可手动勾选。"
+        }
+      ],
+      "c6": [
+        {
+          "sid": "C6.1",
+          "name": "自发品牌认知",
+          "qids": [
+            "Q-M6.1-01",
+            "Q-M6.1-02",
+            "Q-M6.1-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8,
+          "ihv_after_fgd_default_selected": false,
+          "post_fgd_note": "参加过FGD的IHV样本默认不重复完整产品/品牌/价格测试；如需要可手动勾选。"
+        },
+        {
+          "sid": "C6.2",
+          "name": "品牌揭示后的评价变化",
+          "qids": [
+            "Q-M6.2-01",
+            "Q-M6.2-02"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8,
+          "ihv_after_fgd_default_selected": false,
+          "post_fgd_note": "参加过FGD的IHV样本默认不重复完整产品/品牌/价格测试；如需要可手动勾选。"
+        },
+        {
+          "sid": "C6.3",
+          "name": "价格与配置版本",
+          "qids": [
+            "Q-M6.3-01",
+            "Q-M6.3-02",
+            "Q-M6.3-03",
+            "Q-M6.3-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8,
+          "ihv_after_fgd_default_selected": false,
+          "post_fgd_note": "参加过FGD的IHV样本默认不重复完整产品/品牌/价格测试；如需要可手动勾选。"
+        },
+        {
+          "sid": "C6.4",
+          "name": "购买顾虑与转化条件",
+          "qids": [
+            "Q-M6.4-01",
+            "Q-M6.4-02",
+            "Q-M6.4-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8,
+          "ihv_after_fgd_default_selected": false,
+          "post_fgd_note": "参加过FGD的IHV样本默认不重复完整产品/品牌/价格测试；如需要可手动勾选。"
+        },
+        {
+          "sid": "C6.5",
+          "name": "卖点表达理解",
+          "qids": [
+            "Q-M6.5-01",
+            "Q-M6.5-02",
+            "Q-M6.5-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8,
+          "ihv_after_fgd_default_selected": false,
+          "post_fgd_note": "参加过FGD的IHV样本默认不重复完整产品/品牌/价格测试；如需要可手动勾选。"
+        }
+      ]
+    },
+    "Dealer": {
+      "b1": [
+        {
+          "sid": "B1.1",
+          "name": "职责与经验",
+          "qids": [
+            "B-CTX-01"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B1.2",
+          "name": "机构与业务范围",
+          "qids": [
+            "B-CTX-02"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Dealer",
+          "minutes": 5
+        }
+      ],
+      "b2": [
+        {
+          "sid": "B2.1",
+          "name": "竞争格局与品牌表现",
+          "qids": [
+            "B-MKT-01",
+            "B-MKT-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B2.2",
+          "name": "市场规模与销量预测",
+          "qids": [
+            "B-MKT-02"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B2.3",
+          "name": "政策、补贴与税费",
+          "qids": [
+            "B-MKT-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B2.4",
+          "name": "基础设施与能源环境",
+          "qids": [
+            "B-MKT-04"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Dealer",
+          "minutes": 5
+        }
+      ],
+      "b3": [
+        {
+          "sid": "B3.1",
+          "name": "核心客户画像",
+          "qids": [
+            "B-CUST-01"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B3.2",
+          "name": "购车类型与车辆关系",
+          "qids": [
+            "B-CUST-02"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B3.3",
+          "name": "驾驶者、乘员与决策者",
+          "qids": [
+            "B-CUST-03"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B3.4",
+          "name": "典型用途与高频场景",
+          "qids": [
+            "B-CUST-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Dealer",
+          "minutes": 5
+        }
+      ],
+      "b4": [
+        {
+          "sid": "B4.1",
+          "name": "购买触发与考虑因素",
+          "qids": [
+            "B-SALE-01"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B4.2",
+          "name": "候选车型与胜负原因",
+          "qids": [
+            "B-SALE-02"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B4.3",
+          "name": "信息来源与传播影响",
+          "qids": [
+            "B-SALE-03"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B4.4",
+          "name": "到店、试驾与服务影响",
+          "qids": [
+            "B-SALE-04"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B4.5",
+          "name": "顾虑与转化条件",
+          "qids": [
+            "B-SALE-05"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B4.6",
+          "name": "动力选择与顾虑",
+          "qids": [
+            "B-SALE-06"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Dealer",
+          "minutes": 5
+        }
+      ],
+      "b5": [
+        {
+          "sid": "B5.1",
+          "name": "总体产品需求",
+          "qids": [
+            "B-PROD-01"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.2",
+          "name": "乘坐、空间与装载",
+          "qids": [
+            "B-PROD-02"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.3",
+          "name": "道路、底盘与气候适应",
+          "qids": [
+            "B-PROD-03"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.4",
+          "name": "座舱、车机与互联",
+          "qids": [
+            "B-PROD-04"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.5",
+          "name": "补能与续航要求",
+          "qids": [
+            "B-PROD-05"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.6",
+          "name": "驾驶辅助信任边界",
+          "qids": [
+            "B-PROD-06"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.7",
+          "name": "安全、耐久与质量",
+          "qids": [
+            "B-PROD-07"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.8",
+          "name": "产品概念总体评价",
+          "qids": [
+            "B-PROD-08"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.9",
+          "name": "外观与内饰方案",
+          "qids": [
+            "B-PROD-09"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.10",
+          "name": "配置组合与取舍",
+          "qids": [
+            "B-PROD-10"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.11",
+          "name": "本地化与工程适配",
+          "qids": [
+            "B-PROD-11"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Dealer",
+          "minutes": 5
+        }
+      ],
+      "b6": [
+        {
+          "sid": "B6.1",
+          "name": "客户预算与实际成交价",
+          "qids": [
+            "B-PRICE-01"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B6.2",
+          "name": "支付与金融方案",
+          "qids": [
+            "B-PRICE-02"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B6.3",
+          "name": "价格、配置版本与残值",
+          "qids": [
+            "B-PRICE-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B6.4",
+          "name": "经销商盈利与资源投入",
+          "qids": [
+            "B-PRICE-04"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Dealer",
+          "minutes": 5
+        }
+      ],
+      "b7": [
+        {
+          "sid": "B7.1",
+          "name": "渠道覆盖与购车便利",
+          "qids": [
+            "B-CHAN-01"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B7.2",
+          "name": "门店能力与销售支持",
+          "qids": [
+            "B-CHAN-02"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B7.3",
+          "name": "售后成本与服务体验",
+          "qids": [
+            "B-CHAN-03"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B7.4",
+          "name": "获客渠道与内容",
+          "qids": [
+            "B-CHAN-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Dealer",
+          "minutes": 5
+        }
+      ],
+      "b8": [
+        {
+          "sid": "B8.1",
+          "name": "品类意义与品牌形象",
+          "qids": [
+            "B-BRAND-01",
+            "B-BRAND-06"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B8.2",
+          "name": "中国品牌优劣势",
+          "qids": [
+            "B-BRAND-02"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B8.3",
+          "name": "品牌揭示与概念匹配",
+          "qids": [
+            "B-BRAND-03"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B8.4",
+          "name": "卖点理解与传播",
+          "qids": [
+            "B-BRAND-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B8.5",
+          "name": "市场进入条件与风险",
+          "qids": [
+            "B-BRAND-05"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Dealer",
+          "minutes": 5
+        }
+      ]
+    },
+    "MPVMedia": {
+      "b1": [
+        {
+          "sid": "B1.1",
+          "name": "职责与经验",
+          "qids": [
+            "B-CTX-01"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B1.2",
+          "name": "机构与业务范围",
+          "qids": [
+            "B-CTX-02"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Media",
+          "minutes": 5
+        }
+      ],
+      "b2": [
+        {
+          "sid": "B2.1",
+          "name": "竞争格局与品牌表现",
+          "qids": [
+            "B-MKT-01",
+            "B-MKT-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B2.2",
+          "name": "市场规模与销量预测",
+          "qids": [
+            "B-MKT-02"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B2.3",
+          "name": "政策、补贴与税费",
+          "qids": [
+            "B-MKT-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B2.4",
+          "name": "基础设施与能源环境",
+          "qids": [
+            "B-MKT-04"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Media",
+          "minutes": 5
+        }
+      ],
+      "b3": [
+        {
+          "sid": "B3.1",
+          "name": "核心客户画像",
+          "qids": [
+            "B-CUST-01"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B3.2",
+          "name": "典型用途与高频场景",
+          "qids": [
+            "B-CUST-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Media",
+          "minutes": 5
+        }
+      ],
+      "b4": [
+        {
+          "sid": "B4.1",
+          "name": "购买触发与考虑因素",
+          "qids": [
+            "B-SALE-01"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B4.2",
+          "name": "信息来源与传播影响",
+          "qids": [
+            "B-SALE-03"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B4.3",
+          "name": "顾虑与转化条件",
+          "qids": [
+            "B-SALE-05"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B4.4",
+          "name": "动力选择与顾虑",
+          "qids": [
+            "B-SALE-06"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Media",
+          "minutes": 5
+        }
+      ],
+      "b5": [
+        {
+          "sid": "B5.1",
+          "name": "总体产品需求",
+          "qids": [
+            "B-PROD-01"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.2",
+          "name": "乘坐、空间与装载",
+          "qids": [
+            "B-PROD-02"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.3",
+          "name": "道路、底盘与气候适应",
+          "qids": [
+            "B-PROD-03"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.4",
+          "name": "座舱、车机与互联",
+          "qids": [
+            "B-PROD-04"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.5",
+          "name": "补能与续航要求",
+          "qids": [
+            "B-PROD-05"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.6",
+          "name": "驾驶辅助信任边界",
+          "qids": [
+            "B-PROD-06"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.7",
+          "name": "安全、耐久与质量",
+          "qids": [
+            "B-PROD-07"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.8",
+          "name": "产品概念总体评价",
+          "qids": [
+            "B-PROD-08"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.9",
+          "name": "外观与内饰方案",
+          "qids": [
+            "B-PROD-09"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.10",
+          "name": "配置组合与取舍",
+          "qids": [
+            "B-PROD-10"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.11",
+          "name": "本地化与工程适配",
+          "qids": [
+            "B-PROD-11"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Media",
+          "minutes": 5
+        }
+      ],
+      "b6": [
+        {
+          "sid": "B6.1",
+          "name": "价格、配置版本与残值",
+          "qids": [
+            "B-PRICE-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Media",
+          "minutes": 5
+        }
+      ],
+      "b7": [
+        {
+          "sid": "B7.1",
+          "name": "渠道覆盖与购车便利",
+          "qids": [
+            "B-CHAN-01"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B7.2",
+          "name": "售后成本与服务体验",
+          "qids": [
+            "B-CHAN-03"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B7.3",
+          "name": "获客渠道与内容",
+          "qids": [
+            "B-CHAN-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Media",
+          "minutes": 5
+        }
+      ],
+      "b8": [
+        {
+          "sid": "B8.1",
+          "name": "品类意义与品牌形象",
+          "qids": [
+            "B-BRAND-01",
+            "B-BRAND-06"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B8.2",
+          "name": "中国品牌优劣势",
+          "qids": [
+            "B-BRAND-02"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B8.3",
+          "name": "品牌揭示与概念匹配",
+          "qids": [
+            "B-BRAND-03"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B8.4",
+          "name": "卖点理解与传播",
+          "qids": [
+            "B-BRAND-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B8.5",
+          "name": "市场进入条件与风险",
+          "qids": [
+            "B-BRAND-05"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Media",
+          "minutes": 5
+        }
+      ]
+    },
+    "MPVExpert": {
+      "b1": [
+        {
+          "sid": "B1.1",
+          "name": "职责与经验",
+          "qids": [
+            "B-CTX-01"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B1.2",
+          "name": "机构与业务范围",
+          "qids": [
+            "B-CTX-02"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "OEM",
+          "minutes": 5
+        }
+      ],
+      "b2": [
+        {
+          "sid": "B2.1",
+          "name": "竞争格局与品牌表现",
+          "qids": [
+            "B-MKT-01",
+            "B-MKT-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B2.2",
+          "name": "市场规模与销量预测",
+          "qids": [
+            "B-MKT-02"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B2.3",
+          "name": "政策、补贴与税费",
+          "qids": [
+            "B-MKT-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B2.4",
+          "name": "基础设施与能源环境",
+          "qids": [
+            "B-MKT-04"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "OEM",
+          "minutes": 5
+        }
+      ],
+      "b3": [
+        {
+          "sid": "B3.1",
+          "name": "核心客户画像",
+          "qids": [
+            "B-CUST-01"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B3.2",
+          "name": "购车类型与车辆关系",
+          "qids": [
+            "B-CUST-02"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B3.3",
+          "name": "驾驶者、乘员与决策者",
+          "qids": [
+            "B-CUST-03"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B3.4",
+          "name": "典型用途与高频场景",
+          "qids": [
+            "B-CUST-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "OEM",
+          "minutes": 5
+        }
+      ],
+      "b4": [
+        {
+          "sid": "B4.1",
+          "name": "购买触发与考虑因素",
+          "qids": [
+            "B-SALE-01"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B4.2",
+          "name": "候选车型与胜负原因",
+          "qids": [
+            "B-SALE-02"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B4.3",
+          "name": "信息来源与传播影响",
+          "qids": [
+            "B-SALE-03"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B4.4",
+          "name": "到店、试驾与服务影响",
+          "qids": [
+            "B-SALE-04"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B4.5",
+          "name": "顾虑与转化条件",
+          "qids": [
+            "B-SALE-05"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B4.6",
+          "name": "动力选择与顾虑",
+          "qids": [
+            "B-SALE-06"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "OEM",
+          "minutes": 5
+        }
+      ],
+      "b5": [
+        {
+          "sid": "B5.1",
+          "name": "总体产品需求",
+          "qids": [
+            "B-PROD-01"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.2",
+          "name": "乘坐、空间与装载",
+          "qids": [
+            "B-PROD-02"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.3",
+          "name": "道路、底盘与气候适应",
+          "qids": [
+            "B-PROD-03"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.4",
+          "name": "座舱、车机与互联",
+          "qids": [
+            "B-PROD-04"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.5",
+          "name": "补能与续航要求",
+          "qids": [
+            "B-PROD-05"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.6",
+          "name": "驾驶辅助信任边界",
+          "qids": [
+            "B-PROD-06"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.7",
+          "name": "安全、耐久与质量",
+          "qids": [
+            "B-PROD-07"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.8",
+          "name": "产品概念总体评价",
+          "qids": [
+            "B-PROD-08"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.9",
+          "name": "外观与内饰方案",
+          "qids": [
+            "B-PROD-09"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.10",
+          "name": "配置组合与取舍",
+          "qids": [
+            "B-PROD-10"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.11",
+          "name": "本地化与工程适配",
+          "qids": [
+            "B-PROD-11"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "OEM",
+          "minutes": 5
+        }
+      ],
+      "b6": [
+        {
+          "sid": "B6.1",
+          "name": "客户预算与实际成交价",
+          "qids": [
+            "B-PRICE-01"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B6.2",
+          "name": "支付与金融方案",
+          "qids": [
+            "B-PRICE-02"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B6.3",
+          "name": "价格、配置版本与残值",
+          "qids": [
+            "B-PRICE-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B6.4",
+          "name": "经销商盈利与资源投入",
+          "qids": [
+            "B-PRICE-04"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "OEM",
+          "minutes": 5
+        }
+      ],
+      "b7": [
+        {
+          "sid": "B7.1",
+          "name": "渠道覆盖与购车便利",
+          "qids": [
+            "B-CHAN-01"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B7.2",
+          "name": "门店能力与销售支持",
+          "qids": [
+            "B-CHAN-02"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B7.3",
+          "name": "售后成本与服务体验",
+          "qids": [
+            "B-CHAN-03"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B7.4",
+          "name": "获客渠道与内容",
+          "qids": [
+            "B-CHAN-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "OEM",
+          "minutes": 5
+        }
+      ],
+      "b8": [
+        {
+          "sid": "B8.1",
+          "name": "品类意义与品牌形象",
+          "qids": [
+            "B-BRAND-01",
+            "B-BRAND-06"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B8.2",
+          "name": "中国品牌优劣势",
+          "qids": [
+            "B-BRAND-02"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B8.3",
+          "name": "品牌揭示与概念匹配",
+          "qids": [
+            "B-BRAND-03"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B8.4",
+          "name": "卖点理解与传播",
+          "qids": [
+            "B-BRAND-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B8.5",
+          "name": "市场进入条件与风险",
+          "qids": [
+            "B-BRAND-05"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "OEM",
+          "minutes": 5
+        }
+      ]
+    }
+  }
 }
