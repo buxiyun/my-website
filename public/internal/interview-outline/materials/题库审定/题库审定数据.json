@@ -3372,7 +3372,7 @@
       "review_status": "同意",
       "variants": {
         "owner": {
-          "text": "请回顾最近一周的出行，从一个普通工作日开始讲起。",
+          "text": "平时一般在什么情况下会用车？先从最近一周讲起：有哪些日常出行场景？周末、假期、家族聚会或临时事情时，用车会有什么不同？",
           "evidence_type": "本次编辑问法，按角色记录证据"
         },
         "prospect": {
@@ -44805,7 +44805,7 @@
       "review_status": "editorial_revision_for_project_review",
       "variants": {
         "owner": {
-          "text": "请回顾最近一周的出行，从一个普通工作日开始讲起。",
+          "text": "平时一般在什么情况下会用车？先从最近一周讲起：有哪些日常出行场景？周末、假期、家族聚会或临时事情时，用车会有什么不同？",
           "evidence_type": "本次编辑问法，按角色记录证据"
         },
         "prospect": {
