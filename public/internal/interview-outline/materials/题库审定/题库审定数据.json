@@ -15909,145 +15909,17 @@
       "source_id_alias": "B-PROD-09"
     },
     {
-      "alias": "B-PROD-10",
-      "submodule_id": "M5.6",
-      "probes": [
-        "必须、加分、无感和反感分开",
-        "愿意付费与口头喜欢分开",
-        "高温地区问隔热和空调降温"
-      ],
-      "gate": "all",
-      "methods": [
-        "Dealer",
-        "Media",
-        "OEM"
-      ],
-      "material": "项目材料",
       "id": "B-PROD-10",
-      "module_id": "M5",
-      "source_refs": [
-        "S11-R031",
-        "S19-R012",
-        "S19-R020",
-        "S19-R021",
-        "S19-R022",
-        "S19-R024",
-        "S19-R027",
-        "S25-R122",
-        "S32-R048",
-        "S36-R019",
-        "S38-R007",
-        "S43-R007",
-        "S03-R009",
-        "S19-R016",
-        "S25-R111",
-        "S06-R062",
-        "S11-R030",
-        "S25-R113",
-        "S19-R023",
-        "S25-R116",
-        "S25-R118",
-        "S06-R060",
-        "S06-R085",
-        "S24-R018",
-        "S24-R034",
-        "S31-R032",
-        "S03-R013",
-        "S22-R041",
-        "S22-R044",
-        "S28-R024",
-        "S18-R020",
-        "S25-R120",
-        "S26-R031",
-        "S37-R046",
-        "S18-R021",
-        "S25-R114",
-        "S26-R035",
-        "S37-R047",
-        "S06-R073",
-        "S19-R018",
-        "S39-R008"
-      ],
-      "source_variants": [
-        {
-          "source_id": "S11-R031",
-          "method": "IHV",
-          "group": null,
-          "source_note": "三国同源；措辞有差异，见分国家版"
-        },
-        {
-          "source_id": "S19-R012",
-          "method": "Dealer",
-          "group": null,
-          "source_note": "巴西+印尼同源"
-        },
-        {
-          "source_id": "S19-R020",
-          "method": "Dealer",
-          "group": null,
-          "source_note": "巴西+印尼同源"
-        },
-        {
-          "source_id": "S19-R021",
-          "method": "Dealer",
-          "group": null,
-          "source_note": "巴西+印尼同源"
-        },
-        {
-          "source_id": "S19-R022",
-          "method": "Dealer",
-          "group": null,
-          "source_note": "巴西+印尼同源"
-        },
-        {
-          "source_id": "S19-R024",
-          "method": "Dealer",
-          "group": null,
-          "source_note": "巴西+印尼同源"
-        },
-        {
-          "source_id": "S19-R027",
-          "method": "Dealer",
-          "group": null,
-          "source_note": "巴西+印尼同源"
-        },
-        {
-          "source_id": "S25-R122",
-          "method": "FGD",
-          "group": "家用+意向",
-          "source_note": "家用+意向同源"
-        },
-        {
-          "source_id": "S32-R048",
-          "method": "IHV",
-          "group": "高端车主",
-          "source_note": null
-        },
-        {
-          "source_id": "S36-R019",
-          "method": "Dealer",
-          "group": "经销商主管",
-          "source_note": null
-        },
-        {
-          "source_id": "S38-R007",
-          "method": "Dealer",
-          "group": "经销商主管",
-          "source_note": null
-        },
-        {
-          "source_id": "S43-R007",
-          "method": "Media",
-          "group": "媒体专家",
-          "source_note": null
-        }
-      ],
-      "conditional_probes": [],
-      "activity": null,
-      "review_status": "待审阅",
+      "audience": "2B",
+      "view_section": "B5",
+      "chapter_label": "配置组合与取舍",
+      "priority": "core",
+      "gate": "all",
+      "material": "项目材料",
+      "condition": "触发：受访者为经销商，且能够依据近期客户接触、订单、门店记录或售后案例回答。\n触发：受访者为媒体，且其报道、试驾、受众调研或公开资料覆盖本议题；不要求回答订单、成交或企业内部数据。\n触发：受访者为主机厂专家，且本题属于其市场、产品、工程或渠道职责范围；不要求披露保密信息。\n评价具体配置时须先提供配置清单、功能边界和价格口径。",
       "variants": {
         "Dealer": {
-          "text": "哪些配置最能影响成交？哪些配置客户不愿付费或可以删减？"
+          "text": "在目标品类里，哪些配置最能直接影响客户成交？哪些是“没有就不买”，哪些只是加分，哪些客户不愿付费或可以删减？"
         },
         "Media": {
           "text": "哪些配置最有传播价值，哪些容易造成误解或低感知？"
@@ -16056,23 +15928,20 @@
           "text": "配置组合中哪些是目标用户必选项，哪些可按版本区分？"
         }
       },
-      "priority": "core",
-      "estimated_minutes": {
-        "FGD": 3,
-        "IHV": 4,
-        "Dealer": 3,
-        "Media": 3,
-        "OEM": 3
-      },
-      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。",
-      "purpose": "判断配置优先级、必选项和可删减项。",
-      "condition": "触发：受访者为经销商，且能够依据近期客户接触、订单、门店记录或售后案例回答。\n触发：受访者为媒体，且其报道、试驾、受众调研或公开资料覆盖本议题；不要求回答订单、成交或企业内部数据。\n触发：受访者为主机厂专家，且本题属于其市场、产品、工程或渠道职责范围；不要求披露保密信息。\n评价具体配置时须先提供配置清单、功能边界和价格口径。",
-      "reason": "合并来源题卡：Q-M5.6-01、Q-M5.6-02、Q-M5.6-03、Q-M5.6-04、Q-M5.6-05、Q-M5.6-06、Q-M5.6-07、Q-M5.7-01、Q-M5.7-02、Q-M5.7-03、Q-M5.7-04。按受访角色与可验证证据重写，减少重复。",
-      "view_section": "B5",
-      "audience": "2B",
-      "chapter_label": "配置组合与取舍",
-      "review_feedback": "",
-      "source_id_alias": "B-PROD-10"
+      "methods": [
+        "Dealer",
+        "Media",
+        "OEM"
+      ],
+      "probes": [
+        "请按配置逐项归类：必须配置、强成交配置、加分配置、无感配置、可删配置、反而增加顾虑的配置",
+        "必须用客户原话或订单/流失案例说明，不只说销售个人偏好",
+        "愿意付费、口头喜欢、实际成交三个层级分开",
+        "追问不同客群差异：家庭用户、年轻用户、高收入用户、商用/组织采购用户",
+        "高温地区单独追问隔热、空调降温、座椅通风等是否为成交配置"
+      ],
+      "conditional_probes": [],
+      "activity": null
     },
     {
       "alias": "B-PROD-11",
@@ -16291,68 +16160,17 @@
       "source_id_alias": "B-PRICE-02"
     },
     {
-      "alias": "B-PRICE-03",
-      "submodule_id": "M3.4",
-      "probes": [
-        "价差对应的配置价值",
-        "残值承诺的条件和可信度",
-        "媒体只评价公开价格信息和理解度"
-      ],
-      "gate": "all",
-      "methods": [
-        "Dealer",
-        "Media",
-        "OEM"
-      ],
-      "material": "项目材料",
       "id": "B-PRICE-03",
-      "module_id": "M3",
-      "source_refs": [
-        "S10-R029",
-        "S10-R049",
-        "S31-R034",
-        "S06-R068",
-        "S18-R012",
-        "S18-R016",
-        "S26-R015",
-        "S37-R039",
-        "S37-R041",
-        "S43-R042",
-        "S26-R032",
-        "S26-R036",
-        "S05-R059",
-        "S10-R069",
-        "S17-R029",
-        "S13-R033",
-        "S35-R028",
-        "S46-R027"
-      ],
-      "source_variants": [
-        {
-          "source_id": "S10-R029",
-          "method": "IHV",
-          "group": null,
-          "source_note": "仅意大利"
-        },
-        {
-          "source_id": "S10-R049",
-          "method": "IHV",
-          "group": null,
-          "source_note": "巴西+印尼同源"
-        },
-        {
-          "source_id": "S31-R034",
-          "method": "IHV",
-          "group": "高端车主",
-          "source_note": null
-        }
-      ],
-      "conditional_probes": [],
-      "activity": null,
-      "review_status": "待审阅",
+      "audience": "2B",
+      "view_section": "B6",
+      "chapter_label": "价格、配置版本与残值",
+      "priority": "core",
+      "gate": "all",
+      "material": "项目材料",
+      "condition": "触发：受访者为经销商，且能够依据近期客户接触、订单、门店记录或售后案例回答。\n触发：受访者为媒体，且其报道、试驾、受众调研或公开资料覆盖本议题；不要求回答订单、成交或企业内部数据。\n触发：受访者为主机厂专家，且本题属于其市场、产品、工程或渠道职责范围；不要求披露保密信息。\n仅在项目提供已核验的价格、配置和条款后评价。",
       "variants": {
         "Dealer": {
-          "text": "客户怎样在不同配置版本之间选择？哪些价差合理？残值或回购保障会改变决定吗？"
+          "text": "客户怎样在不同配置版本之间选择？哪些配置应该放入入门版、中配和高配，哪些价差客户觉得合理？"
         },
         "Media": {
           "text": "从公开信息和受众讨论看，价格与配置版本设置是否容易理解？"
@@ -16361,23 +16179,19 @@
           "text": "价格、配置版本和残值方案怎样影响目标用户的价值判断？"
         }
       },
-      "priority": "core",
-      "estimated_minutes": {
-        "FGD": 3,
-        "IHV": 4,
-        "Dealer": 3,
-        "Media": 3,
-        "OEM": 3
-      },
-      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。",
-      "purpose": "判断配置版本价差、配置价值和残值保障的影响。",
-      "condition": "触发：受访者为经销商，且能够依据近期客户接触、订单、门店记录或售后案例回答。\n触发：受访者为媒体，且其报道、试驾、受众调研或公开资料覆盖本议题；不要求回答订单、成交或企业内部数据。\n触发：受访者为主机厂专家，且本题属于其市场、产品、工程或渠道职责范围；不要求披露保密信息。\n仅在项目提供已核验的价格、配置和条款后评价。",
-      "reason": "合并来源题卡：Q-M3.4-05、Q-M6.3-01、Q-M6.3-02、Q-M6.3-04、Q-M7.3-02。按受访角色与可验证证据重写，减少重复。",
-      "view_section": "B6",
-      "audience": "2B",
-      "chapter_label": "价格、配置版本与残值",
-      "review_feedback": "",
-      "source_id_alias": "B-PRICE-03"
+      "methods": [
+        "Dealer",
+        "Media",
+        "OEM"
+      ],
+      "probes": [
+        "按版本拆：入门版必须保留什么，中配靠什么成交，高配靠什么证明价值",
+        "价差对应的配置价值；客户愿意为哪项单独加钱",
+        "哪些配置放错版本会导致客户流失或销售困难",
+        "残值、金融、赠品和回购保障是否改变配置版本选择"
+      ],
+      "conditional_probes": [],
+      "activity": null
     },
     {
       "alias": "B-PRICE-04",
@@ -18482,6 +18296,46 @@
       ],
       "conditional_probes": [],
       "activity": null
+    },
+    {
+      "id": "B-PROD-12",
+      "audience": "2B",
+      "view_section": "B5",
+      "chapter_label": "核心配置矩阵",
+      "priority": "core",
+      "gate": "all",
+      "material": "features",
+      "condition": "Dealer 必问；如客户已提供配置清单，则逐项跑矩阵；如未提供清单，则先让经销商自发列出目标品类的关键配置。",
+      "variants": {
+        "Dealer": {
+          "text": "请把目标品类里的配置分成五类：没有就不买、最能促进成交、可以加价、客户无感/可删除、反而增加顾虑。每类请给出具体配置和客户理由。",
+          "evidence_type": "dealer_configuration_matrix"
+        },
+        "Media": {
+          "text": "从公开测评和用户反馈看，目标品类里哪些配置是真正有感的，哪些只是宣传点或容易被质疑？",
+          "evidence_type": "professional_judgment_verify_scope"
+        },
+        "OEM": {
+          "text": "从产品定义和用户研究看，目标品类里哪些配置是必须项、成交项、溢价项、可删项和风险项？",
+          "evidence_type": "professional_judgment_verify_scope"
+        }
+      },
+      "methods": [
+        "Dealer",
+        "Media",
+        "OEM"
+      ],
+      "probes": [
+        "没有就不买：缺失后客户直接排除或销售很难解释的配置",
+        "最能促进成交：销售最常拿来推动签单、客户听完明显动心的配置",
+        "可以加价：客户愿意为它多付钱，或可作为高配/选装包的配置",
+        "无感/可删除：客户不理解、不使用、不愿付费，删掉也不影响成交的配置",
+        "反而增加顾虑：增加维修、学习成本、故障担忧、安全担忧或价格压力的配置",
+        "每一项都追问对应客群、价格带、竞品参照和真实案例",
+        "最后请经销商选出 Top 3 核心配置，并说明如果预算只能保留三项，必须保留哪三项"
+      ],
+      "conditional_probes": [],
+      "activity": "Dealer:建议主持人现场画五列表格记录配置矩阵；若有客户配置清单，逐项打勾并记录原因。"
     }
   ],
   "probes": [
@@ -61185,6 +61039,11 @@
       "date": "2026-09-30",
       "change": "明确产品定义阶段竞品样本与品类品牌评价",
       "detail": "开场说明现有车主/意向车主/经销商均以目标品类和竞品为参照；C1.4改为默认推荐并新增品类品牌地图、超越现有品牌条件；2B新增竞品经销商视角的品牌地图和转化证据题。"
+    },
+    {
+      "date": "2026-09-30",
+      "change": "强化Dealer核心配置识别",
+      "detail": "新增B-PROD-12核心配置矩阵，要求经销商把配置分为必须、成交、可加价、可删除和风险五类，并选Top 3核心配置；同步改写配置组合和配置版本题。"
     }
   ],
   "maps": {
@@ -62696,7 +62555,8 @@
           "sid": "B5.10",
           "name": "配置组合与取舍",
           "qids": [
-            "B-PROD-10"
+            "B-PROD-10",
+            "B-PROD-12"
           ],
           "relevance": "recommended",
           "default_selected": true,
