@@ -801,6 +801,51 @@ function repCountryPairs(){
 }
 
 
+function benchmarkItems(){
+  const items = [];
+  const add = (group, raw)=>{
+    String(raw||'').split(/[，,、;；\n]/).map(x=>x.trim()).filter(Boolean).forEach(name=>items.push({group,name}));
+  };
+  add('BEV/电车对标', state.bevBench);
+  add('ICE/油车对标', state.iceBench);
+  add('其他/通用对标', state.otherBench);
+  return items;
+}
+function benchmarkNamesText(){
+  return benchmarkItems().map(x=>x.name).join('、');
+}
+function benchmarkPromptHTML(){
+  const items = benchmarkItems();
+  if(!items.length) return '';
+  const names = items.map(x=>x.name);
+  const rows = items.map(x=>`<li>${escInputValue(x.name)}（${escInputValue(x.group)}）：了解程度 ____；是否看过/试驾过 ____；最强优势 ____；最大短板 ____；我们要超过它的地方 ____。</li>`).join('');
+  if(state.type === 'Dealer'){
+    return `<h5>对标品牌/车型认知与胜负原因</h5>
+<div class="docnote"><b>【对标说明】</b>以下品牌/车型是本项目要超越的参照：${escInputValue(names.join('、'))}。请经销商按真实客户认知、到店比较和成交/流失案例回答。</div>
+<ul class="q">
+  <li>客户是否熟悉这些对标品牌/车型？通常是从哪里知道的？到店时会主动提到哪些？</li>
+  <li>客户有没有实际看过、试驾过或认真比较过这些车型？比较后为什么选择现在的车，为什么没有选另一款同类型车？</li>
+  <li>这些对标车型分别靠什么赢单？又最常因为什么被客户放弃或流失？</li>
+  <li>如果我们要超过这些品牌/车型，产品、配置、价格、渠道、售后和品牌信任中最需要超过哪几项？</li>
+</ul>
+<div class="probe">【主持人记录：把“听说过/看过/试驾过/认真比较过/最终购买过”分开；成交原因、放弃原因和销售解释分开；最后请经销商选出最难超越的1–2个对标。】</div>
+<ul class="q">${rows}</ul>`;
+  }
+  if(state.type === 'FGD' || state.type === 'IHV'){
+    return `<h5>对标品牌/车型认知、试驾与选择原因</h5>
+<div class="docnote"><b>【对标说明】</b>以下品牌/车型是本项目要超越的参照：${escInputValue(names.join('、'))}。先问自发认知，再逐个提示，不把这些车型预设为“好车”。</div>
+<ul class="q">
+  <li>这些品牌/车型您都听说过吗？哪些只是听说，哪些认真了解过，哪些看过实车或试驾过？</li>
+  <li>当时为什么选择了现在的车？为什么没有选择这些同类型的对标车型？</li>
+  <li>如果未来有一款新产品想超过这些品牌/车型，至少要在哪些方面明显更好，您才会认真考虑？</li>
+</ul>
+<div class="probe">【主持人记录：每个对标分别记录了解程度、接触深度、试驾情况、喜欢点、放弃点和必须超越的标准；区分真实经历与听说印象。】</div>
+<ul class="q">${rows}</ul>`;
+  }
+  return '';
+}
+
+
 function condSummary(){
   const c = state.conds, out = [];
   ['climate','roads','charging','drive','incentive','finance'].forEach(k=>{

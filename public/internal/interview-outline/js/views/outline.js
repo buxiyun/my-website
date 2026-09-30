@@ -55,6 +55,12 @@ function buildOutlineHTML(){
         const conceptHTML = conceptTestHTML();
         if(conceptHTML) content = conceptHTML + content;
       }
+      if(typeof benchmarkPromptHTML === 'function'){
+        const benchHTML = benchmarkPromptHTML();
+        if(benchHTML && ((state.type==='FGD' && m.id==='c1') || (state.type==='IHV' && m.id==='c3') || (state.type==='Dealer' && m.id==='b2'))){
+          content = content + benchHTML;
+        }
+      }
       if(!content) return; /* 整个模块被研究条件过滤 */
       keptMods++;
       keptLi += (content.match(/<li[\s>]/g)||[]).length;

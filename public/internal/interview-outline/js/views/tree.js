@@ -43,6 +43,12 @@ function buildTreeHTML(){
         const conceptHTML = conceptTestHTML();
         if(conceptHTML) content = conceptHTML + content;
       }
+      if(typeof benchmarkPromptHTML === 'function'){
+        const benchHTML = benchmarkPromptHTML();
+        if(benchHTML && ((state.type==='FGD' && m.id==='c1') || (state.type==='IHV' && m.id==='c3') || (state.type==='Dealer' && m.id==='b2'))){
+          content = content + benchHTML;
+        }
+      }
       if(!content.trim()) return;
       content = injectConds(applyReplacements(mpvLocalize(content, cc)));
       totalMods++;
