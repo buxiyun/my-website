@@ -3,17 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<base href="/internal/interview-outline/">
 <title>访谈提纲生成器</title>
 
 <!-- 样式层 CSS Modules -->
-
-
-
-
-<!-- 第三方库 External Libraries -->
-<script src="https://cdn.jsdelivr.net/gh/gitbrent/PptxGenJS@3.12.0/dist/pptxgen.bundle.js"></script>
 <style>
-/* === ./css/main.css === */
 :root{
   --ink:#1a2233; --ink2:#4a5568; --ink3:#8892a6;
   --brand:#1f5eff; --brand-soft:#e8efff; --brand-line:#bcd0ff;
@@ -195,7 +189,6 @@ body{font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sa
   body{background:#fff}
 }
 
-/* === ./css/outline.css === */
 /* 议题树 */
 .tree-wrap{padding:28px 24px}
 .tree-title{text-align:center;font-size:18px;font-weight:800;color:var(--ink);margin-bottom:4px}
@@ -292,7 +285,6 @@ body.editing .doc ul.q>li:hover>.edit-ctl,body.editing .doc .branch li:hover>.ed
 .edit-add button:hover{background:#fff3bf}
 @media print{.edit-bar,.edit-ctl,.edit-add{display:none!important}}
 
-/* === ./css/ppt.css === */
 /* ---------- PPT 版式设计 ---------- */
 .ppt-design-view{display:none;flex-direction:column;gap:20px;padding:0 4px}
 .ppt-design-view.active{display:flex}
@@ -471,6 +463,12 @@ body.editing .doc ul.q>li:hover>.edit-ctl,body.editing .doc .branch li:hover>.ed
 .ppt-ce-empty .ce-icon{font-size:36px;opacity:.4}
 
 
+
+</style>
+
+<!-- 第三方库 External Libraries -->
+<script src="https://cdn.jsdelivr.net/gh/gitbrent/PptxGenJS@3.12.0/dist/pptxgen.bundle.js"></script>
+<style>
 </style>
 </head>
 <body>
