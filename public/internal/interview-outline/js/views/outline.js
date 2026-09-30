@@ -39,9 +39,11 @@ function buildOutlineHTML(){
       sec += cd.header;
     }
     /* 按用户排序渲染模块 */
-    const orderedMods = state.modOrder.length === d.modules.length
-      ? state.modOrder.map(id=>d.modules.find(m=>m.id===id)).filter(Boolean)
-      : d.modules;
+    const visibleModules = (typeof currentVisibleModules==='function') ? currentVisibleModules() : d.modules;
+    const orderedMods = state.modOrder.length === visibleModules.length
+      ? state.modOrder.map(id=>visibleModules.find(m=>m.id===id)).filter(Boolean)
+      : visibleModules;
+    const renderedBlocks = [];
     orderedMods.forEach(m=>{
       if(!state.mods[m.id]) return;
       let content = (v2ModsCache && m.id!=='f5') ? (v2ModsCache[m.id]||'') : (cd.mods && cd.mods[m.id]);
@@ -65,10 +67,16 @@ function buildOutlineHTML(){
       keptMods++;
       keptLi += (content.match(/<li[\s>]/g)||[]).length;
       keptProbe += (content.match(/class="probe"/g)||[]).length;
-      sec += optDivider?`<hr class="sep">`:'';
-      sec += `<h3 class="mod">${m.name}<span class="en">${m.en||''}</span></h3>`;
-      sec += content;
+      let block = '';
+      block += optDivider?`<hr class="sep">`:'';
+      block += `<h3 class="mod">${m.name}<span class="en">${m.en||''}</span></h3>`;
+      block += content;
+      renderedBlocks.push(block);
     });
+    if(v2ModsCache && renderedBlocks.length && typeof v2ClosingHTML === 'function'){
+      renderedBlocks[renderedBlocks.length-1] += v2ClosingHTML();
+    }
+    sec += renderedBlocks.join('');
     if(cd.footer) sec += cd.footer;
     html += injectConds(applyReplacements(mpvLocalize(sec, cc)));
   });

@@ -156,16 +156,21 @@ function v2GenerateMods(){
         + v2QuestionHTML(intro, vk) + '</div>'
         + result[modIds[0]];
     }
-    if(closing && closing.variants[vk]){
-      result[modIds[modIds.length-1]] = result[modIds[modIds.length-1]]
-        + '<div style="background:#f5f0ff;border:1px solid #d4c4f5;border-radius:6px;padding:10px 14px;margin-top:12px">'
-        + '<div style="font-weight:600;color:#5a2acc;margin-bottom:4px">收尾</div>'
-        + v2QuestionHTML(closing, vk) + '</div>';
-    }
   }
   /* 实地家庭观察 → IHV 首模块前，确保 home tour 稳定显示 */
   if(method === 'IHV' && homeTour && homeTour.variants[vk] && v2GatePasses(homeTour.gate) && modIds.length > 0){
     result[modIds[0]] = '<h5>入户 Home Tour 与现场记录</h5>' + v2QuestionHTML(homeTour, vk) + result[modIds[0]];
   }
   return result;
+}
+
+function v2ClosingHTML(){
+  const useV3 = typeof V3_QByID !== 'undefined';
+  const questionMap = useV3 ? V3_QByID : V2_QByID;
+  const closing = questionMap && questionMap['Q-E0-03'];
+  const vk = v2VariantKey();
+  if(!closing || !closing.variants || !closing.variants[vk]) return '';
+  return '<div style="background:#f5f0ff;border:1px solid #d4c4f5;border-radius:6px;padding:10px 14px;margin-top:12px">'
+    + '<div style="font-weight:600;color:#5a2acc;margin-bottom:4px">收尾</div>'
+    + v2QuestionHTML(closing, vk) + '</div>';
 }

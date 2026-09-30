@@ -7,9 +7,10 @@ function buildTreeHTML(){
   if(!state.type || collectSelectedCountries().length===0) return null;
   const d = DATA[state.type];
   const ccs = collectSelectedCountries();
-  const orderedMods = state.modOrder.length === d.modules.length
-    ? state.modOrder.map(id=>d.modules.find(m=>m.id===id)).filter(Boolean)
-    : d.modules;
+  const visibleModules = (typeof currentVisibleModules==='function') ? currentVisibleModules() : d.modules;
+  const orderedMods = state.modOrder.length === visibleModules.length
+    ? state.modOrder.map(id=>visibleModules.find(m=>m.id===id)).filter(Boolean)
+    : visibleModules;
   let html = '<div class="tree-wrap">';
   /* 多国家时，每个国家一棵树 */
   ccs.forEach((cc, ccIdx)=>{

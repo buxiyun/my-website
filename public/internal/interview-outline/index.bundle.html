@@ -6466,18 +6466,23 @@ function v2GenerateMods(){
         + v2QuestionHTML(intro, vk) + '</div>'
         + result[modIds[0]];
     }
-    if(closing && closing.variants[vk]){
-      result[modIds[modIds.length-1]] = result[modIds[modIds.length-1]]
-        + '<div style="background:#f5f0ff;border:1px solid #d4c4f5;border-radius:6px;padding:10px 14px;margin-top:12px">'
-        + '<div style="font-weight:600;color:#5a2acc;margin-bottom:4px">收尾</div>'
-        + v2QuestionHTML(closing, vk) + '</div>';
-    }
   }
   /* 实地家庭观察 → IHV 首模块前，确保 home tour 稳定显示 */
   if(method === 'IHV' && homeTour && homeTour.variants[vk] && v2GatePasses(homeTour.gate) && modIds.length > 0){
     result[modIds[0]] = '<h5>入户 Home Tour 与现场记录</h5>' + v2QuestionHTML(homeTour, vk) + result[modIds[0]];
   }
   return result;
+}
+
+function v2ClosingHTML(){
+  const useV3 = typeof V3_QByID !== 'undefined';
+  const questionMap = useV3 ? V3_QByID : V2_QByID;
+  const closing = questionMap && questionMap['Q-E0-03'];
+  const vk = v2VariantKey();
+  if(!closing || !closing.variants || !closing.variants[vk]) return '';
+  return '<div style="background:#f5f0ff;border:1px solid #d4c4f5;border-radius:6px;padding:10px 14px;margin-top:12px">'
+    + '<div style="font-weight:600;color:#5a2acc;margin-bottom:4px">收尾</div>'
+    + v2QuestionHTML(closing, vk) + '</div>';
 }
 
 // === ./js/engine/rules.js ===
@@ -7842,9 +7847,11 @@ function buildOutlineHTML(){
       sec += cd.header;
     }
     /* 按用户排序渲染模块 */
-    const orderedMods = state.modOrder.length === d.modules.length
-      ? state.modOrder.map(id=>d.modules.find(m=>m.id===id)).filter(Boolean)
-      : d.modules;
+    const visibleModules = (typeof currentVisibleModules==='function') ? currentVisibleModules() : d.modules;
+    const orderedMods = state.modOrder.length === visibleModules.length
+      ? state.modOrder.map(id=>visibleModules.find(m=>m.id===id)).filter(Boolean)
+      : visibleModules;
+    const renderedBlocks = [];
     orderedMods.forEach(m=>{
       if(!state.mods[m.id]) return;
       let content = (v2ModsCache && m.id!=='f5') ? (v2ModsCache[m.id]||'') : (cd.mods && cd.mods[m.id]);
@@ -7868,10 +7875,16 @@ function buildOutlineHTML(){
       keptMods++;
       keptLi += (content.match(/<li[\s>]/g)||[]).length;
       keptProbe += (content.match(/class="probe"/g)||[]).length;
-      sec += optDivider?`<hr class="sep">`:'';
-      sec += `<h3 class="mod">${m.name}<span class="en">${m.en||''}</span></h3>`;
-      sec += content;
+      let block = '';
+      block += optDivider?`<hr class="sep">`:'';
+      block += `<h3 class="mod">${m.name}<span class="en">${m.en||''}</span></h3>`;
+      block += content;
+      renderedBlocks.push(block);
     });
+    if(v2ModsCache && renderedBlocks.length && typeof v2ClosingHTML === 'function'){
+      renderedBlocks[renderedBlocks.length-1] += v2ClosingHTML();
+    }
+    sec += renderedBlocks.join('');
     if(cd.footer) sec += cd.footer;
     html += injectConds(applyReplacements(mpvLocalize(sec, cc)));
   });
@@ -7961,9 +7974,10 @@ function buildTreeHTML(){
   if(!state.type || collectSelectedCountries().length===0) return null;
   const d = DATA[state.type];
   const ccs = collectSelectedCountries();
-  const orderedMods = state.modOrder.length === d.modules.length
-    ? state.modOrder.map(id=>d.modules.find(m=>m.id===id)).filter(Boolean)
-    : d.modules;
+  const visibleModules = (typeof currentVisibleModules==='function') ? currentVisibleModules() : d.modules;
+  const orderedMods = state.modOrder.length === visibleModules.length
+    ? state.modOrder.map(id=>visibleModules.find(m=>m.id===id)).filter(Boolean)
+    : visibleModules;
   let html = '<div class="tree-wrap">';
   /* 多国家时，每个国家一棵树 */
   ccs.forEach((cc, ccIdx)=>{
@@ -9393,18 +9407,30 @@ function initCountryButtons(){
   initCountryGrid();
 }
 
+function isModuleApplicable(m){
+  if(!m) return false;
+  if(state.type === 'FGD' && m.id === 'c8') return state.conds && ['business','commercial'].includes(state.conds.usage);
+  return true;
+}
+function currentVisibleModules(){
+  if(!state.type) return [];
+  return DATA[state.type].modules.filter(isModuleApplicable);
+}
+
 function initModList(){
   const list = document.getElementById('modList');
   list.innerHTML = '';
   if(!state.type){ return; }
   const d = DATA[state.type];
+  d.modules.forEach(m=>{ if(!isModuleApplicable(m)) state.mods[m.id]=false; });
+  const visibleModules = currentVisibleModules();
   /* 初始化模块顺序（校验 id 全部属于当前类型，避免跨类型切换后长度恰好相同导致旧 id 失效、模块渲染为空） */
-  if(!state.modOrder.length || state.modOrder.length !== d.modules.length || !state.modOrder.every(id=>d.modules.some(m=>m.id===id))){
-    state.modOrder = d.modules.map(m=>m.id);
+  if(!state.modOrder.length || state.modOrder.length !== d.modules.length || !state.modOrder.every(id=>visibleModules.some(m=>m.id===id))){
+    state.modOrder = visibleModules.map(m=>m.id);
   }
   /* 按 state.modOrder 顺序渲染 */
   state.modOrder.forEach((mid,idx)=>{
-    const m = d.modules.find(x=>x.id===mid);
+    const m = visibleModules.find(x=>x.id===mid);
     if(!m) return;
     const on = state.mods[m.id]!==undefined ? state.mods[m.id] : true;
     state.mods[m.id] = on;
@@ -9506,8 +9532,9 @@ function moveMod(idx, dir){
 function updateModCount(){
   if(!state.type){document.getElementById('modCount').textContent='';return;}
   const d = DATA[state.type];
-  const sel = d.modules.filter(m=>state.mods[m.id]).length;
-  document.getElementById('modCount').textContent = `${sel}/${d.modules.length} 已选`;
+  const visibleModules = currentVisibleModules();
+  const sel = visibleModules.filter(m=>state.mods[m.id]).length;
+  document.getElementById('modCount').textContent = `${sel}/${visibleModules.length} 已选`;
 }
 
 function updateModSummary(){
@@ -9515,7 +9542,7 @@ function updateModSummary(){
   if(!box) return;
   if(!state.type){ box.innerHTML=''; return; }
   const d = DATA[state.type];
-  const selMods = d.modules.filter(m=>state.mods[m.id]);
+  const selMods = currentVisibleModules().filter(m=>state.mods[m.id]);
   if(!selMods.length){ box.innerHTML='<span style="color:var(--ink3)">未选择任何模块</span>'; return; }
   /* 统计问题数（用第一个有内容的国家估算） */
   const ccs = collectSelectedCountries();
@@ -9545,7 +9572,7 @@ function updateModSummary(){
 
 function setAllMods(v){
   if(!state.type) return;
-  DATA[state.type].modules.forEach(m=>state.mods[m.id]=v);
+  DATA[state.type].modules.forEach(m=>{ state.mods[m.id]=isModuleApplicable(m) ? v : false; });
   initModList();
 }
 function restoreDefaultMods(){

@@ -401,18 +401,30 @@ function initCountryButtons(){
   initCountryGrid();
 }
 
+function isModuleApplicable(m){
+  if(!m) return false;
+  if(state.type === 'FGD' && m.id === 'c8') return state.conds && ['business','commercial'].includes(state.conds.usage);
+  return true;
+}
+function currentVisibleModules(){
+  if(!state.type) return [];
+  return DATA[state.type].modules.filter(isModuleApplicable);
+}
+
 function initModList(){
   const list = document.getElementById('modList');
   list.innerHTML = '';
   if(!state.type){ return; }
   const d = DATA[state.type];
+  d.modules.forEach(m=>{ if(!isModuleApplicable(m)) state.mods[m.id]=false; });
+  const visibleModules = currentVisibleModules();
   /* 初始化模块顺序（校验 id 全部属于当前类型，避免跨类型切换后长度恰好相同导致旧 id 失效、模块渲染为空） */
-  if(!state.modOrder.length || state.modOrder.length !== d.modules.length || !state.modOrder.every(id=>d.modules.some(m=>m.id===id))){
-    state.modOrder = d.modules.map(m=>m.id);
+  if(!state.modOrder.length || state.modOrder.length !== d.modules.length || !state.modOrder.every(id=>visibleModules.some(m=>m.id===id))){
+    state.modOrder = visibleModules.map(m=>m.id);
   }
   /* 按 state.modOrder 顺序渲染 */
   state.modOrder.forEach((mid,idx)=>{
-    const m = d.modules.find(x=>x.id===mid);
+    const m = visibleModules.find(x=>x.id===mid);
     if(!m) return;
     const on = state.mods[m.id]!==undefined ? state.mods[m.id] : true;
     state.mods[m.id] = on;
@@ -514,8 +526,9 @@ function moveMod(idx, dir){
 function updateModCount(){
   if(!state.type){document.getElementById('modCount').textContent='';return;}
   const d = DATA[state.type];
-  const sel = d.modules.filter(m=>state.mods[m.id]).length;
-  document.getElementById('modCount').textContent = `${sel}/${d.modules.length} 已选`;
+  const visibleModules = currentVisibleModules();
+  const sel = visibleModules.filter(m=>state.mods[m.id]).length;
+  document.getElementById('modCount').textContent = `${sel}/${visibleModules.length} 已选`;
 }
 
 function updateModSummary(){
@@ -523,7 +536,7 @@ function updateModSummary(){
   if(!box) return;
   if(!state.type){ box.innerHTML=''; return; }
   const d = DATA[state.type];
-  const selMods = d.modules.filter(m=>state.mods[m.id]);
+  const selMods = currentVisibleModules().filter(m=>state.mods[m.id]);
   if(!selMods.length){ box.innerHTML='<span style="color:var(--ink3)">未选择任何模块</span>'; return; }
   /* 统计问题数（用第一个有内容的国家估算） */
   const ccs = collectSelectedCountries();
@@ -553,7 +566,7 @@ function updateModSummary(){
 
 function setAllMods(v){
   if(!state.type) return;
-  DATA[state.type].modules.forEach(m=>state.mods[m.id]=v);
+  DATA[state.type].modules.forEach(m=>{ state.mods[m.id]=isModuleApplicable(m) ? v : false; });
   initModList();
 }
 function restoreDefaultMods(){
