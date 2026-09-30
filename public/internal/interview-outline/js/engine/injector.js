@@ -220,14 +220,13 @@ function tagQuestions(){
   if(c.roads) activeCats.add('roads');
   if(c.charging) activeCats.add('charging');
   if(c.power && c.power.length) activeCats.add('power');
-  if(c.drive) activeCats.add('drive');
   if(c.incentive) activeCats.add('incentive');
   if(c.finance) activeCats.add('finance');
   if(state.bodyType || state.segment) activeCats.add('vehicle');
 
   const tagColorMap = {
     climate:'t-climate', roads:'t-roads', charging:'t-charging',
-    power:'t-power', drive:'t-drive', incentive:'t-incentive',
+    power:'t-power', incentive:'t-incentive',
     finance:'t-finance', vehicle:'t-vehicle'
   };
   const tagLabelMap = {
@@ -236,7 +235,6 @@ function tagQuestions(){
     'charging:low':'充电', 'charging:high':'充电', 'charging:mid':'充电',
     'power:bev':'纯电', 'power:ice':'燃油', 'power:hev':'混动',
     'power:phev':'插混', 'power:reve':'增程', 'power:hev,phev,reve':'混动',
-    'drive:rhd':'右舵', 'drive:lhd':'左舵',
     'incentive:yes':'政策',
     'finance:high':'金融', 'finance:low':'金融',
     'vehicle':'车型'

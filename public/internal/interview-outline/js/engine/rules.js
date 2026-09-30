@@ -50,7 +50,6 @@ const COND_DEFS = [
   {key:'roads',    label:'路面规整度',   type:'select', options:[{v:'good',label:'规整（城市道路良好）'},{v:'mixed',label:'一般（城乡混合）'},{v:'poor',label:'较差（破损/非铺装多）'}]},
   {key:'charging', label:'充电设施覆盖', type:'select', options:[{v:'high',label:'高（公共充电普及）'},{v:'mid',label:'中'},{v:'low',label:'低（充电不便）'}]},
   {key:'power',    label:'动力类型',     type:'multi',  options:[{v:'bev',label:'BEV（纯电）'},{v:'ice',label:'ICE（燃油）'},{v:'hev',label:'HEV（混动）'},{v:'phev',label:'PHEV（插电混动）'},{v:'reve',label:'REVE（增程式）'},{v:'other',label:'其他'}]},
-  {key:'drive',    label:'驾驶方向',     type:'select', options:[{v:'lhd',label:'左舵'},{v:'rhd',label:'右舵'}]},
   {key:'incentive',label:'补贴/税收政策',type:'select', options:[{v:'yes',label:'有显著补贴/税收优惠'},{v:'no',label:'无显著补贴'}]},
   {key:'finance',  label:'金融渗透率',   type:'select', options:[{v:'high',label:'高（贷款/分期普遍）'},{v:'low',label:'低（现金购车为主）'}]},
   {key:'usage',    label:'用车目的',     type:'select', options:[{v:'household',label:'家用（已有/计划家用购车）'},{v:'intend',label:'意向家用（潜在家用购车者）'},{v:'commercial',label:'商用（企业/ fleet /商务用途）'}]},
@@ -79,9 +78,6 @@ const COND_RULES = [
   {tag:'动力-混动通用', fam:'power:hev,phev,reve', re:/混动|油电混合/, req:{power:['hev','phev','reve']}},
   {tag:'动力-燃油',   fam:'power:ice', re:/燃油车|燃油小车|燃油车型|纯燃油|汽油|柴油|乙醇|Flex-?Fuel|flex fuel|加油|油费|油耗|尾气|机油|发动机|变速箱|ICE/, req:{power:['ice']}},
   {tag:'动力-燃油标记', fam:'power:ice', re:/【ICE】|【ICE：|ICE组|燃油组/, req:{power:['ice']}},
-  /* 驾驶方向 */
-  {tag:'驾驶-右舵',   fam:'drive:rhd', re:/右舵|靠左行驶|左行(?!业)|右驾/, req:{drive:['rhd']}},
-  {tag:'驾驶-左舵',   fam:'drive:lhd', re:/左舵|靠右行驶|左驾/, req:{drive:['lhd']}},
   /* 补贴/税收政策 */
   {tag:'政策-有补贴', fam:'incentive:yes', re:/补贴|Ecobonus|ecobonus|税收优惠|购置税(减免|优惠|免征)|IPI|IPVA|ICMS|政策(扶持|支持|激励|优惠)|激励政策/, req:{incentive:['yes']}},
   /* 金融渗透 */
@@ -94,7 +90,7 @@ const COND_RULES = [
 
 function condsActive(){
   const c = state.conds;
-  return !!(c.climate||c.roads||c.charging||(c.power&&c.power.length)||c.drive||c.incentive||c.finance||c.usage||c.ihvSource||state.bodyType||state.segment);
+  return !!(c.climate||c.roads||c.charging||(c.power&&c.power.length)||c.incentive||c.finance||c.usage||c.ihvSource||state.bodyType||state.segment);
 }
 function ruleKeeps(req){
   const c = state.conds;

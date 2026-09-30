@@ -4,7 +4,7 @@
 
 const state = { stage:'pd', type:null, countries:[], countryCount:1, _desiredCc:1, mods:{}, modOrder:[], repModel:'', repCountries:{},
   ownerType:'both', segment:'', bodyType:'',
-  conds:{ climate:'', roads:'', charging:'', power:[], drive:'', incentive:'', finance:'', usage:'', ihvSource:'' },
+  conds:{ climate:'', roads:'', charging:'', power:[], incentive:'', finance:'', usage:'', ihvSource:'' },
   viewMode:'outline', bevBench:'', iceBench:'', otherBench:'', f5Subs:{}, subs:{},
   sellingPoints:[], configItems:[], conceptVariants:[] };
 
@@ -884,7 +884,7 @@ function benchmarkPromptHTML(){
 
 function condSummary(){
   const c = state.conds, out = [];
-  ['climate','roads','charging','drive','incentive','finance'].forEach(k=>{
+  ['climate','roads','charging','incentive','finance'].forEach(k=>{
     if(!c[k]) return;
     const def = COND_DEFS.find(d=>d.key===k);
     const opt = def.options.find(o=>o.v===c[k]);
@@ -1010,7 +1010,7 @@ function initConds(){
   });
 }
 function resetConds(){
-  state.conds = { climate:'', roads:'', charging:'', power:[], drive:'', incentive:'', finance:'', usage:'', ihvSource:'' };
+  state.conds = { climate:'', roads:'', charging:'', power:[], incentive:'', finance:'', usage:'', ihvSource:'' };
   initConds();
 }
 
