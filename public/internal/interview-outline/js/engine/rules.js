@@ -42,6 +42,20 @@ function categoryLabel(){
   return label;
 }
 
+/* 品类描述：级别 + 尺寸 + 车身类型 → 如 "A级4米SUV车"；未选则返回空串 */
+function categoryLabel(){
+  const seg = state.segment;
+  const bt  = state.bodyType;
+  if(!seg && !bt) return '';
+  const _SIZE_SHORT = {A00:'3米',A0:'3米半',A:'4米',B:'4米半',C:'5米',D:'5米多'};
+  const _BT = {sedan:'轿车',hatchback:'两厢车',SUV:'SUV',MPV:'MPV',pickup:'皮卡',offroad:'越野车',wagon:'旅行车',coupe:'轿跑'};
+  let label = '';
+  if(seg) label += seg + '级' + (_SIZE_SHORT[seg] || '');
+  if(bt)  label += (_BT[bt] || bt);
+  if(label && !label.endsWith('车')) label += '车';
+  return label;
+}
+
 
 
 /* ---------- 研究条件：选项定义 / 规则库 / 过滤引擎 ---------- */
