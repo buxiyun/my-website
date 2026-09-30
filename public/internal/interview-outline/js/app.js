@@ -688,7 +688,7 @@ function renderConceptVariantRows(){
     row.style.cssText = 'display:flex;gap:4px;margin-bottom:4px;align-items:center';
     row.innerHTML = `
       <span style="font-size:11px;color:var(--ink3);min-width:20px">${i+1}.</span>
-      <input type="text" id="conceptName${i}" value="${escInputValue(sp.name)}" placeholder="测试对象，如车头、车尾、内饰" style="flex:1.2;padding:4px 6px;border:1px solid var(--line);border-radius:4px;font-size:11.5px;min-width:0">
+      <input type="text" id="conceptName${i}" value="${escInputValue(sp.name)}" placeholder="测试对象，如外观、内饰、颜色、前脸、车尾" style="flex:1.2;padding:4px 6px;border:1px solid var(--line);border-radius:4px;font-size:11.5px;min-width:0">
       <input type="number" min="1" max="12" id="conceptDesc${i}" value="${escInputValue(sp.desc)}" placeholder="方案数量" style="flex:.6;padding:4px 6px;border:1px solid var(--line);border-radius:4px;font-size:11.5px;min-width:0">
       <button class="mini" onclick="removeConceptVariant(${i})" style="font-size:13px;padding:1px 7px;line-height:1.4;flex:0 0 auto" title="删除此行">✕</button>
     `;
@@ -789,18 +789,18 @@ function conceptTestHTML(){
   if(!groups.length) return '';
   const sections = groups.map(g=>{
     const letters = Array.from({length:g.count}, (_,i)=>String.fromCharCode(65+i));
-    const statRows = letters.map(l=>`<li>${escInputValue(g.name)}方案 ${l}：____ 人 / n=${g.count}；主要理由：________________。</li>`).join('');
-    return `<h5>${escInputValue(g.name)}方案偏好统计</h5>
+    const statRows = letters.map(l=>`<li>${escInputValue(g.name)}方案 ${l}：____ 人 / n=${g.count}</li>`).join('');
+    return `<h5>${escInputValue(g.name)}方案选择人数统计</h5>
 <ul class="q">
-  <li>请看${escInputValue(g.name)}的 ${g.count} 个方案（${letters.map(l=>'方案 '+l).join('、')}）。如果只能选一个，您最喜欢哪个？为什么？</li>
-  <li>哪个方案最不适合您？主要卡点是什么？</li>
+  <li>请看${escInputValue(g.name)}的 ${g.count} 个方案（${letters.map(l=>'方案 '+l).join('、')}）。如果只能选一个，请每位受访者独立选择一个方案，主持人先只统计人数。</li>
+  <li>如果需要，也请每位受访者独立选择一个最不适合的方案，另行统计人数。</li>
 </ul>
 <ul class="q">${statRows}</ul>`;
   }).join('');
   const labels = groups.map(g=>`${escInputValue(g.name)}${g.count}个`).join('、');
-  return `<h5>产品方案偏好统计</h5>
-<div class="docnote"><b>【FGD活动】</b>本场需要测试：${labels}。每组方案先让每位受访者独立选择最喜欢和最不喜欢的方案，主持人现场按 A/B/C 记录人数；统计后再进入开放讨论，避免先讨论导致互相影响。</div>
-<div class="probe">【主持人记录：每个测试对象分别记录各方案选择人数、核心理由和反对理由；追问是否因为造型、空间、配置、价格、品牌、补能/动力或使用场景导致偏好。】</div>
+  return `<h5>产品定义方案统计 Session</h5>
+<div class="docnote"><b>【FGD统计】</b>本场需要测试：${labels}。每个测试对象都先独立选择，再只统计各方案人数，统一记录为“____ 人 / n=方案数量”。统计完成后再进入开放讨论，避免先讨论导致互相影响。</div>
+<div class="probe">【主持人记录：本 session 只记录数字，不在统计表中写理由；理由放到后续开放追问中讨论。】</div>
 ${sections}`;
 }
 function repCountryPairs(){
