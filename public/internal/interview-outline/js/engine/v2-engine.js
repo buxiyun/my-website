@@ -43,6 +43,20 @@ const V2_MAT_LABEL = {
   price:'价格方案', message:'传播信息', thermal_comfort:'热舒适'
 };
 
+function v2ActivityForMethod(activity, method){
+  if(!activity) return '';
+  const typeMatch = activity.match(/^(IHV|FGD|Dealer)[：:](.*)$/);
+  if(typeMatch) return typeMatch[1] === method ? typeMatch[2].trim() : '';
+  const parts = activity.split(/[；;]\s*/).map(s=>s.trim()).filter(Boolean);
+  const kept = parts.filter(part => {
+    if(/^IHV/.test(part)) return method === 'IHV';
+    if(/^FGD/.test(part)) return method === 'FGD';
+    if(/^Dealer/.test(part)) return method === 'Dealer';
+    return true;
+  });
+  return kept.join('；');
+}
+
 /* 生成单题 HTML */
 function v2QuestionHTML(q, vk){
   const variant = q.variants[vk];
@@ -62,10 +76,9 @@ function v2QuestionHTML(q, vk){
     });
   }
   if(q.activity){
-    /* 活动前缀过滤：IHV：/FGD：/Dealer：仅匹配当前类型时渲染，无前缀则全类型渲染 */
-    const actTypeMatch = q.activity.match(/^(IHV|FGD|Dealer)[：:]/);
-    if(!actTypeMatch || actTypeMatch[1] === state.type){
-      h += '<div class="probe" style="color:#2a6e3b">【活动/记录：' + escHTML(q.activity) + '】</div>';
+    const activity = v2ActivityForMethod(q.activity, state.type);
+    if(activity){
+      h += '<div class="probe" style="color:#2a6e3b">【活动/记录：' + escHTML(activity) + '】</div>';
     }
   }
   if(q.condition){

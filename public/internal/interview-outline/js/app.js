@@ -6,7 +6,7 @@ const state = { stage:'pd', type:null, countries:[], countryCount:1, _desiredCc:
   ownerType:'both', segment:'', bodyType:'', personnel:'middle',
   conds:{ climate:'', roads:'', charging:'', power:[], drive:'', incentive:'', finance:'', usage:'' },
   viewMode:'outline', bevBench:'', iceBench:'', otherBench:'', f5Subs:{}, subs:{},
-  sellingPoints:[], configItems:[] };
+  sellingPoints:[], configItems:[], conceptVariants:[] };
 
 /* ===== 产品评价(f5) 子模块定义 ===== */
 const F5_SUBS = [
@@ -630,6 +630,7 @@ function clearBenchmarks(){
 function clearProductData(){
   state.sellingPoints = [];
   state.configItems = [];
+  state.conceptVariants = [];
   initSellingPointsUI();
   const ci = document.getElementById('configItems');
   if(ci) ci.value = '';
@@ -641,8 +642,13 @@ function initSellingPointsUI(){
   /* 确保至少有5行空白卖点 */
   while(state.sellingPoints.length < 5) state.sellingPoints.push({name:'',desc:''});
   renderSellingPointRows();
+  while(state.conceptVariants.length < 2) state.conceptVariants.push({name:'',desc:''});
+  renderConceptVariantRows();
   const ci = document.getElementById('configItems');
   if(ci) ci.oninput = ()=>updateProductData();
+}
+function escInputValue(s){
+  return String(s||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 function renderSellingPointRows(){
   const container = document.getElementById('spList');
@@ -653,8 +659,8 @@ function renderSellingPointRows(){
     row.style.cssText = 'display:flex;gap:4px;margin-bottom:4px;align-items:center';
     row.innerHTML = `
       <span style="font-size:11px;color:var(--ink3);min-width:16px">${i+1}.</span>
-      <input type="text" id="spName${i}" value="${(sp.name||'').replace(/"/g,'&quot;')}" placeholder="卖点${i+1}名称" style="flex:1;padding:4px 6px;border:1px solid var(--line);border-radius:4px;font-size:11.5px;min-width:0">
-      <input type="text" id="spDesc${i}" value="${(sp.desc||'').replace(/"/g,'&quot;')}" placeholder="描述" style="flex:1.5;padding:4px 6px;border:1px solid var(--line);border-radius:4px;font-size:11.5px;min-width:0">
+      <input type="text" id="spName${i}" value="${escInputValue(sp.name)}" placeholder="卖点${i+1}名称" style="flex:1;padding:4px 6px;border:1px solid var(--line);border-radius:4px;font-size:11.5px;min-width:0">
+      <input type="text" id="spDesc${i}" value="${escInputValue(sp.desc)}" placeholder="描述" style="flex:1.5;padding:4px 6px;border:1px solid var(--line);border-radius:4px;font-size:11.5px;min-width:0">
       <button class="mini" onclick="removeSellingPoint(${i})" style="font-size:13px;padding:1px 7px;line-height:1.4;flex:0 0 auto" title="删除此行">✕</button>
     `;
     container.appendChild(row);
@@ -663,6 +669,29 @@ function renderSellingPointRows(){
   state.sellingPoints.forEach((_,i)=>{
     const n = document.getElementById('spName'+i);
     const d = document.getElementById('spDesc'+i);
+    if(n) n.oninput = ()=>updateProductData();
+    if(d) d.oninput = ()=>updateProductData();
+  });
+}
+function renderConceptVariantRows(){
+  const container = document.getElementById('conceptList');
+  if(!container) return;
+  container.innerHTML = '';
+  state.conceptVariants.forEach((sp,i)=>{
+    const label = String.fromCharCode(65+i);
+    const row = document.createElement('div');
+    row.style.cssText = 'display:flex;gap:4px;margin-bottom:4px;align-items:center';
+    row.innerHTML = `
+      <span style="font-size:11px;color:var(--ink3);min-width:42px">方案${label}</span>
+      <input type="text" id="conceptName${i}" value="${escInputValue(sp.name)}" placeholder="方案${label}名称" style="flex:1;padding:4px 6px;border:1px solid var(--line);border-radius:4px;font-size:11.5px;min-width:0">
+      <input type="text" id="conceptDesc${i}" value="${escInputValue(sp.desc)}" placeholder="核心差异 / 刺激物说明" style="flex:1.7;padding:4px 6px;border:1px solid var(--line);border-radius:4px;font-size:11.5px;min-width:0">
+      <button class="mini" onclick="removeConceptVariant(${i})" style="font-size:13px;padding:1px 7px;line-height:1.4;flex:0 0 auto" title="删除此行">✕</button>
+    `;
+    container.appendChild(row);
+  });
+  state.conceptVariants.forEach((_,i)=>{
+    const n = document.getElementById('conceptName'+i);
+    const d = document.getElementById('conceptDesc'+i);
     if(n) n.oninput = ()=>updateProductData();
     if(d) d.oninput = ()=>updateProductData();
   });
@@ -677,6 +706,16 @@ function removeSellingPoint(idx){
   state.sellingPoints.splice(idx,1);
   renderSellingPointRows();
 }
+function addConceptVariant(){
+  syncSellingPointsFromDOM();
+  state.conceptVariants.push({name:'',desc:''});
+  renderConceptVariantRows();
+}
+function removeConceptVariant(idx){
+  syncSellingPointsFromDOM();
+  state.conceptVariants.splice(idx,1);
+  renderConceptVariantRows();
+}
 function syncSellingPointsFromDOM(){
   /* Read all rows from DOM, preserving empty ones (unlike updateProductData which filters) */
   const container = document.getElementById('spList');
@@ -688,6 +727,16 @@ function syncSellingPointsFromDOM(){
     arr.push({name: n?n.value.trim():'', desc: d?d.value.trim():''});
   }
   state.sellingPoints = arr;
+  const concepts = [];
+  const conceptContainer = document.getElementById('conceptList');
+  if(conceptContainer){
+    for(let i=0;i<conceptContainer.children.length;i++){
+      const n = document.getElementById('conceptName'+i);
+      const d = document.getElementById('conceptDesc'+i);
+      concepts.push({name: n?n.value.trim():'', desc: d?d.value.trim():''});
+    }
+  }
+  state.conceptVariants = concepts;
   /* Also sync config items */
   const ci = document.getElementById('configItems');
   state.configItems = ci ? ci.value.split('\n').map(s=>s.trim()).filter(s=>s) : [];
@@ -705,8 +754,44 @@ function updateProductData(){
     }
   }
   state.sellingPoints = newPoints;
+  const concepts = [];
+  const conceptContainer = document.getElementById('conceptList');
+  if(conceptContainer){
+    const rows = conceptContainer.children;
+    for(let i=0;i<rows.length;i++){
+      const n = document.getElementById('conceptName'+i);
+      const d = document.getElementById('conceptDesc'+i);
+      concepts.push({name: n?n.value.trim():'', desc: (d&&d.value.trim())||''});
+    }
+  }
+  state.conceptVariants = concepts;
   const ci = document.getElementById('configItems');
   state.configItems = ci ? ci.value.split('\n').map(s=>s.trim()).filter(s=>s) : [];
+}
+function selectedConceptVariants(){
+  syncSellingPointsFromDOM();
+  return (state.conceptVariants||[])
+    .map((x,i)=>({letter:String.fromCharCode(65+i), name:(x.name||'').trim(), desc:(x.desc||'').trim()}))
+    .filter(x=>x.name || x.desc);
+}
+function conceptTestHTML(){
+  if(state.type !== 'FGD') return '';
+  const variants = selectedConceptVariants();
+  if(!variants.length) return '';
+  const rows = variants.map(v=>{
+    const title = v.name ? `方案 ${v.letter}：${escInputValue(v.name)}` : `方案 ${v.letter}`;
+    const desc = v.desc ? `（${escInputValue(v.desc)}）` : '';
+    return `<li>${title}${desc}：喜欢人数 ____ 人；不喜欢人数 ____ 人；最想追问的理由：________________。</li>`;
+  }).join('');
+  const labels = variants.map(v=>`方案 ${v.letter}`).join('、');
+  return `<h5>产品方案偏好统计</h5>
+<div class="docnote"><b>【FGD活动】</b>依次展示${labels}，先让每位受访者独立选择最喜欢和最不喜欢的方案，再现场统计人数。统计后再进入开放讨论，避免先讨论导致互相影响。</div>
+<ul class="q">
+  <li>如果只能选择一个最愿意进一步了解或购买的方案，您会选择哪一个？为什么？</li>
+  <li>哪个方案最不适合您？主要卡点是什么？</li>
+</ul>
+<div class="probe">【主持人记录：每个方案记录喜欢人数、不喜欢人数、核心理由；追问是否因为造型、空间、配置、价格、品牌、补能/动力或使用场景导致偏好。】</div>
+<ul class="q">${rows}</ul>`;
 }
 function repCountryPairs(){
   /* 汇总所有已填写的国家替换对（名称/城市/旗帜/港泰合并称），长者优先 */

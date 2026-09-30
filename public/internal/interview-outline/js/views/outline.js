@@ -51,6 +51,10 @@ function buildOutlineHTML(){
       /* f5 子模块过滤 */
       content = filterSubContent(content, m.id);
       content = filterByConds(content).trim();
+      if(m.id === 'c5' && typeof conceptTestHTML === 'function'){
+        const conceptHTML = conceptTestHTML();
+        if(conceptHTML) content = conceptHTML + content;
+      }
       if(!content) return; /* 整个模块被研究条件过滤 */
       keptMods++;
       keptLi += (content.match(/<li[\s>]/g)||[]).length;

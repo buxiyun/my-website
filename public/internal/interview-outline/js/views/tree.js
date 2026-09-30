@@ -39,6 +39,10 @@ function buildTreeHTML(){
       if(!content) return;
       content = filterSubContent(content, m.id);
       content = filterByConds(content);
+      if(m.id === 'c5' && typeof conceptTestHTML === 'function'){
+        const conceptHTML = conceptTestHTML();
+        if(conceptHTML) content = conceptHTML + content;
+      }
       if(!content.trim()) return;
       content = injectConds(applyReplacements(mpvLocalize(content, cc)));
       totalMods++;
