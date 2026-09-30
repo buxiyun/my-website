@@ -112,6 +112,11 @@ body{font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sa
 .tree-back{border:1px solid var(--line);background:#fff;border-radius:8px;padding:7px 18px;font-size:13px;color:var(--ink2);cursor:pointer;margin-right:10px}
 .tree-back:hover{border-color:var(--brand);color:var(--brand)}
 .tree-step-hint{font-size:12px;color:var(--ink3);margin-top:10px}
+/* 议题树可编辑元素样式 */
+.tree-editable{outline:none;border-radius:3px;padding:1px 3px;margin:-1px -3px;transition:background 0.15s}
+.tree-editable:hover{background:#fffbe8}
+.tree-editable:focus{background:#fff8d6;box-shadow:0 0 0 2px rgba(31,98,255,0.2)}
+body.editing .tree-editable{cursor:text}
 
 /* 车主分类 */
 .owner-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
@@ -8172,19 +8177,40 @@ function cleanOutlineHTML(rootEl){
   return clone.innerHTML;
 }
 
+/* 议题树干净 HTML：去掉可编辑属性和样式类 */
+function cleanTreeHTML(rootEl){
+  const clone = rootEl.cloneNode(true);
+  clone.querySelectorAll('[contenteditable]').forEach(n=>n.removeAttribute('contenteditable'));
+  clone.querySelectorAll('.tree-editable').forEach(n=>n.classList.remove('tree-editable'));
+  return clone.innerHTML;
+}
+
 function currentEditedHTML(){
   const saved = loadEditStore()[outlineConfigKey()];
   return (saved && saved.html) ? saved.html : null;
 }
 
+function currentEditedTreeHTML(){
+  const saved = loadEditStore()[outlineConfigKey()];
+  return (saved && saved.treeHtml) ? saved.treeHtml : null;
+}
+
 function captureEdits(){
   if(!editMode) return;
   if(state.renderedKey !== outlineConfigKey()) return; /* 画布内容与当前配置不符时不保存 */
-  const doc = document.querySelector('#paper .doc');
-  if(!doc) return;
+  const paper = document.getElementById('paper');
+  const doc = paper.querySelector('.doc');
+  const treeWrap = paper.querySelector('.tree-wrap');
+  if(!doc && !treeWrap) return;
   const store = loadEditStore();
-  store[outlineConfigKey()] = { html: cleanOutlineHTML(doc), savedAt: Date.now(),
-    label: `${(DATA[state.type]||{}).label||state.type} · ${collectSelectedCountries().join(',')}` };
+  const key = outlineConfigKey();
+  const viewKey = state.viewMode === 'tree' ? 'treeHtml' : 'html';
+  const sourceEl = state.viewMode === 'tree' ? treeWrap : doc;
+  const cleanHtml = cleanTreeHTML(sourceEl);
+  store[key] = store[key] || {};
+  store[key][viewKey] = cleanHtml;
+  store[key].savedAt = Date.now();
+  store[key].label = `${(DATA[state.type]||{}).label||state.type} · ${collectSelectedCountries().join(',')}`;
   const keys = Object.keys(store);
   if(keys.length > 15){
     keys.sort((a,b)=>(store[a].savedAt||0)-(store[b].savedAt||0)).slice(0, keys.length-15).forEach(k=>delete store[k]);
@@ -8192,8 +8218,8 @@ function captureEdits(){
   saveEditStore(store);
   state.editActive = true;
   updateHeadEditTag();
-  updateWordCountTag();
-  healEditControls(doc);
+  if(doc) updateWordCountTag();
+  if(doc) healEditControls(doc);
 }
 
 /* 自愈：选中整题重打文字等操作可能连带清掉控件，补回缺失的 ↑↓✕ / ✕ / 加一问 */
@@ -8293,6 +8319,25 @@ function injectEditControls(doc){
   doc.querySelectorAll('.q-tags').forEach(n=>n.setAttribute('contenteditable','false'));
 }
 
+/* 议题树编辑控件：模块名、子模块名可编辑 */
+function injectTreeEditControls(treeWrap){
+  /* 模块名可编辑 */
+  treeWrap.querySelectorAll('.tree-mod-name').forEach(n=>{
+    n.setAttribute('contenteditable','true');
+    n.classList.add('tree-editable');
+  });
+  /* 子模块名可编辑 */
+  treeWrap.querySelectorAll('.tree-sub-name').forEach(n=>{
+    n.setAttribute('contenteditable','true');
+    n.classList.add('tree-editable');
+  });
+  /* 模块标题（多国时的国家标题）可编辑 */
+  treeWrap.querySelectorAll('.tree-title').forEach(n=>{
+    n.setAttribute('contenteditable','true');
+    n.classList.add('tree-editable');
+  });
+}
+
 function injectEditBar(){
   const paper = document.getElementById('paper');
   if(paper.querySelector('.edit-bar')) return;
@@ -8315,11 +8360,17 @@ function toggleEditMode(){
   if(editMode){ exitEditMode(); return; }
   const paper = document.getElementById('paper');
   const doc = paper.querySelector('.doc');
-  if(state.viewMode!=='outline' || !doc){ alert('请先在「完整提纲」视图生成提纲，再进入编辑。'); return; }
-  if(state.renderedKey !== outlineConfigKey()){ alert('左侧配置已变化，请先重新生成提纲，再进入编辑。'); return; }
+  const treeWrap = paper.querySelector('.tree-wrap');
+  if(state.viewMode==='outline' && !doc){ alert('请先在「完整提纲」视图生成提纲，再进入编辑。'); return; }
+  if(state.viewMode==='tree' && !treeWrap){ alert('请先生成议题树，再进入编辑。'); return; }
+  if(state.renderedKey !== outlineConfigKey()){ alert('左侧配置已变化，请先重新生成，再进入编辑。'); return; }
   editMode = true;
   document.body.classList.add('editing');
-  injectEditControls(doc);
+  if(state.viewMode==='outline'){
+    injectEditControls(doc);
+  } else {
+    injectTreeEditControls(treeWrap);
+  }
   injectEditBar();
   setEditBtnLabel();
 }
@@ -8329,12 +8380,17 @@ function exitEditMode(){
   captureEdits();
   editMode = false;
   document.body.classList.remove('editing');
-  const doc = document.querySelector('#paper .doc');
+  const paper = document.getElementById('paper');
+  const doc = paper.querySelector('.doc');
+  const treeWrap = paper.querySelector('.tree-wrap');
   if(doc){
     doc.innerHTML = cleanOutlineHTML(doc);
     tagQuestions();
   }
-  const bar = document.querySelector('#paper .edit-bar');
+  if(treeWrap){
+    treeWrap.outerHTML = cleanTreeHTML(treeWrap);
+  }
+  const bar = paper.querySelector('.edit-bar');
   if(bar) bar.remove();
   setEditBtnLabel();
   updateHeadEditTag();
@@ -8342,8 +8398,17 @@ function exitEditMode(){
 
 /* 重新生成时：同配置存在本地保存的编辑版则自动恢复 */
 function maybeRestoreEdits(){
-  if(state.viewMode==='tree') return false;
-  const doc = document.querySelector('#paper .doc');
+  const paper = document.getElementById('paper');
+  if(state.viewMode==='tree'){
+    const treeWrap = paper.querySelector('.tree-wrap');
+    if(!treeWrap){ state.editActive=false; return false; }
+    const saved = currentEditedTreeHTML();
+    if(!saved){ state.editActive=false; return false; }
+    treeWrap.outerHTML = saved;
+    state.editActive = true;
+    return true;
+  }
+  const doc = paper.querySelector('.doc');
   if(!doc){ state.editActive=false; return false; }
   const saved = currentEditedHTML();
   if(!saved){ state.editActive=false; return false; }
