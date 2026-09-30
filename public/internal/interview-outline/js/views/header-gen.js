@@ -2,6 +2,15 @@
 // 动态项目背景、研究目的与样本定义生成
 // =========================================================
 
+/* 各模块默认时长（分钟），用于自动生成时间估算 */
+const DEFAULT_MOD_TIME = {
+  FGD:  {c1:15, c2:20, c3:20, c4:15, c5:15, c6:15},
+  IHV:  {c1:15, c3:15, c2:20, c4:15, c5:15, c6:15},
+  Dealer:{b1:10, b2:10, b3:10, b4:15, b5:15, b6:10, b7:10, b8:10},
+  MPVMedia:{b1:10, b2:10, b3:10, b4:10, b5:15, b6:10, b7:10, b8:10},
+  MPVExpert:{b1:10, b2:10, b3:10, b4:10, b5:15, b6:10, b7:10, b8:10}
+};
+
 function collectSelectedCountries(){
   if(!state.type || !DATA[state.type]) return [];
   return COUNTRIES.filter(c=>state.countries.includes(c.code) && DATA[state.type].countries[c.code]).map(c=>c.code);
@@ -179,16 +188,20 @@ function autoGenerateSampleDef(){
   if(groupDesc.length > 0){
     html += `<p>访谈分组：${groupDesc.join(' + ')}</p>\n`;
   }
-  html += `<p>访谈时长：约___分钟</p>\n`;
-
+  const timeMap = DEFAULT_MOD_TIME[state.type] || {};
   const selMods = d.modules.filter(m=>state.mods[m.id]);
+  let totalMin = 0;
+  selMods.forEach(m => { totalMin += (timeMap[m.id] || 15); });
+  html += `<p>访谈时长：约${totalMin || '___'}分钟</p>\n`;
+
   if(selMods.length > 0){
     html += `<table class="tbl"><tr><th>模块</th><th>内容</th><th>时长</th></tr>\n`;
     selMods.forEach((m,i)=>{
       const shortName = m.name.replace(/^(\d+[\.、\s])+/, '');
-      html += `<tr><td>模块${i+1}</td><td>${shortName}</td><td>___min</td></tr>\n`;
+      const mins = timeMap[m.id] || 15;
+      html += `<tr><td>模块${i+1}</td><td>${shortName}</td><td>${mins}min</td></tr>\n`;
     });
-    html += `<tr><td><b>合计</b></td><td></td><td>___min</td></tr></table>\n`;
+    html += `<tr><td><b>合计</b></td><td></td><td>约${totalMin}分钟</td></tr></table>\n`;
   }
   return html;
 }

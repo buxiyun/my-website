@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html><html><head><meta charset="UTF-8"><title>访谈提纲</title>
+<style>
+body{font-family:"PingFang SC","Microsoft YaHei",sans-serif;font-size:14.5px;color:#111827;line-height:1.85;max-width:860px;margin:30px auto;padding:0 24px}
+h1.doctitle{font-size:19px;text-align:center;font-weight:800}
+h2.docsub{font-size:15px;text-align:center;color:#22315e;margin-bottom:14px}
+hr.sep{border:none;border-top:2px solid #22315e;margin:16px 0}
+.docnote{background:#f6f8ff;border-left:4px solid #1f5eff;padding:10px 14px;font-size:13px;color:#33415e;margin:12px 0}
+h3.mod{font-size:16px;font-weight:800;color:#12285e;margin:22px 0 8px;padding-bottom:5px;border-bottom:2.5px solid #12285e}
+h3.mod .en{font-size:11.5px;color:#8892a6;font-weight:500;margin-left:8px}
+h4{font-size:14.5px;color:#1f3a8a;margin:14px 0 6px}
+h5{font-size:13.5px;color:#33415e;margin:10px 0 4px}
+p{margin:5px 0}
+ul.q{list-style:none;margin:4px 0 8px;padding:0}
+body{counter-reset:qnum}
+ul.q>li{position:relative;padding-left:36px;margin:6px 0;counter-increment:qnum}
+ul.q>li::before{content:counter(qnum);position:absolute;left:0;top:0;font-weight:700;color:#1f5eff;font-size:13px}
+.probe{background:#f7f8fa;border-left:3px solid #c3cad9;color:#42506b;font-size:13px;padding:6px 12px;margin:5px 0 5px 36px}
+.probe::before{content:"↳ ";color:#8892a6}
+.branch{background:#fff8f2;border-left:4px solid #e8833a;padding:10px 14px;margin:10px 0}
+.branch .bt{font-weight:800;color:#b05a12;font-size:13.5px;margin-bottom:4px}
+table.tbl{border-collapse:collapse;width:100%;margin:10px 0;font-size:13px}
+table.tbl th{background:#eef2fb;border:1px solid #c6d0e6;padding:7px 10px;text-align:left;color:#22315e}
+table.tbl td{border:1px solid #c6d0e6;padding:7px 10px;vertical-align:top}
+.country-chip{display:inline-block;background:#12285e;color:#fff;font-size:12px;font-weight:700;border-radius:6px;padding:2px 10px;margin-bottom:8px}
+.instrument{background:#fbf7ff;border:1px dashed #b79ae0;padding:10px 14px;margin:10px 0;font-size:13px;color:#4a3a63}
+.instrument .it{font-weight:700;color:#6b3fa0;margin-bottom:4px}
+.condbox{background:#f2fbf6;border:1px solid #bfe6cd;border-left:4px solid #2f9e5f;padding:10px 14px;margin:12px 0;font-size:13px;color:#20503a}
+.condbox .cb-title{font-weight:800;color:#1d7a4a;margin-bottom:4px}
+.condbox .cb-items{line-height:1.9}
+.condbox .cb-note{font-size:11.5px;color:#5b8a70;margin-top:4px}
+.q-tags{display:none}
+.q-tag{display:inline-block;font-size:10px;font-weight:600;padding:1px 6px;border-radius:3px;line-height:1.5;white-space:nowrap}
+.q-tag.t-climate{background:#fff3e0;color:#e65100;border:1px solid #ffcc80}
+.q-tag.t-roads{background:#efebe9;color:#4e342e;border:1px solid #bcaaa4}
+.q-tag.t-charging{background:#e8f5e9;color:#1b5e20;border:1px solid #a5d6a7}
+.q-tag.t-power{background:#e3f2fd;color:#0d47a1;border:1px solid #90caf9}
+.q-tag.t-drive{background:#f3e5f5;color:#4a148c;border:1px solid #ce93d8}
+.q-tag.t-incentive{background:#fff8e1;color:#f57f17;border:1px solid #ffe082}
+.q-tag.t-finance{background:#fce4ec;color:#880e4f;border:1px solid #f48fb1}
+.q-tag.t-vehicle{background:#e0f7fa;color:#006064;border:1px solid #80deea}
+</style></head><body><div class="doc"><div class="condbox"><div class="cb-title">研究条件与车辆设定（本稿已据此调整内容）</div><div class="cb-items"><b>气候带</b>：热带/亚热带（湿热） ｜ <b>路面规整度</b>：较差（破损/非铺装多） ｜ <b>充电设施覆盖</b>：低（充电不便） ｜ <b>补贴/税收政策</b>：有显著补贴/税收优惠 ｜ <b>金融渗透率</b>：高（贷款/分期普遍） ｜ <b>动力类型</b>：BEV（纯电）、ICE（燃油） ｜ <b>品类</b>：B级（中型）级SUV 运动型多用途车 ｜ <b>车身类型</b>：SUV 运动型多用途</div><div class="cb-note">未列出的条件为「不限定」；如需调整请在生成器中修改后重新生成。</div></div><h1 class="doctitle">GWM Haval H6海外产品定义调研</h1><h2 class="docsub">经销商深访大纲</h2><div class="docnote"><b>【项目背景】</b>本访谈大纲适用于巴西（圣保罗）市场调研。本次调研包含BEV + ICE车主/用户。访谈中ICE相关模块仅在ICE车主组中使用。请根据当地具体车型、政策环境、基础设施情况灵活调整。<br><b>BEV对标车型：</b>BYD Song Plus<br><b>ICE对标车型：</b>Toyota Corolla Cross<br></div><h4>【研究目的】</h4>
+<ul class="q">
+<li>理解当地目标B级（中型）级SUV 运动型多用途车的竞争格局、政策环境、销量变化与渠道经营现状。</li>
+<li>还原真实客户画像、购车动机、考虑因素、成交障碍及流失原因。</li>
+<li>评估GWM Haval H6的产品优势、价格与配置版本、销售话术、售后要求与关键卖点。</li>
+<li>识别中国汽车品牌在当地的优势、短板及进入市场所需条件。</li>
+<li>___________（请补充本项目特定的研究目标）</li>
+</ul><h4>【样本定义与时长】</h4>
+<p>建议受访者：当地经销商负责人、销售主管或能依据近期客户和经营记录回答的相关人员。</p>
+<p>访谈分组：BEV组 + ICE组</p>
+<p>访谈时长：约90分钟</p>
+<table class="tbl"><tbody><tr><th>模块</th><th>内容</th><th>时长</th></tr>
+<tr><td>模块1</td><td> 受访者与机构背景</td><td>10min</td></tr>
+<tr><td>模块2</td><td> 品牌市场与政策</td><td>10min</td></tr>
+<tr><td>模块3</td><td> 客户画像与用途</td><td>10min</td></tr>
+<tr><td>模块4</td><td> 成交与流失</td><td>15min</td></tr>
+<tr><td>模块5</td><td> 产品需求与方案</td><td>15min</td></tr>
+<tr><td>模块6</td><td> 价格版型与盈利</td><td>10min</td></tr>
+<tr><td>模块7</td><td> 渠道营销与服务</td><td>10min</td></tr>
+<tr><td>模块8</td><td> 品牌机会与策略</td><td>10min</td></tr>
+<tr><td><b>合计</b></td><td></td><td>约90分钟</td></tr></tbody></table>
+<hr class="sep"><h3 class="mod">1. 受访者与机构背景<span class="en">受访者与机构背景</span></h3><div style="background:#f0f7ff;border:1px solid #c4d9f5;border-radius:6px;padding:10px 14px;margin-bottom:12px"><div style="font-weight:600;color:#2a5fcc;margin-bottom:4px">开场与执行说明</div><ul class="q"><li>今天我们想了解您在相关业务与市场中的经验。开始前先说明研究目的、记录方式和资料用途；您是否愿意参与？</li></ul></div><h5>B1.1 职责与经验</h5><ul class="q"><li>请介绍您的职责、从业经验，以及目前实际负责的区域、B级（中型）级SUV 运动型多用途车或业务。</li></ul><h5>B1.2 机构与业务范围</h5><ul class="q"><li>请介绍您所在机构与本次研究相关的业务，以及您能够直接观察的范围。</li></ul><hr class="sep"><h3 class="mod">2. 品牌市场与政策<span class="en">品牌市场与政策</span></h3><h5>B2.1 竞争格局与品牌表现</h5><ul class="q"><li>在您负责的区域，目标B级（中型）级SUV 运动型多用途车哪些品牌和车型卖得较好？近期有什么变化？</li></ul><h5>B2.2 市场规模与销量预测</h5><ul class="q"><li>目标B级（中型）级SUV 运动型多用途车近期销量大致怎样？未来一至两年您预计如何变化？</li></ul><h5>B2.3 政策、补贴与税费</h5><ul class="q"><li>当地哪些补贴、税费或牌照政策实际影响客户成交？请举订单例子。</li></ul><h5>B2.4 基础设施与能源环境</h5><ul class="q"><li>客户最常提到哪些充电、加油或道路条件问题？</li></ul><hr class="sep"><h3 class="mod">3. 客户画像与用途<span class="en">客户画像与用途</span></h3><h5>B3.1 核心客户画像</h5><ul class="q"><li>您接触到的目标车型客户通常是什么年龄、职业和家庭阶段？为什么购买？</li></ul><h5>B3.2 购车类型与车辆关系</h5><ul class="q"><li>客户通常是首购、增购还是换购？增购或换购的主要理由是什么？</li></ul><h5>B3.3 驾驶者、乘员与决策者</h5><ul class="q"><li>目标车型通常由谁开、谁乘坐、谁出钱、谁最终决定？</li></ul><h5>B3.4 典型用途与高频场景</h5><ul class="q"><li>客户买这类车主要用来做什么？哪些场景最常见、最关键？</li></ul><hr class="sep"><h3 class="mod">4. 成交与流失<span class="en">成交与流失</span></h3><h5>B4.1 购买触发与考虑因素</h5><ul class="q"><li>什么事情最容易触发客户购车？客户选车最看重哪三项因素？</li></ul><h5>B4.2 候选车型与胜负原因</h5><ul class="q"><li>客户通常会比较哪些车型？目标车型成交或流失的关键原因是什么？</li></ul><h5>B4.3 信息来源与传播影响</h5><ul class="q"><li>客户通常从哪里获取信息？哪些内容真正影响到店或购买？</li></ul><h5>B4.4 到店、试驾与服务影响</h5><ul class="q"><li>从进店、看车、试驾到报价，哪些环节最影响客户决定？</li></ul><h5>B4.5 顾虑与转化条件</h5><ul class="q"><li>客户最常见的顾虑是什么？满足哪些条件后才可能成交？</li></ul><h5>B4.6 动力选择与顾虑</h5><ul class="q"><li>客户怎样在燃油、混动、插混和纯电之间选择？最大的顾虑是什么？</li></ul><hr class="sep"><h3 class="mod">5. 产品需求与方案<span class="en">产品需求与方案</span></h3><h5>B5.1 总体产品需求</h5><ul class="q"><li>客户对这类车最看重哪些产品表现？哪些问题最容易导致放弃？</li></ul><h5>B5.2 乘坐、空间与装载</h5><ul class="q"><li>客户对乘坐舒适、座椅、乘员空间和装载有什么要求？</li></ul><h5>B5.3 道路、底盘与气候适应</h5><ul class="q"><li>当地客户对底盘、通过性、操控、停车和空调有什么具体要求？</li></ul><h5>B5.4 座舱、车机与互联</h5><ul class="q"><li>客户对车机、语音、导航、手机互联和座舱功能有哪些要求或抱怨？</li></ul><h5>B5.5 补能与续航要求</h5><ul class="q"><li>对新能源客户，实际充电条件、续航底线和等待时间要求是什么？</li></ul><h5>B5.6 驾驶辅助信任边界</h5><ul class="q"><li>客户在哪些场景愿意或不愿意使用驾驶辅助？需要什么证据才会信任？</li></ul><h5>B5.7 安全、耐久与质量</h5><ul class="q"><li>客户最关心哪些安全、质量和耐久问题？什么问题会直接否决购买？</li></ul><h5>B5.8 产品概念总体评价</h5><ul class="q"><li>看完产品概念，您认为它最能打动哪些客户？主要优势和短板是什么？ <span class="tag" style="background:#fff4dc;border-color:#e8c97a;color:#7a5a12;font-size:10px">待准备：项目材料</span></li></ul><h5>B5.9 外观与内饰方案</h5><ul class="q"><li>基于展示材料，车型轮廓、前脸、车尾和内饰哪些更容易被客户接受？ <span class="tag" style="background:#fff4dc;border-color:#e8c97a;color:#7a5a12;font-size:10px">待准备：项目材料</span></li></ul><h5>B5.10 配置组合与取舍</h5><ul class="q"><li>哪些配置最能影响成交？哪些配置客户不愿付费或可以删减？ <span class="tag" style="background:#fff4dc;border-color:#e8c97a;color:#7a5a12;font-size:10px">待准备：项目材料</span></li></ul><h5>B5.11 本地化与工程适配</h5><ul class="q"><li>客户对本地语言、应用、支付、连接和售后诊断有哪些要求？</li></ul><hr class="sep"><h3 class="mod">6. 价格版型与盈利<span class="en">价格版型与盈利</span></h3><h5>B6.1 客户预算与实际成交价</h5><ul class="q"><li>客户预算通常怎样形成？实际成交价与最初预算相差多少，为什么？</li></ul><h5>B6.2 支付与金融方案</h5><ul class="q"><li>客户常用哪些支付或金融方式？哪些费用和条款最影响选择？</li></ul><h5>B6.3 价格、版型与残值</h5><ul class="q"><li>客户怎样在不同版型之间选择？哪些价差合理？残值或回购保障会改变决定吗？ <span class="tag" style="background:#fff4dc;border-color:#e8c97a;color:#7a5a12;font-size:10px">待准备：项目材料</span></li></ul><h5>B6.4 经销商盈利与资源投入</h5><ul class="q"><li>销售这类车的毛利、返利、库存和服务投入怎样？什么条件下门店愿意重点推动？</li></ul><hr class="sep"><h3 class="mod">7. 渠道营销与服务<span class="en">渠道营销与服务</span></h3><h5>B7.1 渠道覆盖与购车便利</h5><ul class="q"><li>客户在哪些地区或环节最难看车、试驾、交付或维修？</li></ul><h5>B7.2 门店能力与销售支持</h5><ul class="q"><li>门店要把这类车卖好，需要哪些人员、展车、试驾车和销售工具？</li></ul><h5>B7.3 售后成本与服务体验</h5><ul class="q"><li>客户最在意哪些持有成本和售后问题？哪些问题最影响复购和口碑？</li></ul><h5>B7.4 获客渠道与内容</h5><ul class="q"><li>哪些渠道和内容最能带来有效线索和到店？</li></ul><hr class="sep"><h3 class="mod">8. 品牌机会与策略<span class="en">品牌机会与策略</span></h3><h5>B8.1 B级（中型）级SUV 运动型多用途车意义与品牌形象</h5><ul class="q"><li>客户怎样理解这类车和目标品牌？常用哪些词描述？</li></ul><h5>B8.2 中国品牌优劣势</h5><ul class="q"><li>客户怎么看中国汽车品牌？主要优势和顾虑是什么？</li></ul><h5>B8.3 品牌揭示与概念匹配</h5><ul class="q"><li>知道品牌后，您对产品概念和目标客户的判断有什么变化？ <span class="tag" style="background:#fff4dc;border-color:#e8c97a;color:#7a5a12;font-size:10px">待准备：项目材料</span></li></ul><h5>B8.4 卖点理解与传播</h5><ul class="q"><li>这些卖点中，哪些客户容易理解并愿意相信？哪些难以成交？ <span class="tag" style="background:#fff4dc;border-color:#e8c97a;color:#7a5a12;font-size:10px">待准备：项目材料</span></li></ul><h5>B8.5 市场进入条件与风险</h5><ul class="q"><li>一个新品牌要在当地被客户接受，需要先解决哪些渠道、交付和售后问题？</li></ul></div></body></html>
