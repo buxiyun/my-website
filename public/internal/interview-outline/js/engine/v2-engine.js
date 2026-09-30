@@ -72,7 +72,12 @@ function v2QuestionHTML(q, vk){
   }
   h += '</li></ul>';
   if(q.probes && q.probes.length){
-    h += '<div class="probe">【主持人注意/追问：' + q.probes.map(p=>escHTML(p)).join('；') + '】</div>';
+    if(q.probes_style === 'ordered'){
+      h += '<div class="probe">【' + escHTML(q.probes_intro || '必须观察并记录') + '】<br>'
+        + q.probes.map((p,i)=>(i+1)+'. '+escHTML(p)).join('<br>') + '</div>';
+    } else {
+      h += '<div class="probe">【主持人注意/追问：' + q.probes.map(p=>escHTML(p)).join('；') + '】</div>';
+    }
   }
   if(q.conditional_probes && q.conditional_probes.length){
     q.conditional_probes.forEach(cp => {
@@ -150,16 +155,16 @@ function v2GenerateMods(){
   });
 
   if(modIds.length > 0){
+    /* 入户参观 → IHV 首模块前，先 prepend（再被开场说明 prepend 覆盖到其后），确保排在开场说明之后 */
+    if(method === 'IHV' && homeTour && homeTour.variants[vk] && v2GatePasses(homeTour.gate)){
+      result[modIds[0]] = '<h5>入户参观与现场记录（开场寒暄约10分钟后进行）</h5>' + v2QuestionHTML(homeTour, vk) + result[modIds[0]];
+    }
     if(intro && intro.variants[vk]){
       result[modIds[0]] = '<div style="background:#f0f7ff;border:1px solid #c4d9f5;border-radius:6px;padding:10px 14px;margin-bottom:12px">'
         + '<div style="font-weight:600;color:#2a5fcc;margin-bottom:4px">开场与执行说明</div>'
         + v2QuestionHTML(intro, vk) + '</div>'
         + result[modIds[0]];
     }
-  }
-  /* 实地家庭观察 → IHV 首模块前，确保 home tour 稳定显示 */
-  if(method === 'IHV' && homeTour && homeTour.variants[vk] && v2GatePasses(homeTour.gate) && modIds.length > 0){
-    result[modIds[0]] = '<h5>入户 Home Tour 与现场记录</h5>' + v2QuestionHTML(homeTour, vk) + result[modIds[0]];
   }
   return result;
 }
