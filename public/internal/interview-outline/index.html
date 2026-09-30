@@ -2461,6 +2461,7 @@ DATA.IHV = {
 /* ================= Dealer 经销商访谈 ================= */
 DATA.Dealer = {
   label: 'Dealer 经销商访谈', labelEn: 'Dealer Interview', short: 'Dealer',
+  group: 'B端深访 · 内容源自港泰MPV提纲，可用车型/国家替换复用',
   modules: [
     {id:'d1', name:'1. 自我介绍', en:'Opening & Self-Introduction', desc:'开场白与保密承诺、经销商与企业背景自我介绍', src:'原模块一'},
     {id:'d2', name:'2. 该品牌发展状况', en:'Brand Landscape & Competitors', desc:'品牌格局TOP5、新进入者、竞品优劣势（BR含ICE竞品）、品牌鄙视链、版型与成交价', src:'原模块二2.1品牌格局+2.2竞品深度分析'},
@@ -6576,7 +6577,7 @@ function escReg(s){ return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'); }
 function typesOfStage(st){ return Object.keys(DATA).filter(k=>(STAGE_OF_TYPE[k]||'pd')===st); }
 function visibleTypes(st){ return typesOfStage(st).filter(k=>!DATA[k].hide); }
 function isMPVType(){ return /^MPV/.test(state.type||''); }
-/* 类型切换后校正国家：仅保留新类型有内容的国家，若为空自动选第一个可用（优先高频） */
+/* 类型切换后校正国家：仅保留新类型有内容的国家，若为空自动选第一个可用（优先高频）；同时校正 countryCount 不超过可用国家数 */
 function syncCountriesToType(){
   if(!state.type) return;
   const codes = Object.keys(DATA[state.type].countries||{});
@@ -6585,6 +6586,10 @@ function syncCountriesToType(){
   if(!state.countries.length){
     const first = COUNTRIES.find(c=>codes.includes(c.code)&&c.freq) || COUNTRIES.find(c=>codes.includes(c.code));
     if(first) state.countries = [first.code];
+  }
+  /* 若可用国家数少于当前 countryCount，自动下调 */
+  if(codes.length < state.countryCount){
+    state.countryCount = Math.max(1, codes.length);
   }
 }
 
