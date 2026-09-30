@@ -3,7 +3,7 @@
 // =========================================================
 
 const state = { stage:'pd', type:null, countries:[], countryCount:1, _desiredCc:1, mods:{}, modOrder:[], repModel:'', repCountries:{},
-  ownerType:'both', segment:'', bodyType:'', personnel:'middle',
+  ownerType:'both', segment:'', bodyType:'',
   conds:{ climate:'', roads:'', charging:'', power:[], drive:'', incentive:'', finance:'', usage:'', ihvSource:'' },
   viewMode:'outline', bevBench:'', iceBench:'', otherBench:'', f5Subs:{}, subs:{},
   sellingPoints:[], configItems:[], conceptVariants:[] };
@@ -226,7 +226,7 @@ function switchStage(id){
   state.repCountries = {};
   state.repModel = '';
   Object.keys(_GENERIC_SUBS_CACHE).forEach(k=>delete _GENERIC_SUBS_CACHE[k]);
-  initStageTabs(); initTypeButtons(); initCountryButtons(); initOwnerGrid(); initCountryGrid(); initVehicleSpecs(); initPersonnelGrid(); initConds(); initModList(); initSellingPointsUI(); initRepCountries();
+  initStageTabs(); initTypeButtons(); initCountryButtons(); initOwnerGrid(); initCountryGrid(); initVehicleSpecs(); initConds(); initModList(); initSellingPointsUI(); initRepCountries();
 }
 
 function initTypeButtons(){
@@ -261,7 +261,7 @@ function initTypeButtons(){
       state.subs = {};
       Object.keys(_GENERIC_SUBS_CACHE).forEach(k=>delete _GENERIC_SUBS_CACHE[k]);
       syncCountriesToType();
-      initTypeButtons(); initCountryButtons(); initOwnerGrid(); initCountryGrid(); initVehicleSpecs(); initPersonnelGrid(); initModList(); initSellingPointsUI();
+      initTypeButtons(); initCountryButtons(); initOwnerGrid(); initCountryGrid(); initVehicleSpecs(); initModList(); initSellingPointsUI();
     };
     grid.appendChild(el);
   });
@@ -364,20 +364,6 @@ function initVehicleSpecs(){
     bodySel.innerHTML = '<option value="">不限定</option>' + BODY_TYPES.map(b=>`<option value="${b.id}"${state.bodyType===b.id?' selected':''}>${b.label}</option>`).join('');
     bodySel.onchange = ()=>{ state.bodyType = bodySel.value; };
   }
-}
-
-/* ---------- 人员分类 ---------- */
-function initPersonnelGrid(){
-  const box = document.getElementById('personnelGrid');
-  if(!box) return;
-  box.innerHTML = '';
-  PERSONNEL_TYPES.forEach(p=>{
-    const el = document.createElement('div');
-    el.className = 'personnel-btn' + (state.personnel===p.id?' on':'');
-    el.innerHTML = `<div class="t">${p.label}</div><div class="n">${p.note}</div>`;
-    el.onclick = ()=>{ state.personnel = p.id; initPersonnelGrid(); };
-    box.appendChild(el);
-  });
 }
 
 /* ---------- 调研国家数 ---------- */
@@ -907,7 +893,7 @@ function resetConds(){
 
 
 /* ---------- 启动 ---------- */
-initStageTabs(); initTypeButtons(); initCcGrid(); initCountryButtons(); initOwnerGrid(); initCountryGrid(); initVehicleSpecs(); initPersonnelGrid(); initModList(); initRepCountries(); initConds(); initSellingPointsUI();
+initStageTabs(); initTypeButtons(); initCcGrid(); initCountryButtons(); initOwnerGrid(); initCountryGrid(); initVehicleSpecs(); initModList(); initRepCountries(); initConds(); initSellingPointsUI();
 /* 默认选中第一个常用国家 */
 if(!state.countries.length){
   const firstFreq = COUNTRIES.find(c=>c.freq);

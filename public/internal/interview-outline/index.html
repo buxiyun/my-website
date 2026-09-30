@@ -121,14 +121,6 @@ body{font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sa
 .cc-grid .cc-btn.on{border-color:var(--brand);background:var(--brand-soft);color:var(--brand)}
 .cc-grid .cc-btn.off{opacity:.35;cursor:not-allowed}
 
-/* 人员分类 */
-.personnel-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
-.personnel-btn{border:1.5px solid var(--line);border-radius:10px;padding:10px 6px;text-align:center;cursor:pointer;background:#fbfcfe;transition:.15s;user-select:none}
-.personnel-btn .t{font-weight:700;font-size:13px;color:var(--ink)}
-.personnel-btn .n{font-size:10.5px;color:var(--ink3);margin-top:2px}
-.personnel-btn:hover{border-color:var(--brand-line)}
-.personnel-btn.on{border-color:var(--brand);background:var(--brand-soft);box-shadow:inset 0 0 0 1px var(--brand)}
-.personnel-btn.on .t{color:var(--brand)}
 
 /* 模块列表（无编号/来源） */
 .mod-item{position:relative}
@@ -550,20 +542,16 @@ body.editing .doc ul.q>li:hover>.edit-ctl,body.editing .doc .branch li:hover>.ed
       </div>
     </div>
 
-    <div class="card">
-      <h3><span class="no">6</span>人员分类</h3>
-      <div class="personnel-grid" id="personnelGrid"></div>
-    </div>
 
     <div class="card">
-      <h3><span class="no">7</span>研究条件<span class="hint">剔除不适用内容</span></h3>
+      <h3><span class="no">6</span>研究条件<span class="hint">剔除不适用内容</span></h3>
       <div id="condList"></div>
       <div class="rep-toolbar"><button class="mini" onclick="resetConds()">重置条件</button></div>
       <div class="rep-hint">选择后，生成时自动剔除不适用于所选条件的内容。选「不限定」则该项不过滤；动力类型多选时，提纲中将保留所选各动力类型的专属题目，全不选等同不限定。</div>
     </div>
 
     <div class="card">
-      <h3><span class="no">8</span>模块与生成<span class="hint" id="modCount"></span></h3>
+      <h3><span class="no">7</span>模块与生成<span class="hint" id="modCount"></span></h3>
       <div class="mod-toolbar">
         <button class="mini" onclick="setAllMods(true)">全选</button>
         <button class="mini" onclick="setAllMods(false)">清空</button>

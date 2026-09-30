@@ -122,7 +122,7 @@ function outlineConfigKey(){
     state.type, collectSelectedCountries(),
     d.modules.filter(m=>state.mods[m.id]).map(m=>m.id),
     state.subs, state.f5Subs, state.conds,
-    state.ownerType, state.personnel, state.segment, state.bodyType,
+    state.ownerType, state.segment, state.bodyType,
     state.repModel, state.repCountries, state.sellingPoints, state.configItems,
     state.bevBench, state.iceBench, state.otherBench,
     opt('optHeader'), opt('optDivider'), opt('optProbe')

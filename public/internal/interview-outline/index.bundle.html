@@ -121,14 +121,6 @@ body{font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sa
 .cc-grid .cc-btn.on{border-color:var(--brand);background:var(--brand-soft);color:var(--brand)}
 .cc-grid .cc-btn.off{opacity:.35;cursor:not-allowed}
 
-/* 人员分类 */
-.personnel-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
-.personnel-btn{border:1.5px solid var(--line);border-radius:10px;padding:10px 6px;text-align:center;cursor:pointer;background:#fbfcfe;transition:.15s;user-select:none}
-.personnel-btn .t{font-weight:700;font-size:13px;color:var(--ink)}
-.personnel-btn .n{font-size:10.5px;color:var(--ink3);margin-top:2px}
-.personnel-btn:hover{border-color:var(--brand-line)}
-.personnel-btn.on{border-color:var(--brand);background:var(--brand-soft);box-shadow:inset 0 0 0 1px var(--brand)}
-.personnel-btn.on .t{color:var(--brand)}
 
 /* 模块列表（无编号/来源） */
 .mod-item{position:relative}
@@ -552,20 +544,16 @@ body.editing .doc ul.q>li:hover>.edit-ctl,body.editing .doc .branch li:hover>.ed
       </div>
     </div>
 
-    <div class="card">
-      <h3><span class="no">6</span>人员分类</h3>
-      <div class="personnel-grid" id="personnelGrid"></div>
-    </div>
 
     <div class="card">
-      <h3><span class="no">7</span>研究条件<span class="hint">剔除不适用内容</span></h3>
+      <h3><span class="no">6</span>研究条件<span class="hint">剔除不适用内容</span></h3>
       <div id="condList"></div>
       <div class="rep-toolbar"><button class="mini" onclick="resetConds()">重置条件</button></div>
       <div class="rep-hint">选择后，生成时自动剔除不适用于所选条件的内容。选「不限定」则该项不过滤；动力类型多选时，提纲中将保留所选各动力类型的专属题目，全不选等同不限定。</div>
     </div>
 
     <div class="card">
-      <h3><span class="no">8</span>模块与生成<span class="hint" id="modCount"></span></h3>
+      <h3><span class="no">7</span>模块与生成<span class="hint" id="modCount"></span></h3>
       <div class="mod-toolbar">
         <button class="mini" onclick="setAllMods(true)">全选</button>
         <button class="mini" onclick="setAllMods(false)">清空</button>
@@ -6513,12 +6501,6 @@ const BODY_TYPES = [
   {id:'coupe',     label:'Coupe 轿跑'}
 ];
 
-const PERSONNEL_TYPES = [
-  {id:'mass',    label:'当地初级',   note:'大众市场 / 入门消费群体'},
-  {id:'middle',  label:'当地中产',   note:'中等收入 / 主流消费力'},
-  {id:'wealthy', label:'当地富裕',   note:'高收入 / 高端消费群体'}
-];
-
 
 
 /* ---------- 研究条件：选项定义 / 规则库 / 过滤引擎 ---------- */
@@ -7359,7 +7341,7 @@ function outlineConfigKey(){
     state.type, collectSelectedCountries(),
     d.modules.filter(m=>state.mods[m.id]).map(m=>m.id),
     state.subs, state.f5Subs, state.conds,
-    state.ownerType, state.personnel, state.segment, state.bodyType,
+    state.ownerType, state.segment, state.bodyType,
     state.repModel, state.repCountries, state.sellingPoints, state.configItems,
     state.bevBench, state.iceBench, state.otherBench,
     opt('optHeader'), opt('optDivider'), opt('optProbe')
@@ -8991,7 +8973,7 @@ function autoMapFromOutline(){
 // =========================================================
 
 const state = { stage:'pd', type:null, countries:[], countryCount:1, _desiredCc:1, mods:{}, modOrder:[], repModel:'', repCountries:{},
-  ownerType:'both', segment:'', bodyType:'', personnel:'middle',
+  ownerType:'both', segment:'', bodyType:'',
   conds:{ climate:'', roads:'', charging:'', power:[], drive:'', incentive:'', finance:'', usage:'', ihvSource:'' },
   viewMode:'outline', bevBench:'', iceBench:'', otherBench:'', f5Subs:{}, subs:{},
   sellingPoints:[], configItems:[], conceptVariants:[] };
@@ -9214,7 +9196,7 @@ function switchStage(id){
   state.repCountries = {};
   state.repModel = '';
   Object.keys(_GENERIC_SUBS_CACHE).forEach(k=>delete _GENERIC_SUBS_CACHE[k]);
-  initStageTabs(); initTypeButtons(); initCountryButtons(); initOwnerGrid(); initCountryGrid(); initVehicleSpecs(); initPersonnelGrid(); initConds(); initModList(); initSellingPointsUI(); initRepCountries();
+  initStageTabs(); initTypeButtons(); initCountryButtons(); initOwnerGrid(); initCountryGrid(); initVehicleSpecs(); initConds(); initModList(); initSellingPointsUI(); initRepCountries();
 }
 
 function initTypeButtons(){
@@ -9249,7 +9231,7 @@ function initTypeButtons(){
       state.subs = {};
       Object.keys(_GENERIC_SUBS_CACHE).forEach(k=>delete _GENERIC_SUBS_CACHE[k]);
       syncCountriesToType();
-      initTypeButtons(); initCountryButtons(); initOwnerGrid(); initCountryGrid(); initVehicleSpecs(); initPersonnelGrid(); initModList(); initSellingPointsUI();
+      initTypeButtons(); initCountryButtons(); initOwnerGrid(); initCountryGrid(); initVehicleSpecs(); initModList(); initSellingPointsUI();
     };
     grid.appendChild(el);
   });
@@ -9352,20 +9334,6 @@ function initVehicleSpecs(){
     bodySel.innerHTML = '<option value="">不限定</option>' + BODY_TYPES.map(b=>`<option value="${b.id}"${state.bodyType===b.id?' selected':''}>${b.label}</option>`).join('');
     bodySel.onchange = ()=>{ state.bodyType = bodySel.value; };
   }
-}
-
-/* ---------- 人员分类 ---------- */
-function initPersonnelGrid(){
-  const box = document.getElementById('personnelGrid');
-  if(!box) return;
-  box.innerHTML = '';
-  PERSONNEL_TYPES.forEach(p=>{
-    const el = document.createElement('div');
-    el.className = 'personnel-btn' + (state.personnel===p.id?' on':'');
-    el.innerHTML = `<div class="t">${p.label}</div><div class="n">${p.note}</div>`;
-    el.onclick = ()=>{ state.personnel = p.id; initPersonnelGrid(); };
-    box.appendChild(el);
-  });
 }
 
 /* ---------- 调研国家数 ---------- */
@@ -9895,7 +9863,7 @@ function resetConds(){
 
 
 /* ---------- 启动 ---------- */
-initStageTabs(); initTypeButtons(); initCcGrid(); initCountryButtons(); initOwnerGrid(); initCountryGrid(); initVehicleSpecs(); initPersonnelGrid(); initModList(); initRepCountries(); initConds(); initSellingPointsUI();
+initStageTabs(); initTypeButtons(); initCcGrid(); initCountryButtons(); initOwnerGrid(); initCountryGrid(); initVehicleSpecs(); initModList(); initRepCountries(); initConds(); initSellingPointsUI();
 /* 默认选中第一个常用国家 */
 if(!state.countries.length){
   const firstFreq = COUNTRIES.find(c=>c.freq);

@@ -28,12 +28,6 @@ const BODY_TYPES = [
   {id:'coupe',     label:'Coupe 轿跑'}
 ];
 
-const PERSONNEL_TYPES = [
-  {id:'mass',    label:'当地初级',   note:'大众市场 / 入门消费群体'},
-  {id:'middle',  label:'当地中产',   note:'中等收入 / 主流消费力'},
-  {id:'wealthy', label:'当地富裕',   note:'高收入 / 高端消费群体'}
-];
-
 
 
 /* ---------- 研究条件：选项定义 / 规则库 / 过滤引擎 ---------- */
