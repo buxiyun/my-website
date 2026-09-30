@@ -5,9 +5,10 @@
 /* v2 variant key — 根据方法/受众选择变体 */
 function v2VariantKey(){
   const t = state.type;
+  if((t==='FGD' || t==='IHV') && state.conds && state.conds.usage==='intend') return 'prospect';
   if(typeof V3_ROLE_BY_TYPE!=='undefined' && V3_ROLE_BY_TYPE[t]) return V3_ROLE_BY_TYPE[t];
   if(t==='Dealer') return 'Dealer';
-  if(t==='FGD' || t==='IHV') return 'owner'; // 未来增加 prospect 选择器
+  if(t==='FGD' || t==='IHV') return 'owner';
   return 'owner';
 }
 
@@ -30,6 +31,7 @@ function v2GatePasses(gate){
       return !state.conds.climate || ['hot','temperate'].includes(state.conds.climate);
     case 'business':  return state.type === 'BusinessOrg' || (state.conds && ['business','commercial'].includes(state.conds.usage));
     case 'ihv_after_fgd': return state.type === 'IHV' && state.conds && state.conds.ihvSource === 'after_fgd';
+    case 'prospect_intent': return state.type === 'FGD' || state.type === 'IHV' ? (state.conds && state.conds.usage === 'intend') : false;
     case 'owner':     return true;
     case 'home_visit': return state.type === 'IHV';
     default: return true;

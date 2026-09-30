@@ -2556,57 +2556,21 @@
       "review_feedback": ""
     },
     {
-      "alias": "history",
-      "submodule_id": "M1.2",
-      "probes": [
-        "新车进入家庭前，家里出行或成员分工发生了什么变化",
-        "是因为家庭成员、工作地点、孩子/老人、停车、成本、牌照/补贴、旧车问题还是其他触发",
-        "谁提出购买、谁推动比较、谁最终同意付款",
-        "不要只问“为什么喜欢”，要追到真实触发事件和不得不买/值得买的理由"
-      ],
-      "gate": "all",
-      "methods": [
-        "FGD",
-        "IHV"
-      ],
-      "material": null,
       "id": "Q-M1.2-02",
-      "module_id": "M1",
-      "source_refs": [
-        "S01-R034",
-        "S09-R006",
-        "S30-R010"
-      ],
-      "source_variants": [
-        {
-          "source_id": "S01-R034",
-          "method": "FGD",
-          "group": null,
-          "source_note": "三国同源"
-        },
-        {
-          "source_id": "S09-R006",
-          "method": "IHV",
-          "group": null,
-          "source_note": "三国同源；措辞有差异，见分国家版"
-        },
-        {
-          "source_id": "S30-R010",
-          "method": "IHV",
-          "group": "高端车主",
-          "source_note": null
-        }
-      ],
-      "conditional_probes": [],
-      "activity": null,
-      "review_status": "待审阅",
+      "audience": "2C",
+      "view_section": "C1",
+      "chapter_label": "车辆组合与分工",
+      "priority": "optional",
+      "gate": "all",
+      "material": null,
+      "condition": "现有车主问最近一次真实购车；意向者问未来购车触发和预算依据，实际经历与设想分开记录。",
       "variants": {
         "owner": {
           "text": "最近一次购买的是哪辆车？是什么品牌和车型，什么时候买的，大概花了多少钱？当时为什么要买这辆车？",
           "evidence_type": "self_report_or_preference"
         },
         "prospect": {
-          "text": "如果未来买车，最可能买来替代或补足哪一种出行？预计预算从哪里来，为什么现在开始考虑？",
+          "text": "您现在想买的是哪一类车，或者已经看中哪辆车？最开始是什么原因让您想要买这辆车？",
           "evidence_type": "actual_experience_then_expectation"
         },
         "business": {
@@ -2614,62 +2578,36 @@
           "evidence_type": "commercial_use_or_purchase"
         }
       },
-      "priority": "optional",
-      "estimated_minutes": {
-        "FGD": 3,
-        "IHV": 4,
-        "Dealer": 3,
-        "Media": 3,
-        "OEM": 3
-      },
-      "editorial_note": "把抽象车辆历史改成最近一次购车事实：品牌、车型、时间、价格和触发变化。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
-      "purpose": "开场建立生活与用车背景。识别车辆组合与替代关系，明确新车承担的任务。 不把背景描述单独解释为市场人群占比。",
-      "condition": "现有车主问最近一次真实购车；意向者问未来购车触发和预算依据，实际经历与设想分开记录。",
-      "reason": "2C用户本人提纲：按生活背景—经历—选择—方案的顺序呈现。保留研究任务，按对象区分问法；同义主问合并，细节保留为按条件追问。",
-      "view_section": "C1",
-      "audience": "2C",
-      "chapter_label": "车辆组合与分工",
-      "review_feedback": ""
-    },
-    {
-      "alias": "allocation",
-      "submodule_id": "M1.2",
-      "probes": [
-        "首购：买车前主要靠什么交通方式，为什么现在必须有车或更值得买车",
-        "增购：家里其他车分别何时买、什么品牌车型、大概多少钱；新增后是不是一人一车，还是按场景分工",
-        "换购：上一辆车何时买、什么品牌车型、用了多久；卖车/置换的钱是否作为新车首付或头款",
-        "换购原因：空间、可靠性、油耗/电耗、维修、舒适、安全、品牌、面子、家庭变化或政策价格变化中哪些是真正原因",
-        "旧车如果没有卖掉，继续由谁开，和新车如何分工"
-      ],
-      "gate": "all",
       "methods": [
         "FGD",
         "IHV"
       ],
-      "material": null,
-      "id": "Q-M1.2-03",
-      "module_id": "M1",
-      "source_refs": [
-        "S27-R010"
-      ],
-      "source_variants": [
-        {
-          "source_id": "S27-R010",
-          "method": "FGD",
-          "group": "意向车主",
-          "source_note": null
-        }
+      "probes": [
+        "具体车型/品牌/动力和大概价格带；如果还没锁定车型，记录目标级别和用途",
+        "触发原因：通勤变了、家庭成员变化、孩子/老人、工作需要、旧交通方式不方便、政策/价格机会、身边人影响等",
+        "这个原因是“必须买”的原因，还是“想升级/想拥有”的原因",
+        "谁最先提出，谁支持，谁反对或犹豫"
       ],
       "conditional_probes": [],
       "activity": null,
-      "review_status": "待审阅",
+      "editorial_note": "把抽象车辆历史改成最近一次购车事实：品牌、车型、时间、价格和触发变化。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。"
+    },
+    {
+      "id": "Q-M1.2-03",
+      "audience": "2C",
+      "view_section": "C1",
+      "chapter_label": "车辆组合与分工",
+      "priority": "optional",
+      "gate": "all",
+      "material": null,
+      "condition": "用于梳理首购/增购/换购路径；家用样本按家庭车辆流转记录，组织采购另走商务/组织模块。",
       "variants": {
         "owner": {
           "text": "这次买车属于首购、增购还是换购？请按实际情况还原家里车辆数量和钱是怎么流转的。",
           "evidence_type": "self_report_or_preference"
         },
         "prospect": {
-          "text": "未来这次购车更像首购、增购还是换购？如果增购或换购，现有车辆会保留、出售还是转给家人使用？",
+          "text": "如果未来真的买这辆车，它会是首购、增购还是换购？家里现在的车或交通方式会怎样变化？",
           "evidence_type": "actual_experience_then_expectation"
         },
         "business": {
@@ -2677,22 +2615,19 @@
           "evidence_type": "commercial_use_or_purchase"
         }
       },
-      "priority": "optional",
-      "estimated_minutes": {
-        "FGD": 3,
-        "IHV": 4,
-        "Dealer": 3,
-        "Media": 3,
-        "OEM": 3
-      },
-      "editorial_note": "按审阅意见补足增购/换购细节、旧车处置、首付来源和不满意原因。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
-      "purpose": "开场建立生活与用车背景。识别车辆组合与替代关系，明确新车承担的任务。 不把背景描述单独解释为市场人群占比。",
-      "condition": "用于梳理首购/增购/换购路径；家用样本按家庭车辆流转记录，组织采购另走商务/组织模块。",
-      "reason": "2C用户本人提纲：按生活背景—经历—选择—方案的顺序呈现。保留研究任务，按对象区分问法；同义主问合并，细节保留为按条件追问。",
-      "view_section": "C1",
-      "audience": "2C",
-      "chapter_label": "车辆组合与分工",
-      "review_feedback": ""
+      "methods": [
+        "FGD",
+        "IHV"
+      ],
+      "probes": [
+        "首购：现在没有车带来哪些不方便，买了以后最想解决什么",
+        "增购：新增后谁开、承担哪些新任务，是否会减少打车/借车/其他车使用",
+        "换购：上一辆或现有车辆哪里不够用，是否计划出售/置换，车款是否作为新车首付或头款",
+        "如果暂时不买，现有安排还能撑多久，靠什么办法应对"
+      ],
+      "conditional_probes": [],
+      "activity": null,
+      "editorial_note": "按审阅意见补足增购/换购细节、旧车处置、首付来源和不满意原因。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。"
     },
     {
       "alias": "roles",
@@ -6078,104 +6013,37 @@
       "review_feedback": "汽车氛围有点表述不清楚"
     },
     {
-      "alias": "trigger",
-      "submodule_id": "M3.1",
-      "probes": [
-        "如果C1已详细问过车辆履历，此处跳过车辆清单，只核对最初触发事件",
-        "触发可能来自生活、工作、家庭成员、停车/补能、旧车状态、价格或政策变化",
-        "首购/增购/换购标签与前文核对一致；触发原因与最终选择原因分开",
-        "不要让受访者重复讲上一辆车细节，除非前面完全没有覆盖"
-      ],
-      "gate": "all",
-      "methods": [
-        "FGD",
-        "IHV"
-      ],
-      "material": null,
       "id": "Q-M3.1-01",
-      "module_id": "M3",
-      "source_refs": [
-        "S01-R031",
-        "S10-R010",
-        "S16-R013",
-        "S21-R017",
-        "S21-R027",
-        "S27-R014",
-        "S31-R011"
-      ],
-      "source_variants": [
-        {
-          "source_id": "S01-R031",
-          "method": "FGD",
-          "group": null,
-          "source_note": "三国同源"
-        },
-        {
-          "source_id": "S10-R010",
-          "method": "IHV",
-          "group": null,
-          "source_note": "三国同源"
-        },
-        {
-          "source_id": "S16-R013",
-          "method": "Dealer",
-          "group": null,
-          "source_note": "巴西+印尼同源；措辞有差异，见分国家版"
-        },
-        {
-          "source_id": "S21-R017",
-          "method": "FGD",
-          "group": "商用",
-          "source_note": "仅商用"
-        },
-        {
-          "source_id": "S21-R027",
-          "method": "FGD",
-          "group": "家用",
-          "source_note": "仅家用"
-        },
-        {
-          "source_id": "S27-R014",
-          "method": "FGD",
-          "group": "意向车主",
-          "source_note": null
-        },
-        {
-          "source_id": "S31-R011",
-          "method": "IHV",
-          "group": "高端车主",
-          "source_note": null
-        }
-      ],
-      "conditional_probes": [],
-      "activity": null,
-      "review_status": "已按意见修改",
+      "audience": "2C",
+      "view_section": "C3",
+      "chapter_label": "触发事件与预算",
+      "priority": "core",
+      "gate": "all",
+      "material": null,
+      "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "variants": {
         "owner": {
           "text": "如果前面还没有讲过，简单说一下上一辆车是什么车型、用了多久；如果已经讲过，就直接说最初是什么事情让你产生这次买车或换车的想法。",
           "evidence_type": "self_report_or_preference"
         },
         "prospect": {
-          "text": "如果前面还没有讲过，简单说一下目前主要使用什么车或交通方式、用了多久；如果已经讲过，就直接说最初是什么事情让你开始考虑这次买车或换车。",
+          "text": "您最初是什么时候开始认真考虑买这辆车/这类车的？当时发生了什么，让您觉得“可能需要买车了”？",
           "evidence_type": "actual_experience_then_expectation"
         }
       },
-      "priority": "core",
-      "estimated_minutes": {
-        "FGD": 3,
-        "IHV": 4,
-        "Dealer": 3,
-        "Media": 3,
-        "OEM": 3
-      },
-      "editorial_note": "按审阅意见明确：若前文已覆盖车辆履历，本题跳过上一辆车细节，只问购车/换车触发。",
-      "purpose": "区分购车触发、预算形成与实际支出，明确需求启动条件。",
-      "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
-      "reason": "按审阅意见补充上一辆车或当前车辆及使用时长。",
-      "view_section": "C3",
-      "audience": "2C",
-      "chapter_label": "触发事件与预算",
-      "review_feedback": "上一辆车是什么车，用了多久，这信息可能要增加"
+      "methods": [
+        "FGD",
+        "IHV"
+      ],
+      "probes": [
+        "如果前面已经讲过触发原因，此处只核对时间点和关键事件",
+        "区分长期想法、最近被触发、已经进入比较和准备成交",
+        "触发原因与喜欢某款车的原因分开记录",
+        "追问这个念头是自己产生、家人推动、朋友影响、销售/广告影响，还是现实不方便逼出来"
+      ],
+      "conditional_probes": [],
+      "activity": null,
+      "editorial_note": "按审阅意见明确：若前文已覆盖车辆履历，本题跳过上一辆车细节，只问购车/换车触发。"
     },
     {
       "alias": "budget",
@@ -6316,131 +6184,36 @@
       "review_feedback": ""
     },
     {
-      "alias": "candidates",
-      "submodule_id": "M3.2",
-      "probes": [
-        "最初与最后名单",
-        "跨车身/动力/价格带",
-        "没有考虑过的不强行评价"
-      ],
-      "gate": "all",
-      "methods": [
-        "FGD",
-        "IHV"
-      ],
-      "material": null,
       "id": "Q-M3.2-01",
-      "module_id": "M3",
-      "source_refs": [
-        "S05-R009",
-        "S05-R013",
-        "S05-R039",
-        "S05-R044",
-        "S10-R012",
-        "S10-R018",
-        "S23-R006",
-        "S23-R010",
-        "S29-R006",
-        "S31-R013",
-        "S31-R019"
-      ],
-      "source_variants": [
-        {
-          "source_id": "S05-R009",
-          "method": "FGD",
-          "group": null,
-          "source_note": "仅印尼"
-        },
-        {
-          "source_id": "S05-R013",
-          "method": "FGD",
-          "group": null,
-          "source_note": "巴西+意大利同源"
-        },
-        {
-          "source_id": "S05-R039",
-          "method": "FGD",
-          "group": "ICE 车主：购车考虑过程与BEV放弃原因",
-          "source_note": "仅意大利"
-        },
-        {
-          "source_id": "S05-R044",
-          "method": "FGD",
-          "group": "ICE 车主：购车考虑过程与BEV放弃原因（仅FGD2 ICE组使用此模块）",
-          "source_note": "仅巴西"
-        },
-        {
-          "source_id": "S10-R012",
-          "method": "IHV",
-          "group": null,
-          "source_note": "巴西+印尼同源"
-        },
-        {
-          "source_id": "S10-R018",
-          "method": "IHV",
-          "group": null,
-          "source_note": "三国同源；措辞有差异，见分国家版"
-        },
-        {
-          "source_id": "S23-R006",
-          "method": "FGD",
-          "group": "商用",
-          "source_note": "仅商用"
-        },
-        {
-          "source_id": "S23-R010",
-          "method": "FGD",
-          "group": "家用",
-          "source_note": "仅家用"
-        },
-        {
-          "source_id": "S29-R006",
-          "method": "FGD",
-          "group": "意向车主",
-          "source_note": null
-        },
-        {
-          "source_id": "S31-R013",
-          "method": "IHV",
-          "group": "高端车主",
-          "source_note": null
-        },
-        {
-          "source_id": "S31-R019",
-          "method": "IHV",
-          "group": "高端车主",
-          "source_note": null
-        }
-      ],
-      "conditional_probes": [],
-      "activity": null,
-      "review_status": "同意",
+      "audience": "2C",
+      "view_section": "C3",
+      "chapter_label": "信息源与候选清单",
+      "priority": "core",
+      "gate": "all",
+      "material": null,
+      "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "variants": {
         "owner": {
           "text": "在本次选车过程中，您考虑过哪些车型？候选清单如何变化？",
           "evidence_type": "self_report_or_preference"
         },
         "prospect": {
-          "text": "在本次选车过程中，您考虑过哪些车型？候选清单如何变化？",
+          "text": "到目前为止，您认真考虑过哪些车型？哪些还在名单里，哪些已经被排除了？",
           "evidence_type": "actual_experience_then_expectation"
         }
       },
-      "priority": "core",
-      "estimated_minutes": {
-        "FGD": 3,
-        "IHV": 4,
-        "Dealer": 3,
-        "Media": 3,
-        "OEM": 3
-      },
-      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。",
-      "purpose": "还原信息来源与候选变化，为竞争范围和触点选择提供依据。",
-      "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
-      "reason": "2C用户本人提纲：按生活背景—经历—选择—方案的顺序呈现。保留研究任务，按对象区分问法；同义主问合并，细节保留为按条件追问。",
-      "view_section": "C3",
-      "audience": "2C",
-      "chapter_label": "信息源与候选清单",
-      "review_feedback": ""
+      "methods": [
+        "FGD",
+        "IHV"
+      ],
+      "probes": [
+        "最早进入名单的车型和现在仍在考虑的车型",
+        "哪些只是网上看过，哪些到店看过，哪些试驾过",
+        "被排除的原因：价格、品牌、空间、动力、补能、售后、家人意见、等待周期等",
+        "如果只是在空想，记录其信息来源和想象依据，不按真实比较处理"
+      ],
+      "conditional_probes": [],
+      "activity": null
     },
     {
       "alias": "first_choice",
@@ -6803,124 +6576,37 @@
       "review_feedback": ""
     },
     {
-      "alias": "timeline",
-      "submodule_id": "M3.3",
-      "probes": [
-        "开始搜索、到店、试驾、决定、下单、交车",
-        "未发生节点记录计划",
-        "卡在哪一步"
-      ],
-      "gate": "all",
-      "methods": [
-        "FGD",
-        "IHV"
-      ],
-      "material": null,
       "id": "Q-M3.3-01",
-      "module_id": "M3",
-      "source_refs": [
-        "S05-R032",
-        "S10-R007",
-        "S10-R008",
-        "S16-R015",
-        "S23-R026",
-        "S23-R034",
-        "S29-R015",
-        "S31-R008",
-        "S31-R009",
-        "S36-R015"
-      ],
-      "source_variants": [
-        {
-          "source_id": "S05-R032",
-          "method": "FGD",
-          "group": null,
-          "source_note": "三国同源"
-        },
-        {
-          "source_id": "S10-R007",
-          "method": "IHV",
-          "group": null,
-          "source_note": "三国同源；措辞有差异，见分国家版"
-        },
-        {
-          "source_id": "S10-R008",
-          "method": "IHV",
-          "group": null,
-          "source_note": "三国同源；措辞有差异，见分国家版"
-        },
-        {
-          "source_id": "S16-R015",
-          "method": "Dealer",
-          "group": null,
-          "source_note": "三国同源"
-        },
-        {
-          "source_id": "S23-R026",
-          "method": "FGD",
-          "group": "商用",
-          "source_note": "仅商用"
-        },
-        {
-          "source_id": "S23-R034",
-          "method": "FGD",
-          "group": "家用",
-          "source_note": "仅家用"
-        },
-        {
-          "source_id": "S29-R015",
-          "method": "FGD",
-          "group": "意向车主",
-          "source_note": null
-        },
-        {
-          "source_id": "S31-R008",
-          "method": "IHV",
-          "group": "高端车主",
-          "source_note": null
-        },
-        {
-          "source_id": "S31-R009",
-          "method": "IHV",
-          "group": "高端车主",
-          "source_note": null
-        },
-        {
-          "source_id": "S36-R015",
-          "method": "Dealer",
-          "group": "经销商主管",
-          "source_note": null
-        }
-      ],
-      "conditional_probes": [],
-      "activity": "画购车时间轴，标已发生节点与未来计划；让受访者自行补充，主持人只核对遗漏。",
-      "review_status": "同意",
+      "audience": "2C",
+      "view_section": "C3",
+      "chapter_label": "决策链与试驾",
+      "priority": "core",
+      "gate": "all",
+      "material": null,
+      "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "variants": {
         "owner": {
           "text": "请按时间顺序还原从产生购车想法到当前阶段的关键节点。",
           "evidence_type": "self_report_or_preference"
         },
         "prospect": {
-          "text": "请按时间顺序还原从产生购车想法到当前阶段的关键节点。",
+          "text": "请按时间顺序说说您现在处在哪个买车阶段：只是有想法、已经查资料、到店看过、试驾过、谈过价格，还是已经接近下单？",
           "evidence_type": "actual_experience_then_expectation"
         }
       },
-      "priority": "core",
-      "estimated_minutes": {
-        "FGD": 3,
-        "IHV": 4,
-        "Dealer": 3,
-        "Media": 3,
-        "OEM": 3
-      },
-      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。",
-      "purpose": "还原决策节点和体验验证，识别流程卡点与服务改进机会。",
-      "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
-      "reason": "2C用户本人提纲：按生活背景—经历—选择—方案的顺序呈现。保留研究任务，按对象区分问法；同义主问合并，细节保留为按条件追问。",
-      "view_section": "C3",
-      "audience": "2C",
-      "chapter_label": "决策链与试驾",
-      "review_feedback": ""
+      "methods": [
+        "FGD",
+        "IHV"
+      ],
+      "probes": [
+        "每个阶段发生的时间、地点和参与人",
+        "已经试驾：试驾了哪些车，最影响判断的体验是什么",
+        "到店但未试驾：为什么没试驾，下一步是否会试驾",
+        "只在线上看：看了哪些内容，距离实际行动还差什么",
+        "卡在哪一步：钱、家人、停车/充电、车型不确定、政策、等待更好价格或新款"
+      ],
+      "conditional_probes": [],
+      "activity": "画购车时间轴，标已发生节点与未来计划；让受访者自行补充，主持人只核对遗漏。"
     },
     {
       "alias": "trial",
@@ -7170,72 +6856,21 @@
       "review_feedback": ""
     },
     {
-      "alias": "factors",
-      "submodule_id": "M3.4",
-      "probes": [
-        "追问每个因素影响的是采购入围、否决、审批还是最终成交",
-        "商用重点追问可靠性、使用成本、停运风险、售后、形象、空间/装载、安全和残值",
-        "先自由列出，不给选项；再请受访者选前三项并排序",
-        "追问每个因素为什么重要，分别影响入围、否决还是最终成交",
-        "如果前面已经提到预算、用途或家人意见，此处只核对优先级，不重复展开"
-      ],
-      "gate": "all",
-      "methods": [
-        "FGD",
-        "IHV"
-      ],
-      "material": null,
       "id": "Q-M3.4-01",
-      "module_id": "M3",
-      "source_refs": [
-        "S05-R006",
-        "S17-R009",
-        "S23-R020",
-        "S36-R017",
-        "S41-R007"
-      ],
-      "source_variants": [
-        {
-          "source_id": "S05-R006",
-          "method": "FGD",
-          "group": null,
-          "source_note": "三国同源"
-        },
-        {
-          "source_id": "S17-R009",
-          "method": "Dealer",
-          "group": null,
-          "source_note": "三国同源；措辞有差异，见分国家版"
-        },
-        {
-          "source_id": "S23-R020",
-          "method": "FGD",
-          "group": "商用",
-          "source_note": "仅商用"
-        },
-        {
-          "source_id": "S36-R017",
-          "method": "Dealer",
-          "group": "经销商主管",
-          "source_note": null
-        },
-        {
-          "source_id": "S41-R007",
-          "method": "Media",
-          "group": "媒体专家",
-          "source_note": null
-        }
-      ],
-      "conditional_probes": [],
-      "activity": null,
-      "review_status": "已按意见修改",
+      "audience": "2C",
+      "view_section": "C3",
+      "chapter_label": "购车考虑因素",
+      "priority": "core",
+      "gate": "all",
+      "material": null,
+      "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
       "variants": {
         "owner": {
           "text": "买车时你最看重什么？请先自由说，再选出最重要的三个因素。",
           "evidence_type": "self_report_or_preference"
         },
         "prospect": {
-          "text": "买车时你最看重什么？请先自由说，再选出最重要的三个因素。",
+          "text": "如果要买这辆车/这类车，您最看重什么？请先自由说，再选出最重要的三个因素。",
           "evidence_type": "actual_experience_then_expectation"
         },
         "business": {
@@ -7243,22 +6878,20 @@
           "evidence_type": "commercial_use_or_purchase"
         }
       },
-      "priority": "core",
-      "estimated_minutes": {
-        "FGD": 3,
-        "IHV": 4,
-        "Dealer": 3,
-        "Media": 3,
-        "OEM": 3
-      },
-      "editorial_note": "根据原材料改写并归并；未替代项目试访、技术核验或本地化审校。 商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。",
-      "purpose": "识别消费者选车时的考虑因素及优先级，并为后续产品取舍提供依据。",
-      "condition": "按研究目的选用；有实际经历先谈经历，设想单独记录。",
-      "reason": "将原有权衡题明确命名为“购车考虑因素”，便于提纲生成时直接选用。",
-      "view_section": "C3",
-      "audience": "2C",
-      "chapter_label": "购车考虑因素",
-      "review_feedback": ""
+      "methods": [
+        "FGD",
+        "IHV"
+      ],
+      "probes": [
+        "追问每个因素影响的是采购入围、否决、审批还是最终成交",
+        "商用重点追问可靠性、使用成本、停运风险、售后、形象、空间/装载、安全和残值",
+        "先自由列出，不给选项；再请受访者选前三项并排序",
+        "追问每个因素为什么重要，分别影响入围、否决还是最终成交",
+        "如果前面已经提到预算、用途或家人意见，此处只核对优先级，不重复展开"
+      ],
+      "conditional_probes": [],
+      "activity": null,
+      "editorial_note": "商用 FGD 选择“用车目的=商用”时优先使用此问法；家用/个人用车仍使用 owner/prospect 问法。"
     },
     {
       "alias": "ev_purchase_factors",
@@ -18785,6 +18418,102 @@
         "追问哪些理由在家中场景下被加强，哪些变弱",
         "如果发生改选，记录触发改选的生活证据，而不是重新做一遍方案投票",
         "如涉及价格或品牌，只问是否改变判断和原因"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    {
+      "id": "Q-M3.1-04",
+      "audience": "2C",
+      "view_section": "C3",
+      "chapter_label": "意向阶段与未购买原因",
+      "priority": "core",
+      "gate": "prospect_intent",
+      "material": null,
+      "condition": "仅意向车主/潜在购车者使用；现有车主若已成交则跳过。",
+      "variants": {
+        "prospect": {
+          "text": "您现在还没有买，最主要的原因是什么？如果这些问题解决到什么程度，您才会真的买？",
+          "evidence_type": "purchase_barrier_and_trigger"
+        },
+        "owner": {
+          "text": "",
+          "evidence_type": "skip"
+        }
+      },
+      "methods": [
+        "FGD",
+        "IHV"
+      ],
+      "probes": [
+        "未买原因：预算、家人意见、停车/充电、品牌信任、价格等待、政策等待、新款等待、试驾未完成、旧车未处理、还没到必须买的时候",
+        "区分“不会买”的否决原因和“还没买”的等待原因",
+        "什么变化会推进购买：降价、补贴、家人同意、试驾满意、现车/交付、售后承诺、充电条件确认",
+        "什么情况会彻底放弃"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    {
+      "id": "Q-M3.1-05",
+      "audience": "2C",
+      "view_section": "C3",
+      "chapter_label": "购买时间点与下一步",
+      "priority": "core",
+      "gate": "prospect_intent",
+      "material": null,
+      "condition": "仅意向车主/潜在购车者使用；用于判断真实购买窗口。",
+      "variants": {
+        "prospect": {
+          "text": "您预计什么时候会买？在真正购买之前，下一步最可能做什么？",
+          "evidence_type": "purchase_timing"
+        },
+        "owner": {
+          "text": "",
+          "evidence_type": "skip"
+        }
+      },
+      "methods": [
+        "FGD",
+        "IHV"
+      ],
+      "probes": [
+        "时间窗口：1个月内、3个月内、半年内、1年内、只是未来可能",
+        "下一步：继续看资料、问朋友/家人、到店、试驾、谈价格、等补贴/降价/新款、处理旧车",
+        "如果说不清时间，追问缺少哪个前提条件",
+        "记录购买可能性，不把泛泛兴趣当成近期购车意向"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    {
+      "id": "Q-M3.1-06",
+      "audience": "2C",
+      "view_section": "C3",
+      "chapter_label": "有车/无车差异",
+      "priority": "core",
+      "gate": "prospect_intent",
+      "material": null,
+      "condition": "仅意向车主/潜在购车者使用；用于确认目标车辆解决的真实生活问题。",
+      "variants": {
+        "prospect": {
+          "text": "如果真的有了这辆车，您的生活、家庭分工或工作会有什么不同？如果继续没有这辆车，会有哪些不方便或影响？",
+          "evidence_type": "expected_life_impact"
+        },
+        "owner": {
+          "text": "",
+          "evidence_type": "skip"
+        }
+      },
+      "methods": [
+        "FGD",
+        "IHV"
+      ],
+      "probes": [
+        "有车后的变化：通勤、接送孩子/老人、周末出行、社交、工作机会、安全感、时间自由、家庭关系",
+        "没有车继续带来的问题：依赖别人、打车成本、时间不可控、活动受限、带人带物不方便、面子/身份压力",
+        "哪些变化是刚需，哪些只是锦上添花",
+        "让受访者举一个未来最典型的使用场景，而不是只说抽象好处"
       ],
       "conditional_probes": [],
       "activity": null
@@ -61471,6 +61200,11 @@
       "date": "2026-09-30",
       "change": "补充IHV两类样本逻辑与入户观察题卡",
       "detail": "新增参加过FGD/未参加FGD的IHV路径；参加过FGD时默认只复核上次选择，不重复完整产品测试；强化home tour、成长经历和车内场景演示记录。"
+    },
+    {
+      "date": "2026-09-30",
+      "change": "强化意向车主购买意向链路",
+      "detail": "意向家用样本改用prospect问法，并新增未购买原因、购买时间点、意向阶段、有车/无车差异题卡。"
     }
   ]
 }
