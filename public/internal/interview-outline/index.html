@@ -7812,7 +7812,7 @@ function autoGenerateSampleDef(){
   if(selMods.length > 0){
     html += `<table class="tbl"><tr><th>模块</th><th>内容</th><th>时长</th></tr>\n`;
     selMods.forEach((m,i)=>{
-      const shortName = m.name.replace(/^\d+\.\s*/,'');
+      const shortName = m.name.replace(/^(\d+[\.、\s])+/, '');
       html += `<tr><td>模块${i+1}</td><td>${shortName}</td><td>___min</td></tr>\n`;
     });
     html += `<tr><td><b>合计</b></td><td></td><td>___min</td></tr></table>\n`;
