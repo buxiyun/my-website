@@ -29,7 +29,7 @@ function v2GatePasses(gate){
       return !state.conds.climate || ['cold','temperate'].includes(state.conds.climate);
     case 'rain':
       return !state.conds.climate || ['hot','temperate'].includes(state.conds.climate);
-    case 'business':  return state.type === 'BusinessOrg' || (state.conds && ['business','commercial'].includes(state.conds.usage));
+    case 'business':  return state.conds && ['business','commercial'].includes(state.conds.usage);
     case 'ihv_after_fgd': return state.type === 'IHV' && state.conds && state.conds.ihvSource === 'after_fgd';
     case 'prospect_intent': return state.type === 'FGD' || state.type === 'IHV' ? (state.conds && state.conds.usage === 'intend') : false;
     case 'owner':     return true;

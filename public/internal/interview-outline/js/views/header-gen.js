@@ -18,8 +18,7 @@ function autoGenerateHeader(cc, cinfo, cd){
   const isMulti = ccs.length > 1;
   const typeLabel = {
     FGD:'定性座谈会', IHV:'入户深度访谈', Dealer:'经销商深访',
-    MPVExpert:'主机厂专家深访', MPVMedia:'汽车媒体专家深访',
-    BusinessOrg:'商务与组织采购者深访'
+    MPVExpert:'主机厂专家深访', MPVMedia:'汽车媒体专家深访'
   }[state.type] || '专业深访';
   const modelLabel = state.repModel || '目标车型';
   
@@ -115,13 +114,6 @@ function autoGenerateObjectives(){
       `评估${modelLabel}的产品、工程、价格与配置版本、渠道服务及品牌进入策略。`,
       `区分公开信息、项目经验和专业判断，不要求披露企业保密信息。`
     ];
-  } else if(state.type === 'BusinessOrg'){
-    items = [
-      `还原组织车辆的实际用途、使用者、任务与运营痛点。`,
-      `梳理需求提出、试用、预算、审批和供应商选择的完整采购决策流程。`,
-      `识别组织采购的考虑因素、全生命周期成本、产品配置、品牌及服务要求。`,
-      `核实补贴、税费、牌照与运营政策对采购时间、数量、动力和预算的影响。`
-    ];
   }
 
   if(items.length){
@@ -178,8 +170,7 @@ function autoGenerateSampleDef(){
   const roleSample = {
     Dealer:'当地经销商负责人、销售主管或能依据近期客户和经营记录回答的相关人员。',
     MPVMedia:'覆盖目标品类的汽车媒体、编辑、记者或测评人；涉及用户画像时须有受众研究或采访依据。',
-    MPVExpert:'职责覆盖目标市场、产品、工程或渠道议题的主机厂专家。',
-    BusinessOrg:'商务或组织车辆的采购决策者、车队管理者或实际使用负责人。'
+    MPVExpert:'职责覆盖目标市场、产品、工程或渠道议题的主机厂专家。'
   }[state.type];
   if(roleSample) html += `<p>建议受访者：${roleSample}</p>\n`;
   if(usageLabel){
