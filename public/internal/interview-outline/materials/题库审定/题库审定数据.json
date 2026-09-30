@@ -5863,9 +5863,9 @@
       "alias": "local_apps",
       "submodule_id": "M8.3",
       "probes": [
-        "由受访者自发指出",
-        "目前替代办法",
-        "对离线、账户、支付或混合语言的要求"
+        "先让受访者自发说，再用导航、手机连接、音乐/视频、语音控制、本地语言、常用App作提示",
+        "现在怎么用：车机自带、手机支架、CarPlay/Android Auto、蓝牙或其他替代办法",
+        "追问离线地图、账户登录、支付、语音识别、本地语言/混合语言和网络稳定性"
       ],
       "gate": "all",
       "methods": [
@@ -5898,11 +5898,11 @@
       "review_status": "同意",
       "variants": {
         "owner": {
-          "text": "哪些语言、地图、内容或连接服务对实际用车最重要？",
+          "text": "在车里的数字化交互方面，你觉得哪些功能对日常用车最重要、最关键？比如导航、手机连接、音乐/视频、语音控制、本地语言或常用App。",
           "evidence_type": "self_report_or_preference"
         },
         "prospect": {
-          "text": "哪些语言、地图、内容或连接服务对实际用车最重要？",
+          "text": "在车里的数字化交互方面，你觉得哪些功能对日常用车最重要、最关键？比如导航、手机连接、音乐/视频、语音控制、本地语言或常用App。",
           "evidence_type": "actual_experience_then_expectation"
         }
       },
@@ -57071,9 +57071,9 @@
       "alias": "local_apps",
       "submodule_id": "M8.3",
       "probes": [
-        "由受访者自发指出",
-        "目前替代办法",
-        "对离线、账户、支付或混合语言的要求"
+        "先让受访者自发说，再用导航、手机连接、音乐/视频、语音控制、本地语言、常用App作提示",
+        "现在怎么用：车机自带、手机支架、CarPlay/Android Auto、蓝牙或其他替代办法",
+        "追问离线地图、账户登录、支付、语音识别、本地语言/混合语言和网络稳定性"
       ],
       "gate": "all",
       "methods": [
@@ -57107,11 +57107,11 @@
       "review_status": "editorial_revision_for_project_review",
       "variants": {
         "owner": {
-          "text": "哪些语言、地图、内容或连接服务对实际用车最重要？",
+          "text": "在车里的数字化交互方面，你觉得哪些功能对日常用车最重要、最关键？比如导航、手机连接、音乐/视频、语音控制、本地语言或常用App。",
           "evidence_type": "self_report_or_preference"
         },
         "prospect": {
-          "text": "哪些语言、地图、内容或连接服务对实际用车最重要？",
+          "text": "在车里的数字化交互方面，你觉得哪些功能对日常用车最重要、最关键？比如导航、手机连接、音乐/视频、语音控制、本地语言或常用App。",
           "evidence_type": "actual_experience_then_expectation"
         },
         "Dealer": {
