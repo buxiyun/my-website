@@ -359,12 +359,28 @@ function initVehicleSpecs(){
   const bodySel = document.getElementById('bodySelect');
   if(segSel){
     segSel.innerHTML = '<option value="">不限定</option>' + VEHICLE_SEGMENTS.map(s=>`<option value="${s.id}"${state.segment===s.id?' selected':''}>${s.label}（${s.note}）</option>`).join('');
-    segSel.onchange = ()=>{ state.segment = segSel.value; };
+    segSel.onchange = ()=>{ state.segment = segSel.value; _updateCatPreview(); };
   }
   if(bodySel){
     bodySel.innerHTML = '<option value="">不限定</option>' + BODY_TYPES.map(b=>`<option value="${b.id}"${state.bodyType===b.id?' selected':''}>${b.label}</option>`).join('');
-    bodySel.onchange = ()=>{ state.bodyType = bodySel.value; };
+    bodySel.onchange = ()=>{ state.bodyType = bodySel.value; _updateCatPreview(); };
   }
+  _updateCatPreview();
+}
+function _updateCatPreview(){
+  const el = document.getElementById('catPreview');
+  if(!el) return;
+  const lbl = (typeof categoryLabel === 'function') ? categoryLabel() : '';
+  if(lbl){
+    el.textContent = lbl;
+    el.style.display = '';
+  } else {
+    el.textContent = '选择级别和/或车身类型后自动显示';
+    el.style.display = '';
+    el.style.color = '#999';
+    return;
+  }
+  el.style.color = '#2a5fcc';
 }
 
 /* ---------- 调研国家数 ---------- */
@@ -886,6 +902,8 @@ function condBoxHTML(){
   const cs = condSummary();
   /* 追加车辆规格信息 */
   const vehItems = [];
+  const _catLbl = (typeof categoryLabel === 'function') ? categoryLabel() : '';
+  if(_catLbl) vehItems.push({label:'品类', text: _catLbl});
   if(state.bodyType){
     const btMap = {sedan:'轿车',hatchback:'两厢车',SUV:'SUV',MPV:'MPV',pickup:'皮卡',offroad:'越野车',wagon:'旅行车',coupe:'轿跑'};
     vehItems.push({label:'车身类型', text: btMap[state.bodyType] || state.bodyType});

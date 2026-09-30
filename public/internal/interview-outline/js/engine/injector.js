@@ -112,6 +112,11 @@ function injectConds(html){
     html = html.replace(/该车型/g, _fullDesc || segLabel2);
     html = html.replace(/小车/g, segLabel2);
   }
+  /* 5) 品类 → 具体品类描述（级别+尺寸+车身类型），未选级别和车身类型时保留原文 */
+  const _catLabel = (typeof categoryLabel === 'function') ? categoryLabel() : '';
+  if(_catLabel){
+    html = html.replace(/品类/g, _catLabel);
+  }
   /* 条件元数据备注剥离（仅XX组使用此模块 等括号说明，不作为正文展示） */
   html = html.replace(/（仅[^）]*使用此模块）/g, '');
   /* 模块标题中的引用说明剥离："——参见 Stimulus（50min）" → "（50min）"，"——参见 PPT（50min）" → "（50min）" */
