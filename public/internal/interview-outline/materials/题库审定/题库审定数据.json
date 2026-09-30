@@ -5489,7 +5489,7 @@
       "alias": "value_used",
       "submodule_id": "M2.6",
       "probes": [
-        "为什么值得",
+        "为什么觉得买得值或用得值",
         "经常使用还是关键时刻有用",
         "替代它需要什么"
       ],
@@ -5517,11 +5517,11 @@
       "review_status": "同意",
       "variants": {
         "owner": {
-          "text": "现在使用的车辆或出行安排中，哪一项最让您觉得值得？",
+          "text": "现在这辆车或目前的出行安排里，哪一点最让你觉得买得值、用得值？",
           "evidence_type": "self_report_or_preference"
         },
         "prospect": {
-          "text": "现在使用的车辆或出行安排中，哪一项最让您觉得值得？",
+          "text": "现在这辆车或目前的出行安排里，哪一点最让你觉得买得值、用得值？",
           "evidence_type": "actual_experience_then_expectation"
         }
       },
@@ -46956,7 +46956,7 @@
       "alias": "value_used",
       "submodule_id": "M2.6",
       "probes": [
-        "为什么值得",
+        "为什么觉得买得值或用得值",
         "经常使用还是关键时刻有用",
         "替代它需要什么"
       ],
@@ -46985,11 +46985,11 @@
       "review_status": "editorial_revision_for_project_review",
       "variants": {
         "owner": {
-          "text": "现在使用的车辆或出行安排中，哪一项最让您觉得值得？",
+          "text": "现在这辆车或目前的出行安排里，哪一点最让你觉得买得值、用得值？",
           "evidence_type": "self_report_or_preference"
         },
         "prospect": {
-          "text": "现在使用的车辆或出行安排中，哪一项最让您觉得值得？",
+          "text": "现在这辆车或目前的出行安排里，哪一点最让你觉得买得值、用得值？",
           "evidence_type": "actual_experience_then_expectation"
         },
         "Dealer": {
