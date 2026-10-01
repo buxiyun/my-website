@@ -86,15 +86,15 @@
           "evidence_type": "actual_experience_then_expectation"
         },
         "Dealer": {
-          "text": "还有什么重要情况没有谈到？如果只留下三条建议，您最希望我们记住什么？",
+          "text": "还有哪些重要情况没有谈到？",
           "evidence_type": "dealer_report"
         },
         "Media": {
-          "text": "还有什么重要情况没有谈到？如果只留下三条建议，您最希望我们记住什么？",
+          "text": "还有哪些重要情况没有谈到？",
           "evidence_type": "professional_judgment_verify_scope"
         },
         "OEM": {
-          "text": "还有什么重要情况没有谈到？如果只留下三条建议，您最希望我们记住什么？",
+          "text": "还有哪些重要情况没有谈到？",
           "evidence_type": "professional_judgment_verify_scope"
         },
         "business": {
@@ -103,7 +103,7 @@
       },
       "probes": [
         "尚未讨论的重要内容",
-        "最需要优先关注的建议"
+        "其中最需要优先关注的是什么？"
       ],
       "conditional_probes": [],
       "activity": null
@@ -427,14 +427,14 @@
           "evidence_type": "本次编辑问法，按角色记录证据"
         },
         "prospect": {
-          "text": "请回顾不常发生但对您重要的实际出行。未来购车时，您希望车辆满足哪些相关需要？",
+          "text": "请讲一次不常发生、但对您重要的实际出行，当时是怎样安排的？",
           "evidence_type": "本次编辑问法，按角色记录证据"
         }
       },
       "probes": [
         "具体任务、人员和时间要求",
         "行程的重要之处",
-        "需要车辆提供的支持"
+        "车辆提供的支持；意向者：这次经历让您对未来买车有哪些要求？"
       ],
       "conditional_probes": [],
       "activity": null
@@ -632,18 +632,18 @@
       "condition": "有炎热或日晒天气出行经历。",
       "variants": {
         "owner": {
-          "text": "请回顾一次炎热或日晒后用车的经历，从上车到行驶介绍当时的感受。",
+          "text": "请回顾一次天气很热或车辆晒过太阳后用车的经历，从走近车辆到出发，您通常会做些什么？",
           "evidence_type": "self_report_or_preference"
         },
         "prospect": {
-          "text": "请回顾一次炎热或日晒后出行的经历，从上车到行驶介绍当时的感受。",
+          "text": "请回顾一次天气很热或车辆晒过太阳后乘车的经历，从走近车辆到出发，您做了些什么？",
           "evidence_type": "actual_experience_then_expectation"
         }
       },
       "probes": [
-        "日晒后的车内感受",
-        "空调降温时间",
-        "前后排差异"
+        "上车前后的动作与感受",
+        "空调降温过程",
+        "前后排差异；希望改善的方面"
       ],
       "conditional_probes": [],
       "activity": null
@@ -657,14 +657,15 @@
           "evidence_type": "本次编辑问法，按角色记录证据"
         },
         "prospect": {
-          "text": "请回顾一次寒冷或冰雪天气的出行经历，再说明希望未来车辆保留或改善的方面。",
+          "text": "请回顾一次寒冷或冰雪天气的出行经历，当时是怎样安排的？",
           "evidence_type": "本次编辑问法，按角色记录证据"
         }
       },
       "probes": [
         "制热、除雾与操作",
         "续航和道路条件",
-        "对出行的影响及处理"
+        "对出行的影响及处理",
+        "对未来车辆的要求"
       ],
       "conditional_probes": [],
       "activity": null
@@ -720,14 +721,15 @@
           "evidence_type": "self_report_or_preference"
         },
         "prospect": {
-          "text": "在实际乘坐过或使用过的车辆里，最常做哪些操作？将来自己的车最需要支持什么？",
+          "text": "在您实际开过或坐过的车里，您经常使用哪些功能？请选一次，讲讲操作过程。",
           "evidence_type": "actual_experience_then_expectation"
         }
       },
       "probes": [
         "最近一次操作的步骤",
         "常用功能和使用频次",
-        "操作中的停顿或替代方式"
+        "操作中的停顿或替代方式",
+        "意向者：未来的车希望提供哪些功能？"
       ],
       "conditional_probes": [],
       "activity": "入户访谈：车辆静止时演示常用操作，记录步骤和停顿。"
@@ -924,11 +926,11 @@
       "condition": "",
       "variants": {
         "owner": {
-          "text": "回顾刚才的实际出行，哪些方面需要改善？请结合一次经历说明。",
+          "text": "回顾刚才的实际出行，您希望哪些地方有所改善？请结合一次经历说明。",
           "evidence_type": "本次编辑问法，按角色记录证据"
         },
         "prospect": {
-          "text": "结合您目前的实际出行，哪些方面需要改善？请举例说明。",
+          "text": "结合您目前的实际出行，您希望哪些地方有所改善？请举例说明。",
           "evidence_type": "本次编辑问法，按角色记录证据"
         }
       },
@@ -988,7 +990,7 @@
       "condition": "",
       "variants": {
         "owner": {
-          "text": "请介绍一个明确期间内的用车费用，以及各项费用如何估算。",
+          "text": "以最近一个月为例，您用车大约花了多少钱？主要花在哪些方面？",
           "evidence_type": "self_report_or_preference"
         },
         "prospect": {
@@ -1069,11 +1071,11 @@
       "condition": "",
       "variants": {
         "owner": {
-          "text": "您实际熟悉的区域，停车、能源或充电或燃料补给条件怎样影响日常出行？",
+          "text": "在您经常出行的地方，停车、充电或加油的条件怎么样？对您的出行有什么影响？",
           "evidence_type": "本次编辑问法，按角色记录证据"
         },
         "prospect": {
-          "text": "您目前能够使用或已确认的停车、能源和充电或燃料补给条件有哪些？哪些还不清楚？",
+          "text": "未来买车后，您计划在哪里停车、充电或加油？哪些条件已经确认，哪些还不清楚？",
           "evidence_type": "本次编辑问法，按角色记录证据"
         }
       },
@@ -1174,18 +1176,18 @@
       "condition": "",
       "variants": {
         "owner": {
-          "text": "请介绍本次购车预算的确定过程，以及之后的调整情况。",
+          "text": "这次买车的预算是怎样确定的？",
           "evidence_type": "self_report_or_preference"
         },
         "prospect": {
-          "text": "请介绍目前购车预算的确定过程，以及可能影响预算调整的条件。",
+          "text": "目前买车的预算是怎样确定的？",
           "evidence_type": "actual_experience_then_expectation"
         }
       },
       "probes": [
         "预算参与者",
         "金额、币种和所含费用",
-        "预算调整的原因"
+        "车主：预算之后有无变化及具体取舍；意向者：可能影响预算的条件"
       ],
       "conditional_probes": [],
       "activity": null
@@ -1613,9 +1615,9 @@
         }
       },
       "probes": [
-        "对不同动力形式的理解",
-        "信息来源",
-        "先考虑动力还是车型"
+        "对不同动力形式的理解与信息来源",
+        "先考虑动力还是车型",
+        "实际开过或坐过的不同动力车辆，体验上的差别及对选择的影响"
       ],
       "conditional_probes": [],
       "activity": null
@@ -1747,17 +1749,17 @@
       "condition": "有使用交流充电的需要。",
       "variants": {
         "owner": {
-          "text": "请介绍您使用过或了解过的交流充电方式，以及它与日常停车时间和出行需要的适合程度。",
+          "text": "您使用过或了解过哪些慢充方式？通常怎样安排充电？",
           "evidence_type": "self_report_or_preference"
         },
         "prospect": {
-          "text": "请介绍您使用过或了解过的交流充电方式，以及它与日常停车时间和出行需要的适合程度。",
+          "text": "您使用过或了解过哪些慢充方式？通常怎样安排充电？",
           "evidence_type": "actual_experience_then_expectation"
         }
       },
       "probes": [
         "停车时间与充电安排",
-        "已知的车辆和设施能力",
+        "车辆和充电设施的条件",
         "下一次出行所需电量或里程"
       ],
       "conditional_probes": [],
@@ -1874,21 +1876,22 @@
     },
     "Q-M4.4-03": {
       "chapter_label": "驾驶辅助的使用与信任",
-      "condition": "",
+      "condition": "有实际使用经历时问经历；未使用过时追问考虑使用的条件。",
       "variants": {
         "owner": {
-          "text": "您会怎样决定使用或停止使用驾驶辅助功能？请结合经历或使用条件说明。",
+          "text": "请讲一次您使用驾驶辅助功能的经历，当时怎样决定开启、继续使用或关闭？",
           "evidence_type": "self_report_or_preference"
         },
         "prospect": {
-          "text": "您会怎样决定使用或停止使用驾驶辅助功能？请结合经历或使用条件说明。",
+          "text": "请讲一次您使用驾驶辅助功能的经历，当时怎样决定开启、继续使用或关闭？",
           "evidence_type": "actual_experience_then_expectation"
         }
       },
       "probes": [
-        "功能与驾驶者责任的理解",
-        "失误和恢复操控的经历",
-        "停止使用的条件"
+        "具体功能、道路条件和使用过程",
+        "使用时关注的内容",
+        "如有恢复人工操控的经历：当时发生了什么、怎样处理",
+        "决定使用或停止使用的原因"
       ],
       "conditional_probes": [],
       "activity": null
@@ -2150,11 +2153,11 @@
       "condition": "展示材料：颜色/材料/工艺样板。",
       "variants": {
         "owner": {
-          "text": "请分别介绍您对这些颜色、材质和表面处理方案的感受，以及它们与您使用需要的关系。",
+          "text": "请分别说说这些颜色和材质给您的感受。哪些更适合您的用车需要？为什么？",
           "evidence_type": "self_report_or_preference"
         },
         "prospect": {
-          "text": "请分别介绍您对这些颜色、材质和表面处理方案的感受，以及它们与您使用需要的关系。",
+          "text": "请分别说说这些颜色和材质给您的感受。哪些更适合您的用车需要？为什么？",
           "evidence_type": "actual_experience_then_expectation"
         }
       },
@@ -2191,11 +2194,11 @@
       "condition": "展示材料：尺寸及座椅空间方案。",
       "variants": {
         "owner": {
-          "text": "结合材料中说明的车辆尺寸，以及您常走的路线和停车地点，请介绍这辆车与实际使用条件的适合程度。",
+          "text": "结合材料中说明的车辆尺寸，以及您常走的路线和停车地点，这辆车用起来会怎么样？",
           "evidence_type": "self_report_or_preference"
         },
         "prospect": {
-          "text": "结合材料中说明的车辆尺寸，以及您常走的路线和停车地点，请介绍这辆车与实际使用条件的适合程度。",
+          "text": "结合材料中说明的车辆尺寸，以及您常走的路线和停车地点，这辆车用起来会怎么样？",
           "evidence_type": "actual_experience_then_expectation"
         }
       },
@@ -2344,18 +2347,19 @@
       "condition": "展示材料：尺寸及座椅空间方案。",
       "variants": {
         "owner": {
-          "text": "结合材料说明的车内中央功能区及通道布局，请介绍它们对您使用车辆的影响，以及您的取舍。",
+          "text": "看过材料中的车内布局后，您觉得中间这些功能和通道用起来会怎么样？",
           "evidence_type": "self_report_or_preference"
         },
         "prospect": {
-          "text": "结合材料说明的车内中央功能区及通道布局，请介绍它们对您使用车辆的影响，以及您的取舍。",
+          "text": "看过材料中的车内布局后，您觉得中间这些功能和通道用起来会怎么样？",
           "evidence_type": "actual_experience_then_expectation"
         }
       },
       "probes": [
-        "使用者与频次",
-        "功能价值",
-        "对车内通行和上下车的影响"
+        "具体使用者、用途与频次",
+        "功能的作用",
+        "车内走动和上下车的影响",
+        "功能与通道空间的取舍"
       ],
       "conditional_probes": [],
       "activity": null
@@ -2928,18 +2932,18 @@
       "condition": "展示材料：卖点表达材料。",
       "variants": {
         "owner": {
-          "text": "请介绍这些产品信息中哪些与您最相关，哪些说服力不足，以及原因。",
+          "text": "这些产品信息给您什么感觉？哪些与您的需要有关？",
           "evidence_type": "self_report_or_preference"
         },
         "prospect": {
-          "text": "请介绍这些产品信息中哪些与您最相关，哪些说服力不足，以及原因。",
+          "text": "这些产品信息给您什么感觉？哪些与您的需要有关？",
           "evidence_type": "actual_experience_then_expectation"
         }
       },
       "probes": [
-        "优先表达的信息与原因",
-        "说服力不足的内容",
-        "需要的证据"
+        "与自身需要有关的信息",
+        "不清楚或不够可信的内容及原因",
+        "还需要了解什么"
       ],
       "conditional_probes": [],
       "activity": null
@@ -3036,7 +3040,7 @@
       "condition": "",
       "variants": {
         "Dealer": {
-          "text": "请介绍这类汽车近期的销售情况，以及您对未来一至两年的判断和依据。"
+          "text": "在您负责的业务中，这类汽车近期的销售情况有哪些变化？"
         },
         "Media": {
           "text": "根据您了解的公开资料，这类汽车的市场规模和增长情况怎样？对于未来趋势，您有哪些判断及依据？"
@@ -3046,9 +3050,9 @@
         }
       },
       "probes": [
-        "数据来源、期间和单位",
-        "实际表现与未来判断",
-        "主要假设和不确定因素"
+        "地区、期间、车型和数据来源",
+        "经销商：咨询、订单或销量的具体变化及案例",
+        "对未来一至两年的判断、依据及主要假设"
       ],
       "conditional_probes": [],
       "activity": null
@@ -3858,7 +3862,7 @@
     },
     "B-ORG-03": {
       "chapter_label": "组织采购决策流程",
-      "condition": "",
+      "condition": "有直接参与采购决策或相关安排的经验时选用。",
       "variants": {
         "business": {
           "text": "请以一次实际采购为例，介绍从提出需求到完成采购的参与者、流程和决定依据。"
@@ -3874,7 +3878,7 @@
     },
     "B-ORG-04": {
       "chapter_label": "采购考虑因素",
-      "condition": "",
+      "condition": "有直接参与采购决策或相关安排的经验时选用。",
       "variants": {
         "business": {
           "text": "组织采购车辆时会考虑哪些因素？请先自由描述，再说明优先顺序和必须满足的要求。"
@@ -3890,7 +3894,7 @@
     },
     "B-ORG-05": {
       "chapter_label": "预算与长期用车费用",
-      "condition": "",
+      "condition": "有直接参与采购决策或相关安排的经验时选用。",
       "variants": {
         "business": {
           "text": "请介绍组织确定采购预算和评估长期用车费用的方法，以及各项费用如何影响决定。"
@@ -3906,7 +3910,7 @@
     },
     "B-ORG-06": {
       "chapter_label": "动力与能源补给条件",
-      "condition": "仅研究新能源或替代动力时进入充电或燃料补给细节。",
+      "condition": "有直接参与采购决策或相关安排的经验时选用。仅研究新能源或替代动力时进入充电或燃料补给细节。",
       "variants": {
         "business": {
           "text": "请介绍组织选择车辆动力形式的过程，以及日常业务和使用条件如何影响决定。"
@@ -3938,7 +3942,7 @@
     },
     "B-ORG-08": {
       "chapter_label": "品牌与服务要求",
-      "condition": "",
+      "condition": "有直接参与采购决策或相关安排的经验时选用。",
       "variants": {
         "business": {
           "text": "请介绍品牌、客户接待、服务网点和供应商能力在组织采购中的作用，以及相关要求。"
@@ -3954,7 +3958,7 @@
     },
     "B-ORG-09": {
       "chapter_label": "组织补贴与政策",
-      "condition": "先问自发认知；只有项目组已核验政策名称、对象和有效期后才提示。",
+      "condition": "有直接参与采购决策或相关安排的经验时选用。先问自发认知；只有项目组已核验政策名称、对象和有效期后才提示。",
       "variants": {
         "business": {
           "text": "请介绍组织对车辆相关优惠或运营政策的了解和实际使用情况，以及对采购安排的影响。"
@@ -4004,7 +4008,7 @@
       "probes": [
         "适合的人群与用途",
         "与其他车型类别的差异",
-        "功能与社会印象"
+        "您觉得这类车给人什么印象？哪些地方让您有这种感觉？"
       ],
       "conditional_probes": [],
       "activity": null
