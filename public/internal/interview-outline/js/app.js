@@ -666,7 +666,7 @@ function initSellingPointsUI(){
   /* 确保至少有5行空白卖点 */
   while(state.sellingPoints.length < 5) state.sellingPoints.push({name:'',desc:''});
   renderSellingPointRows();
-  while(state.conceptVariants.length < 2) state.conceptVariants.push({name:'',desc:''});
+  while(state.conceptVariants.length < 2) state.conceptVariants.push({name:'',desc:'',sid:''});
   renderConceptVariantRows();
   const ci = document.getElementById('configItems');
   if(ci) ci.oninput = ()=>updateProductData();
@@ -697,26 +697,81 @@ function renderSellingPointRows(){
     if(d) d.oninput = ()=>updateProductData();
   });
 }
+/* 预设对象的默认归位 session */
+function conceptPresetDefaultSid(name){
+  if(typeof CONCEPT_PRESETS === 'undefined') return '';
+  const p = CONCEPT_PRESETS.find(x=>x.name===name);
+  return p ? p.sub : '';
+}
+/* 自定义对象的默认归位 session */
+function conceptCustomDefaultSid(){
+  if(typeof CONCEPT_CUSTOM_DEFAULT === 'undefined') return 'C5.6';
+  return CONCEPT_CUSTOM_DEFAULT.consumer;
+}
+/* 读取第 i 行测试方案（对象名 + 数量 + 归位 session） */
+function readConceptRow(i){
+  const sel = document.getElementById('conceptSel'+i);
+  const txt = document.getElementById('conceptName'+i);
+  const num = document.getElementById('conceptDesc'+i);
+  const sid = document.getElementById('conceptSid'+i);
+  const sv = sel ? sel.value : '';
+  const name = sv === '__custom__' ? (txt ? txt.value.trim() : '') : sv;
+  return { name: name, desc: num ? num.value.trim() : '', sid: sid ? sid.value : '' };
+}
 function renderConceptVariantRows(){
   const container = document.getElementById('conceptList');
   if(!container) return;
   container.innerHTML = '';
+  const presets = (typeof CONCEPT_PRESETS !== 'undefined') ? CONCEPT_PRESETS.map(p=>p.name) : [];
+  const sessions = (typeof conceptSessionOptions === 'function') ? conceptSessionOptions() : [];
   state.conceptVariants.forEach((sp,i)=>{
+    const name = (sp.name||'').trim();
+    const isPreset = !!name && presets.includes(name);
+    const isCustom = !!name && !isPreset;
+    const curSid = sp.sid || (isPreset ? conceptPresetDefaultSid(name) : conceptCustomDefaultSid());
+    const objOpts = ['<option value="">测试对象…</option>']
+      .concat(presets.map(p=>`<option value="${escInputValue(p)}"${p===name?' selected':''}>${escInputValue(p)}</option>`))
+      .concat(`<option value="__custom__"${isCustom?' selected':''}>自定义…</option>`)
+      .join('');
+    const sidOpts = sessions.map(s=>`<option value="${s.sid}"${s.sid===curSid?' selected':''}>${escInputValue(s.label)}</option>`).join('');
     const row = document.createElement('div');
-    row.style.cssText = 'display:flex;gap:4px;margin-bottom:4px;align-items:center';
+    row.style.cssText = 'border:1px solid var(--line);border-radius:6px;padding:4px 5px;margin-bottom:5px;background:#fcfdfe';
     row.innerHTML = `
-      <span style="font-size:11px;color:var(--ink3);min-width:20px">${i+1}.</span>
-      <input type="text" id="conceptName${i}" value="${escInputValue(sp.name)}" placeholder="测试对象，如外观、内饰、颜色、前脸、车尾" style="flex:1.2;padding:4px 6px;border:1px solid var(--line);border-radius:4px;font-size:11.5px;min-width:0">
-      <input type="number" min="1" max="12" id="conceptDesc${i}" value="${escInputValue(sp.desc)}" placeholder="方案数量" style="flex:.6;padding:4px 6px;border:1px solid var(--line);border-radius:4px;font-size:11.5px;min-width:0">
-      <button class="mini" onclick="removeConceptVariant(${i})" style="font-size:13px;padding:1px 7px;line-height:1.4;flex:0 0 auto" title="删除此行">✕</button>
+      <div style="display:flex;gap:4px;align-items:center">
+        <span style="font-size:11px;color:var(--ink3);min-width:16px">${i+1}.</span>
+        <select id="conceptSel${i}" style="flex:1.3;padding:3px 4px;border:1px solid var(--line);border-radius:4px;font-size:11.5px;min-width:0;background:#fff">${objOpts}</select>
+        <input type="number" min="1" max="12" id="conceptDesc${i}" value="${escInputValue(sp.desc)}" placeholder="方案数" title="方案数量" style="flex:.5;padding:3px 4px;border:1px solid var(--line);border-radius:4px;font-size:11.5px;min-width:0">
+        <button class="mini" onclick="removeConceptVariant(${i})" style="font-size:13px;padding:1px 7px;line-height:1.4;flex:0 0 auto" title="删除此行">✕</button>
+      </div>
+      <div style="display:flex;gap:4px;align-items:center;margin-top:4px">
+        <input type="text" id="conceptName${i}" value="${isCustom?escInputValue(name):''}" placeholder="自定义对象名" style="flex:1;padding:3px 4px;border:1px solid var(--line);border-radius:4px;font-size:11.5px;min-width:0;display:${isCustom?'':'none'}">
+        <span style="font-size:10.5px;color:var(--ink3);flex:0 0 auto">归入</span>
+        <select id="conceptSid${i}" style="flex:1.4;padding:3px 4px;border:1px solid var(--line);border-radius:4px;font-size:11px;min-width:0;background:#fff">${sidOpts}</select>
+      </div>
     `;
     container.appendChild(row);
   });
   state.conceptVariants.forEach((_,i)=>{
-    const n = document.getElementById('conceptName'+i);
-    const d = document.getElementById('conceptDesc'+i);
-    if(n) n.oninput = ()=>updateProductData();
-    if(d) d.oninput = ()=>updateProductData();
+    const sel = document.getElementById('conceptSel'+i);
+    const txt = document.getElementById('conceptName'+i);
+    const num = document.getElementById('conceptDesc'+i);
+    const sid = document.getElementById('conceptSid'+i);
+    if(sel) sel.onchange = ()=>{
+      const custom = sel.value === '__custom__';
+      if(txt){
+        txt.style.display = custom ? '' : 'none';
+        if(custom) txt.focus();
+      }
+      /* 选预设时自动带出该对象的默认 session；自定义则回到默认（可再改） */
+      if(sid){
+        if(custom) sid.value = conceptCustomDefaultSid();
+        else if(sel.value) sid.value = conceptPresetDefaultSid(sel.value) || sid.value;
+      }
+      updateProductData();
+    };
+    if(txt) txt.oninput = ()=>updateProductData();
+    if(num) num.oninput = ()=>updateProductData();
+    if(sid) sid.onchange = ()=>updateProductData();
   });
 }
 function addSellingPoint(){
@@ -731,7 +786,7 @@ function removeSellingPoint(idx){
 }
 function addConceptVariant(){
   syncSellingPointsFromDOM();
-  state.conceptVariants.push({name:'',desc:''});
+  state.conceptVariants.push({name:'',desc:'',sid:''});
   renderConceptVariantRows();
 }
 function removeConceptVariant(idx){
@@ -754,9 +809,7 @@ function syncSellingPointsFromDOM(){
   const conceptContainer = document.getElementById('conceptList');
   if(conceptContainer){
     for(let i=0;i<conceptContainer.children.length;i++){
-      const n = document.getElementById('conceptName'+i);
-      const d = document.getElementById('conceptDesc'+i);
-      concepts.push({name: n?n.value.trim():'', desc: d?d.value.trim():''});
+      concepts.push(readConceptRow(i));
     }
   }
   state.conceptVariants = concepts;
@@ -782,9 +835,7 @@ function updateProductData(){
   if(conceptContainer){
     const rows = conceptContainer.children;
     for(let i=0;i<rows.length;i++){
-      const n = document.getElementById('conceptName'+i);
-      const d = document.getElementById('conceptDesc'+i);
-      concepts.push({name: n?n.value.trim():'', desc: (d&&d.value.trim())||''});
+      concepts.push(readConceptRow(i));
     }
   }
   state.conceptVariants = concepts;
@@ -797,7 +848,7 @@ function selectedConceptVariants(){
     .map((x,i)=>{
       const name = (x.name||'').trim();
       const count = Math.max(0, Math.min(12, parseInt((x.desc||'').trim(), 10) || 0));
-      return {name, count};
+      return {name, count, sid: (x.sid||'').trim()};
     })
     .filter(x=>x.name && x.count > 0);
 }

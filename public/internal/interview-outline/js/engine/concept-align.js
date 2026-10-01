@@ -46,6 +46,38 @@ const CONCEPT_RULES = [
     terms:[] }
 ];
 
+/* ---------- 预设测试对象（下拉菜单，按客户习惯排序） ----------
+ * sub  = 消费端（FGD/IHV）归入的 session；psub = 专业端（Dealer/MPV）归入的 session
+ * qids = 填写后强制升级为 MUST 的题库题目（另加该 session 的 core 题）
+ * terms= 题库通用措辞 → 替换成客户填写的对象名
+ */
+const CONCEPT_PRESETS = [
+  { name:'车头',     sub:'C5.2', psub:'B5.9',  qids:['Q-M5.2-02'],               pqids:['B-PROD-09'], terms:['车辆前部外观','前部外观','车前部'] },
+  { name:'车身',     sub:'C5.2', psub:'B5.9',  qids:['Q-M5.2-01','Q-M5.2-04'],   pqids:['B-PROD-09'], terms:['车辆整体外形','整体外形'] },
+  { name:'轮廓',     sub:'C5.2', psub:'B5.9',  qids:['Q-M5.2-01','Q-M5.2-04'],   pqids:['B-PROD-09'], terms:['车辆整体外形','整体外形'] },
+  { name:'车尾',     sub:'C5.2', psub:'B5.9',  qids:['Q-M5.2-03'],               pqids:['B-PROD-09'], terms:['车尾设计','车辆后部外观','后部外观'] },
+  { name:'大灯',     sub:'C5.2', psub:'B5.9',  qids:['Q-M5.2-02'],               pqids:['B-PROD-09'], terms:['车辆前部外观','前部外观'] },
+  { name:'外观颜色', sub:'C5.3', psub:'B5.9',  qids:['Q-M5.3-03'],               pqids:['B-PROD-09'], terms:[] },
+  { name:'内饰布局', sub:'C5.4', psub:'B5.2',  qids:['Q-M5.4-01','Q-M5.4-02'],   pqids:['B-PROD-02'], terms:[] },
+  { name:'座舱布局', sub:'C5.4', psub:'B5.2',  qids:['Q-M5.4-01','Q-M5.4-02'],   pqids:['B-PROD-02'], terms:[] },
+  { name:'内饰颜色', sub:'C5.3', psub:'B5.9',  qids:['Q-M5.3-02','Q-M5.3-03'],   pqids:['B-PROD-09'], terms:[] }
+];
+
+/* 自定义对象的默认归位：功能与配置组合（多数自填对象是配置/功能类） */
+const CONCEPT_CUSTOM_DEFAULT = { consumer:'C5.6', consumerV2:'M5.6', prof:'B5.10' };
+
+/* 消费端 session → 专业端 session（切换研究类型时保持归位正确） */
+const CONCEPT_SID_TO_PROF = {
+  'C5.1':'B5.8', 'C5.2':'B5.9', 'C5.3':'B5.9', 'C5.4':'B5.2',
+  'C5.5':'B5.4', 'C5.6':'B5.10', 'C5.7':'B5.10'
+};
+
+/* 下拉可选的 session 列表（取自 V3 消费端 C5，编号 5.x 在各类型间通用） */
+function conceptSessionOptions(){
+  const subs = (typeof V3_SUB_MAP !== 'undefined' && V3_SUB_MAP.FGD && V3_SUB_MAP.FGD.c5) ? V3_SUB_MAP.FGD.c5 : [];
+  return subs.map(s => ({ sid: s.sid, label: s.sid.replace(/^C/, '') + ' ' + s.name }));
+}
+
 /* 配置评价项 / 产品卖点 的归位 session */
 const CONFIG_SID   = { consumer:'C5.6', consumerV2:'M5.6', prof:'B5.10' };
 const SELLING_SID  = { consumer:'C6.5', consumerV2:'M6.5', prof:'B8.4' };
@@ -79,13 +111,26 @@ function conceptFindSub(ctx, sid){
 }
 
 /* ---------- 已填写的测试对象 + 命中规则 ---------- */
+/* 命中顺序：预设对象（精确名）→ 关键词规则 → 兜底整体概念 */
+function conceptRuleFor(name){
+  const preset = CONCEPT_PRESETS.find(p => p.name === name);
+  if(preset) return preset;
+  return CONCEPT_RULES.find(r => r.re.test(name)) || CONCEPT_RULES[CONCEPT_RULES.length-1];
+}
+
+/* 归位 session：优先用用户在行内选择的 session，其次用规则默认值；专业端自动换算 */
+function conceptSidFor(row, rule, ctx){
+  const base = row.sid || (ctx.useV3 ? (rule.sub || rule.subV2) : (rule.subV2 || rule.sub));
+  if(ctx.prof) return CONCEPT_SID_TO_PROF[base] || rule.psub;
+  return base;
+}
+
 function matchedConceptObjects(){
   if(typeof selectedConceptVariants !== 'function') return [];
   const ctx = conceptCtx();
   return selectedConceptVariants().map(x => {
-    const rule = CONCEPT_RULES.find(r => r.re.test(x.name)) || CONCEPT_RULES[CONCEPT_RULES.length-1];
-    const sid = ctx.prof ? rule.psub : (ctx.useV3 ? rule.sub : rule.subV2);
-    return { name: x.name, count: x.count, rule: rule, sid: sid };
+    const rule = conceptRuleFor(x.name);
+    return { name: x.name, count: x.count, rule: rule, sid: conceptSidFor(x, rule, ctx) };
   });
 }
 
