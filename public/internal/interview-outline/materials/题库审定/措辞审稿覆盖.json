@@ -1,0 +1,6696 @@
+{
+  "review_standard": "开放式、专业、中性、无行业黑话；知情同意和事实核实保留必要确认。 主问题去除兜底解释，追问使用简短要点；一般主持原则集中说明。",
+  "reviewed_questions": 191,
+  "reviewed_variants": 407,
+  "questions": {
+    "Q-E0-01": {
+      "chapter_label": "执行话术",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "今天我们想了解您的实际出行、用车和选车经历，没有标准答案。参与出于自愿，您可以跳过问题或随时结束。请确认您是否愿意参加本次访谈。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "今天我们想了解您的实际出行和选车考虑，没有标准答案。参与出于自愿，您可以跳过问题或随时结束。请确认您是否愿意参加本次访谈。",
+          "evidence_type": "actual_experience_then_expectation"
+        },
+        "Dealer": {
+          "text": "今天我们想了解您在相关业务中的经验与判断。参与出于自愿，您可以跳过问题或随时结束。开始前将说明研究目的、预计时长、资料用途和保密安排。请确认您是否愿意参加本次访谈。",
+          "evidence_type": "dealer_report",
+          "probes": [
+            "研究目的、预计时长、资料用途和保密安排",
+            "参与及录音、拍照、观察许可",
+            "职责、从业经验和直接接触范围"
+          ]
+        },
+        "Media": {
+          "text": "今天我们想了解您在相关业务中的经验与判断。参与出于自愿，您可以跳过问题或随时结束。开始前将说明研究目的、预计时长、资料用途和保密安排。请确认您是否愿意参加本次访谈。",
+          "evidence_type": "professional_judgment_verify_scope",
+          "probes": [
+            "研究目的、预计时长、资料用途和保密安排",
+            "参与及录音、拍照、观察许可",
+            "职责、从业经验和直接接触范围"
+          ]
+        },
+        "OEM": {
+          "text": "今天我们想了解您在相关业务中的经验与判断。参与出于自愿，您可以跳过问题或随时结束。开始前将说明研究目的、预计时长、资料用途和保密安排。请确认您是否愿意参加本次访谈。",
+          "evidence_type": "professional_judgment_verify_scope",
+          "probes": [
+            "研究目的、预计时长、资料用途和保密安排",
+            "参与及录音、拍照、观察许可",
+            "职责、从业经验和直接接触范围"
+          ]
+        },
+        "business": {
+          "text": "今天我们想了解您在相关业务中的经验与判断。参与出于自愿，您可以跳过问题或随时结束。开始前将说明研究目的、预计时长、资料用途和保密安排。请确认您是否愿意参加本次访谈。"
+        }
+      },
+      "probes": [
+        "研究目的、预计时长、资料用途和保密安排",
+        "参与及录音、拍照、观察许可"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-E0-02": {
+      "chapter_label": "执行话术",
+      "condition": "入户访谈，征得观察许可。",
+      "variants": {
+        "owner": {
+          "text": "在您愿意展示的范围内，请带我们了解与日常出行、车辆停放和物品收纳有关的空间。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "在您愿意展示的范围内，请带我们了解与日常出行、车辆停放和物品收纳有关的空间。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "车辆停放与物品收纳",
+        "与出行相关的生活安排"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-E0-03": {
+      "chapter_label": "执行话术",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "关于今天讨论的出行、选车或行业情况，您还有哪些补充？其中，您最希望我们关注什么？",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "关于今天讨论的出行、选车或行业情况，您还有哪些补充？其中，您最希望我们关注什么？",
+          "evidence_type": "actual_experience_then_expectation"
+        },
+        "Dealer": {
+          "text": "还有什么重要情况没有谈到？如果只留下三条建议，您最希望我们记住什么？",
+          "evidence_type": "dealer_report"
+        },
+        "Media": {
+          "text": "还有什么重要情况没有谈到？如果只留下三条建议，您最希望我们记住什么？",
+          "evidence_type": "professional_judgment_verify_scope"
+        },
+        "OEM": {
+          "text": "还有什么重要情况没有谈到？如果只留下三条建议，您最希望我们记住什么？",
+          "evidence_type": "professional_judgment_verify_scope"
+        },
+        "business": {
+          "text": "关于贵组织的车辆采购和使用，您还有哪些补充？其中，您最希望我们关注什么？"
+        }
+      },
+      "probes": [
+        "尚未讨论的重要内容",
+        "最需要优先关注的建议"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M1.1-01": {
+      "chapter_label": "家庭与工作背景",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "请介绍您的日常工作和家庭生活，以及这些安排与出行的关系。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请介绍您的日常工作和家庭生活，以及这些安排与出行的关系。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "共同生活的家庭成员与年龄段",
+        "照护责任与出行安排"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M1.1-02": {
+      "chapter_label": "家庭与工作背景",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "您平时主要参加哪些兴趣活动？请以最近一次为例，介绍当时的出行安排。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "您平时主要参加哪些兴趣活动？请以最近一次为例，介绍当时的出行安排。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "同行者与携带物品",
+        "接送、装载和远行需要",
+        "受出行条件限制的活动"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M1.1-04": {
+      "chapter_label": "家庭与工作背景",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "未来三到五年，您预计生活或工作会发生哪些变化？这些变化可能带来怎样的出行需要？",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "未来三到五年，您预计生活或工作会发生哪些变化？这些变化可能带来怎样的出行需要？",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "工作、居住与照护安排的变化",
+        "已确定的变化与未来设想"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M1.1-05": {
+      "chapter_label": "家庭与工作背景",
+      "condition": "涉及公务、营运或组织采购。",
+      "variants": {
+        "owner": {
+          "text": "请介绍您的工作职责，以及公务或营运车辆在相关业务中的用途。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请介绍您的工作职责，以及公务或营运车辆在相关业务中的用途。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "组织规模和服务对象",
+        "车辆承担的任务",
+        "受访者在使用、采购和审批中的职责"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M1.2-01": {
+      "chapter_label": "车辆组合与分工",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "请介绍家庭或组织目前使用的车辆，以及各自承担的出行任务。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请介绍家庭目前使用的车辆和其他交通方式。新增车辆希望满足哪些需要？",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "车型、动力形式和购车时间",
+        "其他交通方式",
+        "现有安排尚未满足的需要"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M1.2-02": {
+      "chapter_label": "车辆组合与分工",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "请回顾您过去使用车辆的变化，以及每次变化的原因。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请回顾您或家庭过去使用车辆和其他交通方式的变化，以及原因。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "首次购车、增加车辆或更换车辆的原因",
+        "保留或停用车辆的原因"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M1.3-01": {
+      "chapter_label": "使用者、乘员与决策角色",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "请介绍日常出行中驾驶者与乘员的分工。不同出行安排下，这些分工怎样变化？",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请介绍日常出行中驾驶者与乘员的分工。不同出行安排下，这些分工怎样变化？",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "驾驶者与主要乘员",
+        "家庭成员、同事与专职司机的分工"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M1.3-02": {
+      "chapter_label": "使用者、乘员与决策角色",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "请介绍通常一起出行的人，以及他们的座位安排。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请介绍通常一起出行的人，以及他们的座位安排。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "同行人数和出行频次",
+        "儿童座椅与行动便利需要",
+        "日常与满员时的安排"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M1.3-03": {
+      "chapter_label": "使用者、乘员与决策角色",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "请介绍选车和购车过程中各参与者的分工，以及最终决定是怎样形成的。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请介绍选车和购车过程中各参与者的分工，以及最终决定是怎样形成的。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "信息搜集、比较、付款和决策的参与者",
+        "各自意见与影响"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M1.3-04": {
+      "chapter_label": "使用者、乘员与决策角色",
+      "condition": "涉及组织采购。",
+      "variants": {
+        "owner": {
+          "text": "请以最近一次车辆采购为例，介绍从提出需求到完成审批的过程。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请以最近一次车辆采购为例，介绍从提出需求到完成审批的过程。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "需求提出、预算、试用、审批和签约",
+        "驾驶者与乘员的意见",
+        "采购数量和时间安排"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M1.4-02": {
+      "chapter_label": "品类意义与理想形象",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "您理想中的车辆是什么样的？请结合实际出行需要描述。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "您理想中的车辆是什么样的？请结合实际出行需要描述。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "理想车辆对应的使用情境",
+        "最重要的要求",
+        "家庭与商务用途的差异"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M1.4-03": {
+      "chapter_label": "品类意义与理想形象",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "身边的人对这类车有哪些看法？这些看法对您产生了怎样的影响？",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "身边的人对这类车有哪些看法？这些看法对您产生了怎样的影响？",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "看法的来源",
+        "亲友或同事的评价",
+        "对选车和使用的影响"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M2.1-01": {
+      "chapter_label": "高频使用场景",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "请回顾最近一周的出行，从一个普通工作日开始讲起。",
+          "evidence_type": "本次编辑问法，按角色记录证据"
+        },
+        "prospect": {
+          "text": "请回顾最近一周您实际怎样出行，包括使用其他车辆或交通方式的情况。",
+          "evidence_type": "本次编辑问法，按角色记录证据"
+        }
+      },
+      "probes": [
+        "出行目的、交通方式、同行者和物品",
+        "工作日与休息日的差异",
+        "典型与特殊行程"
+      ],
+      "conditional_probes": [],
+      "activity": "小组访谈：先填写出行时间线，再讨论。入户访谈：结合现场观察核对。"
+    },
+    "Q-M2.1-02": {
+      "chapter_label": "高频使用场景",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "刚才介绍的出行中，哪些最常发生？请选择一次，详细介绍过程。",
+          "evidence_type": "本次编辑问法，按角色记录证据"
+        },
+        "prospect": {
+          "text": "刚才介绍的实际出行中，哪些最常发生？请选择一次，详细介绍过程。",
+          "evidence_type": "本次编辑问法，按角色记录证据"
+        }
+      },
+      "probes": [
+        "出行频次、里程和时长",
+        "交通状况带来的变化",
+        "未来用途与目前用途的差异"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M2.1-03": {
+      "chapter_label": "高频使用场景",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "请介绍车辆在家庭、工作或营运中的用途。对实际涉及的用途，请分别举例。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请介绍车辆在家庭、工作或营运中的用途。对实际涉及的用途，请分别举例。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "主要与次要用途",
+        "任务之间的冲突",
+        "座位与物品的调整"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M2.2-01": {
+      "chapter_label": "关键与极端场景",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "请回顾不常发生但对您重要的出行，介绍其中一次的过程和重要之处。",
+          "evidence_type": "本次编辑问法，按角色记录证据"
+        },
+        "prospect": {
+          "text": "请回顾不常发生但对您重要的实际出行。未来购车时，您希望车辆满足哪些相关需要？",
+          "evidence_type": "本次编辑问法，按角色记录证据"
+        }
+      },
+      "probes": [
+        "具体任务、人员和时间要求",
+        "行程的重要之处",
+        "需要车辆提供的支持"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M2.2-02": {
+      "chapter_label": "关键与极端场景",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "请回顾最近一次多人共同出行，从准备出发到行程结束，介绍整个过程。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请回顾最近一次多人共同出行，从准备出发到行程结束，介绍整个过程。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "座位、行李和途中活动",
+        "顺利与困难的环节",
+        "实际体验与未来需要"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M2.2-03": {
+      "chapter_label": "关键与极端场景",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "您怎样理解长途出行？请以最近一次为例，介绍行程的计划和完成过程。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "您怎样理解长途出行？请以最近一次为例，介绍行程的计划和完成过程。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "路线、休息、充电或加油安排",
+        "乘员活动",
+        "其他交通方式的考虑"
+      ],
+      "conditional_probes": [
+        {
+          "condition": "受访者确有跨境出行",
+          "text": "跨境出行时，通关、导航、网络、保险或充电及加油安排与境内出行有哪些异同？这些情况怎样影响行程？",
+          "source_sheet": "FGD-M2. 使用场景深挖",
+          "delivery": "moderator_decides_after_context"
+        }
+      ],
+      "activity": null
+    },
+    "Q-M2.2-04": {
+      "chapter_label": "关键与极端场景",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "请回顾一次车辆无法使用时的出行安排。",
+          "evidence_type": "本次编辑问法，按角色记录证据"
+        },
+        "prospect": {
+          "text": "请回顾一次原定交通工具无法使用时的出行安排。",
+          "evidence_type": "本次编辑问法，按角色记录证据"
+        }
+      },
+      "probes": [
+        "替代出行方式",
+        "额外时间和费用",
+        "对工作或接待的影响",
+        "恢复车辆使用的时间"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M2.3-01": {
+      "chapter_label": "乘员与装载",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "请讲最近一次带较多物品出行的经历，当时怎样安排人和物？",
+          "evidence_type": "本次编辑问法，按角色记录证据"
+        },
+        "prospect": {
+          "text": "请讲最近一次实际搬运或携带较多物品的经历，您使用什么交通方式，怎样完成？",
+          "evidence_type": "本次编辑问法，按角色记录证据"
+        }
+      },
+      "probes": [
+        "物品大小、数量与同行人数",
+        "装卸、固定和座椅调整",
+        "空间不足时的处理方式"
+      ],
+      "conditional_probes": [
+        {
+          "condition": "家用、有儿童或照护任务",
+          "text": "儿童用品、推车或辅助器具通常怎样装载？人员和物品同时需要空间时，您怎样安排？",
+          "source_sheet": "FGD-M2. 使用场景深挖",
+          "delivery": "moderator_decides_after_context"
+        },
+        {
+          "condition": "商务或营运",
+          "text": "请介绍运输礼品、样品、展品或设备的过程，以及包装和保管方面的要求。",
+          "source_sheet": "FGD-M2. 使用场景深挖",
+          "delivery": "moderator_decides_after_context"
+        }
+      ],
+      "activity": "入户访谈：征得许可后，用现有物品演示日常装载。"
+    },
+    "Q-M2.3-02": {
+      "chapter_label": "乘员与装载",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "请回顾一次不同乘员上下车的过程，他们分别怎样进入和离开座位？",
+          "evidence_type": "本次编辑问法，按角色记录证据"
+        },
+        "prospect": {
+          "text": "请回顾您实际乘坐过的车辆，您和同行者怎样上下车？有哪些方便或不方便的地方？",
+          "evidence_type": "本次编辑问法，按角色记录证据"
+        }
+      },
+      "probes": [
+        "不同乘员上下车的步骤",
+        "需要协助的环节",
+        "第三排进出的体验"
+      ],
+      "conditional_probes": [],
+      "activity": "入户访谈：在车辆静止、参与者愿意的情况下观察上下车；避免重复困难动作。"
+    },
+    "Q-M2.3-03": {
+      "chapter_label": "乘员与装载",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "结合您开过或坐过的车，您更喜欢哪种车的座椅高度和视野？为什么？",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "结合您开过或坐过的车，您更喜欢哪种车的座椅高度和视野？为什么？",
+          "evidence_type": "本次编辑问法，按角色记录证据"
+        }
+      },
+      "probes": [
+        "比如SUV坐得较高，轿车坐得较低，您感觉各有什么不同？",
+        "这种差别会怎样影响您选车？"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M2.4-01": {
+      "chapter_label": "停车、道路与气候",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "您经常在哪里停车？请选一个常用地点，讲讲停车和离开的过程。",
+          "evidence_type": "本次编辑问法，按角色记录证据"
+        },
+        "prospect": {
+          "text": "您目前出行涉及哪些停车安排？未来购车可用的停车地点，哪些已确认，哪些还不确定？",
+          "evidence_type": "本次编辑问法，按角色记录证据"
+        }
+      },
+      "probes": [
+        "车位、通道、限高和转弯",
+        "开门与上下车",
+        "寻找车位、收费及困难的处理"
+      ],
+      "conditional_probes": [],
+      "activity": "入户访谈：征得许可后观察停车空间，必要时测量。"
+    },
+    "Q-M2.4-02": {
+      "chapter_label": "停车、道路与气候",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "请描述您经常通行的道路，以及这些道路带来的驾驶和乘坐体验。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请描述您经常通行的道路，以及这些道路带来的驾驶和乘坐体验。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "常走道路的类型与频次",
+        "驾驶和乘坐感受",
+        "不便之处及应对"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M2.4-03": {
+      "chapter_label": "停车、道路与气候",
+      "condition": "有炎热或日晒天气出行经历。",
+      "variants": {
+        "owner": {
+          "text": "请回顾一次炎热或日晒后用车的经历，从上车到行驶介绍当时的感受。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请回顾一次炎热或日晒后出行的经历，从上车到行驶介绍当时的感受。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "日晒后的车内感受",
+        "空调降温时间",
+        "前后排差异"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M2.4-04": {
+      "chapter_label": "停车、道路与气候",
+      "condition": "有寒冷或冰雪天气出行经历。",
+      "variants": {
+        "owner": {
+          "text": "请介绍寒冷或冰雪天气下的用车体验，以及与平时的差异。",
+          "evidence_type": "本次编辑问法，按角色记录证据"
+        },
+        "prospect": {
+          "text": "请回顾一次寒冷或冰雪天气的出行经历，再说明希望未来车辆保留或改善的方面。",
+          "evidence_type": "本次编辑问法，按角色记录证据"
+        }
+      },
+      "probes": [
+        "制热、除雾与操作",
+        "续航和道路条件",
+        "对出行的影响及处理"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M2.4-05": {
+      "chapter_label": "停车、道路与气候",
+      "condition": "有雨天或恶劣天气出行经历。",
+      "variants": {
+        "owner": {
+          "text": "在您经历过的雨天或其他恶劣天气中，出行安排和用车体验有哪些变化？请举例。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "在您经历过的雨天或其他恶劣天气中，出行安排和用车体验有哪些变化？请举例。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "视野、上下车与车内潮湿",
+        "积水路段的经历",
+        "对行程的影响"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M2.4-06": {
+      "chapter_label": "停车、道路与气候",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "最近使用车辆空调时，哪些表现满意，哪些需要改善？",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "在您真实驾驶或乘坐的车辆中，空调有哪些满意或不满意的表现？希望新车改善什么？",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "制冷与制热效果",
+        "前后排差异、噪声和等待时间",
+        "改善需要"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M2.5-01": {
+      "chapter_label": "车内功能与操作体验",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "请介绍您在车内经常进行的操作。请选择一次，说明操作过程。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "在实际乘坐过或使用过的车辆里，最常做哪些操作？将来自己的车最需要支持什么？",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "最近一次操作的步骤",
+        "常用功能和使用频次",
+        "操作中的停顿或替代方式"
+      ],
+      "conditional_probes": [],
+      "activity": "入户访谈：车辆静止时演示常用操作，记录步骤和停顿。"
+    },
+    "Q-M2.5-02": {
+      "chapter_label": "车内功能与操作体验",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "请介绍您日常使用导航的方式，以及选择这种方式的原因。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请介绍您日常使用导航的方式，以及选择这种方式的原因。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "手机导航、车载导航与投屏的选择",
+        "切换原因",
+        "地图、网络和当地应用的体验"
+      ],
+      "conditional_probes": [
+        {
+          "condition": "受访者实际使用特定当地常用应用",
+          "text": "您选择这款应用的原因是什么？车载系统需要满足哪些条件，您才会考虑其他使用方式？",
+          "source_sheet": "FGD-2. 使用场景",
+          "delivery": "moderator_decides_after_context"
+        }
+      ],
+      "activity": null
+    },
+    "Q-M2.5-03": {
+      "chapter_label": "车内功能与操作体验",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "请介绍车载语音功能的使用情况。请以一次操作为例，说明使用体验。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请介绍您对车载语音功能的了解或体验。您希望它在哪些方面提供帮助？",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "使用语言、口音与环境噪声",
+        "操作结果",
+        "使用或不使用的原因"
+      ],
+      "conditional_probes": [
+        {
+          "condition": "受访者日常使用多语言或方言",
+          "text": "请介绍您在车内使用不同语言或方言的情况，以及语音操作的具体体验。",
+          "source_sheet": "FGD-M2. 使用场景深挖",
+          "delivery": "moderator_decides_after_context"
+        }
+      ],
+      "activity": null
+    },
+    "Q-M2.5-04": {
+      "chapter_label": "车内功能与操作体验",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "请介绍您连接手机与车载系统的方式，以及实际使用体验。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请介绍您连接手机与车载系统的方式，以及实际使用体验。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "有线与无线连接",
+        "稳定性和重新连接",
+        "未使用的原因与期望"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M2.5-05": {
+      "chapter_label": "车内功能与操作体验",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "车内不同乘员通常会使用哪些设备，进行哪些活动？请结合一次实际出行说明。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "车内不同乘员通常会使用哪些设备，进行哪些活动？请结合一次实际出行说明。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "不同乘员的活动",
+        "原车与自行配置的设备",
+        "前后排需要的差异"
+      ],
+      "conditional_probes": [
+        {
+          "condition": "商务接待",
+          "text": "商务出行中，后排乘员通常有哪些活动？这些活动对驾驶和车内交流有哪些影响？",
+          "source_sheet": "FGD-M2. 使用场景深挖",
+          "delivery": "moderator_decides_after_context"
+        }
+      ],
+      "activity": null
+    },
+    "Q-M2.5-06": {
+      "chapter_label": "车内功能与操作体验",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "请描述车内环境和操作方式给您的感受。哪些体验让您舒适，哪些让您不适或分心？",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请描述车内环境和操作方式给您的感受。哪些体验让您舒适，哪些让您不适或分心？",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "声音、灯光、材质和操作反馈",
+        "使用情境与频次",
+        "调整和改善方式"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M2.5-07": {
+      "chapter_label": "车内功能与操作体验",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "多人一起用车时，通常怎样使用和协调车内功能？请举例说明。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请结合实际乘坐经历，介绍多人怎样使用和协调车内功能。",
+          "evidence_type": "本次编辑问法，按角色记录证据"
+        }
+      },
+      "probes": [
+        "音源、屏幕、温度与操作安排",
+        "意见不一致的情况",
+        "协调方式"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M2.5-08": {
+      "chapter_label": "车内功能与操作体验",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "不同使用者在操作现有车载系统时，各自有哪些体验？请举具体例子。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "不同使用者在操作现有车载系统时，各自有哪些体验？请举具体例子。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "具体操作及困难环节",
+        "使用经验、语言和身体条件的影响"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M2.6-01": {
+      "chapter_label": "使用体验与改善需要",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "回顾目前的出行或用车体验，哪些方面令您满意，哪些方面需要改善？请分别举例。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "回顾目前的出行或用车体验，哪些方面令您满意，哪些方面需要改善？请分别举例。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "具体满意与不满意的经历",
+        "对继续使用和下次选车的影响"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M2.6-02": {
+      "chapter_label": "使用体验与改善需要",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "回顾刚才的实际出行，哪些方面需要改善？请结合一次经历说明。",
+          "evidence_type": "本次编辑问法，按角色记录证据"
+        },
+        "prospect": {
+          "text": "结合您目前的实际出行，哪些方面需要改善？请举例说明。",
+          "evidence_type": "本次编辑问法，按角色记录证据"
+        }
+      },
+      "probes": [
+        "发生条件和频次",
+        "受到影响的人",
+        "时间、费用与感受上的影响",
+        "现有办法及仍需改善的部分"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M2.6-03": {
+      "chapter_label": "使用体验与改善需要",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "请介绍您对现有车内操作的评价。哪些操作顺利，哪些需要改善？请以最近一次为例说明。",
+          "evidence_type": "本次编辑问法，按角色记录证据"
+        },
+        "prospect": {
+          "text": "请结合实际体验过的车辆，评价车内操作。哪些操作顺利，哪些需要改善？请举例说明。",
+          "evidence_type": "本次编辑问法，按角色记录证据"
+        }
+      },
+      "probes": [
+        "操作步骤与结果",
+        "替代方式",
+        "期望的改善程度"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M2.6-04": {
+      "chapter_label": "使用体验与改善需要",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "目前的车辆或出行安排中，哪些方面对您最有价值？请结合实际经历说明。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "目前的车辆或出行安排中，哪些方面对您最有价值？请结合实际经历说明。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "产生价值的原因",
+        "日常使用与重要时刻的作用",
+        "可替代的方案"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M2.7-01": {
+      "chapter_label": "日常用车总费用与服务体验",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "请介绍一个明确期间内的用车费用，以及各项费用如何估算。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请介绍目前的出行费用。未来购车后，您会怎样考虑用车支出？",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "明确期间内的能源、停车、保险和保养维修费用",
+        "金额、币种和支付周期",
+        "当前费用与未来预算"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M2.7-02": {
+      "chapter_label": "日常用车总费用与服务体验",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "请介绍比较不同用车方案费用的过程和结果。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请介绍比较不同交通或用车方案费用的过程和结果。",
+          "evidence_type": "本次编辑问法，按角色记录证据"
+        }
+      },
+      "probes": [
+        "比较的里程与期间",
+        "车价、利息和折旧的计入方式",
+        "费用差异及原因"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M2.7-03": {
+      "chapter_label": "日常用车总费用与服务体验",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "请回顾最近一次保养或维修，从预约到取车发生了什么？",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请回顾过去一次车辆保养或维修经历，再说明对未来服务的要求。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "预约、等待和取车",
+        "距离、费用和沟通",
+        "替代出行安排",
+        "最需改善的环节"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M2.7-04": {
+      "chapter_label": "日常用车总费用与服务体验",
+      "condition": "仅有对应已购车/使用经历者。",
+      "variants": {
+        "owner": {
+          "text": "车辆使用一段时间后，哪些部位变化最明显？",
+          "evidence_type": "self_report_or_preference"
+        }
+      },
+      "probes": [
+        "内饰磨损、异响和清洁",
+        "配饰与改装",
+        "对质量和未来转售价值的看法"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M8.1-01": {
+      "chapter_label": "基础设施与能源环境",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "您实际熟悉的区域，停车、能源或充电或燃料补给条件怎样影响日常出行？",
+          "evidence_type": "本次编辑问法，按角色记录证据"
+        },
+        "prospect": {
+          "text": "您目前能够使用或已确认的停车、能源和充电或燃料补给条件有哪些？哪些还不清楚？",
+          "evidence_type": "本次编辑问法，按角色记录证据"
+        }
+      },
+      "probes": [
+        "常用地点与区域差异",
+        "私人和公共设施",
+        "对日常行程的影响"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M8.3-01": {
+      "chapter_label": "语言与联网服务",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "请结合实际使用经历，介绍哪些语言、地图、内容或联网服务对您最重要，以及原因。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请结合实际使用经历，介绍哪些语言、地图、内容或联网服务对您最重要，以及原因。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "使用语言与当地应用",
+        "离线、账户、支付和联网需要",
+        "现有替代方式"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M8.3-02": {
+      "chapter_label": "语言与联网服务",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "请介绍现有车载系统与您当地使用习惯的适合程度。哪些方面满足需要，哪些方面需要调整？",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请介绍现有车载系统与您当地使用习惯的适合程度。哪些方面满足需要，哪些方面需要调整？",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "具体界面与操作",
+        "翻译、地址、计量单位、语音和内容",
+        "需要调整的地方"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M2.6-05": {
+      "chapter_label": "使用体验与改善需要",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "请描述现有车辆的日常使用体验。哪些地方使用顺利，哪些地方需要额外花费时间或精力处理？",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请描述现有车辆的日常使用体验。哪些地方使用顺利，哪些地方需要额外花费时间或精力处理？",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "材质、气味、噪声和清洁",
+        "乘员之间的使用安排",
+        "对出行或接待的影响"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M3.1-01": {
+      "chapter_label": "触发事件与预算",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "请回顾这次购车之前的车辆使用情况，以及促使您开始考虑买车或换车的事情。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请介绍目前的车辆使用或出行情况，以及促使您开始考虑买车或换车的事情。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "生活、工作或用车条件的变化",
+        "首次购车、增加车辆或更换车辆",
+        "开始考虑与最终选择的原因"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M3.1-02": {
+      "chapter_label": "触发事件与预算",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "请介绍本次购车预算的确定过程，以及之后的调整情况。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请介绍目前购车预算的确定过程，以及可能影响预算调整的条件。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "预算参与者",
+        "金额、币种和所含费用",
+        "预算调整的原因"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M3.1-03": {
+      "chapter_label": "触发事件与预算",
+      "condition": "仅有对应已购车/使用经历者。",
+      "variants": {
+        "owner": {
+          "text": "请介绍本次购车的实际总支出，以及其中包含的费用。与最初预算相比，有哪些差异？",
+          "evidence_type": "本次编辑问法，按角色记录证据"
+        }
+      },
+      "probes": [
+        "车价、税费、保险和金融费用",
+        "实际总支出",
+        "与预算的差异及原因"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M3.2-01": {
+      "chapter_label": "信息来源与车型比较",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "请介绍本次选车过程中考虑过的车型，以及考虑范围怎样变化。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请介绍本次选车过程中考虑过的车型，以及考虑范围怎样变化。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "最初与目前考虑的车型",
+        "车型类别、动力和价格范围",
+        "加入或排除的原因"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M3.2-02": {
+      "chapter_label": "信息来源与车型比较",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "在您考虑过的车型中，哪些更符合您的需要？您是怎样比较和排序的？",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "在您考虑过的车型中，哪些更符合您的需要？您是怎样比较和排序的？",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "比较和排序的变化",
+        "产品与品牌的吸引之处",
+        "仍待确认的内容"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M3.2-03": {
+      "chapter_label": "信息来源与车型比较",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "请介绍选车时接触的信息来源。哪些信息影响了您的判断？请举例说明。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请介绍选车时接触的信息来源。哪些信息影响了您的判断？请举例说明。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "主动搜索、亲友、门店和媒体信息",
+        "信任原因",
+        "改变判断的具体内容"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M3.2-04": {
+      "chapter_label": "信息来源与车型比较",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "对于您实际了解或体验过的车型，请分别介绍满意之处和不足之处，以及判断依据。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "对于您实际了解或体验过的车型，请分别介绍满意之处和不足之处，以及判断依据。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "了解和体验的来源",
+        "各车型在相同方面的表现",
+        "选择依据"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M3.3-01": {
+      "chapter_label": "购车过程与试驾",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "请按时间顺序介绍从产生购车想法到目前阶段的过程，以及其中对决定有影响的事情。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请按时间顺序介绍从产生购车想法到目前阶段的过程，以及其中对决定有影响的事情。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "搜索、到店、试驾、决定、下单和交车",
+        "等待或犹豫的阶段",
+        "已发生事项与未来安排"
+      ],
+      "conditional_probes": [],
+      "activity": "绘制购车时间线，标注已发生事项与未来安排。"
+    },
+    "Q-M3.3-02": {
+      "chapter_label": "购车过程与试驾",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "请回顾您到店看车或试驾的经历，介绍当时重点了解或体验的内容，以及对判断的影响。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请回顾您到店看车或试驾的经历，介绍当时重点了解或体验的内容，以及对判断的影响。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "共同参与者",
+        "重点体验的区域、功能和路段",
+        "对原有判断的影响",
+        "未试驾的原因"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M3.3-03": {
+      "chapter_label": "购车过程与试驾",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "请介绍您选择门店或购车渠道的过程，以及考虑的因素。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请介绍您选择门店或购车渠道的过程，以及考虑的因素。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "距离、服务、价格和口碑",
+        "选择与放弃的原因"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M3.4-01": {
+      "chapter_label": "购车考虑因素",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "选车时，您会考虑哪些因素？请先自由描述，再说明哪些最重要，以及原因。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "选车时，您会考虑哪些因素？请先自由描述，再说明哪些最重要，以及原因。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "各因素需要达到的程度",
+        "优先顺序",
+        "无法接受的条件"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M3.4-03": {
+      "chapter_label": "购车考虑因素与取舍",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "请介绍让您感兴趣但没有选择，或目前仍在考虑的车型。您是怎样看待它们的？",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请介绍让您感兴趣但没有选择，或目前仍在考虑的车型。您是怎样看待它们的？",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "吸引之处与放弃原因",
+        "仍在犹豫的内容",
+        "可能改变决定的条件"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M3.4-04": {
+      "chapter_label": "购车考虑因素与取舍",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "实际选车过程中，您在哪些方面作了取舍？这些取舍是怎样形成的？",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "实际选车过程中，您在哪些方面作了取舍？这些取舍是怎样形成的？",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "最初期待与实际选择",
+        "接受取舍的原因",
+        "可能改变选择的改善"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M3.4-05": {
+      "chapter_label": "购车考虑因素与取舍",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "请介绍您在同一车型不同配置版本之间的选择过程，以及取舍依据。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请介绍您考虑过的配置版本，以及目前的倾向和仍需确认的内容。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "配置和价格差异",
+        "决定性的功能",
+        "未选版本的原因"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M3.5-01": {
+      "chapter_label": "支付与金融",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "本次购车选择了什么支付方式？为什么？",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "目前考虑哪些支付方式？哪些费用或条款还没弄清楚？",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "实际选择或正在考虑的方案",
+        "首付、分期、利息和总费用",
+        "车辆交付、所有权及退出条款"
+      ],
+      "conditional_probes": [
+        {
+          "condition": "当地存在且项目已核验的特殊金融产品",
+          "text": "如果您考虑或使用过该产品，请介绍了解和比较的过程，重点说明总费用、取得车辆的时间、所有权和退出条件。",
+          "source_sheet": "IHV-3. 购买旅程",
+          "delivery": "moderator_decides_after_context"
+        }
+      ],
+      "activity": null
+    },
+    "Q-M3.5-02": {
+      "chapter_label": "支付与金融",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "据您了解，亲友或同事采用过哪些购车支付方式？这些经历对您的考虑产生了怎样的影响？",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "据您了解，亲友或同事采用过哪些购车支付方式？这些经历对您的考虑产生了怎样的影响？",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "接触到的具体方案",
+        "亲友或同事的使用经验",
+        "对本人选择的影响"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M3.5-03": {
+      "chapter_label": "支付与金融",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "下次购车，您会怎样考虑支付方式？请说明选择依据，以及仍需要了解的内容。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "下次购车，您会怎样考虑支付方式？请说明选择依据，以及仍需要了解的内容。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "预算与付款安排",
+        "所有权和退出条件",
+        "选择理由及待确认条款"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M3.6-01": {
+      "chapter_label": "下一次购买计划",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "对于未来购车或更换车辆，您目前有哪些安排或想法？",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "对于未来购车或更换车辆，您目前有哪些安排或想法？",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "时间、车型、动力和用途",
+        "已确定的安排",
+        "希望改善的现有问题"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M3.6-02": {
+      "chapter_label": "下一次购买计划",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "下一次购车，哪些要求对您尤其重要？您希望这些方面达到什么程度？",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "下一次购车，哪些要求对您尤其重要？您希望这些方面达到什么程度？",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "最重要的要求与最低接受程度",
+        "与当前取舍的关系",
+        "愿意放弃的其他条件"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M8.2-01": {
+      "chapter_label": "补贴与政策影响",
+      "condition": "具体政策提示采用已核验材料。",
+      "variants": {
+        "owner": {
+          "text": "您了解哪些当地购车或用车优惠政策？请介绍本次购车中了解、申请或享受这些政策的情况。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "您了解哪些当地购车或用车优惠政策？这些政策对您的购车考虑产生了怎样的影响？",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "了解的政策及信息来源",
+        "申请资格与实际使用",
+        "对购车安排的影响"
+      ],
+      "conditional_probes": [
+        {
+          "condition": "已核验当地政策且受访者知晓",
+          "text": "请介绍申请或享受该政策的过程，以及它对购买时间、预算或动力选择的影响；未申请或未享受的，请说明情况。",
+          "source_sheet": "IHV-2. 家庭背景",
+          "delivery": "moderator_decides_after_context"
+        }
+      ],
+      "activity": null
+    },
+    "Q-M8.2-02": {
+      "chapter_label": "补贴与政策影响",
+      "condition": "根据已核验的政策情境提问。",
+      "variants": {
+        "owner": {
+          "text": "如果已说明的购车补贴或税费优惠发生变化，您会怎样考虑购车安排？请说明可能变化或保持不变的方面，以及原因。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "如果已说明的购车补贴或税费优惠发生变化，您会怎样考虑购车安排？请说明可能变化或保持不变的方面，以及原因。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "购车时间、预算、动力与车型的变化",
+        "保持不变的原因",
+        "其他影响因素"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M4.1-01": {
+      "chapter_label": "动力理解与选择",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "您了解哪些汽车动力形式？请用自己的话介绍您的理解。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "您了解哪些汽车动力形式？请用自己的话介绍您的理解。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "对不同动力形式的理解",
+        "信息来源",
+        "先考虑动力还是车型"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M4.1-02": {
+      "chapter_label": "动力理解与选择",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "请介绍您考虑不同动力形式时的判断依据。哪些适合您的需要，哪些不适合？",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请介绍您考虑不同动力形式时的判断依据。哪些适合您的需要，哪些不适合？",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "使用条件、费用、可靠性和习惯",
+        "考虑与排除的原因",
+        "亲身经历和听说的情况"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M4.1-03": {
+      "chapter_label": "动力理解与选择",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "您怎样理解增程式汽车？结合刚才的中性说明，哪些方面符合您的需要，哪些方面仍有疑问或顾虑？",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "您怎样理解增程式汽车？结合刚才的中性说明，哪些方面符合您的需要，哪些方面仍有疑问或顾虑？",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "原有理解与说明后的看法",
+        "与实际出行的关系",
+        "仍需了解的内容"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M4.2-01": {
+      "chapter_label": "充电与加油安排",
+      "condition": "有实际充电经历。",
+      "variants": {
+        "owner": {
+          "text": "请回顾最近一次充电，从决定充电到结束介绍整个过程。与平时的充电安排相比，这次有哪些相同或不同之处？",
+          "evidence_type": "self_report_or_preference"
+        }
+      },
+      "probes": [
+        "地点、频次与起止电量",
+        "车辆停留和本人等待时间",
+        "住所与公共充电的安排",
+        "对行程的影响"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M4.2-02": {
+      "chapter_label": "充电与加油安排",
+      "condition": "有公共快速充电经历。",
+      "variants": {
+        "owner": {
+          "text": "请回顾最近一次使用公共快速充电设施的经历。",
+          "evidence_type": "self_report_or_preference"
+        }
+      },
+      "probes": [
+        "寻找设施、排队和设备使用",
+        "支付、等待与充电结果",
+        "不使用的原因"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M4.2-03": {
+      "chapter_label": "充电与加油安排",
+      "condition": "有实际充电经历。",
+      "variants": {
+        "owner": {
+          "text": "实际充电时，哪些环节符合预期，哪些没有？如有问题，请讲一次。",
+          "evidence_type": "本次编辑问法，按角色记录证据"
+        }
+      },
+      "probes": [
+        "温度、设备和实际充电表现",
+        "问题发生频次",
+        "更换地点或其他处理方式"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M4.2-04": {
+      "chapter_label": "充电与加油安排",
+      "condition": "有安装或使用外接充电的需要。",
+      "variants": {
+        "owner": {
+          "text": "请介绍您日常停车地点的充电条件。对于安装充电设施，哪些条件已经确认，哪些仍需要了解？",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请介绍您日常停车地点的充电条件。对于安装充电设施，哪些条件已经确认，哪些仍需要了解？",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "现有设施与安装计划",
+        "车位、供电、许可和费用",
+        "待确认的条件"
+      ],
+      "conditional_probes": [
+        {
+          "condition": "具备安装意向或曾申请住所充电",
+          "text": "请介绍安装充电设施涉及的许可、申请流程和实际限制。",
+          "source_sheet": "FGD-1. 人群画像",
+          "delivery": "moderator_decides_after_context"
+        }
+      ],
+      "activity": "入户访谈：征得许可后观察停车和充电设施，不打开电气设备。"
+    },
+    "Q-M4.2-05": {
+      "chapter_label": "充电与加油安排",
+      "condition": "有使用交流充电的需要。",
+      "variants": {
+        "owner": {
+          "text": "请介绍您使用过或了解过的交流充电方式，以及它与日常停车时间和出行需要的适合程度。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请介绍您使用过或了解过的交流充电方式，以及它与日常停车时间和出行需要的适合程度。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "停车时间与充电安排",
+        "已知的车辆和设施能力",
+        "下一次出行所需电量或里程"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M4.2-06": {
+      "chapter_label": "充电与加油安排",
+      "condition": "有实际加油经历。",
+      "variants": {
+        "owner": {
+          "text": "请回顾最近一次加油或其他燃料补给的过程。",
+          "evidence_type": "self_report_or_preference"
+        }
+      },
+      "probes": [
+        "燃料类型、频次和距离",
+        "费用与等待",
+        "选择不同燃料的原因"
+      ],
+      "conditional_probes": [
+        {
+          "condition": "市场确有多燃料选择且本人使用",
+          "text": "请介绍实际使用过的燃料类型，以及选择或更换燃料的原因。",
+          "source_sheet": "IHV-4. 看车流程",
+          "delivery": "moderator_decides_after_context"
+        }
+      ],
+      "activity": null
+    },
+    "Q-M4.3-01": {
+      "chapter_label": "续航与等待时间要求",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "结合常见行程和最关键的一次远行，怎样的续航才够用？",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "结合目前真实行程和已确定的未来任务，您期望怎样的续航？哪些要求还只是设想？",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "日常与长途需要",
+        "可接受的充电或加油次数",
+        "实际可用里程与标称里程"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M4.3-02": {
+      "chapter_label": "续航与等待时间要求",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "请介绍您实际充电时如何决定充到多少电量，以及这样安排的原因。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "结合实际使用或体验过的电动车，请介绍如何决定充到多少电量，以及原因。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "起止电量",
+        "下一次行程",
+        "住所与途中充电的安排",
+        "可接受的等待时间"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M4.3-03": {
+      "chapter_label": "续航与等待时间要求",
+      "condition": "展示材料：续航价格组合。",
+      "variants": {
+        "owner": {
+          "text": "结合实际出行需要，您怎样确定可接受的实际续航里程？哪些情况下，续航会影响您的车型选择？",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "结合实际出行需要，您怎样确定可接受的实际续航里程？哪些情况下，续航会影响您的车型选择？",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "可接受的实际续航",
+        "不同出行条件下的要求",
+        "价格与续航之间的取舍"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M4.4-02": {
+      "chapter_label": "驾驶辅助的使用与信任",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "驾驶过程中，您希望驾驶辅助功能在哪些方面提供帮助？哪些操作更希望由自己完成？请说明原因。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "驾驶过程中，您希望驾驶辅助功能在哪些方面提供帮助？哪些操作更希望由自己完成？请说明原因。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "希望获得帮助的任务",
+        "发生频次和使用困难",
+        "信任及恢复人工操控的条件"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M4.4-03": {
+      "chapter_label": "驾驶辅助的使用与信任",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "您会怎样决定使用或停止使用驾驶辅助功能？请结合经历或使用条件说明。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "您会怎样决定使用或停止使用驾驶辅助功能？请结合经历或使用条件说明。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "功能与驾驶者责任的理解",
+        "失误和恢复操控的经历",
+        "停止使用的条件"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M4.4-04": {
+      "chapter_label": "驾驶辅助的使用与信任",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "请介绍您对自动泊车的看法，以及它与您实际停车需要的关系。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请介绍您对自动泊车的看法，以及它与您实际停车需要的关系。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "车位与停车条件",
+        "速度、准确性和人工操控",
+        "使用或选装的考虑"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M4.5-01": {
+      "chapter_label": "安全与耐久期待",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "请介绍出行或选车时您关注的安全问题，以及关注这些问题的原因。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请介绍出行或选车时您关注的安全问题，以及关注这些问题的原因。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "关注的乘员与出行情境",
+        "判断依据",
+        "对安全功能和碰撞评价的理解"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M4.5-02": {
+      "chapter_label": "安全与耐久期待",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "对于车内环境与健康，您有哪些看法或要求？这些想法来自哪些经历或信息？",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "对于车内环境与健康，您有哪些看法或要求？这些想法来自哪些经历或信息？",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "空气、气味和材质",
+        "相关经历与信息",
+        "期望的改善"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M4.5-03": {
+      "chapter_label": "安全与耐久期待",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "对于电池安全、长期使用表现和质保，您有哪些了解、疑问或要求？请说明依据。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "对于电池安全、长期使用表现和质保，您有哪些了解、疑问或要求？请说明依据。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "亲身经历和宣传信息",
+        "影响判断的人或资料",
+        "需要的证据与质保安排"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M4.5-04": {
+      "chapter_label": "安全与耐久期待",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "请介绍车辆应对不同路面和障碍物的表现，以及这些体验对您的出行或选车考虑的影响。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请介绍车辆应对不同路面和障碍物的表现，以及这些体验对您的出行或选车考虑的影响。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "具体路段和磕碰经历",
+        "损失或担忧",
+        "对选车与行程的影响"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M5.1-01": {
+      "chapter_label": "整体概念评价",
+      "condition": "仅当项目已准备并展示完整产品概念材料后触发；未展示产品概念时整题不出现。",
+      "variants": {
+        "owner": {
+          "text": "看完这份产品概念，您的第一反应是什么？",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "看完这份产品概念，您的第一反应是什么？",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "对产品的理解与适合人群",
+        "吸引之处",
+        "疑问与不足"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M5.1-02": {
+      "chapter_label": "整体概念评价",
+      "condition": "仅当项目已准备并展示完整产品概念材料后触发；未展示产品概念时整题不出现。",
+      "variants": {
+        "owner": {
+          "text": "结合您刚才介绍的实际出行需要，这个产品概念在哪些方面合适，哪些方面不合适？请说明原因。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "结合您刚才介绍的实际出行需要，这个产品概念在哪些方面合适，哪些方面不合适？请说明原因。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "具体使用情境",
+        "替代现有方案的条件",
+        "尚未满足的乘员或任务需要"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M5.2-01": {
+      "chapter_label": "整体外形与前后部设计",
+      "condition": "展示材料：外观方案图。",
+      "variants": {
+        "owner": {
+          "text": "请分别描述您对这些车辆整体外形方案的感受，再说明哪些更符合您的需要，以及原因。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请分别描述您对这些车辆整体外形方案的感受，再说明哪些更符合您的需要，以及原因。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "车身比例、表面和线条",
+        "用途联想",
+        "辨识度与新颖程度",
+        "偏好及原因"
+      ],
+      "conditional_probes": [],
+      "activity": "依次展示材料，先独立评价，再比较。"
+    },
+    "Q-M5.2-02": {
+      "chapter_label": "整体外形与前后部设计",
+      "condition": "展示材料：外观方案图。",
+      "variants": {
+        "owner": {
+          "text": "请分别介绍您对这些车辆前部外观方案的看法。哪些更符合您的偏好或使用需要？为什么？",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请分别介绍您对这些车辆前部外观方案的看法。哪些更符合您的偏好或使用需要？为什么？",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "格栅、灯光与细节",
+        "辨识度和耐看程度",
+        "偏好及原因"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M5.2-03": {
+      "chapter_label": "整体外形与前后部设计",
+      "condition": "展示材料：外观方案图。",
+      "variants": {
+        "owner": {
+          "text": "请分别介绍您对这些车尾设计方案的看法。哪些更符合您的偏好或使用需要？为什么？",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请分别介绍您对这些车尾设计方案的看法。哪些更符合您的偏好或使用需要？为什么？",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "喜欢与不喜欢的设计",
+        "辨识度",
+        "对功能和使用的联想"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M5.2-04": {
+      "chapter_label": "整体外形与前后部设计",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "结合车辆整体外形、前部外观和车尾设计，请介绍哪些方面符合您的期待，哪些方面需要调整。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "结合车辆整体外形、前部外观和车尾设计，请介绍哪些方面符合您的期待，哪些方面需要调整。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "符合期待与需要调整的部分",
+        "与空间、价格或品牌的取舍"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M5.3-01": {
+      "chapter_label": "内饰颜色与材质",
+      "condition": "展示材料：颜色/材料/工艺样板。",
+      "variants": {
+        "owner": {
+          "text": "请用自己的话描述这套内饰给您的感受，并说明哪些设计带来了这些感受。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请用自己的话描述这套内饰给您的感受，并说明哪些设计带来了这些感受。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "带来具体感受的设计",
+        "新颖程度与辨识度",
+        "家庭和商务使用的考虑"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M5.3-02": {
+      "chapter_label": "内饰颜色与材质",
+      "condition": "展示材料：颜色/材料/工艺样板。",
+      "variants": {
+        "owner": {
+          "text": "请分别介绍您对这些颜色、材质和表面处理方案的感受，以及它们与您使用需要的关系。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请分别介绍您对这些颜色、材质和表面处理方案的感受，以及它们与您使用需要的关系。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "触感、清洁和耐用",
+        "对品质的判断",
+        "不同用途的需要"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M5.3-03": {
+      "chapter_label": "内饰颜色与材质",
+      "condition": "展示材料：颜色/材料/工艺样板。",
+      "variants": {
+        "owner": {
+          "text": "对于车身和内饰颜色，您分别有哪些偏好或顾虑？请说明原因。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "对于车身和内饰颜色，您分别有哪些偏好或顾虑？请说明原因。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "实际选择经历与原因",
+        "使用环境和个人文化习惯的影响"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M5.4-01": {
+      "chapter_label": "座椅布局与上下车",
+      "condition": "展示材料：尺寸及座椅空间方案。",
+      "variants": {
+        "owner": {
+          "text": "结合材料中说明的车辆尺寸，以及您常走的路线和停车地点，请介绍这辆车与实际使用条件的适合程度。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "结合材料中说明的车辆尺寸，以及您常走的路线和停车地点，请介绍这辆车与实际使用条件的适合程度。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "停车、转弯、开门和限高",
+        "尺寸对使用和选择的影响"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M5.4-02": {
+      "chapter_label": "座椅布局与上下车",
+      "condition": "展示材料：尺寸及座椅空间方案。",
+      "variants": {
+        "owner": {
+          "text": "请结合日常出行和重要行程，评价这些座椅布局。哪些布局适合您的需要？为什么？",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请结合日常出行和重要行程，评价这些座椅布局。哪些布局适合您的需要？为什么？",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "乘员人数与座位安排",
+        "儿童座椅与行李",
+        "日常和特殊行程的需要"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M5.4-03": {
+      "chapter_label": "座椅布局与上下车",
+      "condition": "展示材料：尺寸及座椅空间方案。",
+      "variants": {
+        "owner": {
+          "text": "请结合经常乘坐的人，评价这些后排上下车方式。哪些方便，哪些需要改善？",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请结合经常乘坐的人，评价这些后排上下车方式。哪些方便，哪些需要改善？",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "过道、座椅移动、台阶与门开口",
+        "上下车步骤",
+        "便利和困难的环节"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M5.4-04": {
+      "chapter_label": "座椅布局与上下车",
+      "condition": "展示材料：尺寸及座椅空间方案。",
+      "variants": {
+        "owner": {
+          "text": "请介绍这些座椅调整和储物空间变化方式，在您的实际生活中可能有哪些用途。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请介绍这些座椅调整和储物空间变化方式，在您的实际生活中可能有哪些用途。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "实际物品和使用情境",
+        "调整步骤与便利程度",
+        "使用频次"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M5.4-05": {
+      "chapter_label": "座椅布局与上下车",
+      "condition": "展示材料：尺寸及座椅空间方案。",
+      "variants": {
+        "owner": {
+          "text": "请结合实际装载、取物和停车需要，评价这款尾门设计。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请结合实际装载、取物和停车需要，评价这款尾门设计。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "取放较深处的物品",
+        "站位和车后空间",
+        "不同停车条件下的使用"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M5.4-06": {
+      "chapter_label": "座椅布局与上下车",
+      "condition": "展示材料：尺寸及座椅空间方案。",
+      "variants": {
+        "owner": {
+          "text": "请结合上下车、乘坐视野和日常使用需要，评价这些车门、导轨和侧窗方案。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请结合上下车、乘坐视野和日常使用需要，评价这些车门、导轨和侧窗方案。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "上下车与开关门",
+        "采光和乘坐视野",
+        "外观与实际使用的评价"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M5.4-07": {
+      "chapter_label": "座椅布局与上下车",
+      "condition": "展示材料：尺寸及座椅空间方案。",
+      "variants": {
+        "owner": {
+          "text": "请分别介绍您对这些车顶方案的看法，以及选择时会考虑的因素。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请分别介绍您对这些车顶方案的看法，以及选择时会考虑的因素。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "采光、遮阳和视野",
+        "空间与维护",
+        "车辆总高度和停车条件"
+      ],
+      "conditional_probes": [
+        {
+          "condition": "项目包含车顶附件",
+          "text": "结合已说明的车辆总高度，请介绍与常用停车地点的适合程度，以及您的考虑。",
+          "source_sheet": "FGD-M5. 造型与设计测试",
+          "delivery": "moderator_decides_after_context"
+        }
+      ],
+      "activity": null
+    },
+    "Q-M5.4-08": {
+      "chapter_label": "座椅布局与上下车",
+      "condition": "展示材料：尺寸及座椅空间方案。",
+      "variants": {
+        "owner": {
+          "text": "结合材料说明的车内中央功能区及通道布局，请介绍它们对您使用车辆的影响，以及您的取舍。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "结合材料说明的车内中央功能区及通道布局，请介绍它们对您使用车辆的影响，以及您的取舍。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "使用者与频次",
+        "功能价值",
+        "对车内通行和上下车的影响"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M5.5-01": {
+      "chapter_label": "车内操作方案",
+      "condition": "展示材料：操作与反馈原型及限制说明。",
+      "variants": {
+        "owner": {
+          "text": "请结合驾驶者和其他乘员的实际需要，评价这些屏幕布局。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请结合驾驶者和其他乘员的实际需要，评价这些屏幕布局。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "驾驶者、副驾驶乘员和后排乘员的用途",
+        "使用频次",
+        "干扰与闲置"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M5.5-02": {
+      "chapter_label": "车内操作方案",
+      "condition": "展示材料：操作与反馈原型及限制说明。",
+      "variants": {
+        "owner": {
+          "text": "请结合常用操作，介绍您对实体按键和触摸操作方案的看法，以及选择依据。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请结合常用操作，介绍您对实体按键和触摸操作方案的看法，以及选择依据。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "常用操作",
+        "驾驶与停车时的需要",
+        "不看屏幕操作、误触和学习过程"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M5.5-03": {
+      "chapter_label": "车内操作方案",
+      "condition": "展示材料：操作与反馈原型及限制说明。",
+      "variants": {
+        "owner": {
+          "text": "了解电子外后视镜的功能与使用限制后，请介绍您的看法，以及选择时会考虑的因素。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "了解电子外后视镜的功能与使用限制后，请介绍您的看法，以及选择时会考虑的因素。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "适应和显示体验",
+        "天气、维护和费用",
+        "与传统后视镜的取舍"
+      ],
+      "conditional_probes": [
+        {
+          "condition": "有电子外后视镜价格卡",
+          "text": "在功能、限制和费用已经说明的情况下，您会怎样考虑是否选装？哪些条件可能改变您的决定？",
+          "source_sheet": "IHV-D. 出门实地勘察与车辆实况评估",
+          "delivery": "moderator_decides_after_context"
+        }
+      ],
+      "activity": null
+    },
+    "Q-M5.6-01": {
+      "chapter_label": "功能与配置组合",
+      "condition": "展示材料：逐项功能说明。",
+      "variants": {
+        "owner": {
+          "text": "请逐项介绍您对这些功能的理解，以及它们与实际使用需要的关系。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请逐项介绍您对这些功能的理解，以及它们与实际使用需要的关系。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "功能理解",
+        "具体情境与使用频次",
+        "现有替代方式"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M5.6-02": {
+      "chapter_label": "功能与配置组合",
+      "condition": "展示材料：逐项功能说明。",
+      "variants": {
+        "owner": {
+          "text": "请介绍这款冷藏或保温功能与您实际需要的关系。哪些情况下可能使用，哪些情况下不需要？",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请介绍这款冷藏或保温功能与您实际需要的关系。哪些情况下可能使用，哪些情况下不需要？",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "存放物品与使用频次",
+        "前后排需要",
+        "温度、容量和耗电的考虑"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M5.6-03": {
+      "chapter_label": "功能与配置组合",
+      "condition": "展示材料：逐项功能说明。",
+      "variants": {
+        "owner": {
+          "text": "结合材料说明的车辆对外供电功能，您有哪些使用需要或顾虑？请说明具体情境。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "结合材料说明的车辆对外供电功能，您有哪些使用需要或顾虑？请说明具体情境。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "使用设备与持续时间",
+        "供电能力",
+        "现有替代方式"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M5.6-04": {
+      "chapter_label": "功能与配置组合",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "请结合实际出行，介绍您对车内隐私和安静环境的需要。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请结合实际出行，介绍您对车内隐私和安静环境的需要。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "商务交谈与家庭活动",
+        "视线遮挡、声音和个人信息管理"
+      ],
+      "conditional_probes": [
+        {
+          "condition": "研究包含联网或个人内容",
+          "text": "多人用车时，您怎样管理账户、导航记录、通话和屏幕内容？请举例说明。",
+          "source_sheet": "FGD-M5. 造型与设计测试",
+          "delivery": "moderator_decides_after_context"
+        }
+      ],
+      "activity": null
+    },
+    "Q-M5.6-05": {
+      "chapter_label": "功能与配置组合",
+      "condition": "展示材料：逐项功能说明。",
+      "variants": {
+        "owner": {
+          "text": "请结合您的实际活动，评价这些户外使用或额外储物功能。哪些适合，哪些不适合？为什么？",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请结合您的实际活动，评价这些户外使用或额外储物功能。哪些适合，哪些不适合？为什么？",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "装备与活动",
+        "装卸、限高和携带",
+        "维护与费用"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M5.6-06": {
+      "chapter_label": "功能与配置组合",
+      "condition": "展示材料：逐项功能说明。",
+      "variants": {
+        "owner": {
+          "text": "对于您已经理解的可选功能，您会怎样决定是否选装？请结合功能、费用和实际需要说明。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "对于您已经理解的可选功能，您会怎样决定是否选装？请结合功能、费用和实际需要说明。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "功能范围、费用和预算",
+        "实际使用需要",
+        "选装或不选装的原因"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M5.7-01": {
+      "chapter_label": "配置优先顺序与取舍",
+      "condition": "展示材料：逐项功能说明。",
+      "variants": {
+        "owner": {
+          "text": "请根据您的实际需要，介绍哪些配置应当优先保留，哪些可以不选，并说明原因。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请根据您的实际需要，介绍哪些配置应当优先保留，哪些可以不选，并说明原因。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "优先保留和可以不选的配置",
+        "对应的实际需要",
+        "取舍依据"
+      ],
+      "conditional_probes": [],
+      "activity": "先独立选择配置，再讨论取舍；预算或数量限制以项目设定为准。"
+    },
+    "Q-M5.7-02": {
+      "chapter_label": "配置优先顺序与取舍",
+      "condition": "展示材料：逐项功能说明。",
+      "variants": {
+        "owner": {
+          "text": "结合材料中各配置组合的功能与价格，您会怎样选择？请说明比较过程和取舍依据。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "结合材料中各配置组合的功能与价格，您会怎样选择？请说明比较过程和取舍依据。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "组合内的需要与不需要项目",
+        "单项选装和组合购买",
+        "预算下的取舍"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M5.7-03": {
+      "chapter_label": "配置优先顺序与取舍",
+      "condition": "展示材料：安全配置及合规边界。",
+      "variants": {
+        "owner": {
+          "text": "请结合您的实际出行需要，介绍您对这些安全配置的理解，以及选择时关注的因素。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请结合您的实际出行需要，介绍您对这些安全配置的理解，以及选择时关注的因素。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "配置理解与使用情境",
+        "可选项目的优先顺序",
+        "选择依据"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M5.7-04": {
+      "chapter_label": "配置优先顺序与取舍",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "关于您的用车需要和期望，今天还有哪些方面没有充分讨论？",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "关于您的用车需要和期望，今天还有哪些方面没有充分讨论？",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "尚未讨论的具体需要",
+        "现有解决方式",
+        "与已选配置相比的优先顺序"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M5.6-07": {
+      "chapter_label": "功能与配置组合",
+      "condition": "展示材料：热舒适配置说明。",
+      "variants": {
+        "owner": {
+          "text": "请结合炎热或日晒天气的用车经历，介绍对车辆隔热和空调降温表现的要求。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "结合目前的出行体验，您希望车辆隔热和空调降温表现达到什么程度？",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "隔热玻璃、遮阳帘和座椅通风的作用",
+        "日晒、行驶与前后排体验",
+        "优先顺序"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M6.1-01": {
+      "chapter_label": "自发品牌认知",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "谈到这类汽车，您首先想到哪些品牌？请分别介绍您的印象。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "谈到这类汽车，您首先想到哪些品牌？请分别介绍您的印象。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "熟悉和体验程度",
+        "印象来源",
+        "最有代表性的经历"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M6.1-02": {
+      "chapter_label": "自发品牌认知",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "对于您熟悉的品牌，您怎样描述它们之间的差异？请说明判断依据。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "对于您熟悉的品牌，您怎样描述它们之间的差异？请说明判断依据。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "功能、可靠性、形象和服务",
+        "产生差异印象的依据"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M6.1-03": {
+      "chapter_label": "自发品牌认知",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "您怎样判断一个汽车品牌是否值得信任？请介绍依据或相关经历。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "您怎样判断一个汽车品牌是否值得信任？请介绍依据或相关经历。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "亲身经历、他人反馈和信息来源",
+        "可能改变判断的证据"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M6.2-01": {
+      "chapter_label": "品牌揭示后的评价变化",
+      "condition": "展示材料：品牌揭示材料。",
+      "variants": {
+        "owner": {
+          "text": "了解这份产品概念所属的品牌后，您现在怎样评价它？与刚才相比，哪些判断发生了变化，哪些保持不变？",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "了解这份产品概念所属的品牌后，您现在怎样评价它？与刚才相比，哪些判断发生了变化，哪些保持不变？",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "揭示品牌前后的评价",
+        "变化或保持不变的原因"
+      ],
+      "conditional_probes": [],
+      "activity": "先记录未提示品牌时的评价，再揭示品牌并比较。"
+    },
+    "Q-M6.2-02": {
+      "chapter_label": "品牌揭示后的评价变化",
+      "condition": "展示材料：品牌揭示材料。",
+      "variants": {
+        "owner": {
+          "text": "如果在您实际的家庭、工作或社交场合使用这个品牌，您会怎样看待？请结合具体情境说明。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "如果在您实际的家庭、工作或社交场合使用这个品牌，您会怎样看待？请结合具体情境说明。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "具体人员和场合",
+        "对使用和购车考虑的影响",
+        "相关品牌要求"
+      ],
+      "conditional_probes": [
+        {
+          "condition": "商务采购或接待",
+          "text": "客户、合作方或内部采购制度对品牌有哪些要求？请举例。",
+          "source_sheet": "FGD-M3. 购车决策回顾",
+          "delivery": "moderator_decides_after_context"
+        }
+      ],
+      "activity": null
+    },
+    "Q-M6.3-01": {
+      "chapter_label": "价格与配置版本",
+      "condition": "展示材料：报价/配置版本/金融条款。",
+      "variants": {
+        "owner": {
+          "text": "结合已经说明的配置版本、功能和费用，请介绍您对这份报价的看法，以及比较依据。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "结合已经说明的配置版本、功能和费用，请介绍您对这份报价的看法，以及比较依据。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "报价所含费用与配置",
+        "预算和比较对象",
+        "觉得合适或不合适的原因"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M6.3-02": {
+      "chapter_label": "价格与配置版本",
+      "condition": "展示材料：报价/配置版本/金融条款。",
+      "variants": {
+        "owner": {
+          "text": "结合各配置版本的功能差异和价格差异，您会怎样选择？请说明依据。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "结合各配置版本的功能差异和价格差异，您会怎样选择？请说明依据。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "可接受的配置版本",
+        "选择更高配置或放弃的原因",
+        "价格差异与功能价值"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M6.3-03": {
+      "chapter_label": "价格与配置版本",
+      "condition": "展示已核验的金融方案。",
+      "variants": {
+        "owner": {
+          "text": "请介绍您对材料中购车金融方案的理解，以及选择时会关注的费用和条款。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请介绍您对材料中购车金融方案的理解，以及选择时会关注的费用和条款。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "首付款、分期、期限和总费用",
+        "车辆所有权",
+        "提前结束安排",
+        "使用考虑"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M6.4-01": {
+      "chapter_label": "购买考虑与顾虑",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "对于这款车型，您目前有哪些购买考虑？哪些条件会影响您进一步了解或购买？",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "对于这款车型，您目前有哪些购买考虑？哪些条件会影响您进一步了解或购买？",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "购买考虑与顾虑",
+        "需要改善的条件",
+        "仍需确认的内容"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M6.4-02": {
+      "chapter_label": "购买考虑与顾虑",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "在作出购买决定之前，您还需要了解或确认哪些内容？怎样的信息能够帮助您作出判断？",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "在作出购买决定之前，您还需要了解或确认哪些内容？怎样的信息能够帮助您作出判断？",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "产品、品牌、服务、价格和使用条件",
+        "确认途径",
+        "需要的证据"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M6.4-03": {
+      "chapter_label": "购买考虑与顾虑",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "对于一个新进入当地市场的汽车品牌，您会怎样判断是否值得考虑？请说明需要了解的内容和依据。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "对于一个新进入当地市场的汽车品牌，您会怎样判断是否值得考虑？请说明需要了解的内容和依据。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "真实使用评价、服务安排、口碑和试驾",
+        "必须满足与有帮助的条件"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M6.5-01": {
+      "chapter_label": "产品信息的理解与表达",
+      "condition": "展示材料：卖点表达材料。",
+      "variants": {
+        "owner": {
+          "text": "请用自己的话解释这段产品介绍。您理解到的信息是什么？",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请用自己的话解释这段产品介绍。您理解到的信息是什么？",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "理解到的信息",
+        "疑问或误解",
+        "与自身需要的关系"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M6.5-02": {
+      "chapter_label": "产品信息的理解与表达",
+      "condition": "展示材料：卖点表达材料。",
+      "variants": {
+        "owner": {
+          "text": "请介绍这些产品信息中哪些与您最相关，哪些说服力不足，以及原因。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请介绍这些产品信息中哪些与您最相关，哪些说服力不足，以及原因。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "优先表达的信息与原因",
+        "说服力不足的内容",
+        "需要的证据"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M6.5-03": {
+      "chapter_label": "产品信息的理解与表达",
+      "condition": "展示材料：卖点表达材料。",
+      "variants": {
+        "owner": {
+          "text": "如果向与您需要相近的人介绍这款车，您会怎样描述它？",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "如果向与您需要相近的人介绍这款车，您会怎样描述它？",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "自然的描述方式",
+        "最有代表性的特点",
+        "需要避免的误解"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-CTX-01": {
+      "chapter_label": "职责与经验",
+      "condition": "",
+      "variants": {
+        "Dealer": {
+          "text": "请介绍您的工作职责、从业经历，以及目前直接参与的区域、车型类别或业务。"
+        },
+        "Media": {
+          "text": "请介绍您的工作职责、从业经历，以及目前直接参与的区域、车型类别或业务。"
+        },
+        "OEM": {
+          "text": "请介绍您的工作职责、从业经历，以及目前直接参与的区域、车型类别或业务。"
+        }
+      },
+      "probes": [
+        "直接参与的业务",
+        "从业年限",
+        "近期接触的区域与车型"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-CTX-02": {
+      "chapter_label": "机构与业务范围",
+      "condition": "",
+      "variants": {
+        "Dealer": {
+          "text": "请介绍您所在机构与本次研究相关的业务，以及您能够直接了解和观察的范围。"
+        },
+        "Media": {
+          "text": "请介绍您所在机构与本次研究相关的业务，以及您能够直接了解和观察的范围。"
+        },
+        "OEM": {
+          "text": "请介绍您所在机构与本次研究相关的业务，以及您能够直接了解和观察的范围。"
+        }
+      },
+      "probes": [
+        "经销商的品牌、规模和区域",
+        "媒体的平台、受众和采访范围",
+        "主机厂专家的市场、产品或工程职责"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-MKT-01": {
+      "chapter_label": "竞争格局与品牌表现",
+      "condition": "",
+      "variants": {
+        "Dealer": {
+          "text": "在您负责的区域，这类汽车的品牌和车型销售情况怎样？近期出现了哪些变化？"
+        },
+        "Media": {
+          "text": "根据您的报道和观察，请介绍这类汽车的主要品牌、车型及近期竞争变化。"
+        },
+        "OEM": {
+          "text": "在您负责的范围内，请介绍这类汽车的竞争情况及近期变化。"
+        }
+      },
+      "probes": [
+        "地区、时间与车型范围",
+        "销售变化",
+        "具体品牌或车型例子"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-MKT-02": {
+      "chapter_label": "市场规模与销量预测",
+      "condition": "",
+      "variants": {
+        "Dealer": {
+          "text": "请介绍这类汽车近期的销售情况，以及您对未来一至两年的判断和依据。"
+        },
+        "Media": {
+          "text": "根据您了解的公开资料，这类汽车的市场规模和增长情况怎样？对于未来趋势，您有哪些判断及依据？"
+        },
+        "OEM": {
+          "text": "在您负责的范围内，请介绍这类汽车的实际销量、未来趋势判断及相关假设。"
+        }
+      },
+      "probes": [
+        "数据来源、期间和单位",
+        "实际表现与未来判断",
+        "主要假设和不确定因素"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-MKT-03": {
+      "chapter_label": "政策、补贴与税费",
+      "condition": "仅在项目组核验政策名称、适用对象和有效期后提示具体政策。",
+      "variants": {
+        "Dealer": {
+          "text": "请介绍当地购车或用车政策对客户购买的实际影响，并以您接触过的订单说明。"
+        },
+        "Media": {
+          "text": "请介绍当地汽车相关政策对市场讨论的影响，以及支持判断的公开资料。"
+        },
+        "OEM": {
+          "text": "请介绍当地汽车相关政策对产品规划或销售的影响，并区分已经发生与预计发生的影响。"
+        }
+      },
+      "probes": [
+        "政策名称、有效期和适用车型",
+        "对购买时间、预算和动力的影响",
+        "实际案例"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-MKT-04": {
+      "chapter_label": "基础设施与能源环境",
+      "condition": "",
+      "variants": {
+        "Dealer": {
+          "text": "请介绍客户对当地充电、加油和道路条件的实际反馈，并说明相关经历。"
+        },
+        "Media": {
+          "text": "结合公开报道和实地观察，请介绍当地基础设施与能源供应条件，以及它们对用车的影响。"
+        },
+        "OEM": {
+          "text": "请介绍当地基础设施与能源供应条件对产品规划或市场发展的影响。"
+        }
+      },
+      "probes": [
+        "具体区域与案例",
+        "不同地区的条件差异",
+        "对用车的影响"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-CUST-01": {
+      "chapter_label": "客户特征",
+      "condition": "",
+      "variants": {
+        "Dealer": {
+          "text": "请介绍您接触到的这类汽车客户的主要特征，以及购车用途和原因。"
+        },
+        "Media": {
+          "text": "如果您有相关受众或用户研究，请介绍这类汽车用户的主要特征，以及研究依据。"
+        },
+        "OEM": {
+          "text": "根据您掌握的用户研究，请介绍这类汽车用户的主要特征及其差异。"
+        }
+      },
+      "probes": [
+        "年龄、职业、家庭阶段及可支持的收入信息",
+        "不同人群的差异",
+        "研究或客户案例"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-CUST-02": {
+      "chapter_label": "购车类型与车辆关系",
+      "condition": "",
+      "variants": {
+        "Dealer": {
+          "text": "请介绍客户购车与现有车辆的关系，以及首次购车、增加车辆或更换车辆的主要原因。"
+        },
+        "OEM": {
+          "text": "根据相关研究，请介绍用户首次购车、增加车辆或更换车辆的情况，以及各自的主要原因。"
+        }
+      },
+      "probes": [
+        "现有车辆及使用年限",
+        "增加车辆后的分工",
+        "更换车辆的原因"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-CUST-03": {
+      "chapter_label": "驾驶者、乘员与决策者",
+      "condition": "",
+      "variants": {
+        "Dealer": {
+          "text": "请介绍客户家庭或组织中，车辆驾驶、乘坐、购车付款和决策的分工。"
+        },
+        "OEM": {
+          "text": "根据相关研究，请介绍目标用户家庭或组织中，车辆驾驶、乘坐和购车决策的分工。"
+        }
+      },
+      "probes": [
+        "驾驶、乘坐、付款和决策参与者",
+        "各自意见",
+        "座位安排"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-CUST-04": {
+      "chapter_label": "典型用途与高频场景",
+      "condition": "",
+      "variants": {
+        "Dealer": {
+          "text": "客户购买这类汽车主要有哪些用途？请介绍常见出行和对客户重要的特殊行程。"
+        },
+        "Media": {
+          "text": "如果您有相关研究或采访，请介绍这类汽车用户的常见用途和重要出行需要。"
+        },
+        "OEM": {
+          "text": "根据用户研究，请介绍这类汽车的常见用途，以及对用户重要的出行需要。"
+        }
+      },
+      "probes": [
+        "工作日与周末用途",
+        "常见行程和重要特殊行程",
+        "具体案例"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-SALE-01": {
+      "chapter_label": "购买触发与考虑因素",
+      "condition": "",
+      "variants": {
+        "Dealer": {
+          "text": "请介绍客户开始考虑购车的原因，以及选车时关注的因素。哪些更重要？为什么？"
+        },
+        "Media": {
+          "text": "根据受众讨论，请介绍促使人们考虑购车的原因，以及经常关注的选择因素。"
+        },
+        "OEM": {
+          "text": "根据用户研究，请介绍用户开始考虑购车的原因，以及选车时关注的因素。"
+        }
+      },
+      "probes": [
+        "购车原因与优先因素",
+        "不同客户类型的差异",
+        "客户原话和具体例子"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-SALE-02": {
+      "chapter_label": "车型比较与选择原因",
+      "condition": "",
+      "variants": {
+        "Dealer": {
+          "text": "客户通常怎样比较不同车型？请分别用已购车和未选择目标车型的案例说明决定因素。"
+        },
+        "OEM": {
+          "text": "根据用户研究或销售分析，请介绍用户对目标车型与其他车型的比较，以及选择或未选择的原因。"
+        }
+      },
+      "probes": [
+        "已成交与未成交案例",
+        "价格、产品、品牌和渠道的影响",
+        "比较依据"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-SALE-03": {
+      "chapter_label": "信息来源与传播影响",
+      "condition": "",
+      "variants": {
+        "Dealer": {
+          "text": "请介绍客户获取购车信息的途径，以及这些信息对到店或购买的实际影响。"
+        },
+        "Media": {
+          "text": "请介绍媒体、平台和内容对受众判断这类汽车的影响，并说明相关反馈。"
+        },
+        "OEM": {
+          "text": "根据用户研究，请介绍购车信息来源，以及信息对考虑范围和最终决定的影响。"
+        }
+      },
+      "probes": [
+        "信息来源和接触情况",
+        "改变判断的内容",
+        "对咨询、到店或购买的影响"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-SALE-04": {
+      "chapter_label": "到店、试驾与服务影响",
+      "condition": "",
+      "variants": {
+        "Dealer": {
+          "text": "请以一次客户接待为例，介绍从到店到报价的过程，以及各环节对客户决定的影响。"
+        },
+        "OEM": {
+          "text": "根据用户研究，请介绍看车、试驾和销售服务对购买决定的影响，并举例说明。"
+        }
+      },
+      "probes": [
+        "接待过程",
+        "犹豫或中断的环节",
+        "推进决定的原因"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-SALE-05": {
+      "chapter_label": "顾虑与促成购买的条件",
+      "condition": "",
+      "variants": {
+        "Dealer": {
+          "text": "请介绍客户购车时的主要疑问或顾虑，以及解决这些问题所需的条件。"
+        },
+        "Media": {
+          "text": "根据公开讨论，请介绍消费者对目标品牌或车型的主要疑问或顾虑，以及依据。"
+        },
+        "OEM": {
+          "text": "根据相关研究，请介绍影响购买决定的主要顾虑，以及解决这些问题所需的条件。"
+        }
+      },
+      "probes": [
+        "顾虑及依据",
+        "已采用的解决办法",
+        "仍需满足的条件"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-SALE-06": {
+      "chapter_label": "动力选择与顾虑",
+      "condition": "",
+      "variants": {
+        "Dealer": {
+          "text": "请介绍客户选择不同动力形式时的考虑，以及主要顾虑。"
+        },
+        "Media": {
+          "text": "根据受众和市场讨论，请介绍不同动力形式的吸引之处、顾虑及其依据。"
+        },
+        "OEM": {
+          "text": "根据用户研究，请介绍不同动力形式的选择原因、顾虑及用户之间的差异。"
+        }
+      },
+      "probes": [
+        "熟悉的动力形式",
+        "使用条件与选择原因",
+        "不同选择的客户案例"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-PROD-01": {
+      "chapter_label": "总体产品需求",
+      "condition": "",
+      "variants": {
+        "Dealer": {
+          "text": "请介绍客户重视的车辆表现，以及这些表现对购车选择的影响。"
+        },
+        "Media": {
+          "text": "结合试驾、报道或受众反馈，请介绍评价这类汽车时关注的主要方面，以及原因。"
+        },
+        "OEM": {
+          "text": "结合用户研究或产品规划，请介绍主要产品需求，以及用户难以接受的表现。"
+        }
+      },
+      "probes": [
+        "重要的车辆表现",
+        "满意与需要改善的方面",
+        "对购买的实际影响"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-PROD-02": {
+      "chapter_label": "乘坐、空间与装载",
+      "condition": "",
+      "variants": {
+        "Dealer": {
+          "text": "请介绍客户对乘坐和车内空间的使用需要，以及具体的出行例子。"
+        },
+        "Media": {
+          "text": "结合试驾和受众反馈，请介绍乘坐、车内空间和行李装载的实际体验。"
+        },
+        "OEM": {
+          "text": "根据用户研究，请介绍乘坐、车内空间和行李装载的主要需要，以及具体使用情境。"
+        }
+      },
+      "probes": [
+        "乘员构成与使用任务",
+        "座位、乘坐空间和物品",
+        "实际体验"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-PROD-03": {
+      "chapter_label": "道路、底盘与气候适应",
+      "condition": "",
+      "variants": {
+        "Dealer": {
+          "text": "结合当地道路、停车和气候条件，客户对车辆有哪些实际要求？请举例说明。"
+        },
+        "Media": {
+          "text": "结合道路试驾和报道，请介绍车辆应对当地道路、停车和气候条件的表现及要求。"
+        },
+        "OEM": {
+          "text": "结合当地道路、停车和气候条件，请介绍产品需要满足的使用要求及依据。"
+        }
+      },
+      "probes": [
+        "道路、停车和气候案例",
+        "底盘与行驶表现",
+        "空调和使用要求"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-PROD-04": {
+      "chapter_label": "座舱、车载系统与互联",
+      "condition": "",
+      "variants": {
+        "Dealer": {
+          "text": "请介绍客户使用车载系统及相关功能的体验，以及需要改善的方面。"
+        },
+        "Media": {
+          "text": "结合测评和受众反馈，请介绍车载系统及联网功能的实际体验，以及依据。"
+        },
+        "OEM": {
+          "text": "根据用户研究，请介绍车载系统及联网功能需要满足的使用要求，以及依据。"
+        }
+      },
+      "probes": [
+        "实际操作任务",
+        "便利性、可靠性和学习过程",
+        "语言与应用兼容情况"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-PROD-05": {
+      "chapter_label": "充电与续航要求",
+      "condition": "仅研究新能源或替代动力且受访者有相应证据时出现。",
+      "variants": {
+        "Dealer": {
+          "text": "请介绍使用电动车的客户如何安排充电，以及对实际续航和等待时间的要求。"
+        },
+        "Media": {
+          "text": "结合您实际参与的电动车试驾或充电设施报道，请介绍充电和实际续航方面的重要发现。"
+        },
+        "OEM": {
+          "text": "根据电动车用户研究，请介绍充电安排、实际续航和等待时间方面的需要。"
+        }
+      },
+      "probes": [
+        "住所、单位和公共充电",
+        "实际续航",
+        "等待时间",
+        "实际情况与期望的差异"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-PROD-06": {
+      "chapter_label": "驾驶辅助的使用与信任",
+      "condition": "",
+      "variants": {
+        "Dealer": {
+          "text": "请介绍客户使用驾驶辅助功能的情况，以及决定使用或停止使用的原因。"
+        },
+        "Media": {
+          "text": "结合测评和公开讨论，请介绍驾驶辅助功能受到关注的表现、风险和理解差异。"
+        },
+        "OEM": {
+          "text": "根据用户研究，请介绍驾驶辅助功能的实际使用条件，以及影响信任的因素。"
+        }
+      },
+      "probes": [
+        "具体功能和道路情境",
+        "实际体验与功能理解",
+        "信任及停止使用的原因"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-PROD-07": {
+      "chapter_label": "安全、耐久与质量",
+      "condition": "",
+      "variants": {
+        "Dealer": {
+          "text": "请介绍客户对车辆安全、质量和长期使用表现的关注，以及对购买决定的影响。"
+        },
+        "Media": {
+          "text": "结合测评和公开讨论，请介绍对车辆安全、质量和长期使用表现的主要关注及依据。"
+        },
+        "OEM": {
+          "text": "结合产品规划，请介绍车辆安全、质量、耐久性和维修便利性的要求及依据。"
+        }
+      },
+      "probes": [
+        "安全、故障和长期使用表现",
+        "判断依据",
+        "对购买的影响"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-PROD-08": {
+      "chapter_label": "产品概念总体评价",
+      "condition": "仅在项目已展示完整产品概念材料后触发。",
+      "variants": {
+        "Dealer": {
+          "text": "看完产品概念，您怎样评价它与客户需要的关系？请说明适合的客户、优势和不足。"
+        },
+        "Media": {
+          "text": "看完产品概念，您怎样理解它？对于受众理解和传播，哪些内容清楚，哪些需要进一步说明？"
+        },
+        "OEM": {
+          "text": "看完产品概念，您怎样评价它与目标用户及当地市场需要的关系？请说明优势和不足。"
+        }
+      },
+      "probes": [
+        "产品理解与目标客户",
+        "优势和不足",
+        "与具体需要的关系"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-PROD-09": {
+      "chapter_label": "外观与内饰方案",
+      "condition": "仅展示可比较的外观或内饰材料后触发；不要求经销商准备展示材料。",
+      "variants": {
+        "Dealer": {
+          "text": "结合展示材料，请介绍客户可能怎样评价车辆整体外形和内饰，以及您的判断依据。"
+        },
+        "Media": {
+          "text": "结合展示材料，请介绍车辆外观和内饰传达的印象，以及受众可能怎样理解。"
+        },
+        "OEM": {
+          "text": "结合展示材料，请介绍车辆外观和内饰与目标用户需要的适合程度，以及判断依据。"
+        }
+      },
+      "probes": [
+        "整体外形与内饰",
+        "具体设计和使用联想",
+        "审美与购买考虑"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-PROD-10": {
+      "chapter_label": "配置组合与取舍",
+      "condition": "评价具体配置时须先提供配置清单、功能边界和价格统计范围和计算方式。",
+      "variants": {
+        "Dealer": {
+          "text": "请介绍不同配置对客户选择和购买的影响，以及客户是否选装的原因。"
+        },
+        "Media": {
+          "text": "请介绍不同配置传达的信息，以及受众理解、关注或产生疑问的原因。"
+        },
+        "OEM": {
+          "text": "结合目标用户需要，请介绍配置的优先顺序，以及不同配置版本的安排依据。"
+        }
+      },
+      "probes": [
+        "必须保留、值得选装和可以不选的配置",
+        "实际付费与口头偏好",
+        "使用需要"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-PROD-11": {
+      "chapter_label": "本地化与工程适配",
+      "condition": "",
+      "variants": {
+        "Dealer": {
+          "text": "请介绍客户在当地使用车辆时，对语言、应用、支付、联网和售后检查的实际需要。"
+        },
+        "Media": {
+          "text": "结合测评和报道，请介绍车辆适应当地使用习惯的情况，以及对使用体验和评价的影响。"
+        },
+        "OEM": {
+          "text": "请介绍产品适应当地语言、联网服务、法规和工程条件的要求，以及依据。"
+        }
+      },
+      "probes": [
+        "语言、应用和联网体验",
+        "兼容问题",
+        "法规或当地使用要求",
+        "改善建议"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-PRICE-01": {
+      "chapter_label": "客户预算与实际成交价",
+      "condition": "",
+      "variants": {
+        "Dealer": {
+          "text": "请介绍客户确定预算的过程，以及预算与实际购车总支出之间的差异和原因。"
+        },
+        "OEM": {
+          "text": "结合用户研究或销售分析，请介绍预算的确定过程，以及价格变化对选择的影响。"
+        }
+      },
+      "probes": [
+        "预算形成",
+        "币种、所含费用与配置",
+        "报价和实际支出",
+        "差异原因"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-PRICE-02": {
+      "chapter_label": "支付与金融方案",
+      "condition": "",
+      "variants": {
+        "Dealer": {
+          "text": "请介绍客户选择购车支付方式或金融方案的过程，以及影响选择的费用和条款。"
+        },
+        "OEM": {
+          "text": "根据用户研究，请介绍购车支付方式或金融方案的主要需要、顾虑及选择依据。"
+        }
+      },
+      "probes": [
+        "首付、月供、期限和总费用",
+        "所有权与退出条款",
+        "实际办理和使用考虑"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-PRICE-03": {
+      "chapter_label": "价格、配置版本与未来转售价值",
+      "condition": "仅在项目提供已核验的价格、配置和条款后评价。",
+      "variants": {
+        "Dealer": {
+          "text": "请介绍客户在不同配置版本之间的选择，以及价格差异和未来转售安排对决定的影响。"
+        },
+        "Media": {
+          "text": "根据公开信息和受众讨论，请介绍各配置版本与价格的理解情况，以及容易产生疑问的地方。"
+        },
+        "OEM": {
+          "text": "请介绍价格、配置版本和未来转售安排如何影响目标用户判断是否值得购买。"
+        }
+      },
+      "probes": [
+        "价格差异对应的配置",
+        "未来转售或回购安排",
+        "客户理解与可信程度"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-PRICE-04": {
+      "chapter_label": "经销商盈利与资源投入",
+      "condition": "仅对能够接触经营统计范围和计算方式的经销商或渠道负责人提问；媒体不出现。",
+      "variants": {
+        "Dealer": {
+          "text": "请介绍门店销售这类汽车的收益、库存和服务投入，以及影响经营安排的条件。"
+        },
+        "OEM": {
+          "text": "请介绍渠道经营中销售目标、经销商收益与资源投入的考虑，以及实际取舍。"
+        }
+      },
+      "probes": [
+        "销量、毛利、返利与库存",
+        "服务投入",
+        "经营安排及所需条件"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-CHAN-01": {
+      "chapter_label": "渠道覆盖与购车便利",
+      "condition": "",
+      "variants": {
+        "Dealer": {
+          "text": "请介绍客户看车、试驾、交付和维修的便利程度，以及地区或环节之间的差异。"
+        },
+        "Media": {
+          "text": "根据报道和消费者反馈，请介绍销售及服务网点的覆盖情况，以及尚未满足的需要。"
+        },
+        "OEM": {
+          "text": "结合渠道规划，请介绍销售及服务网点的覆盖情况，以及需要补充或改善的方面。"
+        }
+      },
+      "probes": [
+        "地区和服务环节",
+        "网点覆盖与服务质量",
+        "具体案例或数据"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-CHAN-02": {
+      "chapter_label": "门店能力与销售支持",
+      "condition": "",
+      "variants": {
+        "Dealer": {
+          "text": "请介绍门店销售这类汽车所需的人员、车辆和资料，以及目前需要补充的支持。"
+        },
+        "OEM": {
+          "text": "请介绍销售和服务网点在培训、展示、试驾及日常经营方面需要的支持。"
+        }
+      },
+      "probes": [
+        "人员、展示车辆与试驾车辆",
+        "培训和资料",
+        "最需要补充的支持"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-CHAN-03": {
+      "chapter_label": "售后成本与服务体验",
+      "condition": "",
+      "variants": {
+        "Dealer": {
+          "text": "请介绍客户对日常用车费用和售后服务的实际反馈，以及对再次购买和推荐的影响。"
+        },
+        "Media": {
+          "text": "根据公开讨论，请介绍日常用车费用和售后服务受到关注的情况及依据。"
+        },
+        "OEM": {
+          "text": "结合用户研究和服务记录，请介绍日常用车费用与售后服务的实际体验及改善需要。"
+        }
+      },
+      "probes": [
+        "能源、保险、保养和维修费用",
+        "实际服务经历",
+        "处理结果及影响"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-CHAN-04": {
+      "chapter_label": "吸引客户的渠道与内容",
+      "condition": "",
+      "variants": {
+        "Dealer": {
+          "text": "请介绍吸引客户咨询或到店的渠道和内容，以及您判断效果的依据。"
+        },
+        "Media": {
+          "text": "请介绍不同平台、内容形式和表达方式对目标受众的影响，以及依据。"
+        },
+        "OEM": {
+          "text": "请介绍吸引潜在客户和传递产品信息时采用的渠道与内容，以及评价效果的依据。"
+        }
+      },
+      "probes": [
+        "内容观看、互动、咨询、到店与购买",
+        "近期活动案例",
+        "评价效果的依据"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-BRAND-01": {
+      "chapter_label": "品类意义与品牌形象",
+      "condition": "",
+      "variants": {
+        "Dealer": {
+          "text": "客户怎样描述这类汽车和目标品牌？请介绍常见印象及其来源。"
+        },
+        "Media": {
+          "text": "公众和媒体怎样描述这类汽车和目标品牌？请介绍常见印象及其来源。"
+        },
+        "OEM": {
+          "text": "根据品牌研究，请介绍这类汽车和目标品牌的主要印象，以及用户之间的差异。"
+        }
+      },
+      "probes": [
+        "自发印象",
+        "正面、负面和中性评价",
+        "印象来源"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-BRAND-02": {
+      "chapter_label": "中国品牌优劣势",
+      "condition": "",
+      "variants": {
+        "Dealer": {
+          "text": "请介绍客户对中国汽车品牌的看法，以及他们认为的优势和顾虑。"
+        },
+        "Media": {
+          "text": "请介绍当地媒体和公众讨论中国汽车品牌的情况，以及影响认知的具体事件或信息。"
+        },
+        "OEM": {
+          "text": "请介绍中国汽车品牌进入当地市场的机会、风险和需要具备的能力，以及判断依据。"
+        }
+      },
+      "probes": [
+        "具体品牌和事件",
+        "优势与顾虑",
+        "不同品牌之间的差异"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-BRAND-03": {
+      "chapter_label": "品牌揭示与概念匹配",
+      "condition": "仅展示产品概念并完成品牌揭示后触发。",
+      "variants": {
+        "Dealer": {
+          "text": "了解品牌后，您现在怎样评价产品概念及适合的客户？哪些判断改变了，哪些保持不变？"
+        },
+        "Media": {
+          "text": "了解品牌后，您现在怎样看待产品概念的表达与可信程度？哪些判断改变了，哪些保持不变？"
+        },
+        "OEM": {
+          "text": "请介绍品牌与产品概念之间的关系，以及需要进一步说明或调整的内容。"
+        }
+      },
+      "probes": [
+        "了解品牌前后的评价",
+        "变化原因",
+        "与目标用户的关系"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-BRAND-04": {
+      "chapter_label": "产品信息的理解与传播",
+      "condition": "仅在项目展示卖点文案和证据材料后触发。",
+      "variants": {
+        "Dealer": {
+          "text": "请介绍客户可能怎样理解和评价这些产品信息，以及它们对购买考虑的影响。"
+        },
+        "Media": {
+          "text": "请介绍这些产品信息的清晰程度、报道价值和可能引发的疑问。"
+        },
+        "OEM": {
+          "text": "请介绍这些产品信息与品牌定位和购买考虑的关系，以及支持这些信息所需的依据。"
+        }
+      },
+      "probes": [
+        "信息理解、可信程度和吸引力",
+        "表达中的疑问",
+        "支持信息的依据"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-BRAND-05": {
+      "chapter_label": "市场进入条件与风险",
+      "condition": "",
+      "variants": {
+        "Dealer": {
+          "text": "请介绍新品牌在当地获得客户接受所需的条件，以及应优先解决的问题。"
+        },
+        "Media": {
+          "text": "从公开报道和公众信任的角度，请介绍新品牌进入当地可能面对的问题，以及判断依据。"
+        },
+        "OEM": {
+          "text": "请介绍品牌在当地持续经营所需的条件，以及应优先解决的问题。"
+        }
+      },
+      "probes": [
+        "进入市场前的准备",
+        "持续经营的条件",
+        "风险与应对办法"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-ORG-01": {
+      "chapter_label": "组织与车辆使用背景",
+      "condition": "",
+      "variants": {
+        "business": {
+          "text": "请介绍贵组织的业务和您的职责，再说明现有车辆在业务中的用途。"
+        }
+      },
+      "probes": [
+        "组织规模和业务",
+        "车辆数量与类型",
+        "受访者在使用或采购中的职责"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-ORG-02": {
+      "chapter_label": "车辆使用者与任务",
+      "condition": "",
+      "variants": {
+        "business": {
+          "text": "请介绍组织车辆的驾驶者、乘员或所运物品，以及主要使用任务。哪些任务对业务尤其重要？"
+        }
+      },
+      "probes": [
+        "日常任务与重要特殊任务",
+        "乘员、货物、里程和道路",
+        "停运对业务的影响"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-ORG-03": {
+      "chapter_label": "组织采购决策流程",
+      "condition": "",
+      "variants": {
+        "business": {
+          "text": "请以一次实际采购为例，介绍从提出需求到完成采购的参与者、流程和决定依据。"
+        }
+      },
+      "probes": [
+        "使用、采购、财务与审批参与者",
+        "招标和供应商要求",
+        "试用与验证"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-ORG-04": {
+      "chapter_label": "采购考虑因素",
+      "condition": "",
+      "variants": {
+        "business": {
+          "text": "组织采购车辆时会考虑哪些因素？请先自由描述，再说明优先顺序和必须满足的要求。"
+        }
+      },
+      "probes": [
+        "业务需要、可靠性、费用和服务",
+        "优先顺序",
+        "法规与内部制度要求"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-ORG-05": {
+      "chapter_label": "预算与长期用车费用",
+      "condition": "",
+      "variants": {
+        "business": {
+          "text": "请介绍组织确定采购预算和评估长期用车费用的方法，以及各项费用如何影响决定。"
+        }
+      },
+      "probes": [
+        "币种、所含费用和期间",
+        "采购费用与长期用车费用",
+        "预算调整的理由"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-ORG-06": {
+      "chapter_label": "动力与能源补给条件",
+      "condition": "仅研究新能源或替代动力时进入充电或燃料补给细节。",
+      "variants": {
+        "business": {
+          "text": "请介绍组织选择车辆动力形式的过程，以及日常业务和使用条件如何影响决定。"
+        }
+      },
+      "probes": [
+        "每日里程与最长行程",
+        "停车和充电条件",
+        "对排班与运营的影响"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-ORG-07": {
+      "chapter_label": "产品与配置要求",
+      "condition": "",
+      "variants": {
+        "business": {
+          "text": "结合实际业务任务，请介绍车辆必须满足的要求，以及对不同配置的取舍。"
+        }
+      },
+      "probes": [
+        "具体任务与使用要求",
+        "必须满足与可以取舍的配置",
+        "接待、公务和营运差异"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-ORG-08": {
+      "chapter_label": "品牌与服务要求",
+      "condition": "",
+      "variants": {
+        "business": {
+          "text": "请介绍品牌、客户接待、服务网点和供应商能力在组织采购中的作用，以及相关要求。"
+        }
+      },
+      "probes": [
+        "客户和合作方要求",
+        "内部采购制度",
+        "交付、维修与备件保障"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "B-ORG-09": {
+      "chapter_label": "组织补贴与政策",
+      "condition": "先问自发认知；只有项目组已核验政策名称、对象和有效期后才提示。",
+      "variants": {
+        "business": {
+          "text": "请介绍组织对车辆相关优惠或运营政策的了解和实际使用情况，以及对采购安排的影响。"
+        }
+      },
+      "probes": [
+        "政策了解与申请情况",
+        "对采购时间、数量、动力和预算的影响",
+        "政策变化后的安排"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M1.2-03": {
+      "chapter_label": "车辆组合与分工",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "如果增加或更换一辆车，现有车辆和其他交通方式会如何分工？",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "如果增加或更换一辆车，现有车辆和其他交通方式会如何分工？",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "各车辆与交通方式的分工变化",
+        "工作和私人用途的协调"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M1.4-01": {
+      "chapter_label": "品类意义与理想形象",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "在您看来，这类车适合什么人、用来做什么？",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "在您看来，这类车适合什么人、用来做什么？",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "适合的人群与用途",
+        "与其他车型类别的差异",
+        "功能与社会印象"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M3.3-04": {
+      "chapter_label": "购车过程与试驾",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "请回顾一次购车服务经历，哪些环节影响了您的决定？",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "请回顾一次看车或咨询经历，介绍销售服务怎样影响您的判断。",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "销售介绍、试驾和承诺兑现",
+        "对车型考虑、购买时间和品牌信任的影响"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M3.4-02": {
+      "chapter_label": "购车考虑因素与取舍",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "最终选择这辆车最关键的原因是什么？",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "目前最倾向的车型是哪个？哪些理由让它排在前面，哪些条件还没确认？",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "与其他车型的关键差异",
+        "最后促成决定的原因",
+        "意向者当前倾向与待确认条件"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M4.4-01": {
+      "chapter_label": "驾驶辅助的使用与信任",
+      "condition": "",
+      "variants": {
+        "owner": {
+          "text": "您了解或使用过哪些驾驶辅助功能？请分别说明。",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "您了解或体验过哪些驾驶辅助功能？哪些已经实际使用，哪些只是听说？",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "了解、试用与日常使用的功能",
+        "最近一次使用",
+        "不用或关闭的原因"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    },
+    "Q-M5.1-03": {
+      "chapter_label": "整体概念评价",
+      "condition": "仅当项目已展示完整产品概念材料后触发；不再假设存在未展示的备选方案。",
+      "variants": {
+        "owner": {
+          "text": "看完产品概念后，哪些内容最吸引您？哪些地方仍不清楚或需要改进？",
+          "evidence_type": "self_report_or_preference"
+        },
+        "prospect": {
+          "text": "看完产品概念后，哪些内容最吸引您？哪些地方仍不清楚或需要改进？",
+          "evidence_type": "actual_experience_then_expectation"
+        }
+      },
+      "probes": [
+        "吸引之处与改进需要",
+        "比较对象和依据",
+        "产品与品牌的影响"
+      ],
+      "conditional_probes": [],
+      "activity": null
+    }
+  },
+  "modules": {
+    "FGD": [
+      {
+        "id": "c1",
+        "name": "1. 人群与车辆背景",
+        "en": "人群与车辆背景",
+        "desc": "生活、家庭、现有车辆和使用角色",
+        "src": "汽车访谈题库 v3"
+      },
+      {
+        "id": "c2",
+        "name": "2. 使用场景与体验",
+        "en": "使用场景与体验",
+        "desc": "高频场景、当地条件、满意度和使用困难",
+        "src": "汽车访谈题库 v3"
+      },
+      {
+        "id": "c3",
+        "name": "3. 购买旅程与考虑因素",
+        "en": "购买旅程与考虑因素",
+        "desc": "购买触发、信息、考虑因素、支付和补贴",
+        "src": "汽车访谈题库 v3"
+      },
+      {
+        "id": "c4",
+        "name": "4. 动力与充电或燃料补给",
+        "en": "动力与充电或燃料补给",
+        "desc": "动力认知、真实充电或燃料补给和续航底线",
+        "src": "汽车访谈题库 v3"
+      },
+      {
+        "id": "c5",
+        "name": "5. 产品与配置",
+        "en": "产品与配置",
+        "desc": "概念、造型、空间、操作与反馈和配置取舍",
+        "src": "汽车访谈题库 v3"
+      },
+      {
+        "id": "c6",
+        "name": "6. 品牌与购买条件",
+        "en": "品牌与购买条件",
+        "desc": "品牌认知、价格、顾虑和卖点",
+        "src": "汽车访谈题库 v3"
+      }
+    ],
+    "IHV": [
+      {
+        "id": "c1",
+        "name": "1. 家庭与车辆背景",
+        "en": "家庭与车辆背景",
+        "desc": "家庭、车辆历史和使用角色",
+        "src": "汽车访谈题库 v3"
+      },
+      {
+        "id": "c3",
+        "name": "2. 购买旅程与考虑因素",
+        "en": "购买旅程与考虑因素",
+        "desc": "时间线、候选、考虑因素、支付和补贴",
+        "src": "汽车访谈题库 v3"
+      },
+      {
+        "id": "c2",
+        "name": "3. 场景与实地观察",
+        "en": "场景与实地观察",
+        "desc": "真实使用、停车、装载、满意度和使用困难",
+        "src": "汽车访谈题库 v3"
+      },
+      {
+        "id": "c4",
+        "name": "4. 动力与充电或燃料补给观察",
+        "en": "动力与充电或燃料补给观察",
+        "desc": "停车地点、充电条件、续航和充电或燃料补给习惯",
+        "src": "汽车访谈题库 v3"
+      },
+      {
+        "id": "c5",
+        "name": "5. 产品与配置验证",
+        "en": "产品与配置验证",
+        "desc": "结合实车或材料验证产品与配置",
+        "src": "汽车访谈题库 v3"
+      },
+      {
+        "id": "c6",
+        "name": "6. 品牌与购买条件",
+        "en": "品牌与购买条件",
+        "desc": "品牌、价格、顾虑和促成购买的条件",
+        "src": "汽车访谈题库 v3"
+      }
+    ],
+    "Dealer": [
+      {
+        "id": "b1",
+        "name": "1. 受访者与机构背景",
+        "en": "受访者与机构背景",
+        "desc": "职责、机构和证据范围",
+        "src": "汽车访谈题库 v3"
+      },
+      {
+        "id": "b2",
+        "name": "2. 品牌市场与政策",
+        "en": "品牌市场与政策",
+        "desc": "竞争、销量、补贴和基础设施",
+        "src": "汽车访谈题库 v3"
+      },
+      {
+        "id": "b3",
+        "name": "3. 客户画像与用途",
+        "en": "客户画像与用途",
+        "desc": "客户特征、车辆关系和典型用途",
+        "src": "汽车访谈题库 v3"
+      },
+      {
+        "id": "b4",
+        "name": "4. 成交与流失",
+        "en": "成交与流失",
+        "desc": "购买触发、考虑因素、成交与顾虑",
+        "src": "汽车访谈题库 v3"
+      },
+      {
+        "id": "b5",
+        "name": "5. 产品需求与方案",
+        "en": "产品需求与方案",
+        "desc": "客户需求、产品评价和本地适配",
+        "src": "汽车访谈题库 v3"
+      },
+      {
+        "id": "b6",
+        "name": "6. 价格配置版本与盈利",
+        "en": "价格配置版本与盈利",
+        "desc": "预算、金融、配置版本和经销商盈利",
+        "src": "汽车访谈题库 v3"
+      },
+      {
+        "id": "b7",
+        "name": "7. 渠道营销与服务",
+        "en": "渠道营销与服务",
+        "desc": "客户咨询、渠道覆盖和售后体验",
+        "src": "汽车访谈题库 v3"
+      },
+      {
+        "id": "b8",
+        "name": "8. 品牌机会与策略",
+        "en": "品牌机会与策略",
+        "desc": "品牌形象、中国品牌和市场进入",
+        "src": "汽车访谈题库 v3"
+      }
+    ],
+    "MPVMedia": [
+      {
+        "id": "b1",
+        "name": "1. 受访者与机构背景",
+        "en": "受访者与机构背景",
+        "desc": "媒体职责、平台、受众和证据范围",
+        "src": "汽车访谈题库 v3"
+      },
+      {
+        "id": "b2",
+        "name": "2. 品牌市场与政策",
+        "en": "品牌市场与政策",
+        "desc": "公开市场、竞争、补贴和政策信息",
+        "src": "汽车访谈题库 v3"
+      },
+      {
+        "id": "b3",
+        "name": "3. 受众画像与用途",
+        "en": "受众画像与用途",
+        "desc": "仅在有受众研究或采访证据时使用",
+        "src": "汽车访谈题库 v3"
+      },
+      {
+        "id": "b4",
+        "name": "4. 购买认知与信息影响",
+        "en": "购买认知与信息影响",
+        "desc": "传播、受众讨论和购买考虑因素",
+        "src": "汽车访谈题库 v3"
+      },
+      {
+        "id": "b5",
+        "name": "5. 产品评价与方案",
+        "en": "产品评价与方案",
+        "desc": "试驾、测评和受众反馈",
+        "src": "汽车访谈题库 v3"
+      },
+      {
+        "id": "b6",
+        "name": "6. 公开价格与配置版本",
+        "en": "公开价格与配置版本",
+        "desc": "公开价格信息和理解度",
+        "src": "汽车访谈题库 v3"
+      },
+      {
+        "id": "b7",
+        "name": "7. 传播渠道与服务口碑",
+        "en": "传播渠道与服务口碑",
+        "desc": "传播反馈、渠道覆盖和公开口碑",
+        "src": "汽车访谈题库 v3"
+      },
+      {
+        "id": "b8",
+        "name": "8. 品牌机会与风险",
+        "en": "品牌机会与风险",
+        "desc": "品牌形象、中国品牌和公众信任",
+        "src": "汽车访谈题库 v3"
+      }
+    ],
+    "MPVExpert": [
+      {
+        "id": "b1",
+        "name": "1. 受访者与机构背景",
+        "en": "受访者与机构背景",
+        "desc": "职责、专业范围和证据边界",
+        "src": "汽车访谈题库 v3"
+      },
+      {
+        "id": "b2",
+        "name": "2. 品牌市场与政策",
+        "en": "品牌市场与政策",
+        "desc": "竞争、规模、政策和基础设施",
+        "src": "汽车访谈题库 v3"
+      },
+      {
+        "id": "b3",
+        "name": "3. 客户画像与用途",
+        "en": "客户画像与用途",
+        "desc": "用户研究、车辆关系和典型用途",
+        "src": "汽车访谈题库 v3"
+      },
+      {
+        "id": "b4",
+        "name": "4. 购买与流失机制",
+        "en": "购买与流失机制",
+        "desc": "购买触发、考虑因素和障碍",
+        "src": "汽车访谈题库 v3"
+      },
+      {
+        "id": "b5",
+        "name": "5. 产品需求与方案",
+        "en": "产品需求与方案",
+        "desc": "产品定义、工程和本地化证据",
+        "src": "汽车访谈题库 v3"
+      },
+      {
+        "id": "b6",
+        "name": "6. 价格配置版本与渠道经济性",
+        "en": "价格配置版本与渠道经济性",
+        "desc": "预算、金融、版本和渠道策略",
+        "src": "汽车访谈题库 v3"
+      },
+      {
+        "id": "b7",
+        "name": "7. 渠道营销与服务",
+        "en": "渠道营销与服务",
+        "desc": "渠道能力、传播和服务体系",
+        "src": "汽车访谈题库 v3"
+      },
+      {
+        "id": "b8",
+        "name": "8. 品牌机会与策略",
+        "en": "品牌机会与策略",
+        "desc": "定位、中国品牌和进入条件",
+        "src": "汽车访谈题库 v3"
+      }
+    ]
+  },
+  "maps": {
+    "FGD": {
+      "c1": [
+        {
+          "sid": "C1.1",
+          "name": "家庭与生活背景",
+          "qids": [
+            "Q-M1.1-01",
+            "Q-M1.1-02",
+            "Q-M1.1-04",
+            "Q-M1.1-05"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C1.2",
+          "name": "车辆组合与分工",
+          "qids": [
+            "Q-M1.2-01",
+            "Q-M1.2-02",
+            "Q-M1.2-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C1.3",
+          "name": "使用者、乘员与决策角色",
+          "qids": [
+            "Q-M1.3-01",
+            "Q-M1.3-02",
+            "Q-M1.3-03",
+            "Q-M1.3-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C1.4",
+          "name": "品类意义与理想形象",
+          "qids": [
+            "Q-M1.4-01",
+            "Q-M1.4-02",
+            "Q-M1.4-03"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "owner",
+          "minutes": 7
+        }
+      ],
+      "c2": [
+        {
+          "sid": "C2.1",
+          "name": "高频使用场景",
+          "qids": [
+            "Q-M2.1-01",
+            "Q-M2.1-02",
+            "Q-M2.1-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C2.2",
+          "name": "关键与极端场景",
+          "qids": [
+            "Q-M2.2-01",
+            "Q-M2.2-02",
+            "Q-M2.2-03",
+            "Q-M2.2-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C2.3",
+          "name": "乘员与装载",
+          "qids": [
+            "Q-M2.3-01",
+            "Q-M2.3-02",
+            "Q-M2.3-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C2.4",
+          "name": "停车、道路与气候",
+          "qids": [
+            "Q-M2.4-01",
+            "Q-M2.4-02",
+            "Q-M2.4-03",
+            "Q-M2.4-04",
+            "Q-M2.4-05",
+            "Q-M2.4-06"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C2.5",
+          "name": "车内功能与操作体验",
+          "qids": [
+            "Q-M2.5-01",
+            "Q-M2.5-02",
+            "Q-M2.5-03",
+            "Q-M2.5-04",
+            "Q-M2.5-05",
+            "Q-M2.5-06",
+            "Q-M2.5-07",
+            "Q-M2.5-08"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C2.6",
+          "name": "使用体验与改善需要",
+          "qids": [
+            "Q-M2.6-01",
+            "Q-M2.6-02",
+            "Q-M2.6-03",
+            "Q-M2.6-04",
+            "Q-M2.6-05"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C2.7",
+          "name": "日常用车总费用与服务体验",
+          "qids": [
+            "Q-M2.7-01",
+            "Q-M2.7-02",
+            "Q-M2.7-03",
+            "Q-M2.7-04"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C2.8",
+          "name": "基础设施与能源环境",
+          "qids": [
+            "Q-M8.1-01"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C2.9",
+          "name": "语言与联网服务",
+          "qids": [
+            "Q-M8.3-01",
+            "Q-M8.3-02"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        }
+      ],
+      "c3": [
+        {
+          "sid": "C3.1",
+          "name": "触发事件与预算",
+          "qids": [
+            "Q-M3.1-01",
+            "Q-M3.1-02",
+            "Q-M3.1-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C3.2",
+          "name": "信息来源与车型比较",
+          "qids": [
+            "Q-M3.2-01",
+            "Q-M3.2-02",
+            "Q-M3.2-03",
+            "Q-M3.2-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C3.3",
+          "name": "购车过程与试驾",
+          "qids": [
+            "Q-M3.3-01",
+            "Q-M3.3-02",
+            "Q-M3.3-03",
+            "Q-M3.3-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C3.4",
+          "name": "购车考虑因素与取舍",
+          "qids": [
+            "Q-M3.4-01",
+            "Q-M3.4-02",
+            "Q-M3.4-03",
+            "Q-M3.4-04",
+            "Q-M3.4-05"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C3.5",
+          "name": "支付与金融",
+          "qids": [
+            "Q-M3.5-01",
+            "Q-M3.5-02",
+            "Q-M3.5-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C3.6",
+          "name": "下一次购买计划",
+          "qids": [
+            "Q-M3.6-01",
+            "Q-M3.6-02"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C3.7",
+          "name": "补贴与政策影响",
+          "qids": [
+            "Q-M8.2-01",
+            "Q-M8.2-02"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        }
+      ],
+      "c4": [
+        {
+          "sid": "C4.1",
+          "name": "动力理解与选择",
+          "qids": [
+            "Q-M4.1-01",
+            "Q-M4.1-02",
+            "Q-M4.1-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C4.2",
+          "name": "充电与加油安排",
+          "qids": [
+            "Q-M4.2-01",
+            "Q-M4.2-02",
+            "Q-M4.2-03",
+            "Q-M4.2-04",
+            "Q-M4.2-05",
+            "Q-M4.2-06"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C4.3",
+          "name": "续航与等待时间要求",
+          "qids": [
+            "Q-M4.3-01",
+            "Q-M4.3-02",
+            "Q-M4.3-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C4.4",
+          "name": "驾驶辅助的使用与信任",
+          "qids": [
+            "Q-M4.4-01",
+            "Q-M4.4-02",
+            "Q-M4.4-03",
+            "Q-M4.4-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C4.5",
+          "name": "安全与耐久期待",
+          "qids": [
+            "Q-M4.5-01",
+            "Q-M4.5-02",
+            "Q-M4.5-03",
+            "Q-M4.5-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        }
+      ],
+      "c5": [
+        {
+          "sid": "C5.1",
+          "name": "整体概念评价",
+          "qids": [
+            "Q-M5.1-01",
+            "Q-M5.1-02",
+            "Q-M5.1-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C5.2",
+          "name": "整体外形与前后部设计",
+          "qids": [
+            "Q-M5.2-01",
+            "Q-M5.2-02",
+            "Q-M5.2-03",
+            "Q-M5.2-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C5.3",
+          "name": "内饰颜色与材质",
+          "qids": [
+            "Q-M5.3-01",
+            "Q-M5.3-02",
+            "Q-M5.3-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C5.4",
+          "name": "座椅布局与上下车",
+          "qids": [
+            "Q-M5.4-01",
+            "Q-M5.4-02",
+            "Q-M5.4-03",
+            "Q-M5.4-04",
+            "Q-M5.4-05",
+            "Q-M5.4-06",
+            "Q-M5.4-07",
+            "Q-M5.4-08"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C5.5",
+          "name": "车内操作方案",
+          "qids": [
+            "Q-M5.5-01",
+            "Q-M5.5-02",
+            "Q-M5.5-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C5.6",
+          "name": "功能与配置组合",
+          "qids": [
+            "Q-M5.6-01",
+            "Q-M5.6-02",
+            "Q-M5.6-03",
+            "Q-M5.6-04",
+            "Q-M5.6-05",
+            "Q-M5.6-06",
+            "Q-M5.6-07"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C5.7",
+          "name": "配置优先顺序与取舍",
+          "qids": [
+            "Q-M5.7-01",
+            "Q-M5.7-02",
+            "Q-M5.7-03",
+            "Q-M5.7-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        }
+      ],
+      "c6": [
+        {
+          "sid": "C6.1",
+          "name": "自发品牌认知",
+          "qids": [
+            "Q-M6.1-01",
+            "Q-M6.1-02",
+            "Q-M6.1-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C6.2",
+          "name": "品牌揭示后的评价变化",
+          "qids": [
+            "Q-M6.2-01",
+            "Q-M6.2-02"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C6.3",
+          "name": "价格与配置版本",
+          "qids": [
+            "Q-M6.3-01",
+            "Q-M6.3-02",
+            "Q-M6.3-03",
+            "Q-M6.3-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C6.4",
+          "name": "购买考虑与顾虑",
+          "qids": [
+            "Q-M6.4-01",
+            "Q-M6.4-02",
+            "Q-M6.4-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        },
+        {
+          "sid": "C6.5",
+          "name": "产品信息的理解与表达",
+          "qids": [
+            "Q-M6.5-01",
+            "Q-M6.5-02",
+            "Q-M6.5-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 7
+        }
+      ]
+    },
+    "IHV": {
+      "c1": [
+        {
+          "sid": "C1.1",
+          "name": "家庭与生活背景",
+          "qids": [
+            "Q-M1.1-01",
+            "Q-M1.1-02",
+            "Q-M1.1-04",
+            "Q-M1.1-05"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C1.2",
+          "name": "车辆组合与分工",
+          "qids": [
+            "Q-M1.2-01",
+            "Q-M1.2-02",
+            "Q-M1.2-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C1.3",
+          "name": "使用者、乘员与决策角色",
+          "qids": [
+            "Q-M1.3-01",
+            "Q-M1.3-02",
+            "Q-M1.3-03",
+            "Q-M1.3-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C1.4",
+          "name": "品类意义与理想形象",
+          "qids": [
+            "Q-M1.4-01",
+            "Q-M1.4-02",
+            "Q-M1.4-03"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "owner",
+          "minutes": 8
+        }
+      ],
+      "c3": [
+        {
+          "sid": "C3.1",
+          "name": "触发事件与预算",
+          "qids": [
+            "Q-M3.1-01",
+            "Q-M3.1-02",
+            "Q-M3.1-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C3.2",
+          "name": "信息来源与车型比较",
+          "qids": [
+            "Q-M3.2-01",
+            "Q-M3.2-02",
+            "Q-M3.2-03",
+            "Q-M3.2-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C3.3",
+          "name": "购车过程与试驾",
+          "qids": [
+            "Q-M3.3-01",
+            "Q-M3.3-02",
+            "Q-M3.3-03",
+            "Q-M3.3-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C3.4",
+          "name": "购车考虑因素与取舍",
+          "qids": [
+            "Q-M3.4-01",
+            "Q-M3.4-02",
+            "Q-M3.4-03",
+            "Q-M3.4-04",
+            "Q-M3.4-05"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C3.5",
+          "name": "支付与金融",
+          "qids": [
+            "Q-M3.5-01",
+            "Q-M3.5-02",
+            "Q-M3.5-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C3.6",
+          "name": "下一次购买计划",
+          "qids": [
+            "Q-M3.6-01",
+            "Q-M3.6-02"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C3.7",
+          "name": "补贴与政策影响",
+          "qids": [
+            "Q-M8.2-01",
+            "Q-M8.2-02"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        }
+      ],
+      "c2": [
+        {
+          "sid": "C2.1",
+          "name": "高频使用场景",
+          "qids": [
+            "Q-M2.1-01",
+            "Q-M2.1-02",
+            "Q-M2.1-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C2.2",
+          "name": "关键与极端场景",
+          "qids": [
+            "Q-M2.2-01",
+            "Q-M2.2-02",
+            "Q-M2.2-03",
+            "Q-M2.2-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C2.3",
+          "name": "乘员与装载",
+          "qids": [
+            "Q-M2.3-01",
+            "Q-M2.3-02",
+            "Q-M2.3-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C2.4",
+          "name": "停车、道路与气候",
+          "qids": [
+            "Q-M2.4-01",
+            "Q-M2.4-02",
+            "Q-M2.4-03",
+            "Q-M2.4-04",
+            "Q-M2.4-05",
+            "Q-M2.4-06"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C2.5",
+          "name": "车内功能与操作体验",
+          "qids": [
+            "Q-M2.5-01",
+            "Q-M2.5-02",
+            "Q-M2.5-03",
+            "Q-M2.5-04",
+            "Q-M2.5-05",
+            "Q-M2.5-06",
+            "Q-M2.5-07",
+            "Q-M2.5-08"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C2.6",
+          "name": "使用体验与改善需要",
+          "qids": [
+            "Q-M2.6-01",
+            "Q-M2.6-02",
+            "Q-M2.6-03",
+            "Q-M2.6-04",
+            "Q-M2.6-05"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C2.7",
+          "name": "日常用车总费用与服务体验",
+          "qids": [
+            "Q-M2.7-01",
+            "Q-M2.7-02",
+            "Q-M2.7-03",
+            "Q-M2.7-04"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C2.8",
+          "name": "基础设施与能源环境",
+          "qids": [
+            "Q-M8.1-01"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C2.9",
+          "name": "语言与联网服务",
+          "qids": [
+            "Q-M8.3-01",
+            "Q-M8.3-02"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        }
+      ],
+      "c4": [
+        {
+          "sid": "C4.1",
+          "name": "动力理解与选择",
+          "qids": [
+            "Q-M4.1-01",
+            "Q-M4.1-02",
+            "Q-M4.1-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C4.2",
+          "name": "充电与加油安排",
+          "qids": [
+            "Q-M4.2-01",
+            "Q-M4.2-02",
+            "Q-M4.2-03",
+            "Q-M4.2-04",
+            "Q-M4.2-05",
+            "Q-M4.2-06"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C4.3",
+          "name": "续航与等待时间要求",
+          "qids": [
+            "Q-M4.3-01",
+            "Q-M4.3-02",
+            "Q-M4.3-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C4.4",
+          "name": "驾驶辅助的使用与信任",
+          "qids": [
+            "Q-M4.4-01",
+            "Q-M4.4-02",
+            "Q-M4.4-03",
+            "Q-M4.4-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C4.5",
+          "name": "安全与耐久期待",
+          "qids": [
+            "Q-M4.5-01",
+            "Q-M4.5-02",
+            "Q-M4.5-03",
+            "Q-M4.5-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        }
+      ],
+      "c5": [
+        {
+          "sid": "C5.1",
+          "name": "整体概念评价",
+          "qids": [
+            "Q-M5.1-01",
+            "Q-M5.1-02",
+            "Q-M5.1-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C5.2",
+          "name": "整体外形与前后部设计",
+          "qids": [
+            "Q-M5.2-01",
+            "Q-M5.2-02",
+            "Q-M5.2-03",
+            "Q-M5.2-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C5.3",
+          "name": "内饰颜色与材质",
+          "qids": [
+            "Q-M5.3-01",
+            "Q-M5.3-02",
+            "Q-M5.3-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C5.4",
+          "name": "座椅布局与上下车",
+          "qids": [
+            "Q-M5.4-01",
+            "Q-M5.4-02",
+            "Q-M5.4-03",
+            "Q-M5.4-04",
+            "Q-M5.4-05",
+            "Q-M5.4-06",
+            "Q-M5.4-07",
+            "Q-M5.4-08"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C5.5",
+          "name": "车内操作方案",
+          "qids": [
+            "Q-M5.5-01",
+            "Q-M5.5-02",
+            "Q-M5.5-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C5.6",
+          "name": "功能与配置组合",
+          "qids": [
+            "Q-M5.6-01",
+            "Q-M5.6-02",
+            "Q-M5.6-03",
+            "Q-M5.6-04",
+            "Q-M5.6-05",
+            "Q-M5.6-06",
+            "Q-M5.6-07"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C5.7",
+          "name": "配置优先顺序与取舍",
+          "qids": [
+            "Q-M5.7-01",
+            "Q-M5.7-02",
+            "Q-M5.7-03",
+            "Q-M5.7-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        }
+      ],
+      "c6": [
+        {
+          "sid": "C6.1",
+          "name": "自发品牌认知",
+          "qids": [
+            "Q-M6.1-01",
+            "Q-M6.1-02",
+            "Q-M6.1-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C6.2",
+          "name": "品牌揭示后的评价变化",
+          "qids": [
+            "Q-M6.2-01",
+            "Q-M6.2-02"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C6.3",
+          "name": "价格与配置版本",
+          "qids": [
+            "Q-M6.3-01",
+            "Q-M6.3-02",
+            "Q-M6.3-03",
+            "Q-M6.3-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C6.4",
+          "name": "购买考虑与顾虑",
+          "qids": [
+            "Q-M6.4-01",
+            "Q-M6.4-02",
+            "Q-M6.4-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        },
+        {
+          "sid": "C6.5",
+          "name": "产品信息的理解与表达",
+          "qids": [
+            "Q-M6.5-01",
+            "Q-M6.5-02",
+            "Q-M6.5-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "owner",
+          "minutes": 8
+        }
+      ]
+    },
+    "Dealer": {
+      "b1": [
+        {
+          "sid": "B1.1",
+          "name": "职责与经验",
+          "qids": [
+            "B-CTX-01"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B1.2",
+          "name": "机构与业务范围",
+          "qids": [
+            "B-CTX-02"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Dealer",
+          "minutes": 5
+        }
+      ],
+      "b2": [
+        {
+          "sid": "B2.1",
+          "name": "竞争格局与品牌表现",
+          "qids": [
+            "B-MKT-01"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B2.2",
+          "name": "市场规模与销量预测",
+          "qids": [
+            "B-MKT-02"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B2.3",
+          "name": "政策、补贴与税费",
+          "qids": [
+            "B-MKT-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B2.4",
+          "name": "基础设施与能源环境",
+          "qids": [
+            "B-MKT-04"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Dealer",
+          "minutes": 5
+        }
+      ],
+      "b3": [
+        {
+          "sid": "B3.1",
+          "name": "客户特征",
+          "qids": [
+            "B-CUST-01"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B3.2",
+          "name": "购车类型与车辆关系",
+          "qids": [
+            "B-CUST-02"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B3.3",
+          "name": "驾驶者、乘员与决策者",
+          "qids": [
+            "B-CUST-03"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B3.4",
+          "name": "典型用途与高频场景",
+          "qids": [
+            "B-CUST-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Dealer",
+          "minutes": 5
+        }
+      ],
+      "b4": [
+        {
+          "sid": "B4.1",
+          "name": "购买触发与考虑因素",
+          "qids": [
+            "B-SALE-01"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B4.2",
+          "name": "车型比较与选择原因",
+          "qids": [
+            "B-SALE-02"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B4.3",
+          "name": "信息来源与传播影响",
+          "qids": [
+            "B-SALE-03"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B4.4",
+          "name": "到店、试驾与服务影响",
+          "qids": [
+            "B-SALE-04"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B4.5",
+          "name": "顾虑与促成购买的条件",
+          "qids": [
+            "B-SALE-05"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B4.6",
+          "name": "动力选择与顾虑",
+          "qids": [
+            "B-SALE-06"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Dealer",
+          "minutes": 5
+        }
+      ],
+      "b5": [
+        {
+          "sid": "B5.1",
+          "name": "总体产品需求",
+          "qids": [
+            "B-PROD-01"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.2",
+          "name": "乘坐、空间与装载",
+          "qids": [
+            "B-PROD-02"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.3",
+          "name": "道路、底盘与气候适应",
+          "qids": [
+            "B-PROD-03"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.4",
+          "name": "座舱、车载系统与互联",
+          "qids": [
+            "B-PROD-04"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.5",
+          "name": "充电与续航要求",
+          "qids": [
+            "B-PROD-05"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.6",
+          "name": "驾驶辅助的使用与信任",
+          "qids": [
+            "B-PROD-06"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.7",
+          "name": "安全、耐久与质量",
+          "qids": [
+            "B-PROD-07"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.8",
+          "name": "产品概念总体评价",
+          "qids": [
+            "B-PROD-08"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.9",
+          "name": "外观与内饰方案",
+          "qids": [
+            "B-PROD-09"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.10",
+          "name": "配置组合与取舍",
+          "qids": [
+            "B-PROD-10"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.11",
+          "name": "本地化与工程适配",
+          "qids": [
+            "B-PROD-11"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Dealer",
+          "minutes": 5
+        }
+      ],
+      "b6": [
+        {
+          "sid": "B6.1",
+          "name": "客户预算与实际成交价",
+          "qids": [
+            "B-PRICE-01"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B6.2",
+          "name": "支付与金融方案",
+          "qids": [
+            "B-PRICE-02"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B6.3",
+          "name": "价格、配置版本与未来转售价值",
+          "qids": [
+            "B-PRICE-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B6.4",
+          "name": "经销商盈利与资源投入",
+          "qids": [
+            "B-PRICE-04"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Dealer",
+          "minutes": 5
+        }
+      ],
+      "b7": [
+        {
+          "sid": "B7.1",
+          "name": "渠道覆盖与购车便利",
+          "qids": [
+            "B-CHAN-01"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B7.2",
+          "name": "门店能力与销售支持",
+          "qids": [
+            "B-CHAN-02"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B7.3",
+          "name": "售后成本与服务体验",
+          "qids": [
+            "B-CHAN-03"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B7.4",
+          "name": "吸引客户的渠道与内容",
+          "qids": [
+            "B-CHAN-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Dealer",
+          "minutes": 5
+        }
+      ],
+      "b8": [
+        {
+          "sid": "B8.1",
+          "name": "品类意义与品牌形象",
+          "qids": [
+            "B-BRAND-01"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B8.2",
+          "name": "中国品牌优劣势",
+          "qids": [
+            "B-BRAND-02"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B8.3",
+          "name": "品牌揭示与概念匹配",
+          "qids": [
+            "B-BRAND-03"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B8.4",
+          "name": "产品信息的理解与传播",
+          "qids": [
+            "B-BRAND-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Dealer",
+          "minutes": 5
+        },
+        {
+          "sid": "B8.5",
+          "name": "市场进入条件与风险",
+          "qids": [
+            "B-BRAND-05"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Dealer",
+          "minutes": 5
+        }
+      ]
+    },
+    "MPVMedia": {
+      "b1": [
+        {
+          "sid": "B1.1",
+          "name": "职责与经验",
+          "qids": [
+            "B-CTX-01"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B1.2",
+          "name": "机构与业务范围",
+          "qids": [
+            "B-CTX-02"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Media",
+          "minutes": 5
+        }
+      ],
+      "b2": [
+        {
+          "sid": "B2.1",
+          "name": "竞争格局与品牌表现",
+          "qids": [
+            "B-MKT-01"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B2.2",
+          "name": "市场规模与销量预测",
+          "qids": [
+            "B-MKT-02"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B2.3",
+          "name": "政策、补贴与税费",
+          "qids": [
+            "B-MKT-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B2.4",
+          "name": "基础设施与能源环境",
+          "qids": [
+            "B-MKT-04"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Media",
+          "minutes": 5
+        }
+      ],
+      "b3": [
+        {
+          "sid": "B3.1",
+          "name": "客户特征",
+          "qids": [
+            "B-CUST-01"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B3.2",
+          "name": "典型用途与高频场景",
+          "qids": [
+            "B-CUST-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Media",
+          "minutes": 5
+        }
+      ],
+      "b4": [
+        {
+          "sid": "B4.1",
+          "name": "购买触发与考虑因素",
+          "qids": [
+            "B-SALE-01"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B4.2",
+          "name": "信息来源与传播影响",
+          "qids": [
+            "B-SALE-03"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B4.3",
+          "name": "顾虑与促成购买的条件",
+          "qids": [
+            "B-SALE-05"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B4.4",
+          "name": "动力选择与顾虑",
+          "qids": [
+            "B-SALE-06"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Media",
+          "minutes": 5
+        }
+      ],
+      "b5": [
+        {
+          "sid": "B5.1",
+          "name": "总体产品需求",
+          "qids": [
+            "B-PROD-01"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.2",
+          "name": "乘坐、空间与装载",
+          "qids": [
+            "B-PROD-02"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.3",
+          "name": "道路、底盘与气候适应",
+          "qids": [
+            "B-PROD-03"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.4",
+          "name": "座舱、车载系统与互联",
+          "qids": [
+            "B-PROD-04"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.5",
+          "name": "充电与续航要求",
+          "qids": [
+            "B-PROD-05"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.6",
+          "name": "驾驶辅助的使用与信任",
+          "qids": [
+            "B-PROD-06"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.7",
+          "name": "安全、耐久与质量",
+          "qids": [
+            "B-PROD-07"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.8",
+          "name": "产品概念总体评价",
+          "qids": [
+            "B-PROD-08"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.9",
+          "name": "外观与内饰方案",
+          "qids": [
+            "B-PROD-09"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.10",
+          "name": "配置组合与取舍",
+          "qids": [
+            "B-PROD-10"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.11",
+          "name": "本地化与工程适配",
+          "qids": [
+            "B-PROD-11"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Media",
+          "minutes": 5
+        }
+      ],
+      "b6": [
+        {
+          "sid": "B6.1",
+          "name": "价格、配置版本与未来转售价值",
+          "qids": [
+            "B-PRICE-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Media",
+          "minutes": 5
+        }
+      ],
+      "b7": [
+        {
+          "sid": "B7.1",
+          "name": "渠道覆盖与购车便利",
+          "qids": [
+            "B-CHAN-01"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B7.2",
+          "name": "售后成本与服务体验",
+          "qids": [
+            "B-CHAN-03"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B7.3",
+          "name": "吸引客户的渠道与内容",
+          "qids": [
+            "B-CHAN-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Media",
+          "minutes": 5
+        }
+      ],
+      "b8": [
+        {
+          "sid": "B8.1",
+          "name": "品类意义与品牌形象",
+          "qids": [
+            "B-BRAND-01"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B8.2",
+          "name": "中国品牌优劣势",
+          "qids": [
+            "B-BRAND-02"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B8.3",
+          "name": "品牌揭示与概念匹配",
+          "qids": [
+            "B-BRAND-03"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B8.4",
+          "name": "产品信息的理解与传播",
+          "qids": [
+            "B-BRAND-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Media",
+          "minutes": 5
+        },
+        {
+          "sid": "B8.5",
+          "name": "市场进入条件与风险",
+          "qids": [
+            "B-BRAND-05"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "Media",
+          "minutes": 5
+        }
+      ]
+    },
+    "MPVExpert": {
+      "b1": [
+        {
+          "sid": "B1.1",
+          "name": "职责与经验",
+          "qids": [
+            "B-CTX-01"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B1.2",
+          "name": "机构与业务范围",
+          "qids": [
+            "B-CTX-02"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "OEM",
+          "minutes": 5
+        }
+      ],
+      "b2": [
+        {
+          "sid": "B2.1",
+          "name": "竞争格局与品牌表现",
+          "qids": [
+            "B-MKT-01"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B2.2",
+          "name": "市场规模与销量预测",
+          "qids": [
+            "B-MKT-02"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B2.3",
+          "name": "政策、补贴与税费",
+          "qids": [
+            "B-MKT-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B2.4",
+          "name": "基础设施与能源环境",
+          "qids": [
+            "B-MKT-04"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "OEM",
+          "minutes": 5
+        }
+      ],
+      "b3": [
+        {
+          "sid": "B3.1",
+          "name": "客户特征",
+          "qids": [
+            "B-CUST-01"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B3.2",
+          "name": "购车类型与车辆关系",
+          "qids": [
+            "B-CUST-02"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B3.3",
+          "name": "驾驶者、乘员与决策者",
+          "qids": [
+            "B-CUST-03"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B3.4",
+          "name": "典型用途与高频场景",
+          "qids": [
+            "B-CUST-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "OEM",
+          "minutes": 5
+        }
+      ],
+      "b4": [
+        {
+          "sid": "B4.1",
+          "name": "购买触发与考虑因素",
+          "qids": [
+            "B-SALE-01"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B4.2",
+          "name": "车型比较与选择原因",
+          "qids": [
+            "B-SALE-02"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B4.3",
+          "name": "信息来源与传播影响",
+          "qids": [
+            "B-SALE-03"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B4.4",
+          "name": "到店、试驾与服务影响",
+          "qids": [
+            "B-SALE-04"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B4.5",
+          "name": "顾虑与促成购买的条件",
+          "qids": [
+            "B-SALE-05"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B4.6",
+          "name": "动力选择与顾虑",
+          "qids": [
+            "B-SALE-06"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "OEM",
+          "minutes": 5
+        }
+      ],
+      "b5": [
+        {
+          "sid": "B5.1",
+          "name": "总体产品需求",
+          "qids": [
+            "B-PROD-01"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.2",
+          "name": "乘坐、空间与装载",
+          "qids": [
+            "B-PROD-02"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.3",
+          "name": "道路、底盘与气候适应",
+          "qids": [
+            "B-PROD-03"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.4",
+          "name": "座舱、车载系统与互联",
+          "qids": [
+            "B-PROD-04"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.5",
+          "name": "充电与续航要求",
+          "qids": [
+            "B-PROD-05"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.6",
+          "name": "驾驶辅助的使用与信任",
+          "qids": [
+            "B-PROD-06"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.7",
+          "name": "安全、耐久与质量",
+          "qids": [
+            "B-PROD-07"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.8",
+          "name": "产品概念总体评价",
+          "qids": [
+            "B-PROD-08"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.9",
+          "name": "外观与内饰方案",
+          "qids": [
+            "B-PROD-09"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.10",
+          "name": "配置组合与取舍",
+          "qids": [
+            "B-PROD-10"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B5.11",
+          "name": "本地化与工程适配",
+          "qids": [
+            "B-PROD-11"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "OEM",
+          "minutes": 5
+        }
+      ],
+      "b6": [
+        {
+          "sid": "B6.1",
+          "name": "客户预算与实际成交价",
+          "qids": [
+            "B-PRICE-01"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B6.2",
+          "name": "支付与金融方案",
+          "qids": [
+            "B-PRICE-02"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B6.3",
+          "name": "价格、配置版本与未来转售价值",
+          "qids": [
+            "B-PRICE-03"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B6.4",
+          "name": "经销商盈利与资源投入",
+          "qids": [
+            "B-PRICE-04"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "OEM",
+          "minutes": 5
+        }
+      ],
+      "b7": [
+        {
+          "sid": "B7.1",
+          "name": "渠道覆盖与购车便利",
+          "qids": [
+            "B-CHAN-01"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B7.2",
+          "name": "门店能力与销售支持",
+          "qids": [
+            "B-CHAN-02"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B7.3",
+          "name": "售后成本与服务体验",
+          "qids": [
+            "B-CHAN-03"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B7.4",
+          "name": "吸引客户的渠道与内容",
+          "qids": [
+            "B-CHAN-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "OEM",
+          "minutes": 5
+        }
+      ],
+      "b8": [
+        {
+          "sid": "B8.1",
+          "name": "品类意义与品牌形象",
+          "qids": [
+            "B-BRAND-01"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B8.2",
+          "name": "中国品牌优劣势",
+          "qids": [
+            "B-BRAND-02"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B8.3",
+          "name": "品牌揭示与概念匹配",
+          "qids": [
+            "B-BRAND-03"
+          ],
+          "relevance": "optional",
+          "default_selected": false,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B8.4",
+          "name": "产品信息的理解与传播",
+          "qids": [
+            "B-BRAND-04"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "OEM",
+          "minutes": 5
+        },
+        {
+          "sid": "B8.5",
+          "name": "市场进入条件与风险",
+          "qids": [
+            "B-BRAND-05"
+          ],
+          "relevance": "recommended",
+          "default_selected": true,
+          "role": "OEM",
+          "minutes": 5
+        }
+      ]
+    }
+  }
+}

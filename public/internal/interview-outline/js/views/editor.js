@@ -104,7 +104,7 @@ function copyOutline(){
 /* 流程：生成提纲 → 点「编辑提纲」直接在版面上改文字/调序/增删题 → 导出使用编辑后内容；
    编辑结果按配置指纹自动存 localStorage，同配置再次生成时自动恢复。 */
 const EDIT_STORE_KEY = 'io_outline_edits_v1';
-let editMode = false;
+let contentEditMode = false;
 let editSaveTimer = null;
 
 function loadEditStore(){
@@ -122,6 +122,7 @@ function outlineConfigKey(){
     state.type, collectSelectedCountries(),
     d.modules.filter(m=>state.mods[m.id]).map(m=>m.id),
     state.subs, state.f5Subs, state.conds,
+    'question-selection-v1', state.questionSelections || {},
     state.ownerType, state.segment, state.bodyType,
     state.repModel, state.repCountries, state.sellingPoints, state.configItems,
     state.bevBench, state.iceBench, state.otherBench,
@@ -156,7 +157,7 @@ function currentEditedTreeHTML(){
 }
 
 function captureEdits(){
-  if(!editMode) return;
+  if(!contentEditMode) return;
   if(state.renderedKey !== outlineConfigKey()) return; /* 画布内容与当前配置不符时不保存 */
   const paper = document.getElementById('paper');
   const doc = paper.querySelector('.doc');
@@ -311,20 +312,20 @@ function injectEditBar(){
   paper.prepend(bar);
 }
 
-function setEditBtnLabel(){
-  const b=document.getElementById('btnEdit');
-  if(b) b.textContent = editMode ? '✅ 完成编辑' : '✏️ 编辑提纲';
+function setContentEditBtnLabel(){
+  const b=document.getElementById('btnContentEdit');
+  if(b) b.textContent = contentEditMode ? '✅ 完成编辑' : '✏️ 编辑文字';
 }
 
-function toggleEditMode(){
-  if(editMode){ exitEditMode(); return; }
+function toggleContentEditMode(){
+  if(contentEditMode){ exitEditMode(); return; }
   const paper = document.getElementById('paper');
   const doc = paper.querySelector('.doc');
   const treeWrap = paper.querySelector('.tree-wrap');
   if(state.viewMode==='outline' && !doc){ alert('请先在「完整提纲」视图生成提纲，再进入编辑。'); return; }
   if(state.viewMode==='tree' && !treeWrap){ alert('请先生成议题树，再进入编辑。'); return; }
   if(state.renderedKey !== outlineConfigKey()){ alert('左侧配置已变化，请先重新生成，再进入编辑。'); return; }
-  editMode = true;
+  contentEditMode = true;
   document.body.classList.add('editing');
   if(state.viewMode==='outline'){
     injectEditControls(doc);
@@ -332,13 +333,16 @@ function toggleEditMode(){
     injectTreeEditControls(treeWrap);
   }
   injectEditBar();
-  setEditBtnLabel();
+  setContentEditBtnLabel();
+  /* 隐藏 triage 按钮 */
+  const editBtn = document.getElementById('btnEdit');
+  if(editBtn) editBtn.style.display = 'none';
 }
 
 function exitEditMode(){
   clearTimeout(editSaveTimer);
   captureEdits();
-  editMode = false;
+  contentEditMode = false;
   document.body.classList.remove('editing');
   const paper = document.getElementById('paper');
   const doc = paper.querySelector('.doc');
@@ -352,22 +356,17 @@ function exitEditMode(){
   }
   const bar = paper.querySelector('.edit-bar');
   if(bar) bar.remove();
-  setEditBtnLabel();
+  setContentEditBtnLabel();
   updateHeadEditTag();
+  /* 恢复 triage 按钮 */
+  const editBtn = document.getElementById('btnEdit');
+  if(editBtn) editBtn.style.display = '';
 }
 
 /* 重新生成时：同配置存在本地保存的编辑版则自动恢复 */
 function maybeRestoreEdits(){
   const paper = document.getElementById('paper');
-  if(state.viewMode==='tree'){
-    const treeWrap = paper.querySelector('.tree-wrap');
-    if(!treeWrap){ state.editActive=false; return false; }
-    const saved = currentEditedTreeHTML();
-    if(!saved){ state.editActive=false; return false; }
-    treeWrap.outerHTML = saved;
-    state.editActive = true;
-    return true;
-  }
+  if(state.viewMode==='tree'){ state.editActive=false; return false; }
   const doc = paper.querySelector('.doc');
   if(!doc){ state.editActive=false; return false; }
   const saved = currentEditedHTML();
@@ -383,9 +382,9 @@ function revertEdits(){
   delete store[outlineConfigKey()];
   saveEditStore(store);
   state.editActive = false;
-  editMode = false;
+  contentEditMode = false;
   document.body.classList.remove('editing');
-  setEditBtnLabel();
+  setContentEditBtnLabel();
   render();
 }
 
@@ -549,7 +548,7 @@ function exportOutlineJSON(){
   if(!paper) return;
   paper.addEventListener('click', e=>{
     const btn = e.target.closest('button[data-act]');
-    if(!btn || !editMode) return;
+    if(!btn || !contentEditMode) return;
     const act = btn.dataset.act;
     if(act==='done'){ exitEditMode(); }
     else if(act==='revert'){ revertEdits(); }
@@ -560,13 +559,13 @@ function exportOutlineJSON(){
     else if(act==='addq'){ addQuestion(btn); }
   });
   paper.addEventListener('input', e=>{
-    if(!editMode) return;
+    if(!contentEditMode) return;
     if(e.target.closest && e.target.closest('.edit-ctl,.edit-add,.edit-bar')) return;
     clearTimeout(editSaveTimer);
     editSaveTimer = setTimeout(captureEdits, 500);
   });
   window.addEventListener('beforeunload', ()=>{
-    if(editMode){ clearTimeout(editSaveTimer); captureEdits(); }
+    if(contentEditMode){ clearTimeout(editSaveTimer); captureEdits(); }
   });
 })();
 

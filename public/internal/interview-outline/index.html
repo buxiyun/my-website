@@ -3,11 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<base href="/internal/interview-outline/">
 <title>访谈提纲生成器</title>
 
 <!-- 样式层 CSS Modules -->
 <style>
+.tree-selection-toolbar{background:#f0f4ff;border:1px solid #c4d9f5;border-radius:8px;padding:14px;margin-bottom:16px}
+.tree-selection-toolbar p{font-size:12px;margin:8px 0;color:#4a5568}
+.tree-selection-toolbar button{padding:6px 10px;margin:3px;border:1px solid #b8ccff;background:white;border-radius:5px;cursor:pointer}
+.tree-selection-count{margin-left:12px;font-size:12px;color:#4a5568}
+.tree-selection-warning{margin-left:10px;font-size:12px;color:#a86414}
+.tree-questions.tree-subs{padding:4px 16px 8px}
+.tree-topic{border-bottom:1px solid #edf0f5}
+.tree-topic:last-child{border-bottom:0}
+.tree-topic summary{display:flex;align-items:center;gap:8px;cursor:pointer;padding:9px 0;list-style:none;font-size:12px}
+.tree-topic summary::-webkit-details-marker{display:none}
+.tree-topic summary::before{content:'▸';color:#8892a6;flex:0 0 12px}
+.tree-topic[open] summary::before{content:'▾'}
+.tree-topic-name{flex:1;min-width:0;font-weight:600;color:#33415e}
+.tree-topic-count{white-space:nowrap;color:#8892a6;font-size:11px}
+.tree-topic-levels{display:flex;gap:4px;min-width:170px;justify-content:flex-end}
+.tree-level{font-size:9px;font-weight:600;border-radius:4px;padding:2px 5px;white-space:nowrap}
+.tree-level-must{color:#a7443e;background:#fff0ec}
+.tree-level-probe{color:#3767a7;background:#edf4ff}
+.tree-level-cut{color:#78808c;background:#f0f2f5}
+.tree-question-list{padding:0 0 8px 20px}
+.tree-question-row{display:flex;align-items:flex-start;gap:8px;padding:6px 8px;font-size:12px;cursor:pointer;border-radius:5px;line-height:1.6}
+.tree-question-row:hover{background:#f4f7fc}
+.tree-question-row input{margin-top:3px;accent-color:var(--brand);flex-shrink:0}
+.tree-question-text{flex:1;color:#4a5568}
+.tree-question-row:has(input:checked) .tree-question-text{color:#1a2233}
+@media(max-width:650px){.tree-topic summary{flex-wrap:wrap}.tree-topic-levels{min-width:0}.tree-topic-name{flex-basis:60%}.tree-wrap{padding:16px 10px}}
+
 :root{
   --ink:#1a2233; --ink2:#4a5568; --ink3:#8892a6;
   --brand:#1f5eff; --brand-soft:#e8efff; --brand-line:#bcd0ff;
@@ -265,6 +291,10 @@ body.editing .tree-editable{cursor:text}
 .doc .q-tag.t-power{background:#e3f2fd;color:#0d47a1;border:1px solid #90caf9}
 .doc .q-tag.t-drive{background:#f3e5f5;color:#4a148c;border:1px solid #ce93d8}
 .doc .q-tag.t-incentive{background:#fff8e1;color:#f57f17;border:1px solid #ffe082}
+/* 题目项 */
+.q-item{margin:4px 0;padding:2px 0}
+.q-item.q-excluded{opacity:0.4;background:#f5f5f5;border-radius:4px;padding:4px 8px;margin:4px 0}
+.q-item.q-excluded ul.q li{text-decoration:line-through;color:#999}
 .doc .q-tag.t-finance{background:#fce4ec;color:#880e4f;border:1px solid #f48fb1}
 .doc .q-tag.t-vehicle{background:#e0f7fa;color:#006064;border:1px solid #80deea}
 
@@ -477,7 +507,8 @@ body.editing .doc ul.q>li:hover>.edit-ctl,body.editing .doc .branch li:hover>.ed
     <div class="sub">三阶段体系：产品定义 ｜ 上市前测试（待补充）｜ 上市后检验（待补充）· 产品定义阶段提纲库：2C 消费者访谈 / 2B 专业与组织访谈</div>
   </div>
   <div class="spacer"></div>
-  <button class="btn" id="btnEdit" onclick="toggleEditMode()">✏️ 编辑提纲</button>
+  <button class="btn" id="btnEdit" style="display:none" onclick="toggleEditMode()">✏️ 编辑提纲</button>
+  <button class="btn" id="btnContentEdit" style="display:none" onclick="toggleContentEditMode()">✏️ 编辑文字</button>
   <button class="btn" onclick="copyOutline()">复制全文</button>
   <button class="btn" onclick="exportDoc()">导出 Word</button>
   <button class="btn" onclick="exportHtml()">导出 HTML</button>
@@ -626,19 +657,20 @@ body.editing .doc ul.q>li:hover>.edit-ctl,body.editing .doc .branch li:hover>.ed
 <script src="./js/data/dealer.js"></script>
 <script src="./js/data/mpv.js"></script>
 <script src="./js/data/bank-v2.js"></script>
-<script src="./js/data/bank-v3.js?v=3.0.3"></script>
+<script src="./js/data/bank-v3.js?v=3.0.9"></script>
 
 <!-- 规则与引擎层 Engine Layer -->
-<script src="./js/engine/v2-engine.js?v=3.0.3"></script>
+<script src="./js/engine/v2-engine.js?v=3.0.6"></script>
+<script src="./js/engine/triage.js?v=3.0.6"></script>
 <script src="./js/engine/rules.js"></script>
 <script src="./js/engine/localize.js"></script>
 <script src="./js/engine/injector.js"></script>
 
 <!-- 视图与编辑器层 Views Layer -->
 <script src="./js/views/header-gen.js?v=3.0.1"></script>
-<script src="./js/views/editor.js"></script>
-<script src="./js/views/outline.js"></script>
-<script src="./js/views/tree.js"></script>
+<script src="./js/views/editor.js?v=3.0.4"></script>
+<script src="./js/views/outline.js?v=3.0.4"></script>
+<script src="./js/views/tree.js?v=3.0.6"></script>
 
 <!-- PPT 模块 PPT Layer -->
 <script src="./js/ppt/ppt-layouts.js"></script>

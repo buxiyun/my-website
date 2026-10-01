@@ -61,14 +61,32 @@ function v2ActivityForMethod(activity, method){
 }
 
 /* 生成单题 HTML */
-function v2QuestionHTML(q, vk){
+function v2QuestionHTML(q, vk, qid, editMode){
   const useBusinessVariant = (state.type==='FGD' || state.type==='IHV') && state.conds && ['business','commercial'].includes(state.conds.usage) && q.variants && q.variants.business;
   const variant = useBusinessVariant ? q.variants.business : q.variants[vk];
   if(!variant) return '';
-  let h = '';
+
+  /* 编辑模式：显示选择框和 triage 标签 */
+  const isSelected = isQuestionSelected(qid);
+  const triage = (typeof triageGet === 'function') ? triageGet() : {};
+  const triageLevel = triage[qid] || 'probe';
+  const triageColors = { must: '#e85d5d', probe: '#5d8de8', cut: '#ccc' };
+  const triageLabels = { must: 'MUST', probe: 'PROBE', cut: 'OPTIONAL' };
+
+  let h = '<div class="q-item' + (editMode && !isSelected ? ' q-excluded' : '') + '"' + (editMode ? ' data-qid="'+qid+'"' : '') + '>';
+
+  if(editMode){
+    h += '<div style="display:flex;align-items:flex-start;gap:8px">';
+    h += '<input type="checkbox" ' + (isSelected ? 'checked' : '') + ' onchange="toggleQuestionSelection(\''+qid+'\')" style="margin-top:4px;cursor:pointer">';
+    h += '<div style="flex:1">';
+  }
+
   h += '<ul class="q"><li>' + escHTML(variant.text);
   if(q.material){
     h += ' <span class="tag" style="background:#fff4dc;border-color:#e8c97a;color:#7a5a12;font-size:10px">待准备：' + (V2_MAT_LABEL[q.material]||q.material) + '</span>';
+  }
+  if(editMode){
+    h += ' <span class="triage-tag" style="display:inline-block;font-size:9px;font-weight:700;padding:1px 5px;border-radius:3px;color:#fff;background:'+triageColors[triageLevel]+';margin-left:6px;vertical-align:middle">'+triageLabels[triageLevel]+'</span>';
   }
   h += '</li></ul>';
   if(q.probes && q.probes.length){
@@ -96,11 +114,18 @@ function v2QuestionHTML(q, vk){
   if(q.editorial_note){
     h += '<div class="probe" style="color:#888;font-size:11px">【编辑注：' + escHTML(q.editorial_note) + '】</div>';
   }
+
+  if(editMode){
+    h += '</div>'; /* close inner div */
+    h += '</div>'; /* close flex container */
+  }
+
+  h += '</div>';
   return h;
 }
 
 /* 生成当前 state 对应的全部 mods */
-function v2GenerateMods(){
+function v2GenerateMods(options = {}){
   const method = state.type;
   const useV3 = typeof V3_SUB_MAP!=='undefined' && V3_SUB_MAP[method];
   const map = useV3 ? V3_SUB_MAP[method] : V2_SUB_MAP[method];
@@ -110,14 +135,19 @@ function v2GenerateMods(){
   const methodKey = useV3 && typeof V3_METHOD_BY_TYPE!=='undefined' ? V3_METHOD_BY_TYPE[method] : method;
   const result = {};
 
+  /* 内部预算计算：决定哪些题进入提纲、哪些作为备选、哪些不纳入 */
+  if(typeof triageCompute === 'function') triageCompute();
+
   Object.entries(map).forEach(([modId, subs]) => {
+    if(!state.mods[modId]) return;
     /* f5 主体仍使用硬编码内容（有独立子模块选择体系）；仅追加标记 v2_only 的子模块（如 M6.5 卖点表达理解） */
     if(!useV3 && modId === 'f5') subs = subs.filter(s=>s.v2_only);
     if(!subs.length) return;
     let html = '';
     let totalQ = 0;
 
-    subs.forEach(sub => {
+    subs.forEach((sub, subIdx) => {
+      if(state.subs && state.subs[modId + '_vsub_' + subIdx] === false) return;
       let subHTML = '';
       let subQ = 0;
       sub.qids.forEach(qid => {
@@ -130,7 +160,12 @@ function v2GenerateMods(){
         const hasVariant = q.variants[vk] || ((state.type==='FGD' || state.type==='IHV') && state.conds && ['business','commercial'].includes(state.conds.usage) && q.variants.business);
         if(!hasVariant) return;
         if(!v2GatePasses(q.gate)) return;
-        subHTML += v2QuestionHTML(q, vk);
+
+        /* 编辑模式：显示所有题目（包括 CUT），由用户选择 */
+        const editMode = options.selectionMode === true;
+        if(!editMode && !isQuestionSelected(qid)) return;
+
+        subHTML += v2QuestionHTML(q, vk, qid, editMode);
         subQ++;
       });
       if(subQ > 0){
@@ -157,12 +192,12 @@ function v2GenerateMods(){
   if(modIds.length > 0){
     /* 入户参观 → IHV 首模块前，先 prepend（再被开场说明 prepend 覆盖到其后），确保排在开场说明之后 */
     if(method === 'IHV' && homeTour && homeTour.variants[vk] && v2GatePasses(homeTour.gate)){
-      result[modIds[0]] = '<h5>入户参观与现场记录（开场寒暄约10分钟后进行）</h5>' + v2QuestionHTML(homeTour, vk) + result[modIds[0]];
+      result[modIds[0]] = '<h5>入户参观与现场记录（开场寒暄约10分钟后进行）</h5>' + v2QuestionHTML(homeTour, vk, 'Q-E0-02') + result[modIds[0]];
     }
     if(intro && intro.variants[vk]){
       result[modIds[0]] = '<div style="background:#f0f7ff;border:1px solid #c4d9f5;border-radius:6px;padding:10px 14px;margin-bottom:12px">'
         + '<div style="font-weight:600;color:#2a5fcc;margin-bottom:4px">开场与执行说明</div>'
-        + v2QuestionHTML(intro, vk) + '</div>'
+        + v2QuestionHTML(intro, vk, 'Q-E0-01') + '</div>'
         + result[modIds[0]];
     }
   }
@@ -177,5 +212,43 @@ function v2ClosingHTML(){
   if(!closing || !closing.variants || !closing.variants[vk]) return '';
   return '<div style="background:#f5f0ff;border:1px solid #d4c4f5;border-radius:6px;padding:10px 14px;margin-top:12px">'
     + '<div style="font-weight:600;color:#5a2acc;margin-bottom:4px">收尾</div>'
-    + v2QuestionHTML(closing, vk) + '</div>';
+    + v2QuestionHTML(closing, vk, 'Q-E0-03', false) + '</div>';
+}
+
+/* 分级是推荐，显式选择始终优先；默认只纳入 MUST。 */
+function isQuestionSelected(qid){
+  const selections = state.questionSelections || {};
+  if(Object.prototype.hasOwnProperty.call(selections, qid)) return selections[qid];
+  return (typeof triageGet === 'function' ? triageGet()[qid] : 'must') === 'must';
+}
+
+function refreshQuestionSelection(){
+  const y = window.scrollY;
+  render(false);
+  window.scrollTo(0, y);
+}
+
+function toggleQuestionSelection(qid){
+  if(!state.questionSelections) state.questionSelections = {};
+  state.questionSelections[qid] = !isQuestionSelected(qid);
+  refreshQuestionSelection();
+}
+
+function toggleEditMode(){
+  renderTree();
+}
+
+function selectQuestionPreset(preset){
+  if(!state.questionSelections) state.questionSelections = {};
+  const levels = triageCompute();
+  Object.entries(levels).forEach(([qid, level]) => {
+    state.questionSelections[qid] = preset === 'all' ||
+      (preset === 'must' && level === 'must') ||
+      (preset === 'probe' && level !== 'cut');
+  });
+  refreshQuestionSelection();
+}
+
+function selectAllQuestions(select){
+  selectQuestionPreset(select ? 'all' : 'none');
 }

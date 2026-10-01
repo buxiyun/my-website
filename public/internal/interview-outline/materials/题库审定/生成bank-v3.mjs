@@ -162,6 +162,34 @@ const payload = {
   questions, maps, roles:roleByType, methods:methodByType, modules:compactModules, types:typeMeta,
 };
 
+// 应用逐题措辞审稿，避免重新生成时恢复旧问法；只覆盖文字，不改变题目结构。
+const wordingPath = fileURLToPath(new URL('./措辞审稿覆盖.json', import.meta.url));
+const wording = JSON.parse(await fs.readFile(wordingPath, 'utf8'));
+for (const q of payload.questions) {
+  const patch = wording.questions[q.id];
+  if (!patch) continue;
+  for (const field of ['chapter_label', 'condition', 'probes', 'conditional_probes', 'activity']) {
+    if (Object.hasOwn(patch, field)) q[field] = structuredClone(patch[field]);
+  }
+  for (const [role, variant] of Object.entries(patch.variants || {})) {
+    if (q.variants[role]) Object.assign(q.variants[role], structuredClone(variant));
+  }
+}
+for (const [type, modules] of Object.entries(payload.modules)) {
+  for (const mod of modules) {
+    const reviewed = (wording.modules[type] || []).find(item => item.id === mod.id);
+    if (reviewed) for (const field of ['name', 'en', 'desc']) mod[field] = reviewed[field];
+  }
+}
+for (const [type, modules] of Object.entries(payload.maps)) {
+  for (const [modId, subs] of Object.entries(modules)) {
+    for (const sub of subs) {
+      const reviewed = (wording.maps[type]?.[modId] || []).find(item => item.sid === sub.sid);
+      if (reviewed) sub.name = reviewed.name;
+    }
+  }
+}
+
 const js = `// =========================================================\n// v3 角色化实题库 — 2C / 2B 独立结构\n// 来源：汽车访谈题库_2C与2B分角色修订版.xlsx\n// =========================================================\n\nconst BANK_V3 = ${JSON.stringify(payload)};\nconst V3_QByID = Object.fromEntries(BANK_V3.questions.map(q=>[q.id,q]));\nconst V3_SUB_MAP = BANK_V3.maps;\nconst V3_ROLE_BY_TYPE = BANK_V3.roles;\nconst V3_METHOD_BY_TYPE = BANK_V3.methods;\nconst V3_TYPES = Object.keys(BANK_V3.types);\n\nfunction v3CountryShell(){\n  return Object.fromEntries(COUNTRIES.map(c=>[c.code,{mods:{}}]));\n}\nV3_TYPES.forEach(type=>{\n  const meta = BANK_V3.types[type];\n  DATA[type] = { ...meta, modules:BANK_V3.modules[type], countries:v3CountryShell(), bankVersion:'3.0.0' };\n  STAGE_OF_TYPE[type] = 'pd';\n});\n`;
 
 await fs.writeFile(outputPath, js, 'utf8');
