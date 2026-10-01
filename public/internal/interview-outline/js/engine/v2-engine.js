@@ -138,6 +138,11 @@ function v2GenerateMods(options = {}){
   /* 内部预算计算：决定哪些题进入提纲、哪些作为备选、哪些不纳入 */
   if(typeof triageCompute === 'function') triageCompute();
 
+  /* 5b 产品测试方案 / 配置评价项 / 产品卖点 → 按 session 归位 */
+  const cPlan = (typeof conceptPlacementPlan === 'function') ? conceptPlacementPlan() : null;
+  const placedSids = new Set();
+  const requiredSids = (typeof conceptRequiredSids === 'function') ? conceptRequiredSids() : new Set();
+
   Object.entries(map).forEach(([modId, subs]) => {
     if(!state.mods[modId]) return;
     /* f5 主体仍使用硬编码内容（有独立子模块选择体系）；仅追加标记 v2_only 的子模块（如 M6.5 卖点表达理解） */
@@ -147,7 +152,7 @@ function v2GenerateMods(options = {}){
     let totalQ = 0;
 
     subs.forEach((sub, subIdx) => {
-      if(state.subs && state.subs[modId + '_vsub_' + subIdx] === false) return;
+      if(state.subs && state.subs[modId + '_vsub_' + subIdx] === false && !requiredSids.has(sub.sid)) return;
       let subHTML = '';
       let subQ = 0;
       sub.qids.forEach(qid => {
@@ -168,15 +173,27 @@ function v2GenerateMods(options = {}){
         subHTML += v2QuestionHTML(q, vk, qid, editMode);
         subQ++;
       });
-      if(subQ > 0){
+      /* 5b 归位：本 session 对应的产品测试方案 / 配置清单 / 卖点表 */
+      const extraHTML = (cPlan && cPlan.bySid[sub.sid]) ? cPlan.bySid[sub.sid] : '';
+      if(extraHTML) placedSids.add(sub.sid);
+      if(subQ > 0 || extraHTML){
         html += '<h5>' + sub.sid + ' ' + escHTML(sub.name) + '</h5>';
-        html += subHTML;
+        html += subHTML + extraHTML;
         totalQ += subQ;
       }
     });
 
-    if(totalQ > 0) result[modId] = html;
+    if(totalQ > 0 || html) result[modId] = html;
   });
+
+  /* 目标 session 未被选中/不存在时，把 5b 内容兜底挂到产品模块，确保客户填写的内容一定可见 */
+  if(cPlan){
+    const leftover = cPlan.sids.filter(sid => !placedSids.has(sid)).map(sid => cPlan.bySid[sid]).join('');
+    if(leftover){
+      const fallbackId = ['c5','f5','b5','d8'].find(id => result[id]) || Object.keys(result).pop();
+      if(fallbackId) result[fallbackId] = (result[fallbackId]||'') + leftover;
+    }
+  }
 
   /* E0 执行工具：开场 → 首模块前，收尾 → 末模块后 */
   const intro = questionMap['Q-E0-01'];

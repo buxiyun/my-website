@@ -145,6 +145,8 @@ function filterSubContent(content, modId){
   if(subs.length===0) return content;
   const allOn = subs.every(s=>state.subs[s.key]!==false);
   if(allOn) return content;
+  /* 5b 填写的测试对象/配置/卖点所在 session 强制保留 */
+  const forcedKeys = new Set((typeof conceptRequiredSubKeys==='function') ? conceptRequiredSubKeys(modId) : []);
   const hasAny = subs.some(s=>state.subs[s.key]);
   const parser = new DOMParser();
   const doc = parser.parseFromString('<div>'+content+'</div>','text/html');
@@ -165,7 +167,7 @@ function filterSubContent(content, modId){
     const cleanH5Text = (b.h5Text||'').replace(/^[A-Z]?\d+\.\d+[\s：:、.]*/, '').replace(/（原[^）]*）/g, '').trim().replace(/）+$/, '');
     const sub = subs.find(s=>s.label===cleanH5Text);
     if(sub){
-      if(state.subs[sub.key]===false) return;
+      if(state.subs[sub.key]===false && !forcedKeys.has(sub.key)) return;
       if(b.h5) html += b.h5.outerHTML;
       b.content.forEach(el=>{ html += el.outerHTML; });
     } else {
@@ -800,6 +802,8 @@ function selectedConceptVariants(){
     .filter(x=>x.name && x.count > 0);
 }
 function conceptTestHTML(){
+  /* V3：产品测试方案由 concept-align.js 按 session 归位（见 conceptPlacementPlan） */
+  if(typeof isV3Type === 'function' && isV3Type()) return '';
   if(state.type !== 'FGD') return '';
   const groups = selectedConceptVariants();
   if(!groups.length) return '';

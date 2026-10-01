@@ -148,6 +148,9 @@ function triageCompute() {
   // 有效讨论时间（秒）
   const effectiveSec = (cal.totalMin - cal.overheadMin - cal.stimulusMin - cal.bufferMin) * 60;
 
+  // 5b 填写后必须覆盖的 session（强制启用，避免相关题目被取消勾选而漏问）
+  const requiredSids = (typeof conceptRequiredSids === 'function') ? conceptRequiredSids() : new Set();
+
   // 第一遍：收集所有有效题目，初步分级 + 评分
   const allCandidates = []; // { qid, modId, sec, initialTriage, score, q }
   const cutItems = [];
@@ -156,7 +159,7 @@ function triageCompute() {
   Object.entries(map).forEach(([modId, subs]) => {
     if(!state.mods[modId]) return;
     subs.forEach((sub, subIdx) => {
-      if(state.subs && state.subs[modId + '_vsub_' + subIdx] === false) return;
+      if(state.subs && state.subs[modId + '_vsub_' + subIdx] === false && !requiredSids.has(sub.sid)) return;
       sub.qids.forEach((qid, qIdx) => {
         if(seen.has(qid)) return;
         const q = questionMap[qid];
@@ -215,6 +218,14 @@ function triageCompute() {
   cutItems.forEach(c => {
     result[c.qid] = 'cut';
   });
+
+  // 5b「产品卖点与配置」驱动的强制升级：
+  // 客户已填写测试对象/配置/卖点 → 对应 session 的题目必须问（覆盖 OPTIONAL 与预算降级）
+  if (typeof conceptPromotedQids === 'function') {
+    conceptPromotedQids().forEach(qid => {
+      if (Object.prototype.hasOwnProperty.call(result, qid)) result[qid] = 'must';
+    });
+  }
 
   window._triageResult = result;
   // 统计

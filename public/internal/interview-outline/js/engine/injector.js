@@ -205,6 +205,8 @@ function injectConds(html){
     /* Format C: FGD/Dealer — 列表格式 */
     html = html.replace(/(<h5>配置买单与溢价测试<\/h5>\n?<p>[^<]*<\/p>\n?<ul class="q">\n?)(?:<li>[^<]*<\/li>\n?)*(<\/ul>)/g, '$1<li>（请客户提供配置评价表）</li>\n$2');
   }
+  /* ====== 5b 措辞对齐：题库通用说法 → 客户填写的测试对象（如"车辆前部外观"→"车头"） ====== */
+  if(typeof applyConceptTerms === 'function') html = applyConceptTerms(html);
   return html;
 }
 
