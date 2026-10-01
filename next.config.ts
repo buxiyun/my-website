@@ -21,17 +21,9 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-  async redirects() {
-    return [
-      // 嵌套静态站点：无尾斜杠访问会让页内相对资源解析到上级目录而404，
-      // 统一308到带尾斜杠路径（index.html内另有动态base注入兜底）
-      {
-        source: "/internal/interview-outline",
-        destination: "/internal/interview-outline/",
-        permanent: true,
-      },
-    ];
-  },
+  // 注意：不要给 /internal/interview-outline 加"无尾斜杠→带尾斜杠"的 redirects！
+  // trailingSlash:false 会把带尾斜杠 308 回无尾斜杠，两者互跳形成无限重定向循环（2026-10-01 事故）。
+  // 无尾斜杠下的相对路径解析靠 index.html 内动态 base 注入兜底。
 };
 
 export default nextConfig;
