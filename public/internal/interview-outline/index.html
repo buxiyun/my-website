@@ -3,6 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+/* 动态注入 base href：
+   - 线上以无尾斜杠路径访问（/internal/interview-outline）时，相对资源会解析到上级目录导致404；
+   - 本地 file:// 打开时不注入，浏览器原生相对解析即正确。 */
+(function(){
+  if(location.protocol==='file:') return;
+  var p=location.pathname;
+  if(/\.html?$/i.test(p)) p=p.replace(/[^\/]+$/,'');
+  else if(p.slice(-1)!=='/') p+='/';
+  var b=document.createElement('base');
+  b.href=p;
+  document.head.insertBefore(b, document.head.firstChild);
+})();
+</script>
 <title>访谈提纲生成器</title>
 
 <!-- 样式层 CSS Modules -->
