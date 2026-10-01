@@ -203,6 +203,12 @@ function autoGenerateSampleDef(){
     });
     html += `<tr><td><b>合计</b></td><td></td><td>约${totalMin}分钟</td></tr></table>\n`;
   }
+
+  /* 时间预算摘要 */
+  if(typeof triageSummaryHTML === 'function'){
+    html += triageSummaryHTML();
+  }
+
   return html;
 }
 

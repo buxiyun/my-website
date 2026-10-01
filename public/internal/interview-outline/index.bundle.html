@@ -3,11 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<base href="/internal/interview-outline/">
 <title>访谈提纲生成器</title>
 
 <!-- 样式层 CSS Modules -->
 <style>
+.tree-selection-toolbar{background:#f0f4ff;border:1px solid #c4d9f5;border-radius:8px;padding:14px;margin-bottom:16px}
+.tree-selection-toolbar p{font-size:12px;margin:8px 0;color:#4a5568}
+.tree-selection-toolbar button{padding:6px 10px;margin:3px;border:1px solid #b8ccff;background:white;border-radius:5px;cursor:pointer}
+.tree-selection-count{margin-left:12px;font-size:12px;color:#4a5568}
+.tree-selection-warning{margin-left:10px;font-size:12px;color:#a86414}
+.tree-questions.tree-subs{padding:4px 16px 8px}
+.tree-topic{border-bottom:1px solid #edf0f5}
+.tree-topic:last-child{border-bottom:0}
+.tree-topic summary{display:flex;align-items:center;gap:8px;cursor:pointer;padding:9px 0;list-style:none;font-size:12px}
+.tree-topic summary::-webkit-details-marker{display:none}
+.tree-topic summary::before{content:'▸';color:#8892a6;flex:0 0 12px}
+.tree-topic[open] summary::before{content:'▾'}
+.tree-topic-name{flex:1;min-width:0;font-weight:600;color:#33415e}
+.tree-topic-count{white-space:nowrap;color:#8892a6;font-size:11px}
+.tree-topic-levels{display:flex;gap:4px;min-width:170px;justify-content:flex-end}
+.tree-level{font-size:9px;font-weight:600;border-radius:4px;padding:2px 5px;white-space:nowrap}
+.tree-level-must{color:#a7443e;background:#fff0ec}
+.tree-level-probe{color:#3767a7;background:#edf4ff}
+.tree-level-cut{color:#78808c;background:#f0f2f5}
+.tree-question-list{padding:0 0 8px 20px}
+.tree-question-row{display:flex;align-items:flex-start;gap:8px;padding:6px 8px;font-size:12px;cursor:pointer;border-radius:5px;line-height:1.6}
+.tree-question-row:hover{background:#f4f7fc}
+.tree-question-row input{margin-top:3px;accent-color:var(--brand);flex-shrink:0}
+.tree-question-text{flex:1;color:#4a5568}
+.tree-question-row:has(input:checked) .tree-question-text{color:#1a2233}
+@media(max-width:650px){.tree-topic summary{flex-wrap:wrap}.tree-topic-levels{min-width:0}.tree-topic-name{flex-basis:60%}.tree-wrap{padding:16px 10px}}
+
 :root{
   --ink:#1a2233; --ink2:#4a5568; --ink3:#8892a6;
   --brand:#1f5eff; --brand-soft:#e8efff; --brand-line:#bcd0ff;
@@ -265,6 +291,10 @@ body.editing .tree-editable{cursor:text}
 .doc .q-tag.t-power{background:#e3f2fd;color:#0d47a1;border:1px solid #90caf9}
 .doc .q-tag.t-drive{background:#f3e5f5;color:#4a148c;border:1px solid #ce93d8}
 .doc .q-tag.t-incentive{background:#fff8e1;color:#f57f17;border:1px solid #ffe082}
+/* 题目项 */
+.q-item{margin:4px 0;padding:2px 0}
+.q-item.q-excluded{opacity:0.4;background:#f5f5f5;border-radius:4px;padding:4px 8px;margin:4px 0}
+.q-item.q-excluded ul.q li{text-decoration:line-through;color:#999}
 .doc .q-tag.t-finance{background:#fce4ec;color:#880e4f;border:1px solid #f48fb1}
 .doc .q-tag.t-vehicle{background:#e0f7fa;color:#006064;border:1px solid #80deea}
 
@@ -479,7 +509,8 @@ body.editing .doc ul.q>li:hover>.edit-ctl,body.editing .doc .branch li:hover>.ed
     <div class="sub">三阶段体系：产品定义 ｜ 上市前测试（待补充）｜ 上市后检验（待补充）· 产品定义阶段提纲库：2C 消费者访谈 / 2B 专业与组织访谈</div>
   </div>
   <div class="spacer"></div>
-  <button class="btn" id="btnEdit" onclick="toggleEditMode()">✏️ 编辑提纲</button>
+  <button class="btn" id="btnEdit" style="display:none" onclick="toggleEditMode()">✏️ 编辑提纲</button>
+  <button class="btn" id="btnContentEdit" style="display:none" onclick="toggleContentEditMode()">✏️ 编辑文字</button>
   <button class="btn" onclick="copyOutline()">复制全文</button>
   <button class="btn" onclick="exportDoc()">导出 Word</button>
   <button class="btn" onclick="exportHtml()">导出 HTML</button>
@@ -631,6 +662,7 @@ body.editing .doc ul.q>li:hover>.edit-ctl,body.editing .doc .branch li:hover>.ed
 
 
 <!-- 规则与引擎层 Engine Layer -->
+
 
 
 
@@ -6305,7 +6337,7 @@ V3_TYPES.forEach(type=>{
   STAGE_OF_TYPE[type] = 'pd';
 });
 
-// === ./js/engine/v2-engine.js?v=3.0.3 ===
+// === ./js/engine/v2-engine.js?v=3.0.4 ===
 // =========================================================
 // v2 题库动态生成引擎
 // =========================================================
@@ -6369,14 +6401,32 @@ function v2ActivityForMethod(activity, method){
 }
 
 /* 生成单题 HTML */
-function v2QuestionHTML(q, vk){
+function v2QuestionHTML(q, vk, qid, editMode){
   const useBusinessVariant = (state.type==='FGD' || state.type==='IHV') && state.conds && ['business','commercial'].includes(state.conds.usage) && q.variants && q.variants.business;
   const variant = useBusinessVariant ? q.variants.business : q.variants[vk];
   if(!variant) return '';
-  let h = '';
+
+  /* 编辑模式：显示选择框和 triage 标签 */
+  const isSelected = isQuestionSelected(qid);
+  const triage = (typeof triageGet === 'function') ? triageGet() : {};
+  const triageLevel = triage[qid] || 'probe';
+  const triageColors = { must: '#e85d5d', probe: '#5d8de8', cut: '#ccc' };
+  const triageLabels = { must: 'MUST', probe: 'PROBE', cut: 'CUT' };
+
+  let h = '<div class="q-item' + (editMode && !isSelected ? ' q-excluded' : '') + '"' + (editMode ? ' data-qid="'+qid+'"' : '') + '>';
+
+  if(editMode){
+    h += '<div style="display:flex;align-items:flex-start;gap:8px">';
+    h += '<input type="checkbox" ' + (isSelected ? 'checked' : '') + ' onchange="toggleQuestionSelection(\''+qid+'\')" style="margin-top:4px;cursor:pointer">';
+    h += '<div style="flex:1">';
+  }
+
   h += '<ul class="q"><li>' + escHTML(variant.text);
   if(q.material){
     h += ' <span class="tag" style="background:#fff4dc;border-color:#e8c97a;color:#7a5a12;font-size:10px">待准备：' + (V2_MAT_LABEL[q.material]||q.material) + '</span>';
+  }
+  if(editMode){
+    h += ' <span class="triage-tag" style="display:inline-block;font-size:9px;font-weight:700;padding:1px 5px;border-radius:3px;color:#fff;background:'+triageColors[triageLevel]+';margin-left:6px;vertical-align:middle">'+triageLabels[triageLevel]+'</span>';
   }
   h += '</li></ul>';
   if(q.probes && q.probes.length){
@@ -6404,11 +6454,18 @@ function v2QuestionHTML(q, vk){
   if(q.editorial_note){
     h += '<div class="probe" style="color:#888;font-size:11px">【编辑注：' + escHTML(q.editorial_note) + '】</div>';
   }
+
+  if(editMode){
+    h += '</div>'; /* close inner div */
+    h += '</div>'; /* close flex container */
+  }
+
+  h += '</div>';
   return h;
 }
 
 /* 生成当前 state 对应的全部 mods */
-function v2GenerateMods(){
+function v2GenerateMods(options = {}){
   const method = state.type;
   const useV3 = typeof V3_SUB_MAP!=='undefined' && V3_SUB_MAP[method];
   const map = useV3 ? V3_SUB_MAP[method] : V2_SUB_MAP[method];
@@ -6418,14 +6475,19 @@ function v2GenerateMods(){
   const methodKey = useV3 && typeof V3_METHOD_BY_TYPE!=='undefined' ? V3_METHOD_BY_TYPE[method] : method;
   const result = {};
 
+  /* 内部预算计算：决定哪些题进入提纲、哪些作为备选、哪些不纳入 */
+  if(typeof triageCompute === 'function') triageCompute();
+
   Object.entries(map).forEach(([modId, subs]) => {
+    if(!state.mods[modId]) return;
     /* f5 主体仍使用硬编码内容（有独立子模块选择体系）；仅追加标记 v2_only 的子模块（如 M6.5 卖点表达理解） */
     if(!useV3 && modId === 'f5') subs = subs.filter(s=>s.v2_only);
     if(!subs.length) return;
     let html = '';
     let totalQ = 0;
 
-    subs.forEach(sub => {
+    subs.forEach((sub, subIdx) => {
+      if(state.subs && state.subs[modId + '_vsub_' + subIdx] === false) return;
       let subHTML = '';
       let subQ = 0;
       sub.qids.forEach(qid => {
@@ -6438,7 +6500,12 @@ function v2GenerateMods(){
         const hasVariant = q.variants[vk] || ((state.type==='FGD' || state.type==='IHV') && state.conds && ['business','commercial'].includes(state.conds.usage) && q.variants.business);
         if(!hasVariant) return;
         if(!v2GatePasses(q.gate)) return;
-        subHTML += v2QuestionHTML(q, vk);
+
+        /* 编辑模式：显示所有题目（包括 CUT），由用户选择 */
+        const editMode = options.selectionMode === true;
+        if(!editMode && !isQuestionSelected(qid)) return;
+
+        subHTML += v2QuestionHTML(q, vk, qid, editMode);
         subQ++;
       });
       if(subQ > 0){
@@ -6465,12 +6532,12 @@ function v2GenerateMods(){
   if(modIds.length > 0){
     /* 入户参观 → IHV 首模块前，先 prepend（再被开场说明 prepend 覆盖到其后），确保排在开场说明之后 */
     if(method === 'IHV' && homeTour && homeTour.variants[vk] && v2GatePasses(homeTour.gate)){
-      result[modIds[0]] = '<h5>入户参观与现场记录（开场寒暄约10分钟后进行）</h5>' + v2QuestionHTML(homeTour, vk) + result[modIds[0]];
+      result[modIds[0]] = '<h5>入户参观与现场记录（开场寒暄约10分钟后进行）</h5>' + v2QuestionHTML(homeTour, vk, 'Q-E0-02') + result[modIds[0]];
     }
     if(intro && intro.variants[vk]){
       result[modIds[0]] = '<div style="background:#f0f7ff;border:1px solid #c4d9f5;border-radius:6px;padding:10px 14px;margin-bottom:12px">'
         + '<div style="font-weight:600;color:#2a5fcc;margin-bottom:4px">开场与执行说明</div>'
-        + v2QuestionHTML(intro, vk) + '</div>'
+        + v2QuestionHTML(intro, vk, 'Q-E0-01') + '</div>'
         + result[modIds[0]];
     }
   }
@@ -6485,7 +6552,383 @@ function v2ClosingHTML(){
   if(!closing || !closing.variants || !closing.variants[vk]) return '';
   return '<div style="background:#f5f0ff;border:1px solid #d4c4f5;border-radius:6px;padding:10px 14px;margin-top:12px">'
     + '<div style="font-weight:600;color:#5a2acc;margin-bottom:4px">收尾</div>'
-    + v2QuestionHTML(closing, vk) + '</div>';
+    + v2QuestionHTML(closing, vk, 'Q-E0-03', false) + '</div>';
+}
+
+/* 分级是推荐，显式选择始终优先；默认只纳入 MUST。 */
+function isQuestionSelected(qid){
+  const selections = state.questionSelections || {};
+  if(Object.prototype.hasOwnProperty.call(selections, qid)) return selections[qid];
+  return (typeof triageGet === 'function' ? triageGet()[qid] : 'must') === 'must';
+}
+
+function refreshQuestionSelection(){
+  const y = window.scrollY;
+  render(false);
+  window.scrollTo(0, y);
+}
+
+function toggleQuestionSelection(qid){
+  if(!state.questionSelections) state.questionSelections = {};
+  state.questionSelections[qid] = !isQuestionSelected(qid);
+  refreshQuestionSelection();
+}
+
+function toggleEditMode(){
+  renderTree();
+}
+
+function selectQuestionPreset(preset){
+  if(!state.questionSelections) state.questionSelections = {};
+  const levels = triageCompute();
+  Object.entries(levels).forEach(([qid, level]) => {
+    state.questionSelections[qid] = preset === 'all' ||
+      (preset === 'must' && level === 'must') ||
+      (preset === 'probe' && level !== 'cut');
+  });
+  refreshQuestionSelection();
+}
+
+function selectAllQuestions(select){
+  selectQuestionPreset(select ? 'all' : 'none');
+}
+
+// === ./js/engine/triage.js?v=3.0.4 ===
+// =========================================================
+// MUST / PROBE / CUT 三级分层 + 时间预算校准
+// =========================================================
+
+/* ---------- 格式校准参数 ---------- */
+const TRIAGE_CALIBRATION = {
+  FGD: {
+    label: 'FGD 6人组',
+    totalMin: 150,      // 实际执行约2.5小时（含刺激物60min）
+    groupSize: 6,
+    overheadMin: 10,      // 开场说明 + 自我介绍
+    stimulusMin: 60,      // 刺激物呈现（概念板/外观/CMF/空间/价格/品牌）
+    bufferMin: 5,         // 过渡 + 缓冲
+    narrativeSec: 5,      // 叙事型问题（行为回顾）FGD中主持人可控场，5min/题
+    standardSec: 2.5,     // 标准问题单题耗时（6人组，主持人控场节奏）
+    targetMust: [22, 26]  // 目标 MUST 题量区间（对标Nielsen原版24题）
+  },
+  IHV: {
+    label: 'IHV 1对1',
+    totalMin: 95,
+    groupSize: 1,
+    overheadMin: 10,
+    stimulusMin: 30,
+    bufferMin: 5,
+    narrativeSec: 5,
+    standardSec: 2.5,
+    targetMust: [20, 25]
+  },
+  Dealer: {
+    label: '经销商深访',
+    totalMin: 90,
+    groupSize: 1,
+    overheadMin: 5,
+    stimulusMin: 20,
+    bufferMin: 5,
+    narrativeSec: 5,
+    standardSec: 2.5,
+    targetMust: [25, 30]
+  },
+  MPVMedia: {
+    label: '媒体深访',
+    totalMin: 60,
+    groupSize: 1,
+    overheadMin: 5,
+    stimulusMin: 15,
+    bufferMin: 5,
+    narrativeSec: 4,
+    standardSec: 2,
+    targetMust: [15, 20]
+  },
+  MPVExpert: {
+    label: '主机厂专家深访',
+    totalMin: 60,
+    groupSize: 1,
+    overheadMin: 5,
+    stimulusMin: 15,
+    bufferMin: 5,
+    narrativeSec: 4,
+    standardSec: 2,
+    targetMust: [15, 20]
+  }
+};
+
+/* ---------- 单题耗时估算 ---------- */
+function triageEstimateSec(q, cal) {
+  if (!cal) return 180; // 默认 3 分钟
+  // 有明确活动指令（时间线填写、完整叙事练习）→ 叙事时长
+  if (q.activity) return cal.narrativeSec * 60;
+  const text = (q.variants && (q.variants.owner || q.variants.prospect || q.variants.Dealer || q.variants.Media || q.variants.OEM || q.variants.business));
+  const t = text ? text.text : '';
+  // 只有明确要求完整时间线/长周期回顾的才是叙事型
+  if (/回顾最近一周|回顾最近.*出行|从.*开始讲起|按时间顺序还原|完整讲讲从出发到结束/.test(t)) {
+    return cal.narrativeSec * 60;
+  }
+  return cal.standardSec * 60;
+}
+
+/* ---------- 优先级评分（越高越应该保留为 MUST）---------- */
+function triagePriorityScore(q, modId, subIdx, qIdxInSub) {
+  let score = 0;
+  // 1. 探针数量越多 → 话题越深入 → 越重要
+  const probeCount = (q.probes ? q.probes.length : 0);
+  const condProbeCount = (q.conditional_probes ? q.conditional_probes.length : 0);
+  score += probeCount * 2 + condProbeCount;
+  // 2. 模块内第一个问题（破冰/基础题）加分
+  if (subIdx === 0 && qIdxInSub === 0) score += 15;
+  // 3. 子模块第一个问题加分
+  if (qIdxInSub === 0) score += 5;
+  // 4. 有活动指令（叙事/练习）的题目更重要但也更耗时，适度加分
+  if (q.activity) score += 8;
+  // 5. 有研究条件限制的题目降分（不是所有人都适用）
+  if (q.condition) score -= 10;
+  // 6. gate 越严格说明越核心
+  if (q.gate && q.gate !== 'all') score += 3;
+  return score;
+}
+
+/* ---------- 自动分级（预算感知）----------
+ * 规则：
+ *   CUT   — 有材料依赖（stimulus 未定则全部降级）
+ *   MUST  — core + 无材料依赖，按优先级评分贪心填充时间预算
+ *   PROBE — 其余（optional 无材料依赖 + MUST 预算溢出）
+ *
+ * 后续可在 BANK_V3 题目上直接加 triage 字段覆盖自动结果。
+ */
+function triageAssign(q) {
+  // 显式标记优先
+  if (q.triage) return q.triage;
+  // 有材料依赖 → CUT（stimulus 未定无法执行）
+  if (q.material) return 'cut';
+  // 其余由预算算法决定（triageCompute 中处理）
+  return q.priority === 'core' ? 'must' : 'probe';
+}
+
+/* ---------- 计算时间预算 ---------- */
+function triageBudget(type) {
+  const cal = TRIAGE_CALIBRATION[type];
+  if (!cal) return null;
+  const effectiveMin = cal.totalMin - cal.overheadMin - cal.stimulusMin - cal.bufferMin;
+  return {
+    cal: cal,
+    totalMin: cal.totalMin,
+    overheadMin: cal.overheadMin,
+    stimulusMin: cal.stimulusMin,
+    bufferMin: cal.bufferMin,
+    effectiveMin: effectiveMin,
+    targetMust: cal.targetMust
+  };
+}
+
+/* ---------- 对当前 state 执行分级，返回 { qid: 'must'|'probe'|'cut' } ---------- */
+function triageCompute() {
+  window._triageResult = {};
+  window._triageStats = null;
+  window._triageBudget = null;
+  const type = state.type;
+  const cal = TRIAGE_CALIBRATION[type];
+  if (!cal) return {};
+
+  const useV3 = typeof V3_SUB_MAP !== 'undefined' && V3_SUB_MAP[type];
+  const map = useV3 ? V3_SUB_MAP[type] : (typeof V2_SUB_MAP !== 'undefined' ? V2_SUB_MAP[type] : null);
+  if (!map) return {};
+
+  const questionMap = useV3 ? V3_QByID : V2_QByID;
+  const methodKey = useV3 && typeof V3_METHOD_BY_TYPE !== 'undefined' ? V3_METHOD_BY_TYPE[type] : type;
+  const vk = typeof v2VariantKey === 'function' ? v2VariantKey() : 'owner';
+
+  // 有效讨论时间（秒）
+  const effectiveSec = (cal.totalMin - cal.overheadMin - cal.stimulusMin - cal.bufferMin) * 60;
+
+  // 第一遍：收集所有有效题目，初步分级 + 评分
+  const allCandidates = []; // { qid, modId, sec, initialTriage, score, q }
+  const cutItems = [];
+
+  const seen = new Set();
+  Object.entries(map).forEach(([modId, subs]) => {
+    if(!state.mods[modId]) return;
+    subs.forEach((sub, subIdx) => {
+      if(state.subs && state.subs[modId + '_vsub_' + subIdx] === false) return;
+      sub.qids.forEach((qid, qIdx) => {
+        if(seen.has(qid)) return;
+        const q = questionMap[qid];
+        if (!q) return;
+        if (!q.methods.includes(methodKey)) return;
+        const hasVariant = q.variants[vk] || ((type === 'FGD' || type === 'IHV') && state.conds && ['business', 'commercial'].includes(state.conds.usage) && q.variants.business);
+        if (!hasVariant) return;
+        if (typeof v2GatePasses === 'function' && !v2GatePasses(q.gate)) return;
+
+        const postFgd = type === 'IHV' && state.conds && state.conds.ihvSource === 'after_fgd';
+        if(postFgd && (modId === 'c5' || modId === 'c6') && q.gate !== 'ihv_after_fgd') return;
+        if(!postFgd && q.gate === 'ihv_after_fgd') return;
+        seen.add(qid);
+        const sec = triageEstimateSec(q, cal);
+        const initialTriage = q.triage || (q.material ? 'cut' : (q.priority === 'core' ? 'must' : 'probe'));
+
+        if (initialTriage === 'cut') {
+          cutItems.push({ qid, modId, sec });
+        } else {
+          const score = triagePriorityScore(q, modId, subIdx, qIdx);
+          allCandidates.push({ qid, modId, sec, initialTriage, score, q });
+        }
+      });
+    });
+  });
+
+  // 第二遍：预算感知贪心分配 MUST
+  // 将 MUST 候选按评分降序排列，贪心填充时间预算
+  const mustCandidates = allCandidates.filter(c => c.initialTriage === 'must')
+    .sort((a, b) => b.score - a.score);
+  const probeCandidates = allCandidates.filter(c => c.initialTriage === 'probe');
+
+  const result = {};
+  let usedSec = 0;
+  let mustCount = 0;
+  const [targetLo, targetHi] = cal.targetMust || [0, 999];
+
+  // 贪心填充 MUST
+  mustCandidates.forEach(c => {
+    if (usedSec + c.sec <= effectiveSec && mustCount < targetHi) {
+      result[c.qid] = 'must';
+      usedSec += c.sec;
+      mustCount++;
+    } else {
+      // 预算已满或达到目标上限 → 降级为 PROBE
+      result[c.qid] = 'probe';
+    }
+  });
+
+  // 原有的 PROBE 候选直接标记
+  probeCandidates.forEach(c => {
+    result[c.qid] = 'probe';
+  });
+
+  // CUT 标记
+  cutItems.forEach(c => {
+    result[c.qid] = 'cut';
+  });
+
+  window._triageResult = result;
+  // 统计
+  const stats = { must: 0, probe: 0, cut: 0, mustSec: 0, probeSec: 0, cutSec: 0, mustQ: [], probeQ: [], cutQ: [] };
+  // 按模块统计（供摘要使用）
+  const modStats = {};
+  Object.entries(result).forEach(([qid, triage]) => {
+    const q = questionMap[qid];
+    const sec = q ? triageEstimateSec(q, cal) : 180;
+    stats[triage]++;
+    stats[triage + 'Sec'] += sec;
+    stats[triage + 'Q'].push({ qid, sec, text: (q && (q.variants[vk] || q.variants.business || {}) || {}).text || '' });
+    // 按模块累计（仅 must + probe，即实际进入提纲的题）
+    if(isQuestionSelected(qid)){
+      // 找到该 qid 所属 modId
+      for(const [mId, mSubs] of Object.entries(map)){
+        const found = mSubs.some(s => s.qids.includes(qid));
+        if(found){
+          if(!modStats[mId]) modStats[mId] = { count: 0, sec: 0 };
+          modStats[mId].count++;
+          modStats[mId].sec += sec;
+          break;
+        }
+      }
+    }
+  });
+
+  // 记录被降级的题目（原 MUST → 实际 PROBE）
+  stats._downgraded = mustCandidates.filter(c => result[c.qid] === 'probe').map(c => ({
+    qid: c.qid, score: c.score, sec: c.sec
+  }));
+  stats._mustTarget = cal.targetMust;
+
+  // 存入全局供其他模块读取
+  window._triageResult = result;
+  window._triageStats = stats;
+  window._triageBudget = triageBudget(type);
+  window._triageModStats = modStats;
+
+  return result;
+}
+
+/* ---------- 获取当前分级结果 ---------- */
+function triageGet() {
+  return window._triageResult || {};
+}
+
+/* ---------- 生成时间预算 HTML 摘要（干净版，不含分级标签） ---------- */
+function triageSummaryHTML() {
+  const stats = window._triageStats;
+  const budget = window._triageBudget;
+  const modStats = window._triageModStats || {};
+  if (!stats || !budget) return '';
+
+  const selected = Object.entries(triageGet()).filter(([qid]) => isQuestionSelected(qid));
+  const questionMap = typeof V3_SUB_MAP !== 'undefined' && V3_SUB_MAP[state.type] ? V3_QByID : V2_QByID;
+  const selectedSec = selected.reduce((sum, [qid]) => sum + triageEstimateSec(questionMap[qid], budget.cal), 0);
+  const omittedMust = Object.entries(triageGet()).filter(([qid, level]) => level === 'must' && !isQuestionSelected(qid)).length;
+  const effectiveMin = budget.effectiveMin;
+  const totalQ = selected.length;
+  const overage = selectedSec - effectiveMin * 60;
+  const isOver = overage > 0;
+
+  let h = '<div style="background:#fafbfc;border:1px solid #e1e4e8;border-radius:8px;padding:12px 16px;margin:12px 0;font-size:12px">';
+  h += '<div style="font-weight:600;color:#333;margin-bottom:8px;font-size:13px">时间预算</div>';
+
+  // 时间分配行
+  h += '<div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:8px">';
+  h += `<span>总时长 <b>${budget.totalMin}</b> min</span>`;
+  h += `<span style="color:#888">开场 ${budget.overheadMin}</span>`;
+  h += `<span style="color:#888">刺激物 ${budget.stimulusMin}</span>`;
+  h += `<span style="color:#888">缓冲 ${budget.bufferMin}</span>`;
+  h += `<span style="color:#2a6e3b;font-weight:600">有效讨论 ${effectiveMin} min</span>`;
+  h += '</div>';
+
+  // 提纲概览
+  h += '<div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-bottom:6px">';
+  h += `<span>已选 <b>${totalQ}</b> 题 ≈${Math.round(selectedSec / 60)}min（不含开场、收尾及额外执行提示）</span>`;
+  ['must', 'probe', 'cut'].forEach(level => {
+    h += `<span>${level.toUpperCase()}：${selected.filter(([, value]) => value === level).length} / ${stats[level]} 题</span>`;
+  });
+  if(omittedMust) h += `<span style="color:#b05a12">有 ${omittedMust} 道 MUST 未选，请确认研究重点仍被覆盖。</span>`;
+  h += '</div>';
+
+  // 余量/超载
+  if (isOver) {
+    const overMin = Math.ceil(overage / 60);
+    h += `<div style="color:#d32f2f;font-weight:600">⚠ 所选题目超出有效时间约 ${overMin} 分钟，建议减少勾选题目</div>`;
+  } else {
+    const slack = Math.floor((effectiveMin * 60 - selectedSec) / 60);
+    h += `<div style="color:#2a6e3b">余量约 ${slack} 分钟</div>`;
+  }
+
+  // 模块级时间分配
+  if(Object.keys(modStats).length > 0){
+    h += '<div style="margin-top:8px;border-top:1px solid #e1e4e8;padding-top:8px">';
+    h += '<div style="font-weight:600;color:#666;font-size:11px;margin-bottom:4px">各模块题量与估算时长</div>';
+    h += '<div style="display:flex;gap:8px;flex-wrap:wrap;font-size:11px;color:#555">';
+    Object.entries(modStats).forEach(([modId, ms]) => {
+      const mins = Math.round(ms.sec / 60);
+      h += `<span style="display:inline-block;background:#f5f7fa;border:1px solid #e1e4e8;border-radius:4px;padding:2px 8px">${modId}：${ms.count}题 ≈${mins}min</span>`;
+    });
+    h += '</div></div>';
+  }
+
+  // 被降级的题目（核心候选 → 实际备选）
+  if (stats._downgraded && stats._downgraded.length > 0) {
+    h += `<div style="margin-top:8px;border-top:1px solid #e1e4e8;padding-top:8px">`;
+    h += `<div style="font-weight:600;color:#666;font-size:11px;margin-bottom:4px">以下 ${stats._downgraded.length} 题因时间预算从核心调整为备选：</div>`;
+    h += `<div style="font-size:11px;color:#888;line-height:1.8">`;
+    stats._downgraded.forEach(d => {
+      h += `<span style="display:inline-block;background:#f0f4ff;border:1px solid #c4d9f5;border-radius:3px;padding:0 5px;margin:1px 3px;font-size:10px">${d.qid}</span>`;
+    });
+    h += `</div></div>`;
+  }
+
+  h += '</div>';
+  return h;
 }
 
 // === ./js/engine/rules.js ===
@@ -7246,12 +7689,18 @@ function autoGenerateSampleDef(){
     });
     html += `<tr><td><b>合计</b></td><td></td><td>约${totalMin}分钟</td></tr></table>\n`;
   }
+
+  /* 时间预算摘要 */
+  if(typeof triageSummaryHTML === 'function'){
+    html += triageSummaryHTML();
+  }
+
   return html;
 }
 
 let lastBuildStats = null;
 
-// === ./js/views/editor.js ===
+// === ./js/views/editor.js?v=3.0.4 ===
 // =========================================================
 // 提纲与议题树可视化编辑模式及导出出口 (Word / HTML / JSON)
 // =========================================================
@@ -7358,7 +7807,7 @@ function copyOutline(){
 /* 流程：生成提纲 → 点「编辑提纲」直接在版面上改文字/调序/增删题 → 导出使用编辑后内容；
    编辑结果按配置指纹自动存 localStorage，同配置再次生成时自动恢复。 */
 const EDIT_STORE_KEY = 'io_outline_edits_v1';
-let editMode = false;
+let contentEditMode = false;
 let editSaveTimer = null;
 
 function loadEditStore(){
@@ -7376,6 +7825,7 @@ function outlineConfigKey(){
     state.type, collectSelectedCountries(),
     d.modules.filter(m=>state.mods[m.id]).map(m=>m.id),
     state.subs, state.f5Subs, state.conds,
+    'question-selection-v1', state.questionSelections || {},
     state.ownerType, state.segment, state.bodyType,
     state.repModel, state.repCountries, state.sellingPoints, state.configItems,
     state.bevBench, state.iceBench, state.otherBench,
@@ -7410,7 +7860,7 @@ function currentEditedTreeHTML(){
 }
 
 function captureEdits(){
-  if(!editMode) return;
+  if(!contentEditMode) return;
   if(state.renderedKey !== outlineConfigKey()) return; /* 画布内容与当前配置不符时不保存 */
   const paper = document.getElementById('paper');
   const doc = paper.querySelector('.doc');
@@ -7565,20 +8015,20 @@ function injectEditBar(){
   paper.prepend(bar);
 }
 
-function setEditBtnLabel(){
-  const b=document.getElementById('btnEdit');
-  if(b) b.textContent = editMode ? '✅ 完成编辑' : '✏️ 编辑提纲';
+function setContentEditBtnLabel(){
+  const b=document.getElementById('btnContentEdit');
+  if(b) b.textContent = contentEditMode ? '✅ 完成编辑' : '✏️ 编辑文字';
 }
 
-function toggleEditMode(){
-  if(editMode){ exitEditMode(); return; }
+function toggleContentEditMode(){
+  if(contentEditMode){ exitEditMode(); return; }
   const paper = document.getElementById('paper');
   const doc = paper.querySelector('.doc');
   const treeWrap = paper.querySelector('.tree-wrap');
   if(state.viewMode==='outline' && !doc){ alert('请先在「完整提纲」视图生成提纲，再进入编辑。'); return; }
   if(state.viewMode==='tree' && !treeWrap){ alert('请先生成议题树，再进入编辑。'); return; }
   if(state.renderedKey !== outlineConfigKey()){ alert('左侧配置已变化，请先重新生成，再进入编辑。'); return; }
-  editMode = true;
+  contentEditMode = true;
   document.body.classList.add('editing');
   if(state.viewMode==='outline'){
     injectEditControls(doc);
@@ -7586,13 +8036,16 @@ function toggleEditMode(){
     injectTreeEditControls(treeWrap);
   }
   injectEditBar();
-  setEditBtnLabel();
+  setContentEditBtnLabel();
+  /* 隐藏 triage 按钮 */
+  const editBtn = document.getElementById('btnEdit');
+  if(editBtn) editBtn.style.display = 'none';
 }
 
 function exitEditMode(){
   clearTimeout(editSaveTimer);
   captureEdits();
-  editMode = false;
+  contentEditMode = false;
   document.body.classList.remove('editing');
   const paper = document.getElementById('paper');
   const doc = paper.querySelector('.doc');
@@ -7606,22 +8059,17 @@ function exitEditMode(){
   }
   const bar = paper.querySelector('.edit-bar');
   if(bar) bar.remove();
-  setEditBtnLabel();
+  setContentEditBtnLabel();
   updateHeadEditTag();
+  /* 恢复 triage 按钮 */
+  const editBtn = document.getElementById('btnEdit');
+  if(editBtn) editBtn.style.display = '';
 }
 
 /* 重新生成时：同配置存在本地保存的编辑版则自动恢复 */
 function maybeRestoreEdits(){
   const paper = document.getElementById('paper');
-  if(state.viewMode==='tree'){
-    const treeWrap = paper.querySelector('.tree-wrap');
-    if(!treeWrap){ state.editActive=false; return false; }
-    const saved = currentEditedTreeHTML();
-    if(!saved){ state.editActive=false; return false; }
-    treeWrap.outerHTML = saved;
-    state.editActive = true;
-    return true;
-  }
+  if(state.viewMode==='tree'){ state.editActive=false; return false; }
   const doc = paper.querySelector('.doc');
   if(!doc){ state.editActive=false; return false; }
   const saved = currentEditedHTML();
@@ -7637,9 +8085,9 @@ function revertEdits(){
   delete store[outlineConfigKey()];
   saveEditStore(store);
   state.editActive = false;
-  editMode = false;
+  contentEditMode = false;
   document.body.classList.remove('editing');
-  setEditBtnLabel();
+  setContentEditBtnLabel();
   render();
 }
 
@@ -7803,7 +8251,7 @@ function exportOutlineJSON(){
   if(!paper) return;
   paper.addEventListener('click', e=>{
     const btn = e.target.closest('button[data-act]');
-    if(!btn || !editMode) return;
+    if(!btn || !contentEditMode) return;
     const act = btn.dataset.act;
     if(act==='done'){ exitEditMode(); }
     else if(act==='revert'){ revertEdits(); }
@@ -7814,18 +8262,18 @@ function exportOutlineJSON(){
     else if(act==='addq'){ addQuestion(btn); }
   });
   paper.addEventListener('input', e=>{
-    if(!editMode) return;
+    if(!contentEditMode) return;
     if(e.target.closest && e.target.closest('.edit-ctl,.edit-add,.edit-bar')) return;
     clearTimeout(editSaveTimer);
     editSaveTimer = setTimeout(captureEdits, 500);
   });
   window.addEventListener('beforeunload', ()=>{
-    if(editMode){ clearTimeout(editSaveTimer); captureEdits(); }
+    if(contentEditMode){ clearTimeout(editSaveTimer); captureEdits(); }
   });
 })();
 
 
-// === ./js/views/outline.js ===
+// === ./js/views/outline.js?v=3.0.4 ===
 // =========================================================
 // 提纲视图主渲染引擎 (buildOutlineHTML / render)
 // =========================================================
@@ -7922,7 +8370,7 @@ function buildOutlineHTML(){
   return html;
 }
 
-function render(){
+function render(scrollToPaper = true){
   if(!state.type || !DATA[state.type]){
     const paper = document.getElementById('paper');
     const head = document.getElementById('previewHead');
@@ -7930,6 +8378,7 @@ function render(){
     if(head) head.innerHTML = '';
     state.renderedKey = null; state.editActive = false;
     showOutlineBtn(false);
+    showEditBtn(false);
     return;
   }
   const isTree = state.viewMode === 'tree';
@@ -7941,6 +8390,7 @@ function render(){
     head.innerHTML='';
     state.renderedKey = null; state.editActive = false;
     showOutlineBtn(false);
+    showEditBtn(false);
     return;
   }
   paper.innerHTML = html;
@@ -7968,29 +8418,88 @@ function render(){
   head.innerHTML = `<span class="tag" style="background:#f0faf4;border-color:#bfe6cd;color:#1d7a4a">视图：<b>${viewLabel}</b></span><span class="tag">类型：<b>${d.label}</b></span>${ccCountTag}<span class="tag">国家：<b>${ccStr}</b></span><span class="tag">模块：<b>${modShown}</b></span><span class="tag">字数：约 <b>${html.replace(/<[^>]+>/g,'').length}</b> 字</span>${repTag}${condTag}`;
   updateHeadEditTag();
   showOutlineBtn(isTree);
-  paper.scrollIntoView({behavior:'smooth',block:'start'});
+  showEditBtn(true);
+  if(scrollToPaper) paper.scrollIntoView({behavior:'smooth',block:'start'});
 }
 
 function showOutlineBtn(show){
   const btn = document.getElementById('btnOutline');
   if(btn) btn.style.display = show ? '' : 'none';
 }
+
+function showEditBtn(show){
+  const editBtn = document.getElementById('btnEdit');
+  if(editBtn){ editBtn.style.display = show ? '' : 'none'; editBtn.textContent = '✏️ 在议题树中选题'; }
+  /* 文字编辑按钮仅在有内容且不在 triage 模式时显示 */
+  const ceBtn = document.getElementById('btnContentEdit');
+  if(ceBtn) ceBtn.style.display = (show && state.viewMode !== 'tree' && !state.editMode) ? '' : 'none';
+}
 function renderTree(){
+  state.editMode = false;
   state.viewMode = 'tree';
   render();
 }
 function renderOutline(){
+  state.editMode = false;
   state.viewMode = 'outline';
   render();
 }
 
-// === ./js/views/tree.js ===
+// === ./js/views/tree.js?v=3.0.5 ===
 // =========================================================
 // 议题树视图主渲染引擎 (buildTreeHTML)
 // =========================================================
 
+/* 默认只展示子议题概览，展开后逐题选择；勾选刷新时保留展开状态。 */
+function treeCompactQuestions(root, moduleKey){
+  const groups = [];
+  let group = null;
+  Array.from(root.children).forEach(node => {
+    if(node.tagName === 'H5'){
+      group = {name:node.textContent.trim(), questions:[]};
+      groups.push(group);
+    } else {
+      const questions = node.matches('.q-item[data-qid]') ? [node] : Array.from(node.querySelectorAll('.q-item[data-qid]'));
+      if(questions.length && !group){
+        group = {name:'其他问题', questions:[]};
+        groups.push(group);
+      }
+      if(group) group.questions.push(...questions);
+    }
+  });
+  return groups.filter(group => group.questions.length).map((group, index) => {
+    const key = moduleKey + '-' + index;
+    const selected = group.questions.filter(q => isQuestionSelected(q.dataset.qid)).length;
+    const counts = {must:0, probe:0, cut:0};
+    group.questions.forEach(q => counts[triageGet()[q.dataset.qid] || 'probe']++);
+    const badges = Object.entries(counts).filter(([,n]) => n).map(([level,n]) =>
+      `<span class="tree-level tree-level-${level}">${level.toUpperCase()} ${n}</span>`).join('');
+    const rows = group.questions.map(q => {
+      const qid = q.dataset.qid;
+      const level = triageGet()[qid] || 'probe';
+      const textNode = q.querySelector('ul.q > li').cloneNode(true);
+      textNode.querySelectorAll('.tag,.triage-tag').forEach(tag => tag.remove());
+      const text = textNode.textContent.trim();
+      return `<label class="tree-question-row"><input type="checkbox" ${isQuestionSelected(qid)?'checked':''} onchange="toggleQuestionSelection('${qid}')"><span class="tree-level tree-level-${level}">${level.toUpperCase()}</span><span class="tree-question-text">${escHTML(text)}</span></label>`;
+    }).join('');
+    return `<details class="tree-topic" ${(state.treeExpanded||{})[key]?'open':''} ontoggle="rememberTreeTopic('${key}',this.open)"><summary><span class="tree-topic-name">${escHTML(group.name.replace(/^[A-Z]?\d+\.\d+\s*/,''))}</span><span class="tree-topic-count">${selected}/${group.questions.length} 已选</span><span class="tree-topic-levels">${badges}</span></summary><div class="tree-question-list">${rows}</div></details>`;
+  }).join('');
+}
+
+function rememberTreeTopic(key, open){
+  if(!state.treeExpanded) state.treeExpanded = {};
+  state.treeExpanded[key] = open;
+}
+
+function treeSelectionSummary(){
+  const entries = Object.entries(triageGet());
+  const selected = entries.filter(([qid]) => isQuestionSelected(qid));
+  const missing = entries.filter(([qid, level]) => level === 'must' && !isQuestionSelected(qid)).length;
+  return `<span class="tree-selection-count">已选 <b>${selected.length}</b> / ${entries.length} 题</span>${missing?`<span class="tree-selection-warning">${missing} 道 MUST 未选</span>`:''}`;
+}
+
 function buildTreeHTML(){
-  const v2ModsCache = (typeof v2GenerateMods==="function" && (isV3Type() || !isMPVType())) ? v2GenerateMods() : null;
+  const v2ModsCache = (typeof v2GenerateMods==="function" && (isV3Type() || !isMPVType())) ? v2GenerateMods({selectionMode:true}) : null;
   if(!state.type || collectSelectedCountries().length===0) return null;
   const d = DATA[state.type];
   const ccs = collectSelectedCountries();
@@ -7999,6 +8508,18 @@ function buildTreeHTML(){
     ? state.modOrder.map(id=>visibleModules.find(m=>m.id===id)).filter(Boolean)
     : visibleModules;
   let html = '<div class="tree-wrap">';
+  if(v2ModsCache){
+    html += `<div class="tree-selection-toolbar">
+      <b>议题选题</b> ${treeSelectionSummary()}
+      <p>点击子议题展开选题 · MUST 必问 / PROBE 追问 / CUT 可删</p>
+      <button onclick="selectQuestionPreset('must')">仅选 MUST</button>
+      <button onclick="selectQuestionPreset('probe')">MUST + PROBE</button>
+      <button onclick="selectQuestionPreset('all')">全选</button>
+      <button onclick="selectQuestionPreset('none')">清空</button>
+      <button onclick="renderOutline()">按所选题目生成提纲 →</button>
+    </div>`;
+
+  }
   /* 多国家时，每个国家一棵树 */
   ccs.forEach((cc, ccIdx)=>{
     const cinfo = COUNTRIES.find(c=>c.code===cc);
@@ -8043,17 +8564,21 @@ function buildTreeHTML(){
       modNum++;
       const tmp = document.createElement('div');
       tmp.innerHTML = content;
-      const qCount = tmp.querySelectorAll('li').length;
-      totalQ += qCount;
+      const selectable = Array.from(tmp.querySelectorAll('.q-item[data-qid]'));
+      const qCount = v2ModsCache ? selectable.length : tmp.querySelectorAll('li').length;
+      const selectedCount = v2ModsCache ? selectable.filter(q => isQuestionSelected(q.dataset.qid)).length : qCount;
+      totalQ += selectedCount;
       const h5s = tmp.querySelectorAll('h5');
       const cleanName = m.name.replace(/^(\d+[\.、\s])+/,'');
       html += `<div class="tree-module">`;
       html += `<div class="tree-mod-head">`;
       html += `<div class="tree-mod-idx">${modNum}</div>`;
       html += `<div class="tree-mod-name">${cleanName}<span class="tree-mod-en">${m.en||''}</span></div>`;
-      html += `<div class="tree-mod-badge">${qCount} 问</div>`;
+      html += `<div class="tree-mod-badge">${selectedCount} / ${qCount} 问已选</div>`;
       html += `</div>`;
-      if(h5s.length > 0){
+      if(v2ModsCache){
+        html += '<div class="tree-subs tree-questions">' + treeCompactQuestions(tmp, cc + '-' + m.id) + '</div>';
+      } else if(h5s.length > 0){
         html += `<div class="tree-subs">`;
         h5s.forEach(h5=>{
           let subName = h5.textContent.trim();
@@ -8064,8 +8589,12 @@ function buildTreeHTML(){
           let subQ = 0;
           let node = h5.nextElementSibling;
           while(node && node.tagName !== 'H5'){
-            if(node.querySelectorAll){
-              subQ += node.querySelectorAll(':scope > li, :scope > .branch > ul > li, :scope > .branch > ol > li').length;
+            /* 节点本身是 .q-item 或 li，直接计数 */
+            if(node.matches && node.matches('.q-item, li')){
+              subQ++;
+            } else if(node.querySelectorAll){
+              /* 兼容旧结构：嵌套的 li */
+              subQ += node.querySelectorAll(':scope > li, :scope > .branch > ul > li').length;
             }
             node = node.nextElementSibling;
           }
@@ -8080,7 +8609,7 @@ function buildTreeHTML(){
     if(totalMods === 0){
       html += `<p style="text-align:center;color:#999;padding:30px 0">所选模块的内容全部被当前研究条件过滤，请调整「研究条件」或勾选更多模块。</p>`;
     } else {
-      html += `<div style="text-align:center;margin-top:18px;font-size:13px;color:var(--ink3)">共 <b style="color:var(--brand)">${totalMods}</b> 个模块，<b style="color:var(--brand)">${totalQ}</b> 个问题</div>`;
+      html += `<div style="text-align:center;margin-top:18px;font-size:13px;color:var(--ink3)">共 <b style="color:var(--brand)">${totalMods}</b> 个模块，<b style="color:var(--brand)">${totalQ}</b> 个已选题库问题（开场、收尾及执行提示自动保留）</div>`;
     }
   });
   html += `<div class="tree-actions"><button class="tree-back" onclick="renderOutline()">展开完整提纲 →</button></div>`;

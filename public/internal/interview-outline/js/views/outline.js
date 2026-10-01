@@ -94,7 +94,7 @@ function buildOutlineHTML(){
   return html;
 }
 
-function render(){
+function render(scrollToPaper = true){
   if(!state.type || !DATA[state.type]){
     const paper = document.getElementById('paper');
     const head = document.getElementById('previewHead');
@@ -102,6 +102,7 @@ function render(){
     if(head) head.innerHTML = '';
     state.renderedKey = null; state.editActive = false;
     showOutlineBtn(false);
+    showEditBtn(false);
     return;
   }
   const isTree = state.viewMode === 'tree';
@@ -113,6 +114,7 @@ function render(){
     head.innerHTML='';
     state.renderedKey = null; state.editActive = false;
     showOutlineBtn(false);
+    showEditBtn(false);
     return;
   }
   paper.innerHTML = html;
@@ -140,18 +142,29 @@ function render(){
   head.innerHTML = `<span class="tag" style="background:#f0faf4;border-color:#bfe6cd;color:#1d7a4a">视图：<b>${viewLabel}</b></span><span class="tag">类型：<b>${d.label}</b></span>${ccCountTag}<span class="tag">国家：<b>${ccStr}</b></span><span class="tag">模块：<b>${modShown}</b></span><span class="tag">字数：约 <b>${html.replace(/<[^>]+>/g,'').length}</b> 字</span>${repTag}${condTag}`;
   updateHeadEditTag();
   showOutlineBtn(isTree);
-  paper.scrollIntoView({behavior:'smooth',block:'start'});
+  showEditBtn(true);
+  if(scrollToPaper) paper.scrollIntoView({behavior:'smooth',block:'start'});
 }
 
 function showOutlineBtn(show){
   const btn = document.getElementById('btnOutline');
   if(btn) btn.style.display = show ? '' : 'none';
 }
+
+function showEditBtn(show){
+  const editBtn = document.getElementById('btnEdit');
+  if(editBtn){ editBtn.style.display = show ? '' : 'none'; editBtn.textContent = '✏️ 在议题树中选题'; }
+  /* 文字编辑按钮仅在有内容且不在 triage 模式时显示 */
+  const ceBtn = document.getElementById('btnContentEdit');
+  if(ceBtn) ceBtn.style.display = (show && state.viewMode !== 'tree' && !state.editMode) ? '' : 'none';
+}
 function renderTree(){
+  state.editMode = false;
   state.viewMode = 'tree';
   render();
 }
 function renderOutline(){
+  state.editMode = false;
   state.viewMode = 'outline';
   render();
 }
