@@ -591,7 +591,7 @@ body.editing .doc ul.q>li:hover>.edit-ctl,body.editing .doc .branch li:hover>.ed
       <h3><span class="no">5b</span>产品卖点与配置<span class="hint">客户提供的产品定义数据</span></h3>
       <div style="font-size:12px;font-weight:700;color:var(--ink2);margin-bottom:6px;display:flex;align-items:center;gap:8px">产品测试方案<span style="font-weight:400;color:var(--ink3)">（选测试对象 + 填方案数量；对象会自动归入对应 session，也可手动改；FGD 中统一统计 n/n）</span><button class="mini" onclick="addConceptVariant()" style="font-size:11px;padding:2px 10px;margin-left:auto" title="添加测试对象">＋</button></div>
       <div id="conceptList"></div>
-      <div style="font-size:12px;font-weight:700;color:var(--ink2);margin-bottom:6px;display:flex;align-items:center;gap:8px">产品卖点<span style="font-weight:400;color:var(--ink3)">（每行：卖点名称 + 描述）</span><button class="mini" onclick="addSellingPoint()" style="font-size:11px;padding:2px 10px;margin-left:auto" title="添加卖点">＋</button></div>
+      <div style="font-size:12px;font-weight:700;color:var(--ink2);margin-bottom:6px;display:flex;align-items:center;gap:8px">产品卖点<span style="font-weight:400;color:var(--ink3)">（每行：卖点名称 + 描述）</span><span style="margin-left:auto;display:flex;align-items:center;gap:4px;font-weight:400"><span style="font-size:10.5px;color:var(--ink3)">归入</span><select id="sellingSidSel" onchange="updateSellingSid()" title="卖点块归入哪个 session" style="padding:2px 4px;border:1px solid var(--line);border-radius:4px;font-size:11px;background:#fff;max-width:190px"></select></span><button class="mini" onclick="addSellingPoint()" style="font-size:11px;padding:2px 10px" title="添加卖点">＋</button></div>
       <div id="spList"></div>
       <div style="margin-top:8px;font-size:12px;font-weight:700;color:var(--ink2);margin-bottom:6px">配置评价项（每行一个，归入 5.6 功能与配置组合）</div>
       <textarea id="configItems" placeholder="安全侧气囊（侧气帘）&#10;全景影像&#10;一键式启动按钮&#10;氛围灯&#10;副驾电动调节" style="width:100%;padding:5px 8px;border:1px solid var(--line);border-radius:6px;font-size:12px;resize:vertical;min-height:80px;font-family:inherit"></textarea>
@@ -6352,7 +6352,7 @@ V3_TYPES.forEach(type=>{
   STAGE_OF_TYPE[type] = 'pd';
 });
 
-// === ./js/engine/concept-align.js?v=3.0.2 ===
+// === ./js/engine/concept-align.js?v=3.0.3 ===
 // =========================================================
 // 5b「产品卖点与配置」↔ 提纲对齐引擎
 //   1) 填写产品测试方案 → 对应 session 的题目强制升级为 MUST
@@ -6424,7 +6424,7 @@ const CONCEPT_CUSTOM_DEFAULT = { consumer:'C5.6', consumerV2:'M5.6', prof:'B5.10
 /* 消费端 session → 专业端 session（切换研究类型时保持归位正确） */
 const CONCEPT_SID_TO_PROF = {
   'C5.1':'B5.8', 'C5.2':'B5.9', 'C5.3':'B5.9', 'C5.4':'B5.2',
-  'C5.5':'B5.4', 'C5.6':'B5.10', 'C5.7':'B5.10'
+  'C5.5':'B5.4', 'C5.6':'B5.10', 'C5.7':'B5.10', 'C6.5':'B8.4'
 };
 
 /* 下拉可选的 session 列表（取自 V3 消费端 C5，编号 5.x 在各类型间通用） */
@@ -6435,10 +6435,28 @@ function conceptSessionOptions(){
 
 /* 配置评价项 / 产品卖点 的归位 session */
 const CONFIG_SID   = { consumer:'C5.6', consumerV2:'M5.6', prof:'B5.10' };
-const SELLING_SID  = { consumer:'C6.5', consumerV2:'M6.5', prof:'B8.4' };
+/* 卖点默认归位「整体概念评价」（专业端 B5.8 产品概念总体评价）。
+   原先挂在 C6.5 / B8.4，位于最后一个模块，导致卖点块总出现在提纲末尾；
+   卖点属于概念评价环节，应与概念材料同时呈现。5b 面板可手动改归位。 */
+const SELLING_SID_DEFAULT = { consumer:'C5.1', consumerV2:'M5.1', prof:'B5.8' };
 /* 填写配置/卖点后需要升级为 MUST 的题目 */
 const CONFIG_PROMOTE  = { consumer:['Q-M5.6-01','Q-M5.7-01'], prof:['B-PROD-10'] };
-const SELLING_PROMOTE = { consumer:['Q-M6.5-02'], prof:[] };
+/* 卖点的升级题按归位 session 取：不同 session 里对应「是否听懂/是否打动」的题不同 */
+const SELLING_PROMOTE_BY_SID = {
+  'C5.1':['Q-M5.1-03'], 'M5.1':['Q-M5.1-03'],
+  'C5.2':['Q-M5.2-01'], 'C5.3':['Q-M5.3-01'], 'C5.4':['Q-M5.4-02'], 'C5.5':['Q-M5.5-01'],
+  'C5.6':['Q-M5.6-01'], 'M5.6':['Q-M5.6-01'],
+  'C5.7':['Q-M5.7-01'], 'M5.7':['Q-M5.7-01'],
+  'C6.5':['Q-M6.5-02'], 'M6.5':['Q-M6.5-02'],
+  'B5.8':['B-PROD-08'], 'B5.10':['B-PROD-10'], 'B8.4':['B-BRAND-04']
+};
+
+/* 卖点实际归位 session（5b 面板可覆盖；专业端自动换算） */
+function sellingSidFor(ctx){
+  const base = state.sellingSid || (ctx.useV3 ? SELLING_SID_DEFAULT.consumer : SELLING_SID_DEFAULT.consumerV2);
+  if(ctx.prof) return CONCEPT_SID_TO_PROF[base] || SELLING_SID_DEFAULT.prof;
+  return base;
+}
 
 /* ---------- 当前上下文 ---------- */
 function conceptCtx(){
@@ -6511,10 +6529,15 @@ function conceptPromotedQids(){
   if((state.configItems||[]).length){
     (ctx.prof ? CONFIG_PROMOTE.prof : CONFIG_PROMOTE.consumer).forEach(qid => { if(ctx.qmap[qid]) out.add(qid); });
   }
-  /* 1c. 产品卖点 → 卖点理解相关核心题 */
+  /* 1c. 产品卖点 → 卖点所在 session 的核心题 + 理解/打动类题 */
   const sps = (state.sellingPoints||[]).filter(sp => sp && (sp.name||'').trim());
   if(sps.length){
-    (ctx.prof ? SELLING_PROMOTE.prof : SELLING_PROMOTE.consumer).forEach(qid => { if(ctx.qmap[qid]) out.add(qid); });
+    const ssid = sellingSidFor(ctx);
+    const hit = conceptFindSub(ctx, ssid);
+    if(hit){
+      hit.sub.qids.forEach(qid => { const q = ctx.qmap[qid]; if(q && q.priority === 'core') out.add(qid); });
+    }
+    (SELLING_PROMOTE_BY_SID[ssid] || []).forEach(qid => { if(ctx.qmap[qid]) out.add(qid); });
   }
   return out;
 }
@@ -6598,7 +6621,7 @@ function conceptRequiredSids(){
     sids.add(ctx.prof ? CONFIG_SID.prof : (ctx.useV3 ? CONFIG_SID.consumer : CONFIG_SID.consumerV2));
   }
   if((state.sellingPoints||[]).some(sp => sp && (sp.name||'').trim())){
-    sids.add(ctx.prof ? SELLING_SID.prof : (ctx.useV3 ? SELLING_SID.consumer : SELLING_SID.consumerV2));
+    sids.add(sellingSidFor(ctx));
   }
   return sids;
 }
@@ -6640,8 +6663,7 @@ function conceptPlacementPlan(){
   /* 产品卖点 */
   const sellingHTML = sellingPointBlockHTML();
   if(sellingHTML){
-    const sid = ctx.prof ? SELLING_SID.prof : (ctx.useV3 ? SELLING_SID.consumer : SELLING_SID.consumerV2);
-    push(sid, sellingHTML);
+    push(sellingSidFor(ctx), sellingHTML);
   }
   return { bySid: bySid, sids: sids };
 }
@@ -9905,7 +9927,7 @@ function autoMapFromOutline(){
 }
 
 
-// === ./js/app.js?v=3.0.8 ===
+// === ./js/app.js?v=3.0.9 ===
 // =========================================================
 // 访谈提纲生成器 — 主控制器与响应式状态管理
 // =========================================================
@@ -9914,7 +9936,7 @@ const state = { stage:'pd', type:null, countries:[], countryCount:1, _desiredCc:
   ownerType:'both', segment:'', bodyType:'',
   conds:{ climate:'', roads:'', charging:'', power:[], incentive:'', finance:'', usage:'', ihvSource:'' },
   viewMode:'outline', bevBench:'', iceBench:'', otherBench:'', f5Subs:{}, subs:{},
-  sellingPoints:[], configItems:[], conceptVariants:[] };
+  sellingPoints:[], configItems:[], conceptVariants:[], sellingSid:'' };
 
 /* ===== 产品评价(f5) 子模块定义 ===== */
 const F5_SUBS = [
@@ -10574,6 +10596,7 @@ function initSellingPointsUI(){
   /* 确保至少有5行空白卖点 */
   while(state.sellingPoints.length < 5) state.sellingPoints.push({name:'',desc:''});
   renderSellingPointRows();
+  initSellingSidSelect();
   while(state.conceptVariants.length < 2) state.conceptVariants.push({name:'',desc:'',sid:''});
   renderConceptVariantRows();
   const ci = document.getElementById('configItems');
@@ -10604,6 +10627,29 @@ function renderSellingPointRows(){
     if(n) n.oninput = ()=>updateProductData();
     if(d) d.oninput = ()=>updateProductData();
   });
+}
+/* 卖点块可选归位 session：5.x 各 session（各类型通用编号）+ 末模块的信息表达 */
+function sellingSessionOptions(){
+  const opts = (typeof conceptSessionOptions === 'function') ? conceptSessionOptions() : [];
+  return opts.concat([{ sid:'C6.5', label:'6.5 产品信息的理解与表达（末模块）' }]);
+}
+function sellingDefaultSid(){
+  if(typeof SELLING_SID_DEFAULT !== 'undefined') return SELLING_SID_DEFAULT.consumer;
+  return 'C5.1';
+}
+function initSellingSidSelect(){
+  const sel = document.getElementById('sellingSidSel');
+  if(!sel) return;
+  const cur = state.sellingSid || sellingDefaultSid();
+  sel.innerHTML = sellingSessionOptions()
+    .map(o=>`<option value="${o.sid}"${o.sid===cur?' selected':''}>${escInputValue(o.label)}</option>`)
+    .join('');
+  if(!sel.value) sel.value = sellingDefaultSid();
+}
+function updateSellingSid(){
+  const sel = document.getElementById('sellingSidSel');
+  state.sellingSid = sel ? sel.value : '';
+  updateProductData();
 }
 /* 预设对象的默认归位 session */
 function conceptPresetDefaultSid(name){

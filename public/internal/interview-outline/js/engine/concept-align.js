@@ -69,7 +69,7 @@ const CONCEPT_CUSTOM_DEFAULT = { consumer:'C5.6', consumerV2:'M5.6', prof:'B5.10
 /* 消费端 session → 专业端 session（切换研究类型时保持归位正确） */
 const CONCEPT_SID_TO_PROF = {
   'C5.1':'B5.8', 'C5.2':'B5.9', 'C5.3':'B5.9', 'C5.4':'B5.2',
-  'C5.5':'B5.4', 'C5.6':'B5.10', 'C5.7':'B5.10'
+  'C5.5':'B5.4', 'C5.6':'B5.10', 'C5.7':'B5.10', 'C6.5':'B8.4'
 };
 
 /* 下拉可选的 session 列表（取自 V3 消费端 C5，编号 5.x 在各类型间通用） */
@@ -80,10 +80,28 @@ function conceptSessionOptions(){
 
 /* 配置评价项 / 产品卖点 的归位 session */
 const CONFIG_SID   = { consumer:'C5.6', consumerV2:'M5.6', prof:'B5.10' };
-const SELLING_SID  = { consumer:'C6.5', consumerV2:'M6.5', prof:'B8.4' };
+/* 卖点默认归位「整体概念评价」（专业端 B5.8 产品概念总体评价）。
+   原先挂在 C6.5 / B8.4，位于最后一个模块，导致卖点块总出现在提纲末尾；
+   卖点属于概念评价环节，应与概念材料同时呈现。5b 面板可手动改归位。 */
+const SELLING_SID_DEFAULT = { consumer:'C5.1', consumerV2:'M5.1', prof:'B5.8' };
 /* 填写配置/卖点后需要升级为 MUST 的题目 */
 const CONFIG_PROMOTE  = { consumer:['Q-M5.6-01','Q-M5.7-01'], prof:['B-PROD-10'] };
-const SELLING_PROMOTE = { consumer:['Q-M6.5-02'], prof:[] };
+/* 卖点的升级题按归位 session 取：不同 session 里对应「是否听懂/是否打动」的题不同 */
+const SELLING_PROMOTE_BY_SID = {
+  'C5.1':['Q-M5.1-03'], 'M5.1':['Q-M5.1-03'],
+  'C5.2':['Q-M5.2-01'], 'C5.3':['Q-M5.3-01'], 'C5.4':['Q-M5.4-02'], 'C5.5':['Q-M5.5-01'],
+  'C5.6':['Q-M5.6-01'], 'M5.6':['Q-M5.6-01'],
+  'C5.7':['Q-M5.7-01'], 'M5.7':['Q-M5.7-01'],
+  'C6.5':['Q-M6.5-02'], 'M6.5':['Q-M6.5-02'],
+  'B5.8':['B-PROD-08'], 'B5.10':['B-PROD-10'], 'B8.4':['B-BRAND-04']
+};
+
+/* 卖点实际归位 session（5b 面板可覆盖；专业端自动换算） */
+function sellingSidFor(ctx){
+  const base = state.sellingSid || (ctx.useV3 ? SELLING_SID_DEFAULT.consumer : SELLING_SID_DEFAULT.consumerV2);
+  if(ctx.prof) return CONCEPT_SID_TO_PROF[base] || SELLING_SID_DEFAULT.prof;
+  return base;
+}
 
 /* ---------- 当前上下文 ---------- */
 function conceptCtx(){
@@ -156,10 +174,15 @@ function conceptPromotedQids(){
   if((state.configItems||[]).length){
     (ctx.prof ? CONFIG_PROMOTE.prof : CONFIG_PROMOTE.consumer).forEach(qid => { if(ctx.qmap[qid]) out.add(qid); });
   }
-  /* 1c. 产品卖点 → 卖点理解相关核心题 */
+  /* 1c. 产品卖点 → 卖点所在 session 的核心题 + 理解/打动类题 */
   const sps = (state.sellingPoints||[]).filter(sp => sp && (sp.name||'').trim());
   if(sps.length){
-    (ctx.prof ? SELLING_PROMOTE.prof : SELLING_PROMOTE.consumer).forEach(qid => { if(ctx.qmap[qid]) out.add(qid); });
+    const ssid = sellingSidFor(ctx);
+    const hit = conceptFindSub(ctx, ssid);
+    if(hit){
+      hit.sub.qids.forEach(qid => { const q = ctx.qmap[qid]; if(q && q.priority === 'core') out.add(qid); });
+    }
+    (SELLING_PROMOTE_BY_SID[ssid] || []).forEach(qid => { if(ctx.qmap[qid]) out.add(qid); });
   }
   return out;
 }
@@ -243,7 +266,7 @@ function conceptRequiredSids(){
     sids.add(ctx.prof ? CONFIG_SID.prof : (ctx.useV3 ? CONFIG_SID.consumer : CONFIG_SID.consumerV2));
   }
   if((state.sellingPoints||[]).some(sp => sp && (sp.name||'').trim())){
-    sids.add(ctx.prof ? SELLING_SID.prof : (ctx.useV3 ? SELLING_SID.consumer : SELLING_SID.consumerV2));
+    sids.add(sellingSidFor(ctx));
   }
   return sids;
 }
@@ -285,8 +308,7 @@ function conceptPlacementPlan(){
   /* 产品卖点 */
   const sellingHTML = sellingPointBlockHTML();
   if(sellingHTML){
-    const sid = ctx.prof ? SELLING_SID.prof : (ctx.useV3 ? SELLING_SID.consumer : SELLING_SID.consumerV2);
-    push(sid, sellingHTML);
+    push(sellingSidFor(ctx), sellingHTML);
   }
   return { bySid: bySid, sids: sids };
 }

@@ -6,7 +6,7 @@ const state = { stage:'pd', type:null, countries:[], countryCount:1, _desiredCc:
   ownerType:'both', segment:'', bodyType:'',
   conds:{ climate:'', roads:'', charging:'', power:[], incentive:'', finance:'', usage:'', ihvSource:'' },
   viewMode:'outline', bevBench:'', iceBench:'', otherBench:'', f5Subs:{}, subs:{},
-  sellingPoints:[], configItems:[], conceptVariants:[] };
+  sellingPoints:[], configItems:[], conceptVariants:[], sellingSid:'' };
 
 /* ===== 产品评价(f5) 子模块定义 ===== */
 const F5_SUBS = [
@@ -666,6 +666,7 @@ function initSellingPointsUI(){
   /* 确保至少有5行空白卖点 */
   while(state.sellingPoints.length < 5) state.sellingPoints.push({name:'',desc:''});
   renderSellingPointRows();
+  initSellingSidSelect();
   while(state.conceptVariants.length < 2) state.conceptVariants.push({name:'',desc:'',sid:''});
   renderConceptVariantRows();
   const ci = document.getElementById('configItems');
@@ -696,6 +697,29 @@ function renderSellingPointRows(){
     if(n) n.oninput = ()=>updateProductData();
     if(d) d.oninput = ()=>updateProductData();
   });
+}
+/* 卖点块可选归位 session：5.x 各 session（各类型通用编号）+ 末模块的信息表达 */
+function sellingSessionOptions(){
+  const opts = (typeof conceptSessionOptions === 'function') ? conceptSessionOptions() : [];
+  return opts.concat([{ sid:'C6.5', label:'6.5 产品信息的理解与表达（末模块）' }]);
+}
+function sellingDefaultSid(){
+  if(typeof SELLING_SID_DEFAULT !== 'undefined') return SELLING_SID_DEFAULT.consumer;
+  return 'C5.1';
+}
+function initSellingSidSelect(){
+  const sel = document.getElementById('sellingSidSel');
+  if(!sel) return;
+  const cur = state.sellingSid || sellingDefaultSid();
+  sel.innerHTML = sellingSessionOptions()
+    .map(o=>`<option value="${o.sid}"${o.sid===cur?' selected':''}>${escInputValue(o.label)}</option>`)
+    .join('');
+  if(!sel.value) sel.value = sellingDefaultSid();
+}
+function updateSellingSid(){
+  const sel = document.getElementById('sellingSidSel');
+  state.sellingSid = sel ? sel.value : '';
+  updateProductData();
 }
 /* 预设对象的默认归位 session */
 function conceptPresetDefaultSid(name){
