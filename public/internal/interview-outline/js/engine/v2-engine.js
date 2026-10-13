@@ -89,16 +89,18 @@ function v2QuestionHTML(q, vk, qid, editMode){
     h += ' <span class="triage-tag" style="display:inline-block;font-size:9px;font-weight:700;padding:1px 5px;border-radius:3px;color:#fff;background:'+triageColors[triageLevel]+';margin-left:6px;vertical-align:middle">'+triageLabels[triageLevel]+'</span>';
   }
   h += '</li></ul>';
-  if(q.probes && q.probes.length){
+  const probes = variant.probes || q.probes || [];
+  const conditionalProbes = variant.conditional_probes || q.conditional_probes || [];
+  if(probes.length){
     if(q.probes_style === 'ordered'){
       h += '<div class="probe">【' + escHTML(q.probes_intro || '必须观察并记录') + '】<br>'
-        + q.probes.map((p,i)=>(i+1)+'. '+escHTML(p)).join('<br>') + '</div>';
+        + probes.map((p,i)=>(i+1)+'. '+escHTML(p)).join('<br>') + '</div>';
     } else {
-      h += '<div class="probe">【主持人注意/追问：' + q.probes.map(p=>escHTML(p)).join('；') + '】</div>';
+      h += '<div class="probe">【追问：' + probes.map(p=>escHTML(p)).join('；') + '】</div>';
     }
   }
-  if(q.conditional_probes && q.conditional_probes.length){
-    q.conditional_probes.forEach(cp => {
+  if(conditionalProbes.length){
+    conditionalProbes.forEach(cp => {
       h += '<div class="probe" style="color:#8a6d3b">【条件追问（' + escHTML(cp.condition) + '）：' + escHTML(cp.text) + '】</div>';
     });
   }

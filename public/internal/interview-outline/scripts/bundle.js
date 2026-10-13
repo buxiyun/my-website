@@ -29,7 +29,7 @@ function bundle() {
     return match;
   });
 
-  html = html.replace('</head>', `<style>${combinedCss}\n</style>\n</head>`);
+  html = html.replace('</head>', () => `<style>${combinedCss}\n</style>\n</head>`);
 
   // 2. 内联本地 JS
   const jsRegex = /<script\s+src="(\.\/js\/[^"]+)"><\/script>/g;
@@ -45,7 +45,7 @@ function bundle() {
     return match;
   });
 
-  html = html.replace('</body>', `<script>${combinedJs}\n</script>\n</body>`);
+  html = html.replace('</body>', () => `<script>${combinedJs.replace(/<\/script/gi, '<\\/script')}\n</script>\n</body>`);
 
   fs.writeFileSync(OUTPUT_BUNDLE_PATH, html, 'utf-8');
   const sizeKb = (fs.statSync(OUTPUT_BUNDLE_PATH).size / 1024).toFixed(1);
