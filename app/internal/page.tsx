@@ -30,7 +30,7 @@ export default async function InternalPage() {
           </form>
         </div>
 
-        {/* Placeholder content */}
+        {/* Internal tools */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <a
             href="/internal/interview-outline/"
@@ -43,6 +43,20 @@ export default async function InternalPage() {
             </div>
             <h3 className="font-semibold text-ink mb-1">访谈提纲生成器</h3>
             <p className="text-sm text-muted">管理各国市场的访谈提纲内容，支持 PPT 导出</p>
+            <span className="inline-block mt-3 text-sm font-medium text-brand group-hover:underline">打开工具 →</span>
+          </a>
+
+          <a
+            href="/internal/quantitative-questionnaire/index.html"
+            className="bg-white rounded-2xl border border-slate-200 p-6 hover:border-brand hover:shadow-md transition group block"
+          >
+            <div className="w-10 h-10 bg-sky-50 rounded-lg flex items-center justify-center mb-4">
+              <svg className="w-5 h-5 text-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2M9 12h6m-6 4h6" />
+              </svg>
+            </div>
+            <h3 className="font-semibold text-ink mb-1">汽车定量问卷生成器</h3>
+            <p className="text-sm text-muted">选择模板、编辑题目并生成问卷，支持 Word 和题目清单导出</p>
             <span className="inline-block mt-3 text-sm font-medium text-brand group-hover:underline">打开工具 →</span>
           </a>
 
